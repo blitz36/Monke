@@ -1633,3 +1633,243 @@ System memory in use after: 71.4 MB.
 Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2082.
 Total: 2.444700 ms (FindLiveObjects: 0.210000 ms CreateObjectMapping: 0.061600 ms MarkObjects: 2.148500 ms  DeleteObjects: 0.022900 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 3739.053009 seconds.
+  path: Assets/ZombieIdle
+  artifactKey: Guid(818bbd6786d85db40b07cd38ef4c128d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ZombieIdle using Guid(818bbd6786d85db40b07cd38ef4c128d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c93af58f31e3c132c8e6fca7ea10fff') in 0.013256 seconds
+  Import took 0.017267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.905284 seconds.
+  path: Assets/Characters
+  artifactKey: Guid(69e485ac6f799dc4ea64fc6ef413e235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters using Guid(69e485ac6f799dc4ea64fc6ef413e235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bba7867f2b3d1fe6032c74f528e10199') in 0.009097 seconds
+  Import took 0.011659 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.618172 seconds.
+  path: Assets/Characters/Model
+  artifactKey: Guid(84fc92a868211a646ae80b25f8cf30a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model using Guid(84fc92a868211a646ae80b25f8cf30a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e5e1cc024de204590980a18b79eaa3d') in 0.008148 seconds
+  Import took 0.010887 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.642227 seconds.
+  path: Assets/Characters/Model/BYod
+  artifactKey: Guid(4a1a0ca204dc43644b653241250aac08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod using Guid(4a1a0ca204dc43644b653241250aac08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbca0df3a8a11113c6168825a501ed2a') in 0.008403 seconds
+  Import took 0.046597 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.061276 seconds.
+  path: Assets/Characters/Model/BYod/BYoda_V01.fbx
+  artifactKey: Guid(99b556c9f6f1f554599b3d25353d5976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/BYoda_V01.fbx using Guid(99b556c9f6f1f554599b3d25353d5976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ece39b3654962fe8249a62bb4026e208') in 2.463936 seconds
+  Import took 2.501330 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Characters/Model/BYod/New Physic Material.physicMaterial
+  artifactKey: Guid(9732f4948186feb40a11243ea1b1e736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/New Physic Material.physicMaterial using Guid(9732f4948186feb40a11243ea1b1e736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c9a74437e1be1c23af5f2a4f19d7bd9') in 0.015706 seconds
+  Import took 0.017883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Characters/Model/BYod/Textures
+  artifactKey: Guid(ce669838d489ef342908bb3592a23f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures using Guid(ce669838d489ef342908bb3592a23f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2836abc38e68ff1b51210d6896da994') in 0.010663 seconds
+  Import took 0.013686 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.484399 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_BaseColor.png
+  artifactKey: Guid(4095726173e3a70409439149900435f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_BaseColor.png using Guid(4095726173e3a70409439149900435f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44987e42fd835bb05cef1da8a8e7ff96') in 0.026824 seconds
+  Import took 0.029259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_BaseColor.png
+  artifactKey: Guid(519b473861f819d4792924b34e69522f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_BaseColor.png using Guid(519b473861f819d4792924b34e69522f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69d401192524b51a4a62631c8969022a') in 0.019449 seconds
+  Import took 0.021989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Metalness.png
+  artifactKey: Guid(becf44875519507498d369af3e450233) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Metalness.png using Guid(becf44875519507498d369af3e450233) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deecf4c40587ef0f22caf847a3372248') in 0.152418 seconds
+  Import took 0.157362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_Normal.png
+  artifactKey: Guid(9e1d63beab0c14c4a91240f38b448c32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_Normal.png using Guid(9e1d63beab0c14c4a91240f38b448c32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06cf3fbcde2ca98e56e0446b2c4be662') in 0.019069 seconds
+  Import took 0.021732 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Roughness.png
+  artifactKey: Guid(d9e713766e4440744b52d60b7178bcc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Roughness.png using Guid(d9e713766e4440744b52d60b7178bcc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c5f102c4160cf72582045c2a830e09e') in 0.038648 seconds
+  Import took 0.041307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_BaseColor.png
+  artifactKey: Guid(f4d0306ad2bc06b488233e5edf12805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_BaseColor.png using Guid(f4d0306ad2bc06b488233e5edf12805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36260140ce7a163a55f0f6e64f15d9ab') in 0.017092 seconds
+  Import took 0.020468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_BaseColor.png
+  artifactKey: Guid(457a34e13fef42d41beb1defc4ee171c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_BaseColor.png using Guid(457a34e13fef42d41beb1defc4ee171c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bcb608044c90d85df9cc9ca244ea0c8') in 0.016636 seconds
+  Import took 0.019577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_BaseColor.png
+  artifactKey: Guid(0419918a4301ab04a920eabc0d184619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_BaseColor.png using Guid(0419918a4301ab04a920eabc0d184619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91576ab5055a9e5db2c6f5b8f1e31888') in 0.025525 seconds
+  Import took 0.028786 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_Hands_and_Ears_Mat.mat
+  artifactKey: Guid(d1be08fbec47d6b418041d1047dd840d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_Hands_and_Ears_Mat.mat using Guid(d1be08fbec47d6b418041d1047dd840d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b874d6685099fd47d62c75aad750e42') in 0.041149 seconds
+  Import took 0.044946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_Normal.png
+  artifactKey: Guid(da3c40f5e23523042a88d74e5cf8c111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_Normal.png using Guid(da3c40f5e23523042a88d74e5cf8c111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0621489aaee53795fffa950d0aea2ae') in 0.021816 seconds
+  Import took 0.024831 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_Roughness.png
+  artifactKey: Guid(0ef12d972c9cfdc4aaf50c5b627773ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_Roughness.png using Guid(0ef12d972c9cfdc4aaf50c5b627773ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37f76298c4cc58e816c39e17b75dc98e') in 0.016861 seconds
+  Import took 0.019415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_Hair_Mat.mat
+  artifactKey: Guid(748721d3c786b4f4a82c25bb84e85f30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_Hair_Mat.mat using Guid(748721d3c786b4f4a82c25bb84e85f30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8081e5e673155ea6a3b88258fc4b948') in 0.042988 seconds
+  Import took 0.046091 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_Roughness.png
+  artifactKey: Guid(29a6fc4790058ac45b0fc60717dd0364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Ears_Hands_Roughness.png using Guid(29a6fc4790058ac45b0fc60717dd0364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5511e2515fe00a558e89cedb6604e8be') in 0.018438 seconds
+  Import took 0.020853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_Normal.png
+  artifactKey: Guid(0adcd1f1d2e26154eb49cf113c1325de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Face_1_Normal.png using Guid(0adcd1f1d2e26154eb49cf113c1325de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f453f1df0c0971881902b63e18ed6a70') in 0.019563 seconds
+  Import took 0.022520 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Metalness.png
+  artifactKey: Guid(55c537de95e543941becb55ebce4745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Metalness.png using Guid(55c537de95e543941becb55ebce4745d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a308f1f493f81042d9a8aca77cdb611f') in 0.015606 seconds
+  Import took 0.018915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Roughness.png
+  artifactKey: Guid(5e3d4b6dddb809d4fb0958c4cb78c089) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Roughness.png using Guid(5e3d4b6dddb809d4fb0958c4cb78c089) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfc22a710e0059a469b9c472268b60bb') in 0.018566 seconds
+  Import took 0.041880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Characters/Model/BYod/Textures/Do_Huan_ByodaHair_Alpha.png
+  artifactKey: Guid(996e850765dcfa64db9e144caeaa4515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/Do_Huan_ByodaHair_Alpha.png using Guid(996e850765dcfa64db9e144caeaa4515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af56e056701478ec132989318370d115') in 0.022039 seconds
+  Import took 0.025382 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_Roughness.png
+  artifactKey: Guid(bfbd26dccfd410140934c9d3fa0a0988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Robe_Roughness.png using Guid(bfbd26dccfd410140934c9d3fa0a0988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97ed5b5ae415ceeea617b4fea549287e') in 0.019200 seconds
+  Import took 0.021899 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_Eyes_Mat.mat
+  artifactKey: Guid(5805d357e747d414d9a29261c66184e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_Eyes_Mat.mat using Guid(5805d357e747d414d9a29261c66184e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7497bc380a7ef4a8c6d4bbd7b5fc18f9') in 0.048714 seconds
+  Import took 0.051343 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_Face_Mat.mat
+  artifactKey: Guid(11a37e2775a722e49b37d8c5c79f4894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_Face_Mat.mat using Guid(11a37e2775a722e49b37d8c5c79f4894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f0c27b66e00a10581a280af544a97c1') in 0.028813 seconds
+  Import took 0.031603 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_Robe_Mat.mat
+  artifactKey: Guid(4e44345b1e766684bac284f6d4eff206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_Robe_Mat.mat using Guid(4e44345b1e766684bac284f6d4eff206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95eb06a31bb8d1c920705a319c17d131') in 0.025114 seconds
+  Import took 0.028081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Normal.png
+  artifactKey: Guid(2ba946277d33b7540b9c7f920fbbffc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Hair_Cards_Normal.png using Guid(2ba946277d33b7540b9c7f920fbbffc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92cbfcdd115c0e80a9d93012716f1f5c') in 0.017889 seconds
+  Import took 0.119429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Normal.png
+  artifactKey: Guid(cc48cabec5bcedb488e5feb91016844e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Model/BYod/Textures/BYoda_All_LO_UV_04_Eyes_Normal.png using Guid(cc48cabec5bcedb488e5feb91016844e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ccdde12a50aa63d985c8d05777d5ddb') in 0.018397 seconds
+  Import took 0.021631 seconds .
+
