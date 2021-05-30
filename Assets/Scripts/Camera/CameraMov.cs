@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CameraMov : MonoBehaviour
 {
-  public Transform player;
-  void Update()
+  public GameObject player;
+  public float followSpeed = 2.0f;
+
+  void FixedUpdate()
   {
-      transform.position = new Vector3 (player.position.x-2, player.position.y+18, player.position.z-10); // Camera follows the player but 6 to the right
+    Vector3 desiredPosition = player.transform.position + new Vector3(-2,18,-10);
+    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.fixedDeltaTime);
+    transform.position = smoothedPosition;
+
   }
 }
