@@ -5,12 +5,14 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-  public Camera cam;
-  public NavMeshAgent agent;
-
   Rigidbody rb;
-  float _speed = 13f;
+  float speed = 13f;
 
+  public int dashState;
+  public float dashTimer;
+  public float maxDash = 1f;
+  public Vector3 savedVelocity;
+  public Quaternion lastRotation;
   void Start ()
   {
       rb = GetComponent<Rigidbody>();
@@ -19,12 +21,60 @@ public class PlayerMovement : MonoBehaviour
   void Update () {
     float horiz = Input.GetAxisRaw ("Horizontal");
     float vert = Input.GetAxisRaw ("Vertical");
-    if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
-      Vector3 fVelocity = new Vector3(horiz, 0, vert).normalized * _speed;
-      rb.velocity = fVelocity;
-    }
-    else {
-      rb.velocity = new Vector3(0,0,0);
-    }
+
+    //to perform dashes
+    performDash(horiz, vert);
+
+    //You can only move while not dashing
+    //All the movement stuff
+      if (dashState != 1){
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
+          Vector3 fVelocity = new Vector3(horiz, 0f, vert);
+          rb.velocity = fVelocity.normalized * speed;
+          transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
+          lastRotation = transform.rotation;
+        }
+
+        else {
+          transform.rotation = Quaternion.Slerp(transform.rotation, lastRotation, 0.15F);
+          rb.velocity = new Vector3(0,0,0);
+        }
   }
+}
+
+  void performDash(float horiz, float vert){
+    switch (dashState)
+           {
+           case 0:
+               var isDashKeyDown = Input.GetKeyDown (KeyCode.LeftShift);
+               if(isDashKeyDown)
+                 {
+                   savedVelocity = GetComponent<Rigidbody>().velocity;
+                   Vector3 Velocity = new Vector3(GetComponent<Rigidbody>().velocity.x * 3f, 0, GetComponent<Rigidbody>().velocity.z * 3f);
+                   GetComponent<Rigidbody>().velocity =  Velocity;
+                   transform.rotation = Quaternion.LookRotation(Velocity);
+                   dashState = 1;
+               }
+               break;
+           case 1:
+               dashTimer += Time.deltaTime * 3;
+               if(dashTimer >= maxDash)
+               {
+                   dashTimer = maxDash;
+                   GetComponent<Rigidbody>().velocity = savedVelocity;
+                   transform.rotation = Quaternion.LookRotation(savedVelocity);
+                   dashState = -1;
+               }
+               break;
+           case -1:
+               dashTimer -= Time.deltaTime;
+               if(dashTimer <= 0)
+               {
+                   dashTimer = 0;
+                   dashState = 0;
+               }
+               break;
+           }
+  }
+
 }
