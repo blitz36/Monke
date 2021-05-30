@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     switch (dashState)
            {
            case 0:
-               var isDashKeyDown = Input.GetKeyDown (KeyCode.LeftShift);
+               var isDashKeyDown = Input.GetKeyDown (KeyCode.Space);
                if(isDashKeyDown)
                  {
                    savedVelocity = GetComponent<Rigidbody>().velocity;
