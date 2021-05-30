@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 99b556c9f6f1f554599b3d25353d5976
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BYoda_Eyes_Mat
+    second: {fileID: 2100000, guid: 5805d357e747d414d9a29261c66184e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BYoda_Face_Mat
+    second: {fileID: 2100000, guid: 11a37e2775a722e49b37d8c5c79f4894, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BYoda_Hair_Mat
+    second: {fileID: 2100000, guid: 748721d3c786b4f4a82c25bb84e85f30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BYoda_Hands_and_Ears_Mat
+    second: {fileID: 2100000, guid: d1be08fbec47d6b418041d1047dd840d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BYoda_Robe_Mat
+    second: {fileID: 2100000, guid: 4e44345b1e766684bac284f6d4eff206, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Ears_Hands_BaseColor
+    second: {fileID: 2800000, guid: 4095726173e3a70409439149900435f9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Ears_Hands_Normal
+    second: {fileID: 2800000, guid: 9e1d63beab0c14c4a91240f38b448c32, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Ears_Hands_Roughness
+    second: {fileID: 2800000, guid: 29a6fc4790058ac45b0fc60717dd0364, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Eyes_BaseColor
+    second: {fileID: 2800000, guid: 519b473861f819d4792924b34e69522f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Eyes_Metalness
+    second: {fileID: 2800000, guid: becf44875519507498d369af3e450233, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Eyes_Normal
+    second: {fileID: 2800000, guid: cc48cabec5bcedb488e5feb91016844e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Eyes_Roughness
+    second: {fileID: 2800000, guid: 5e3d4b6dddb809d4fb0958c4cb78c089, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Face_1_BaseColor
+    second: {fileID: 2800000, guid: f4d0306ad2bc06b488233e5edf12805d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Face_1_Normal
+    second: {fileID: 2800000, guid: 0adcd1f1d2e26154eb49cf113c1325de, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Face_1_Roughness
+    second: {fileID: 2800000, guid: 0ef12d972c9cfdc4aaf50c5b627773ec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Hair_Cards_BaseColor
+    second: {fileID: 2800000, guid: 457a34e13fef42d41beb1defc4ee171c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Hair_Cards_Metalness
+    second: {fileID: 2800000, guid: 55c537de95e543941becb55ebce4745d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Hair_Cards_Normal
+    second: {fileID: 2800000, guid: 2ba946277d33b7540b9c7f920fbbffc5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Hair_Cards_Roughness
+    second: {fileID: 2800000, guid: d9e713766e4440744b52d60b7178bcc8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Robe_BaseColor
+    second: {fileID: 2800000, guid: 0419918a4301ab04a920eabc0d184619, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Robe_Normal
+    second: {fileID: 2800000, guid: da3c40f5e23523042a88d74e5cf8c111, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BYoda_All_LO_UV_04_Robe_Roughness
+    second: {fileID: 2800000, guid: bfbd26dccfd410140934c9d3fa0a0988, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Do_Huan_ByodaHair_Alpha
+    second: {fileID: 2800000, guid: 996e850765dcfa64db9e144caeaa4515, type: 3}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: World_FK_grp
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
