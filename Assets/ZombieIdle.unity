@@ -621,9 +621,9 @@ GameObject:
   - component: {fileID: 1139425563}
   - component: {fileID: 1139425562}
   - component: {fileID: 1139425566}
-  - component: {fileID: 1139425561}
   - component: {fileID: 1139425567}
   - component: {fileID: 1139425564}
+  - component: {fileID: 1139425561}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -640,14 +640,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139425560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f47a6a81660134184a13568e37f2db, type: 3}
+  m_Script: {fileID: 11500000, guid: 18dc1ae40ca069849b769a40eff70917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashState: 0
-  dashTimer: 0
-  maxDash: 0.4
-  savedVelocity: {x: 0, y: 0, z: 0}
-  lastRotation: {x: 0, y: 0, z: 0, w: 0}
+  weapon: {fileID: 0}
+  rotationSpeed: 2
+  cooldownTime: 1
+  cooldownTimer: 0
 --- !u!136 &1139425562
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -712,13 +711,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139425560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65abe86c4ece1664ba64dcb53b20f704, type: 3}
+  m_Script: {fileID: 11500000, guid: f367d73278ff4384fa9a43152c4394d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  rotationSpeed: 0.2
-  cooldownTime: 1
-  cooldownTimer: 0
+  dashState: 0
+  dashTimer: 0
+  maxDash: 1
+  savedVelocity: {x: 0, y: 0, z: 0}
+  lastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1139425565
 Transform:
   m_ObjectHideFlags: 0
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 6501ad666e1e24b4bbc4befc93300d03, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b6d50b6e4bd8ee446958d6780865e8fc, type: 2}
 --- !u!4 &1796920532
 Transform:
   m_ObjectHideFlags: 0
