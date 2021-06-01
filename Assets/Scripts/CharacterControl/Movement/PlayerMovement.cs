@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
   public float maxDash = 1f;
   public Vector3 savedVelocity;
   public Quaternion lastRotation;
+
+  public static bool isAction = false;
+
+  private Vector3 lookTarget;
+
   void Start ()
   {
       rb = GetComponent<Rigidbody>();
@@ -27,19 +32,21 @@ public class PlayerMovement : MonoBehaviour
 
     //You can only move while not dashing
     //All the movement stuff
-      if (dashState != 1){
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
-          Vector3 fVelocity = new Vector3(horiz, 0f, vert);
-          rb.velocity = fVelocity.normalized * speed;
-          transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
-          lastRotation = transform.rotation;
-        }
-
-        else {
-          transform.rotation = Quaternion.Slerp(transform.rotation, lastRotation, 0.15F);
-          rb.velocity = new Vector3(0,0,0);
-        }
-  }
+    if (!isAction){
+        if (dashState != 1){
+          lookAtMouse();
+          if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
+            Vector3 fVelocity = new Vector3(horiz, 0f, vert);
+            rb.velocity = fVelocity.normalized * speed;
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
+        //    lastRotation = transform.rotation;
+          }
+          else {
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, lastRotation, 0.15F);
+            rb.velocity = new Vector3(0,0,0);
+          }
+       }
+   }
 }
 
   void performDash(float horiz, float vert){
@@ -49,10 +56,15 @@ public class PlayerMovement : MonoBehaviour
                var isDashKeyDown = Input.GetKeyDown (KeyCode.Space);
                if(isDashKeyDown)
                  {
-                   savedVelocity = GetComponent<Rigidbody>().velocity;
-                   Vector3 Velocity = new Vector3(GetComponent<Rigidbody>().velocity.x * 3f, 0, GetComponent<Rigidbody>().velocity.z * 3f);
-                   GetComponent<Rigidbody>().velocity =  Velocity;
-                   transform.rotation = Quaternion.LookRotation(Velocity);
+                   if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
+                     SwingWeapon.weapon.transform.rotation = SwingWeapon.savedRotationSW;
+                     SwingWeapon.weapon.transform.localPosition = SwingWeapon.savedPositionSW;
+
+                     Vector3 fVelocity = new Vector3(horiz, 0f, vert);
+                     rb.velocity = fVelocity.normalized * speed * 3;
+                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
+                     lastRotation = transform.rotation;
+                   }
                    dashState = 1;
                }
                break;
@@ -62,8 +74,9 @@ public class PlayerMovement : MonoBehaviour
                {
                    dashTimer = maxDash;
                    GetComponent<Rigidbody>().velocity = savedVelocity;
-                   transform.rotation = Quaternion.LookRotation(savedVelocity);
+              //     transform.rotation = Quaternion.LookRotation(savedVelocity);
                    dashState = -1;
+                   SwingWeapon.cooldownTimer = 0f;
                }
                break;
            case -1:
@@ -77,4 +90,13 @@ public class PlayerMovement : MonoBehaviour
            }
   }
 
+  void lookAtMouse(){
+    var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+    RaycastHit hit;
+    if (Physics.Raycast (ray, out hit)) {
+      lookTarget = hit.point;
+    }
+    transform.LookAt (lookTarget);
+    transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
+  }
 }
