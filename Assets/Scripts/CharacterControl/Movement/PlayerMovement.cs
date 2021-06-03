@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
           Vector3 fVelocity = new Vector3(horiz, 0f, vert);
           rb.velocity = fVelocity.normalized * speed;
+      //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
         }
 
         else {

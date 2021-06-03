@@ -42,3 +42,6 @@ sysinfo.txt
 *.log
 *.log
 *.unity
+Assets/Test.meta
+*.meta
+Logs/ApiUpdaterCheck.txt
