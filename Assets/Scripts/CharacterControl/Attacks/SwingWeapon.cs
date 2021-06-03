@@ -51,6 +51,7 @@ public class SwingWeapon : MonoBehaviour
   public float chargePercent;
   private float maxCharge = 1f;
   private bool chargeAttack = false;
+  private bool chargeCancel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,7 @@ public class SwingWeapon : MonoBehaviour
             if (Input.GetMouseButtonUp(0)) {
               if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
                 chargeAttack = true;
+                chargeCancel = true;
               }
               bufferAttack = true;
               holdTimer = 0f;
@@ -126,6 +128,7 @@ public class SwingWeapon : MonoBehaviour
             if (Input.GetMouseButtonUp(0)) {
               if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
                 chargeAttack = true;
+                chargeCancel = true;
               }
               bufferAttack = true;
               holdTimer = 0f;
@@ -158,6 +161,7 @@ public class SwingWeapon : MonoBehaviour
             if (Input.GetMouseButtonUp(0)) {
               if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
                 chargeAttack = true;
+                chargeCancel = true;
               }
               bufferAttack = true;
               holdTimer = 0f;
@@ -287,12 +291,14 @@ public class SwingWeapon : MonoBehaviour
 
           //timer to reset to the next combostep and reset the transforms
           cooldownTimer += Time.deltaTime;
-          if (cooldownTimer >= recoveryTime) {
+          if (cooldownTimer >= recoveryTime || chargeCancel == true) {
             weapon.transform.rotation = savedRotationSW;
             weapon.transform.localPosition = savedPositionSW;
+
             comboStep = NextStep;
             PlayerMovement.isAction = false; //let them MOVE AGAIN
             chargeAttack = false;
+            chargeCancel = false;
             comboTimer = 0f; //in reference to the combo attack system
             swingState = 0;
             hitboxRenderer.material.SetColor("_Color", Color.white);
