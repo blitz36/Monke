@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
   public static int dashState;
   public float dashTimer;
   public float maxDash;
+  public float dashCooldown;
 
   //to prevent running while fighting
   public static bool isAction = false;
@@ -31,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
     float vert = Input.GetAxisRaw ("Vertical");
 
     //runs a check to determine if player wants to dash and then performs it
-    performDash(horiz, vert);
+    if (PlayerAttacks.blockState == 0) {
+      performDash(horiz, vert);
+    }
 
     //checks for directional inputs and makes the player run in that direction
     performMovement(horiz, vert);
@@ -72,8 +75,8 @@ public class PlayerMovement : MonoBehaviour
                  {
                    if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
 
-                     SwingWeapon.weapon.transform.rotation = SwingWeapon.savedRotationSW;
-                     SwingWeapon.weapon.transform.localPosition = SwingWeapon.savedPositionSW;
+              //       SwingWeapon.weapon.transform.rotation = SwingWeapon.savedRotationSW;
+                  //   SwingWeapon.weapon.transform.localPosition = SwingWeapon.savedPositionSW;
 
                      //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                      Vector3 fVelocity = new Vector3(horiz, 0f, vert);
@@ -84,18 +87,18 @@ public class PlayerMovement : MonoBehaviour
                }
                break;
            case 1:
-               dashTimer += Time.deltaTime * 3;
+               dashTimer += Time.deltaTime;
                if(dashTimer >= maxDash)
                {
-                   dashTimer = maxDash; //idk why this is done this way LOL but its basically counting backwards for recovery time maybe i should change it for consistency soon :p
+                   dashTimer = 0;
                    dashState = -1; //no longer dashing
-                   SwingWeapon.cooldownTimer = 0f;
+                   PlayerAttacks.cooldownTimer = 0f;
                    rb.velocity = new Vector3(0,0,0); //stop after dash ends
                }
                break;
-           case -1:
-               dashTimer -= Time.deltaTime;
-               if(dashTimer <= 0) //when recovery time is up reset everything so u can dash again :)
+           case -1: // cooldown
+               dashTimer += Time.deltaTime;
+               if(dashTimer >= dashCooldown) //when recovery time is up reset everything so u can dash again :)
                {
                    dashTimer = 0;
                    dashState = 0;
