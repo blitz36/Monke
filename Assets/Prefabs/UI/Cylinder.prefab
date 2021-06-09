@@ -112,3 +112,4 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
+  speed: 0

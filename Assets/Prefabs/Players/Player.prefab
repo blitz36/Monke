@@ -19180,13 +19180,13 @@ MonoBehaviour:
   firstHitbox: {fileID: 6961203886877546218}
   chargeHitbox: {fileID: 8756711795583695506}
   blockHitbox: {fileID: 8756711796627875818}
-  clickForce: 1000
+  clickForce: 500
   accel: 3.5
   decel: 0.97
   cooldownTime: 0.2
   bufferAttack: 0
-  blockCooldownTimer: 0
-  blockStartUpTimer: 0
+  blockCooldownTimer: 1
+  blockStartUpTimer: 0.1166
   comboStep: 0
   comboTimer: 0
   holdTimer: 0
@@ -19207,8 +19207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 13
   dashTimer: 0
-  maxDash: 0.3
-  dashCooldown: 0
+  maxDash: 0.2
+  dashCooldown: 1
 --- !u!136 &6961203886987114412
 CapsuleCollider:
   m_ObjectHideFlags: 0

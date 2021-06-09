@@ -163,7 +163,7 @@ public class PlayerAttacks : MonoBehaviour
     }
 
     void checkAttacks() {
-      if (swingState == 0) { //only need to check for inputs whenever it is in the idle phase
+    //  if (!swingState == 1) { //only need to check for inputs whenever it is in the idle phase
         if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge attack.
           holdTimer += Time.deltaTime;
           if (holdTimer >= tapThreshold) {
@@ -184,7 +184,7 @@ public class PlayerAttacks : MonoBehaviour
           bufferAttack = true;
           holdTimer = 0f;
         }
-      }
+    //  }
     }
 
     //steps along the hitting process
@@ -251,12 +251,6 @@ public class PlayerAttacks : MonoBehaviour
           if(swingTimer >= activeTime)
           {
               swingTimer = 0f;
-              if (chargeAttack == false) {
-                firstHitbox.SetActive(false);
-              }
-              else {
-                chargeHitbox.SetActive(false);
-              }
               cooldownTimer = 0f;
               swingState = -1;
 
@@ -296,10 +290,16 @@ public class PlayerAttacks : MonoBehaviour
           //timer to reset to the next combostep and reset the transforms
           cooldownTimer += Time.deltaTime;
           if (cooldownTimer >= recoveryTime || chargeCancel == true) {
+            if (chargeAttack == false) {
+              firstHitbox.SetActive(false);
+            }
+            else {
+              chargeHitbox.SetActive(false);
+            }
             comboStep = NextStep;
             PlayerMovement.isAction = false; //let them MOVE AGAIN
             chargeAttack = false;
-          //  holdTimer = 0f;
+            holdTimer = 0f;
             comboTimer = 0f; //in reference to the combo attack system
             swingState = 0;
             hitboxRenderer.material.SetColor("_Color", Color.white);
