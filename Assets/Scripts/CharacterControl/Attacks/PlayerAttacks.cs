@@ -17,7 +17,6 @@ public class PlayerAttacks : MonoBehaviour
   public int clickForce = 500;
   private Plane plane = new Plane(Vector3.up, Vector3.zero);
   //celleration for when smacking and momentum
-  public float accel;
   public float decel;
 
   //timers needed to perform a swing
