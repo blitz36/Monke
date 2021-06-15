@@ -46,13 +46,13 @@ public class PlayerMovement : MonoBehaviour
   void performMovement(float horiz, float vert) {
     if (!isAction){
       if (dashState != 1){
-        lookAtMouse();//always look towards mouse
+      //  lookAtMouse();//always look towards mouse
 
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
           Vector3 fVelocity = new Vector3(horiz, 0f, vert);
           rb.velocity = fVelocity.normalized * speed;
-      //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
+          transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized),0.2F);
         }
 
         else {
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
                      //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                      Vector3 fVelocity = new Vector3(horiz, 0f, vert);
                      rb.velocity = fVelocity.normalized * speed * 3;
-                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.02F);
+                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
                    }
                    dashState = 1;
                }
