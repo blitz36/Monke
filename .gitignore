@@ -39,3 +39,4 @@ sysinfo.txt
 *.log
 *.log
 Logs/ApiUpdaterCheck.txt
+UserSettings/EditorUserSettings.asset
