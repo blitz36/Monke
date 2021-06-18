@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9dfb35565b3c3441a227ce3f59908ae
+guid: e5447634e261ea443855388c161199f5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -8,7 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: aiStandardSurface1
-    second: {fileID: 2100000, guid: e90db2ebf31de2e45ab9c16ba25611bd, type: 2}
+    second: {fileID: 2100000, guid: b8095670a9abbb243b2374d272f0c609, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MandyLo_aiStandardSurface1SG_BaseColor
+    second: {fileID: 2800000, guid: 15a77fefd49d4f945a74f3766aa3d08a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MandyLo_aiStandardSurface1SG_Emissive
+    second: {fileID: 2800000, guid: d1479e9764c30a44b9fffc4f01274216, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MandyLo_aiStandardSurface1SG_Metallic
+    second: {fileID: 2800000, guid: 97e058c15cad5f047a7eb20416e65bea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MandyLo_aiStandardSurface1SG_Normal
+    second: {fileID: 2800000, guid: f656c9c76dd2b334394f7ed04147ef92, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MandyLo_aiStandardSurface1SG_Roughness
+    second: {fileID: 2800000, guid: 5e9533ab2ca5a074a97d51ec49874216, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
