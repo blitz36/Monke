@@ -8,7 +8,8 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMenu ()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+		Time.timeScale=1f;
     }
 	
 	public void QuitGame ()
