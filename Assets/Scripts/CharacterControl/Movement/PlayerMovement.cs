@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using characterStats;
 
 public class PlayerMovement : MonoBehaviour
 {
   //Relating towards movement and velocity
   Rigidbody rb;
-  public float speed = 13f;
+  playerStatManager pStatManager;
 
   //Dashing related variables, used as a timer for recovery and how long the dash lasts for
   public static int dashState;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
   void Start ()
   {
       rb = GetComponent<Rigidbody>();
+      pStatManager = gameObject.GetComponent<playerStatManager>();
   }
 
 //UPDATE FRAME EVERY FRAME DO INPUT CHECKS
@@ -40,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
     performMovement(horiz, vert);
 }
 
+  public void onEquip() {
+
+  }
 
   //You can only move while not dashing or isnt fighting isAction checks for fighting
   //normal running stuff
@@ -51,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
           Vector3 fVelocity = new Vector3(horiz, 0f, vert);
-          rb.velocity = fVelocity.normalized * speed;
+          rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value;
           transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized),0.2F);
         }
 
@@ -80,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
                      //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                      Vector3 fVelocity = new Vector3(horiz, 0f, vert);
-                     rb.velocity = fVelocity.normalized * speed * 3;
+                     rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value * 3;
                      transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
                    }
                    dashState = 1;

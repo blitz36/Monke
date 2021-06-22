@@ -323,6 +323,8 @@ public class PlayerAttacks : MonoBehaviour
                   var hitPoint = ray.GetPoint(enter);
                   var mouseDir = hitPoint - gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
+                  transform.LookAt (hitPoint);
+                  transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
                 //  rb.AddForce(mouseDir * clickForce);
 
               //setting variables for next steps + rotating weapon to attack position
