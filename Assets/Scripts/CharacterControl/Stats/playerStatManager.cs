@@ -6,6 +6,8 @@ using characterStats;
 public class playerStatManager : MonoBehaviour
 {
   public CharacterStat maxHealth = new CharacterStat(100f);
+  public CharacterStat baseDamage = new CharacterStat(10f);
+  public CharacterStat baseSpeed = new CharacterStat(10f);
   public float currentHealth;
   public GameObject healthBarPrefab;
   GameObject healthBar;
@@ -25,5 +27,12 @@ public class playerStatManager : MonoBehaviour
   void Update(){
     healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
 
+  }
+
+  public void TakeDamage(int damage) {
+    currentHealth -= damage;
+    if (currentHealth <= 0) {
+      //do death stuff here
+    }
   }
 }
