@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using characterStats;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Modifiers/Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Modifiers/SpdItem")]
 public class SpdItem : Item
 {
     public override void Equip(playerStatManager pStatManager) {
