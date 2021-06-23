@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
+  public Equipable equip;
+
   //hit box related things, will not be as needed when animations are put in.
   private Renderer hitboxRenderer; //to change color for visual testing
   private Renderer hitboxRenderer2; //to change color for visual testing
@@ -59,6 +61,8 @@ public class PlayerAttacks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      equip.createHitbox(transform);
+
       firstHitbox.SetActive(false);
       chargeHitbox.SetActive(false);
       hitboxRenderer = firstHitbox.transform.GetChild(1).GetComponent<Renderer>();
@@ -79,6 +83,9 @@ public class PlayerAttacks : MonoBehaviour
     {
       //cant dash and swing
       if (PlayerMovement.dashState != 1) {
+
+        equip.Activate(rb, plane, gameObject);
+
 
         //Steps along the combo chain negative means recovery time
         //Case 0: first swing to start combo

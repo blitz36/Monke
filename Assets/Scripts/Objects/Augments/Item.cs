@@ -5,9 +5,9 @@ using characterStats;
 
 public abstract class Item : ScriptableObject
 {
-    public string name = "New Item";
+    new public string name = "New Item";
     public Sprite icon = null;
-    public string Description;
+    public string description;
     public abstract void Equip(playerStatManager pStatManager);
     public abstract void Unequip(playerStatManager pStatManager);
 
