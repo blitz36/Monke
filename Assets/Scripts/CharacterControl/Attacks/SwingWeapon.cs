@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -351,5 +352,127 @@ public class SwingWeapon : MonoBehaviour
       }
     }
 
+    //steps along the hitting process
+    //Case 0: idle state check for inputs to start the slash
+    //Case 1: start up animation and while accelerating in direction of the hit
+    //Case 2: Active frames where it is slashing, will check for hitbox here.
+    //Case -1: Recovery time before being able to move again.
+    void performSwing(int NextStep, float startUpTime, float activeTime, float recoveryTime) {
+      switch (swingState) {
+        case 0: //Starting/idle state
 
+
+          if(bufferAttack) //if slashing or a slash is buffered then perform the action
+            {
+              //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
+              rb.velocity = new Vector3(0, 0, 0);
+              var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+              float enter;
+              if (plane.Raycast(ray, out enter))
+              {
+                  var hitPoint = ray.GetPoint(enter);
+                  var mouseDir = hitPoint - gameObject.transform.position;
+                  mouseDir = mouseDir.normalized;
+                  rb.AddForce(mouseDir * clickForce);
+                  transform.LookAt (hitPoint);
+                  transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
+
+              //setting variables for next steps + rotating weapon to attack position
+              PlayerMovement.isAction = true;
+              if (chargeAttack == false) {
+                firstHitbox.SetActive(true);
+              }
+              else {
+                chargeHitbox.SetActive(true);
+              }
+              swingState = 1;
+              startUpTimer = 0;
+              bufferAttack = false;
+          }
+        }
+        break;
+
+        case 1: //start up
+        hitboxRenderer.material.SetColor("_Color", Color.red);
+        hitboxRenderer2.material.SetColor("_Color", Color.red);
+        //decelerate the momentum during startup
+        rb.velocity = rb.velocity * decel;
+
+        //timer to switch to active frames
+          startUpTimer += Time.deltaTime;
+          if (startUpTimer >= startUpTime) {
+            swingTimer = 0;
+            swingState = 2;
+          }
+          break;
+
+        case 2: //Active
+          hitboxRenderer.material.SetColor("_Color", Color.green);
+          hitboxRenderer2.material.SetColor("_Color", Color.green);
+          //stop all momentum at this point
+          rb.velocity = new Vector3(0f,0f,0f);
+
+
+          //timer before switching to recovery stage
+          swingTimer += Time.deltaTime;
+          if(swingTimer >= activeTime)
+          {
+              swingTimer = 0f;
+              cooldownTimer = 0f;
+              swingState = -1;
+
+          }
+          break;
+
+        case -1: //recovery
+          hitboxRenderer.material.SetColor("_Color", Color.blue);
+          hitboxRenderer2.material.SetColor("_Color", Color.magenta);
+
+          if (Input.GetMouseButton(0)) {
+            holdTimer += Time.deltaTime;
+            if (holdTimer >= tapThreshold) {
+              hitboxRenderer.material.SetColor("_Color", Color.magenta);
+              if (holdTimer > maxCharge) {
+                chargeAttack = true;
+                bufferAttack = true;
+                swingState = 0;
+                comboStep = 0;
+                holdTimer = 0f;
+              }
+            }
+          }
+          if (Input.GetMouseButtonUp(0)) {
+            if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
+              chargeAttack = true;
+              swingState = 0;
+              comboStep = 0;
+              bufferAttack = true;
+              holdTimer = 0f;
+            }
+          }
+
+
+
+
+          //timer to reset to the next combostep and reset the transforms
+          cooldownTimer += Time.deltaTime;
+          if (cooldownTimer >= recoveryTime || chargeCancel == true) {
+            if (chargeAttack == false) {
+              firstHitbox.SetActive(false);
+            }
+            else {
+              chargeHitbox.SetActive(false);
+            }
+            comboStep = NextStep;
+            PlayerMovement.isAction = false; //let them MOVE AGAIN
+            chargeAttack = false;
+            holdTimer = 0f;
+            comboTimer = 0f; //in reference to the combo attack system
+            swingState = 0;
+            hitboxRenderer.material.SetColor("_Color", Color.white);
+          }
+          break;
+      }
+    }
 }
+*/

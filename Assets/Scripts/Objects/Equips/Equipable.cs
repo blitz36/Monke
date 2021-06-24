@@ -10,6 +10,7 @@ public abstract class Equipable : ScriptableObject
   public int damage;
   public List<GameObject> hitboxes;
 
+  public abstract void Cancel();
   public abstract void createHitbox(Transform Player);
   public abstract void Activate(Rigidbody rb, Plane plane, GameObject gameObject);
 }

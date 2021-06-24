@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a435f917990af4386e640d36847f70, type: 3}
-  m_Name: BFG
+  m_Script: {fileID: 11500000, guid: 64256fb90d6771b459eab08523a1178f, type: 3}
+  m_Name: Slam
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Slam
   icon: {fileID: 0}
   description: 
   damage: 0
   hitboxes:
-  - {fileID: 4694726104048188275, guid: 276291033de0f394ba292a53292fc5ae, type: 3}
+  - {fileID: 2223694076572767504, guid: 51b28cad3b582074092c553d1b6b066e, type: 3}
+  startupTime: 0.1166
+  activeTime: 0.05
+  recoveryTime: 0.2
+  momentum: 0

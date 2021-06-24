@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     float vert = Input.GetAxisRaw ("Vertical");
 
     //runs a check to determine if player wants to dash and then performs it
-    if (PlayerAttacks.blockState == 0) {
+    if (PlayerAttacks.blockState == false) {
       performDash(horiz, vert);
     }
 
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
   //You can only move while not dashing or isnt fighting isAction checks for fighting
   //normal running stuff
   void performMovement(float horiz, float vert) {
-    if (!isAction){
+    if (!isAction && !PlayerAttacks.blockState){
       if (dashState != 1){
       //  lookAtMouse();//always look towards mouse
 
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
                if(isDashKeyDown)
                  {
                    if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
-
+                     PlayerAttacks.cancelAttackFunctions();
               //       SwingWeapon.weapon.transform.rotation = SwingWeapon.savedRotationSW;
                   //   SwingWeapon.weapon.transform.localPosition = SwingWeapon.savedPositionSW;
 
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
                {
                    dashTimer = 0;
                    dashState = -1; //no longer dashing
-                   PlayerAttacks.cooldownTimer = 0f;
+                   isAction = false;
                    rb.velocity = new Vector3(0,0,0); //stop after dash ends
                }
                break;

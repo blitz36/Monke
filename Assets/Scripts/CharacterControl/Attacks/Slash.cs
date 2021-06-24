@@ -2,35 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Equipment/BFG")]
-public class Equip_BFG : Equipable
+[CreateAssetMenu(fileName = "New Attack", menuName = "Attacks/Slash")]
+public class Slash : Attack
 {
-    private int State;
+    public int State;
     private float Timer;
-    private GameObject laser;
+    private GameObject slashHitbox;
+    public float startupTime;
+    public float activeTime;
+    public float recoveryTime;
+    public float momentum;
 
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      laser.SetActive(false);
+      slashHitbox.SetActive(false);
       PlayerMovement.isAction = false;
     }
 
     public override void createHitbox(Transform Player) {
       foreach (GameObject hitbox in hitboxes) {
-        laser = Instantiate(hitbox);
-        laser.transform.parent = Player;
-        laser.transform.localPosition = new Vector3(0,0,0);
-        laser.SetActive(false);
+        slashHitbox = Instantiate(hitbox);
+        slashHitbox.transform.parent = Player;
+        slashHitbox.transform.localPosition = new Vector3(0,0,0);
+
+        slashHitbox.SetActive(false);
       }
 
     }
-    public override void Activate(Rigidbody rb, Plane plane, GameObject gameObject) {
+    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref bool isAction, ref int comboStep, int nextStep) {
       switch (State) {
         case 0: //Starting/idle state
 
 
-          if (Input.GetKeyDown(KeyCode.LeftShift)) //if slashing or a slash is buffered then perform the action
+          if (bufferAttack) //if slashing or a slash is buffered then perform the action
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
               rb.velocity = new Vector3(0, 0, 0);
@@ -41,11 +46,14 @@ public class Equip_BFG : Equipable
                   var hitPoint = ray.GetPoint(enter);
                   var mouseDir = hitPoint - gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * -300);
+                  rb.AddForce(mouseDir * momentum);
+                  gameObject.transform.LookAt (hitPoint);
+                  gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-              laser.SetActive(true);
+              slashHitbox.SetActive(true);
+              bufferAttack = false;
+              isAction = true;
               State = 1;
-              PlayerMovement.isAction = true;
               Timer = 0;
           }
         }
@@ -53,11 +61,11 @@ public class Equip_BFG : Equipable
 
         case 1: //start up
         //decelerate the momentum during startup
-        rb.velocity = rb.velocity * .98f;
+        rb.velocity = rb.velocity * .97f;
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
-          if (Timer >= 0.1166f) {
+          if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
           }
@@ -70,11 +78,11 @@ public class Equip_BFG : Equipable
 
           //timer before switching to recovery stage
           Timer += Time.deltaTime;
-          if(Timer >= 1)
+          if(Timer >= activeTime)
           {
               Timer = 0f;
               State = -1;
-              laser.SetActive(false);
+              slashHitbox.SetActive(false);
           }
           break;
 
@@ -82,10 +90,11 @@ public class Equip_BFG : Equipable
 
           //timer to reset to the next combostep and reset the transforms
           Timer += Time.deltaTime;
-          if (Timer >= 1) {
+          if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            PlayerMovement.isAction = false;
+            isAction = false;
+            comboStep = nextStep;
           }
           break;
       }
