@@ -87,6 +87,12 @@ public class MineBehaviour : MonoBehaviour
             isFullSpeed = true;
         }
 
+        if (isKnockback && knockbackTimer >= 0)
+        {
+            knockbackTimer -= Time.deltaTime;
+        }
+
+
         // Light
         currentIntensity = Mathf.Lerp(minIntensity, maxIntensity, intensityPercentage);
     }
@@ -116,7 +122,7 @@ public class MineBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.gameObject.name == "Hitbox(Clone)")
+        if (other.gameObject.name == "Hitbox(Clone)" && knockbackTimer <= 0)
         {
             Debug.Log("Weapon hit!");
             if (!isKnockback)
@@ -126,6 +132,7 @@ public class MineBehaviour : MonoBehaviour
                 myRigidbody.isKinematic = false;
                 myRigidbody.useGravity = true;
             }
+            knockbackTimer = 1;
             knockback();
         }
     }
@@ -147,6 +154,7 @@ public class MineBehaviour : MonoBehaviour
 
     private void knockback()
     {
+        knockbackTimer -= Time.deltaTime;
         Vector3 knockbackDirection = (transform.position - toChase.transform.position).normalized;
         knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
         myRigidbody.AddForce(knockbackDirection * 20, ForceMode.Impulse);
