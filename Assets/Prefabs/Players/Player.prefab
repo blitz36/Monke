@@ -239,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e5447634e261ea443855388c161199f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e5447634e261ea443855388c161199f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -273,9 +273,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8196034790506049017, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3181452503744645242, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2796492743467506607, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e5447634e261ea443855388c161199f5, type: 3}
       propertyPath: m_Name
       value: Mandy_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356348438257011580, guid: e5447634e261ea443855388c161199f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5447634e261ea443855388c161199f5, type: 3}
