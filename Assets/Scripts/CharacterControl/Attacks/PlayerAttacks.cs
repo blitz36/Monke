@@ -29,7 +29,6 @@ public class PlayerAttacks : MonoBehaviour
   public float chargePercent;
   private float maxCharge = 1f;
   public bool chargeAttack = false;
-  private bool chargeCancel = false;
 
   //delegate to be able to cancel moves
   public delegate void cancelAttacks();
