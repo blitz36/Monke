@@ -30,7 +30,7 @@ public class Slash : Attack
       }
 
     }
-    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref bool isAction, ref int comboStep, int nextStep) {
+    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
       switch (State) {
         case 0: //Starting/idle state
 
@@ -52,7 +52,7 @@ public class Slash : Attack
 
               slashHitbox.SetActive(true);
               bufferAttack = false;
-              isAction = true;
+              priority = 1;
               State = 1;
               Timer = 0;
           }
@@ -93,7 +93,7 @@ public class Slash : Attack
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            isAction = false;
+            priority = 0;
             comboStep = nextStep;
           }
           break;

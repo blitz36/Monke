@@ -25,13 +25,12 @@ public class Equip_BFG : Equipable
       }
 
     }
-    public override void Activate(Rigidbody rb, Plane plane, GameObject gameObject) {
+    public override void Activate(Rigidbody rb, Plane plane, GameObject gameObject, ref int priority) {
       switch (State) {
         case 0: //Starting/idle state
 
 
-          if (Input.GetKeyDown(KeyCode.LeftShift)) //if slashing or a slash is buffered then perform the action
-            {
+          if (Input.GetKeyDown(KeyCode.LeftShift)) { //if using item
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
               rb.velocity = new Vector3(0, 0, 0);
               var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -42,11 +41,13 @@ public class Equip_BFG : Equipable
                   var mouseDir = hitPoint - gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
                   rb.AddForce(mouseDir * -300);
+                  gameObject.transform.LookAt (hitPoint);
+                  gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-              laser.SetActive(true);
-              State = 1;
-              PlayerMovement.isAction = true;
-              Timer = 0;
+                  laser.SetActive(true);
+                  State = 1;
+                  Timer = 0;
+                  priority = 3;
           }
         }
         break;
@@ -85,7 +86,7 @@ public class Equip_BFG : Equipable
           if (Timer >= 1) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            PlayerMovement.isAction = false;
+            priority = 0;
           }
           break;
       }

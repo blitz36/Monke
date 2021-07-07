@@ -10,6 +10,21 @@ ModelImporter:
       name: aiStandardSurface1
     second: {fileID: 2100000, guid: b8095670a9abbb243b2374d272f0c609, type: 2}
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 9609accd60e2fcb42adadfd781e56ea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 9609accd60e2fcb42adadfd781e56ea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__aiStandardSurface2
+    second: {fileID: 2100000, guid: b8095670a9abbb243b2374d272f0c609, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MandyLo_aiStandardSurface1SG_BaseColor
@@ -102,8 +117,13 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
-  importAnimation: 1
+  referencedClips:
+  - ced95257565a18e4a9836261167cf64d
+  - c01c46af234d03b48ac99d46dc796a1c
+  - 93ef30ea829d02343a175405c2451a51
+  - a32c1d9c0ffa7d949a8c55c463662d56
+  - 20395ad60496baf47a766274fbba5bce
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

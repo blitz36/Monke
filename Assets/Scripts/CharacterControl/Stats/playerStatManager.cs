@@ -8,6 +8,7 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat maxHealth = new CharacterStat(100f);
   public CharacterStat baseDamage = new CharacterStat(10f);
   public CharacterStat baseSpeed = new CharacterStat(10f);
+  public int priority = 0;
   public float currentHealth;
   public GameObject healthBarPrefab;
   GameObject healthBar;
@@ -15,6 +16,7 @@ public class playerStatManager : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+      Physics.IgnoreLayerCollision(8, 11);
       healthBar = Instantiate(healthBarPrefab);
       healthBar.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
       currentHealth = maxHealth.Value;
