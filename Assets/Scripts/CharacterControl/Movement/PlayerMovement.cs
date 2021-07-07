@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
   //to look at mouse lol
   private Vector3 lookTarget;
 
-  void Start ()
+  public float horiz;
+  public float vert;
+    void Start ()
   {
       rb = GetComponent<Rigidbody>();
       pStatManager = gameObject.GetComponent<playerStatManager>();
@@ -30,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
 //UPDATE FRAME EVERY FRAME DO INPUT CHECKS
   void Update () {
-    float horiz = Input.GetAxisRaw ("Horizontal");
-    float vert = Input.GetAxisRaw ("Vertical");
+    horiz = Input.GetAxisRaw ("Horizontal");
+    vert = Input.GetAxisRaw ("Vertical");
 
     //runs a check to determine if player wants to dash and then performs it
     performDash(horiz, vert);
