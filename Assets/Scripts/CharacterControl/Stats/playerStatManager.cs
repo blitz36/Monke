@@ -8,6 +8,7 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat maxHealth = new CharacterStat(100f);
   public CharacterStat baseDamage = new CharacterStat(10f);
   public CharacterStat baseSpeed = new CharacterStat(10f);
+  public int priority = 0;
   public float currentHealth;
   public GameObject healthBarPrefab;
   GameObject healthBar;

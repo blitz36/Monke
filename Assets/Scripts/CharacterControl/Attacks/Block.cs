@@ -31,7 +31,7 @@ public class Block : Attack
       }
 
     }
-    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool blockState, ref bool isAction, ref int comboStep, int nextStep) {
+    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool blockState, ref int priority, ref int comboStep, int nextStep) {
       switch (State) {
         case 0: //Starting/idle state
 
@@ -53,6 +53,7 @@ public class Block : Attack
 
               blockHitbox.SetActive(true);
               blockState = true;
+              priority = 11;
               State = 1;
               Timer = 0;
           }
@@ -95,6 +96,7 @@ public class Block : Attack
             State = 0;
             comboStep = nextStep;
             blockState = false;
+            priority = 0;
           }
           break;
       }

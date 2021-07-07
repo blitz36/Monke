@@ -15,11 +15,10 @@ GameObject:
   - component: {fileID: 183264599932329004}
   - component: {fileID: 183264599932329007}
   - component: {fileID: 183264599932328993}
-  - component: {fileID: 183264599932329005}
   - component: {fileID: 8715107231232503998}
-  - component: {fileID: 8076966246450671540}
   - component: {fileID: 6731110493694415068}
-  m_Layer: 11
+  - component: {fileID: 1941349334684302676}
+  m_Layer: 13
   m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,28 +170,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &183264599932329005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183264599932328996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scripts:
-  - {fileID: 0}
-  autoReset: 1
-  tickOn: 0
-  sourceInfos:
-  - isFoldout: 1
-    breakPoints: 
-    breakPointStatuses: 
-    collapsedLines: 
-    btScript: 
 --- !u!54 &8715107231232503998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,18 +186,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &8076966246450671540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183264599932328996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f82385cc309b85478f00a5628669804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6731110493694415068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +209,18 @@ MonoBehaviour:
   raycastOffset: {x: 0, y: 0, z: 0}
   useGraphRaycasting: 0
   quality: 1
+--- !u!114 &1941349334684302676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183264599932328996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305e3fd31d1ff6f4ab2d7f46514cdd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slash: {fileID: 11400000, guid: 6b5c741ae9212514d905b4779a674999, type: 2}
+  attacking: 0
+  cooldownTime: 5
