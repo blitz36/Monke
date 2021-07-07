@@ -17,8 +17,7 @@ public class PlayerAttacks : MonoBehaviour
   private Plane plane = new Plane(Vector3.up, Vector3.zero);
 
   public bool bufferAttack; //in order to be able to buffer commands before cooldown is up
-
-  public static bool blockState = false; // to check which phase of the block it is in
+  public bool blockState = false; // to check which phase of the block it is in
 
   //steps in the combo and timers for combos breaking
   public int comboStep = 0;
@@ -47,7 +46,7 @@ public class PlayerAttacks : MonoBehaviour
     cancelAttackFunctions += equip.Cancel;
     cancelAttackFunctions += slam.Cancel;
     cancelAttackFunctions += attack.Cancel;
-    cancelAttackFunctions += block.Cancel;
+  //  cancelAttackFunctions += block.Cancel;
     rb = GetComponent<Rigidbody>();
     pStatManager = gameObject.GetComponent<playerStatManager>();
   }

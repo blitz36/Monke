@@ -16,9 +16,7 @@ public class Block : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      PlayerMovement.isAction = false;
       blockHitbox.SetActive(false);
-      PlayerAttacks.blockState = false;
     }
 
     public override void createHitbox(Transform Player) {
@@ -83,6 +81,7 @@ public class Block : Attack
               Timer = 0f;
               State = -1;
               blockHitbox.SetActive(false);
+              blockState = false;
 
           }
           break;
@@ -95,7 +94,6 @@ public class Block : Attack
             Timer = 0f; //in reference to the combo attack system
             State = 0;
             comboStep = nextStep;
-            blockState = false;
             priority = 0;
           }
           break;
