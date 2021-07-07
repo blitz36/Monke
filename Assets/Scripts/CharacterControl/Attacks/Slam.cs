@@ -16,7 +16,6 @@ public class Slam : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      PlayerMovement.isAction = false;
       slamHitbox.SetActive(false);
     }
 
@@ -29,7 +28,7 @@ public class Slam : Attack
       }
 
     }
-    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref bool isAction, ref int comboStep, int nextStep) {
+    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
       switch (State) {
         case 0: //Starting/idle state
 
@@ -51,8 +50,8 @@ public class Slam : Attack
 
               slamHitbox.SetActive(true);
               bufferAttack = false;
-              isAction = true;
               State = 1;
+              priority = 2;
               Timer = 0;
           }
         }
@@ -92,7 +91,7 @@ public class Slam : Attack
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            isAction = false;
+            priority = 0;
             comboStep = nextStep;
           }
           break;

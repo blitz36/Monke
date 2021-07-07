@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon
   - Canvas
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - Player
   - Enemy
   - Terrain
-  - 
-  - 
-  - 
+  - Ground
+  - Wall
+  - Enemy
   - 
   - 
   - 

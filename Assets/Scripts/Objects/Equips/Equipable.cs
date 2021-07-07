@@ -12,5 +12,5 @@ public abstract class Equipable : ScriptableObject
 
   public abstract void Cancel();
   public abstract void createHitbox(Transform Player);
-  public abstract void Activate(Rigidbody rb, Plane plane, GameObject gameObject);
+  public abstract void Activate(Rigidbody rb, Plane plane, GameObject gameObject, ref int priority);
 }
