@@ -7,9 +7,6 @@ public class ChaseState : State
 {
     [SerializeField] private KnockbackState knockbackState;
     [SerializeField] private DetonateState detonateState;
-    [SerializeField] private float detonateRange;
-    [SerializeField] private LayerMask playerLayer;
-    private bool isDetonate = false;
 
     public override State runCurrentStateUpdate(StateController controller)
     {
@@ -26,19 +23,10 @@ public class ChaseState : State
             }
             return knockbackState;
         }
-        else if (isDetonate)
-        {
-            return detonateState;
-        }
         else
         {
             return this;
         }
-    }
-
-    public override void runCurrentStateFixedUpdate(StateController controller)
-    {
-        isDetonate = Physics.CheckSphere(transform.position, detonateRange, playerLayer);
     }
 
     public override void runCurrentStateOnTriggerEnter(Collider other, StateController controller)
