@@ -99,6 +99,7 @@ MonoBehaviour:
   slam: {fileID: 11400000, guid: 459db05b17b0a7a4e99c3d799214a735, type: 2}
   block: {fileID: 11400000, guid: 4f0cbdc0171beb64487836c7ae0fcb9e, type: 2}
   bufferAttack: 0
+  blockState: 0
   comboStep: 0
   comboTimer: 0
   holdTimer: 0
@@ -173,7 +174,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8164459905811267223
 MonoBehaviour:
