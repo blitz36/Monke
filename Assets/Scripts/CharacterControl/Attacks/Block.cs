@@ -13,6 +13,10 @@ public class Block : Attack
     public float recoveryTime;
     public float momentum;
 
+    public override float totalTime() {
+      return startupTime + activeTime + recoveryTime;
+    }
+
     public override void Cancel() {
       Timer = 0f;
       State = 0;
@@ -37,7 +41,7 @@ public class Block : Attack
           if(Input.GetMouseButton(1)) //if slashing or a slash is buffered then perform the action
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              rb.velocity = new Vector3(0, 0, 0);
+          //    rb.velocity = rb.velocity.normalized;
               var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
               float enter;
               if (plane.Raycast(ray, out enter))
@@ -45,7 +49,9 @@ public class Block : Attack
                   var hitPoint = ray.GetPoint(enter);
                   var mouseDir = hitPoint - gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * momentum);
+        //          var direction = rb.velocity.normalized;
+        //          direction.y = 0f;
+        //          rb.AddForce(direction * momentum, ForceMode.Impulse);
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
@@ -59,8 +65,6 @@ public class Block : Attack
         break;
 
         case 1: //start up
-        //decelerate the momentum during startup
-        rb.velocity = rb.velocity * .97f;
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
@@ -71,9 +75,6 @@ public class Block : Attack
           break;
 
         case 2: //Active
-          //stop all momentum at this point
-          rb.velocity = new Vector3(0f,0f,0f);
-
 
           //timer before switching to recovery stage
           if(!Input.GetMouseButton(1))

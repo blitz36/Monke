@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 //case 1: run a timer for how long the dash will last. when the duration is over, set dash state back so that moment is stopped again
 //case -1: cooldown window. set a timer and when it is over, reset back to stage 0
   void performDash(float horiz, float vert){
-    if (pStatManager.priority < 10 || pStatManager.priority == 10) {
+    if (pStatManager.priority < 12) {
       switch (dashState)
              {
              case 0:

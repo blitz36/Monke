@@ -14,6 +14,10 @@ public class Slam : Attack
     public float momentum;
     public playerStatManager pst;
 
+    public override float totalTime() {
+      return startupTime + activeTime + recoveryTime;
+    }
+
     public override void Cancel() {
       Timer = 0f;
       State = 0;
@@ -47,7 +51,7 @@ public class Slam : Attack
                   var hitPoint = ray.GetPoint(enter);
                   var mouseDir = hitPoint - gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * momentum);
+                  rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 

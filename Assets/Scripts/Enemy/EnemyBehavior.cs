@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public float turnSpeed;
     public EnemyAttack slash;
     private MovementAgent ma;
+    private EnemyStatManager est;
     private Transform target;
     public bool attacking = false;
     private Rigidbody rb;
     public float cooldownTimer = 10f;
     public float cooldownTime;
+    void Awake() {
+      est = gameObject.GetComponent<EnemyStatManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +29,21 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+      if (est.isHit == true) {
+        return;
+      }
       if (attacking == false) {
         ma.moveToPlayer();
+        this.gameObject.transform.GetChild(0).localRotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation, Quaternion.LookRotation(rb.velocity.normalized), turnSpeed);
       }
 
     }
 
     void Update() {
+      if (est.isHit == true) {
+        return;
+      }
+
       float sqrLen = ma.sqrLen;
       cooldownTimer -= Time.deltaTime;
       if (sqrLen < 50f) {
@@ -39,8 +53,8 @@ public class EnemyBehavior : MonoBehaviour
           Vector3 relativePos = target.position - transform.position;
           // the second argument, upwards, defaults to Vector3.up
           relativePos.y = 0f;
-          Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-          transform.localRotation = rotation;
+          Quaternion rotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation,Quaternion.LookRotation(relativePos, Vector3.up), turnSpeed);
+          this.gameObject.transform.GetChild(0).localRotation = rotation;
         }
       }
 

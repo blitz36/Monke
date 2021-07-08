@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09a603aa4aafc24cb17bb98c3fa260f, type: 3}
-  m_Name: Block
+  m_Script: {fileID: 11500000, guid: b710852e4a32eb549a5e1be0d1262614, type: 3}
+  m_Name: Slash3
   m_EditorClassIdentifier: 
   name: New Attack
   icon: {fileID: 0}
   description: 
   damage: 0
   hitboxes:
-  - {fileID: 1686285236846874972, guid: 3ec411a5d0a5937409c2353059edda9a, type: 3}
+  - {fileID: 439362124533127318, guid: 78b47d9d45b5cbd42b7bbd6fb3bccdd8, type: 3}
   State: 0
-  Timer: 0
-  startupTime: 0
-  activeTime: 0
-  recoveryTime: 0.2
-  momentum: 0
+  startupTime: 0.33
+  activeTime: 0.05
+  recoveryTime: 0.33
+  momentum: 40
+  pst: {fileID: 0}

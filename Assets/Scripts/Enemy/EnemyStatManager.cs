@@ -5,7 +5,10 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
-    public CharacterStat maxHealth = new CharacterStat(100f);
+    public float timeToResume;
+    public Rigidbody rb;
+
+    public CharacterStat maxHealth = new CharacterStat(90f);
     public float currentHealth;
 
     public GameObject healthBarPrefab;
@@ -14,6 +17,9 @@ public class EnemyStatManager : MonoBehaviour
 
     float timer = 0f;
     public float speed;
+
+    public bool isHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +30,7 @@ public class EnemyStatManager : MonoBehaviour
     }
     private void Awake() {
       target = gameObject.transform;
+      rb = gameObject.GetComponent<Rigidbody>();
     }
     // Update is called once per frame
     void Update()
@@ -34,10 +41,20 @@ public class EnemyStatManager : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        isHit = true;
+        Invoke("notHit", 0.15f);
+        Time.timeScale = 0.05f;
+        Invoke("resumeTime", timeToResume);
         healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
     }
     void raiseMax(float value) {
         maxHealth.AddModifier(new StatModifier(value, StatModType.PercentAdd, this));
         currentHealth = maxHealth.Value;
+    }
+    public void notHit() {
+      isHit = false;
+    }
+    public void resumeTime(){
+      Time.timeScale = 1f;
     }
 }
