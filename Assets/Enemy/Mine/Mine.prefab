@@ -508,7 +508,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackState: {fileID: 6072297999883915116}
-  detonateState: {fileID: 0}
+  detonateState: {fileID: 2581658870171866625}
+  detonateRange: 0.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!136 &6072298000105482596
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -615,5 +619,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9353193203a3549b4503b1766cd5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTimer: 1
-  explosionEffect: {fileID: 0}
+  countdownTimer: 0.3
+  explosionEffect: {fileID: 4282347790149408419, guid: 2e84f491381eb284c853998774a94971, type: 3}
