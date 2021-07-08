@@ -2456,5 +2456,9 @@ PrefabInstance:
       propertyPath: toChase
       value: 
       objectReference: {fileID: 1722067168}
+    - target: {fileID: 6072298000191842623, guid: 613334cef9f68b947a4f437089c69f10, type: 3}
+      propertyPath: triggerRange
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613334cef9f68b947a4f437089c69f10, type: 3}
