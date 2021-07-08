@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09a603aa4aafc24cb17bb98c3fa260f, type: 3}
   m_Name: Block
   m_EditorClassIdentifier: 
-  name: Block
+  name: New Attack
   icon: {fileID: 0}
   description: 
   damage: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 1686285236846874972, guid: 3ec411a5d0a5937409c2353059edda9a, type: 3}
   State: 0
   Timer: 0
-  startupTime: 0.1166
+  startupTime: 0
   activeTime: 0
-  recoveryTime: 0.2
+  recoveryTime: 0
   momentum: 0

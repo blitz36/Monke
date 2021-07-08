@@ -5,32 +5,23 @@ using UnityEngine.AI;
 
 public class ActivateState : State
 {
-    public ChaseState chaseState;
-
-    private NavMeshAgent myNMAgent;
-    private Rigidbody myRigidbody;
+    [SerializeField] private ChaseState chaseState;
 
     private bool activated = false;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
 
-    private void Start()
+    public override State runCurrentStateUpdate(StateController controller)
     {
-        myNMAgent = GetComponentInParent<NavMeshAgent>();
-        myRigidbody = GetComponentInParent<Rigidbody>();
-    }
-
-    public override State runCurrentState()
-    {
-        Debug.Log("Now in activate state!");
+        //Debug.Log("Now in activate state!");
         if (!activated)
         {
-            activate();
+            activate(controller);
         }
 
         if (activated && isGrounded)
         {
-            myNMAgent.enabled = true;
-            myRigidbody.isKinematic = true;
+            controller.myNMAgent.enabled = true;
+            controller.myRigidbody.isKinematic = true;
             return chaseState;
         }
         else
@@ -39,11 +30,11 @@ public class ActivateState : State
         }
     }
 
-    private void FixedUpdate()
+    public override void runCurrentStateFixedUpdate(StateController controller)
     {
         if (activated && !isGrounded)
         {
-            if (myRigidbody.velocity.y < 0)
+            if (controller.myRigidbody.velocity.y < 0)
             {
                 isGrounded = Physics.Raycast(transform.position, Vector3.down, .5f);
                 //Debug.Log("Grounded: " + isGrounded);
@@ -51,13 +42,13 @@ public class ActivateState : State
         }
     }
 
-    private void activate()
+    private void activate(StateController controller)
     {
-        myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        controller.myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         // Launch from ground
-        myRigidbody.useGravity = true;
-        myRigidbody.AddForce(Vector3.up * 5, ForceMode.Impulse);
+        controller.myRigidbody.useGravity = true;
+        controller.myRigidbody.AddForce(Vector3.up * 5, ForceMode.Impulse);
         //Debug.Log("Launched");
         activated = true;
     }
