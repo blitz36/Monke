@@ -24,7 +24,9 @@ public class MovementAgent : MonoBehaviour
     //detecting undesirable directions
     private bool[] danger;
     public float lookDistance;
-    private int layerMask = 1 << 9;
+    private int layerMask = 1 << 12;
+    private int layerMask2 = 1 << 8;
+    private int layerMask3 = 1 << 10;
 
     //relating towards shaping the weights for different behaviors
     public int directionCache;
@@ -94,6 +96,16 @@ public class MovementAgent : MonoBehaviour
       //  if (Physics.Raycast(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, lookDistance, layerMask))
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, 0.5f, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, out hit, lookDistance, layerMask))
+          {
+            Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, Color.red);
+            danger[i] = true;
+        }
+        if (Physics.SphereCast(transform.position, 0.5f, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, out hit, lookDistance, layerMask2))
+          {
+            Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, Color.red);
+            danger[i] = true;
+        }
+        if (Physics.SphereCast(transform.position, 0.5f, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, out hit, lookDistance, layerMask3))
           {
             Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, Color.red);
             danger[i] = true;

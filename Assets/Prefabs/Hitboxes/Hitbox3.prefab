@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 519106822832589710}
   - component: {fileID: 7579856500114616564}
   - component: {fileID: 6149278790855143161}
-  - component: {fileID: 581611620350932273}
   - component: {fileID: -5266069432254548482}
-  m_Layer: 16
+  m_Layer: 13
   m_Name: Hitbox3
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -45,7 +44,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439362124533127318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -108,19 +107,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &581611620350932273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439362124533127318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bdd9a80c1ff4a41ab40b7b47c185c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!114 &-5266069432254548482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  momentum: 0
 --- !u!1 &4685799376584793009
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +132,7 @@ GameObject:
   - component: {fileID: 786550709010437025}
   - component: {fileID: 2555669595649704184}
   - component: {fileID: 3628091290287761215}
-  m_Layer: 16
+  m_Layer: 13
   m_Name: Hitbox2 (1)
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -181,7 +168,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4685799376584793009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -226,7 +213,7 @@ GameObject:
   - component: {fileID: 7936744242211097716}
   - component: {fileID: 6467159101285024149}
   - component: {fileID: 1955740423504820416}
-  m_Layer: 16
+  m_Layer: 13
   m_Name: Hitbox2
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -262,7 +249,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5269452157966958588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -307,7 +294,7 @@ GameObject:
   - component: {fileID: 5298138983201867233}
   - component: {fileID: 7478602991697924208}
   - component: {fileID: 3971898372720869496}
-  m_Layer: 16
+  m_Layer: 13
   m_Name: Hitbox1
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -343,7 +330,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9018551132878521231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
