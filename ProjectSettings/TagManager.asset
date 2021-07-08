@@ -21,10 +21,10 @@ TagManager:
   - Terrain
   - Ground
   - Wall
-  - Enemy
-  - 
-  - 
-  - 
+  - EnemyHurtbox
+  - EnemyHitbox
+  - PlayerHurtbox
+  - PlayerHitbox
   - 
   - 
   - 

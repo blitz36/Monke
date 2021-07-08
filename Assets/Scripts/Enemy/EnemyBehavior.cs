@@ -38,6 +38,7 @@ public class EnemyBehavior : MonoBehaviour
           // Hitbox.transform.LookAt(target);
           Vector3 relativePos = target.position - transform.position;
           // the second argument, upwards, defaults to Vector3.up
+          relativePos.y = 0f;
           Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
           transform.localRotation = rotation;
         }

@@ -12,6 +12,7 @@ public class Slam : Attack
     public float activeTime;
     public float recoveryTime;
     public float momentum;
+    public playerStatManager pst;
 
     public override void Cancel() {
       Timer = 0f;
@@ -25,6 +26,8 @@ public class Slam : Attack
         slamHitbox.transform.parent = Player;
         slamHitbox.transform.localPosition = new Vector3(0,0,0);
         slamHitbox.SetActive(false);
+        pst = Player.gameObject.GetComponent<playerStatManager>();
+        pst.hitboxes.Add(slamHitbox);
       }
 
     }

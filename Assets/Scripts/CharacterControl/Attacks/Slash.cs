@@ -12,7 +12,7 @@ public class Slash : Attack
     public float activeTime;
     public float recoveryTime;
     public float momentum;
-
+    public playerStatManager pst;
     public override void Cancel() {
       Timer = 0f;
       State = 0;
@@ -25,7 +25,8 @@ public class Slash : Attack
         slashHitbox = Instantiate(hitbox);
         slashHitbox.transform.parent = Player;
         slashHitbox.transform.localPosition = new Vector3(0,0,0);
-
+        pst = Player.gameObject.GetComponent<playerStatManager>();
+        pst.hitboxes.Add(slashHitbox);
         slashHitbox.SetActive(false);
       }
 

@@ -81,19 +81,19 @@ public class PlayerAttacks : MonoBehaviour
 
         case 1:
           attack.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, 2);
-        setComboTimer(1f, 0); //how much time before combo breaks
+        setComboTimer(2f, 0); //how much time before combo breaks
         break;
 
         case 2:
           attack.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, -1);
-        setComboTimer(1f, 0); //how much time before combo breaks
+        setComboTimer(2f, 0); //how much time before combo breaks
         break;
 
         case -1:
         if (Input.GetMouseButtonUp(0)) {
           bufferAttack = true;
         }
-        setComboTimer(0.3f, 0);
+        setComboTimer(1f, 0);
         break;
 
         case -2:

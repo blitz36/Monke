@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8715107231232503998}
   - component: {fileID: 6731110493694415068}
   - component: {fileID: 1941349334684302676}
+  - component: {fileID: -4940459600775383209}
   m_Layer: 13
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -114,18 +115,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rng: 0
-  test: 0.65
-  targetPosition: {fileID: 0}
-  stopDistance: 50
-  sqrLen: 0
   speed: 8
-  lookDistance: 5
+  rng: 0
+  targetPosition: {fileID: 0}
+  AStar: {fileID: 0}
   numRays: 16
   interest: []
+  lookDistance: 5
   directionCache: 0
   inRange: 0
-  AStar: {fileID: 0}
+  stopDistance: 50
+  sqrLen: 0
 --- !u!114 &183264599932329007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,4 +223,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slash: {fileID: 11400000, guid: 6b5c741ae9212514d905b4779a674999, type: 2}
   attacking: 0
+  cooldownTimer: 10
   cooldownTime: 5
+--- !u!114 &-4940459600775383209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183264599932328996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b28bdeca76f74c83953f8a25f143e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    BaseValue: 100
+  currentHealth: 0
+  healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
+  speed: 0

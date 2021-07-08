@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1931726481185747907}
   - component: {fileID: 3078169284772610477}
   - component: {fileID: 4275676097639204348}
+  - component: {fileID: 6346903208888960400}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -99,6 +100,7 @@ MonoBehaviour:
   slam: {fileID: 11400000, guid: 459db05b17b0a7a4e99c3d799214a735, type: 2}
   block: {fileID: 11400000, guid: 4f0cbdc0171beb64487836c7ae0fcb9e, type: 2}
   bufferAttack: 0
+  blockState: 0
   comboStep: 0
   comboTimer: 0
   holdTimer: 0
@@ -207,12 +209,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef1dca94fdf94f00af93f087ad63e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxes: []
   maxHealth:
     BaseValue: 100
   baseDamage:
     BaseValue: 10
   baseSpeed:
     BaseValue: 10
+  maxDashes:
+    BaseValue: 1
   priority: 0
   currentHealth: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
@@ -247,6 +252,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6346903208888960400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961203886987114414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b951742f5ea42647a026983dbf8e32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  pStatManager: {fileID: 0}
 --- !u!1001 &7752372834996422966
 PrefabInstance:
   m_ObjectHideFlags: 0

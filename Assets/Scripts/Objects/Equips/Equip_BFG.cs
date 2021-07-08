@@ -8,6 +8,7 @@ public class Equip_BFG : Equipable
     private int State;
     private float Timer;
     private GameObject laser;
+    private playerStatManager pst;
 
     public override void Cancel() {
       Timer = 0f;
@@ -21,6 +22,8 @@ public class Equip_BFG : Equipable
         laser = Instantiate(hitbox);
         laser.transform.parent = Player;
         laser.transform.localPosition = new Vector3(0,0,0);
+        pst = Player.gameObject.GetComponent<playerStatManager>();
+        pst.hitboxes.Add(laser);
         laser.SetActive(false);
       }
 

@@ -72,6 +72,7 @@ public class MovementAgent : MonoBehaviour
 
       //Move with Rigidbody in chosen direction
       velocity = chosenDirection * speed;
+      velocity.y = rb.velocity.y;
       rb.velocity = velocity;
     }
 

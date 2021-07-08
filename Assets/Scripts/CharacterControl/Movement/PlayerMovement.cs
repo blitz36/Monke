@@ -54,13 +54,15 @@ public class PlayerMovement : MonoBehaviour
 
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
-          Vector3 fVelocity = new Vector3(horiz, 0f, vert);
-          rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value;
-          transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized),0.2F);
+          Vector3 fVelocity = new Vector3(horiz, 0, vert);
+          Vector3 speed = fVelocity.normalized * pStatManager.baseSpeed.Value;
+          speed.y = rb.velocity.y;
+          rb.velocity = speed;
+          transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.2f);
         }
 
         else {
-          rb.velocity = new Vector3(0,0,0); //no input = stand still
+          rb.velocity = new Vector3(0,rb.velocity.y,0); //no input = stand still
         }
       }
   }
@@ -81,8 +83,9 @@ public class PlayerMovement : MonoBehaviour
                        PlayerAttacks.cancelAttackFunctions();
                        pStatManager.priority = 10;
                        //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
-                       Vector3 fVelocity = new Vector3(horiz, 0f, vert);
+                       Vector3 fVelocity = new Vector3(horiz, rb.velocity.y, vert);
                        rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value * 3;
+                       fVelocity = new Vector3(horiz, 0f, vert);
                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
                      }
                      dashState = 1;
@@ -94,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
                  {
                      dashTimer = 0;
                      dashState = -1; //no longer dashing
-                     rb.velocity = new Vector3(0,0,0); //stop after dash ends
+                     rb.velocity = new Vector3(0,rb.velocity.y,0); //stop after dash ends
                      pStatManager.priority = 0;
                  }
                  break;
