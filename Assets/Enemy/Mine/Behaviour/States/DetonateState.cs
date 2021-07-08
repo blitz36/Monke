@@ -9,7 +9,7 @@ public class DetonateState : State
 
     public override State runCurrentStateUpdate(StateController controller)
     {
-        if (countdownTimer <= 0)
+        if (countdownTimer > 0)
         {
             detonate(controller);
             Destroy(controller.gameObject);
