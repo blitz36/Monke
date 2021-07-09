@@ -177,13 +177,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboRecoveryTime: 0
-  comboBreak: 0
-  comboBreak2: 0
-  timeBeforeBuffer: 0
+  comboBreak: 0.25
+  comboBreak2: 0.5
+  timeBeforeBuffer: 0.15
   equip: {fileID: 11400000, guid: c5680d2d923cc1443a977050c9370bed, type: 2}
   attack: {fileID: 11400000, guid: 97ade3a0dd400174c89789da201c9fdd, type: 2}
-  attack2: {fileID: 0}
-  attack3: {fileID: 0}
+  attack2: {fileID: 11400000, guid: 98fd2e0a953b538409fdca8cd1f96e73, type: 2}
+  attack3: {fileID: 11400000, guid: f4334542842e04146ae5a33231ad2b6d, type: 2}
   slam: {fileID: 11400000, guid: 459db05b17b0a7a4e99c3d799214a735, type: 2}
   block: {fileID: 11400000, guid: 4f0cbdc0171beb64487836c7ae0fcb9e, type: 2}
   bufferAttack: 0

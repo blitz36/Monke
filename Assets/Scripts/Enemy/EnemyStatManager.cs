@@ -46,6 +46,11 @@ public class EnemyStatManager : MonoBehaviour
         Time.timeScale = 0.05f;
         Invoke("resumeTime", timeToResume);
         healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
+
+        if (currentHealth < 0f) {
+          Destroy(healthBar);
+          Destroy(gameObject);
+        }
     }
     void raiseMax(float value) {
         maxHealth.AddModifier(new StatModifier(value, StatModType.PercentAdd, this));
