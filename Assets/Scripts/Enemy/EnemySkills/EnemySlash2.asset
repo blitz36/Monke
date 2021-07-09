@@ -17,8 +17,8 @@ MonoBehaviour:
   description: 
   damage: 0
   hitboxes:
-  - {fileID: 8614509903499962515, guid: 0d0cb5d4df4a21c43994bf6242d93de1, type: 3}
-  State: 0
+  - {fileID: 9050184703785324900, guid: 1299e6e8261d3fe48bbd34812849ac16, type: 3}
+  State: -1
   Timer: 0
   startupTime: 0.1
   activeTime: 0.1

@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combat01.unity
     guid: a8dd8400978c7e648b601f0e58125362
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: e930f150a4c0cfc4aafc5a73ccd7b949
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene2.unity
     guid: 6e39fdfccf075a649a39c50135627c82
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene3.unity
     guid: 576b576617b423b4fb6a7cf7c9888a3f
   m_configObjects: {}

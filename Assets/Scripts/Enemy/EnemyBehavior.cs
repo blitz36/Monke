@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public bool isActive = false;
     public float turnSpeed;
     public EnemyAttack slash;
     private MovementAgent ma;
@@ -11,7 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     private Transform target;
     public bool attacking = false;
     private Rigidbody rb;
-    public float cooldownTimer = 10f;
+    public float cooldownTimer = 3f;
     public float cooldownTime;
     void Awake() {
       est = gameObject.GetComponent<EnemyStatManager>();
@@ -29,6 +30,9 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+      if (isActive == false) {
+        return;
+      }
       if (est.isHit == true) {
         return;
       }
@@ -40,11 +44,20 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     void Update() {
+      float sqrLen = ma.sqrLen;
+      if (sqrLen < 5f) {
+        isActive = true;
+      }
+
+
+      if (isActive == false) {
+        return;
+      }
       if (est.isHit == true) {
         return;
       }
 
-      float sqrLen = ma.sqrLen;
+
       cooldownTimer -= Time.deltaTime;
       if (sqrLen < 50f) {
         if (cooldownTimer <= 0) {

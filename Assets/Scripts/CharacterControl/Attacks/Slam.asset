@@ -18,7 +18,8 @@ MonoBehaviour:
   damage: 0
   hitboxes:
   - {fileID: 2223694076572767504, guid: 51b28cad3b582074092c553d1b6b066e, type: 3}
-  startupTime: 0.1166
-  activeTime: 0.05
-  recoveryTime: 0.2
+  startupTime: 0.33
+  activeTime: 0.2
+  recoveryTime: 1
   momentum: 0
+  pst: {fileID: 0}

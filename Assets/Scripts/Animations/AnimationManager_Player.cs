@@ -20,6 +20,7 @@ public class AnimationManager_Player : MonoBehaviour
     {
         animator.SetFloat("horiz", PM.horiz);
         animator.SetFloat("vert", PM.vert);
+        animator.SetFloat("HoldTimer", PA.holdTimer);
         animator.SetInteger("isAction", PSM.priority);
         animator.SetBool("BlockState", PA.blockState);
         animator.SetInteger("ComboStep", PA.comboStep);
