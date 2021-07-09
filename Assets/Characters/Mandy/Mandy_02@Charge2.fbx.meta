@@ -1,54 +1,12 @@
 fileFormatVersion: 2
-guid: e5447634e261ea443855388c161199f5
+guid: 57e407f7fcbf1fe418002ff377a714ff
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface1
-    second: {fileID: 2100000, guid: b8095670a9abbb243b2374d272f0c609, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 9609accd60e2fcb42adadfd781e56ea7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 9609accd60e2fcb42adadfd781e56ea7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pasted__aiStandardSurface2
-    second: {fileID: 2100000, guid: b8095670a9abbb243b2374d272f0c609, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: MandyLo_aiStandardSurface1SG_BaseColor
-    second: {fileID: 2800000, guid: 15a77fefd49d4f945a74f3766aa3d08a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: MandyLo_aiStandardSurface1SG_Emissive
-    second: {fileID: 2800000, guid: d1479e9764c30a44b9fffc4f01274216, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: MandyLo_aiStandardSurface1SG_Metallic
-    second: {fileID: 2800000, guid: 97e058c15cad5f047a7eb20416e65bea, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: MandyLo_aiStandardSurface1SG_Normal
-    second: {fileID: 2800000, guid: f656c9c76dd2b334394f7ed04147ef92, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: MandyLo_aiStandardSurface1SG_Roughness
-    second: {fileID: 2800000, guid: 5e9533ab2ca5a074a97d51ec49874216, type: 3}
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -117,15 +75,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - ced95257565a18e4a9836261167cf64d
-  - 1bf312359fd1521468acf89abfec6468
-  - 57e407f7fcbf1fe418002ff377a714ff
-  - c01c46af234d03b48ac99d46dc796a1c
-  - 93ef30ea829d02343a175405c2451a51
-  - a32c1d9c0ffa7d949a8c55c463662d56
-  - 20395ad60496baf47a766274fbba5bce
-  importAnimation: 0
+  referencedClips: []
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
