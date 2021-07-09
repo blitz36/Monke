@@ -53,7 +53,7 @@ public class EnemyBehavior : MonoBehaviour
           Vector3 relativePos = target.position - transform.position;
           // the second argument, upwards, defaults to Vector3.up
           relativePos.y = 0f;
-          Quaternion rotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation,Quaternion.LookRotation(relativePos, Vector3.up), turnSpeed);
+          Quaternion rotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation,Quaternion.LookRotation(relativePos, Vector3.up), 1f);
           this.gameObject.transform.GetChild(0).localRotation = rotation;
         }
       }

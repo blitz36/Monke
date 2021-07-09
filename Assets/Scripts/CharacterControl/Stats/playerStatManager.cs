@@ -43,8 +43,9 @@ public class playerStatManager : MonoBehaviour
     }
   }
 
-  public void TakeDamage(int damage) {
+  public void TakeDamage(float damage) {
     currentHealth -= damage;
+    healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
     if (currentHealth <= 0) {
       //do death stuff here
     }
