@@ -12,35 +12,35 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  -
   - Water
   - UI
-  - ' '
+  -
   - Interactable
   - Player
   - Enemy
   - Terrain
-  - EnemyHitbox
+  - Ground
+  - Wall
   - EnemyHurtbox
-  - PlayerHitbox
+  - EnemyHitbox
   - PlayerHurtbox
+  - PlayerHitbox
+  -
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
   m_SortingLayers:
   - name: Default
     uniqueID: 0
