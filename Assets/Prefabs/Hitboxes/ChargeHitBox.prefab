@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6897564340925293673}
   - component: {fileID: 3884552739155710226}
   - component: {fileID: 2372264765427587335}
-  m_Layer: 16
+  m_Layer: 13
   m_Name: ChargeHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  momentum: 0
 --- !u!33 &3884552739155710226
 MeshFilter:
   m_ObjectHideFlags: 0
