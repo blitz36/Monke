@@ -8,6 +8,7 @@ public class HitboxController : MonoBehaviour
   public float momentum;
 
     private void OnTriggerEnter(Collider collider) {
+        Debug.Log(collider);
       EnemyStatManager est = collider.transform.GetComponent<EnemyStatManager>();
       est.TakeDamage(damage);
       var moveDirection = transform.position - collider.transform.position;
