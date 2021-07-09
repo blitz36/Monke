@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: NewRenderObjects
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_Active: 1
   settings:
     passTag: NewRenderObjects
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: NewRenderObjects
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_Active: 1
   settings:
     passTag: NewRenderObjects
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: NewRenderObjects
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_Active: 1
   settings:
     passTag: NewRenderObjects
@@ -128,13 +128,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
   m_Name: Toony
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_RendererFeatures:
   - {fileID: -4580574938982366864}
   - {fileID: 2633761426757548636}
   - {fileID: -7370545648702959527}
-  - {fileID: -3226093631193585140}
-  m_RendererFeatureMap: 7041e6a65c876ec05c7a023910008d2459504288c88fb6990c6a8e5cef9c3ad3
+  m_RendererFeatureMap: 7041e6a65c876ec05c7a023910008d2459504288c88fb699
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -174,7 +173,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: NewRenderObjects
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   m_Active: 1
   settings:
     passTag: NewRenderObjects
