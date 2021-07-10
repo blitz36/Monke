@@ -14,7 +14,6 @@ namespace characterStats {
       public readonly ReadOnlyCollection<StatModifier> StatModifiers;  //public version to show stats
       protected bool isDirty = true;
       protected float _value;
-      public readonly ReadOnlyCollection<float> _Value;  //public version to show stats
 
       public CharacterStat()
       {

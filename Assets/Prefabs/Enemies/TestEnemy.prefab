@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4940459600775383209}
   m_Layer: 12
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   speed: 8
   rng: 0
   targetPosition: {fileID: 0}
+  numDanger: 0
   AStar: {fileID: 0}
   numRays: 16
   interest: []
@@ -221,8 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305e3fd31d1ff6f4ab2d7f46514cdd52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   turnSpeed: 0.005
-  slash: {fileID: 11400000, guid: 6b5c741ae9212514d905b4779a674999, type: 2}
+  attack: {fileID: 3055050922304087969, guid: 22b5163cc1a4f91439d0292bffd9e892, type: 3}
   attacking: 0
   cooldownTimer: 10
   cooldownTime: 5

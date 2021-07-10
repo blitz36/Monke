@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
   public static Inventory instance;
 
   void Awake() {
+    pStatManager = gameObject.GetComponent<playerStatManager>();
     if (instance != null) {
       Debug.LogWarning("More than 1 inventory found");
     }
