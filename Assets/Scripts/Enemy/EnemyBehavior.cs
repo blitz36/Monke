@@ -6,7 +6,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     public bool isActive = false;
     public float turnSpeed;
-    public EnemyAttack slash;
+    public GameObject attack;
+    private EnemyAttack slash;
     private MovementAgent ma;
     private EnemyStatManager est;
     private Transform target;
@@ -16,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour
     public float cooldownTime;
     void Awake() {
       est = gameObject.GetComponent<EnemyStatManager>();
+      slash = attack.GetComponent<EnemyAttacks>();
     }
 
     // Start is called before the first frame update

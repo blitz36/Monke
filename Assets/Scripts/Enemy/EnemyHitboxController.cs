@@ -8,12 +8,12 @@ public class EnemyHitboxController : MonoBehaviour
   public float momentum;
 
     private void OnTriggerEnter(Collider collider) {
-    //  if (collider.tag == "Player")
-    //  {
+      if (collider.tag == "Player")
+      {
         playerStatManager pst = collider.transform.GetComponent<playerStatManager>();
         pst.TakeDamage(damage);
         var moveDirection = transform.position - collider.transform.position;
-    //  }
+      }
   //    pst.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
     }
 

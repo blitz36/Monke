@@ -9,6 +9,8 @@ public class MovementAgent : MonoBehaviour
     public int rng;
     public Transform targetPosition; //the target to move towards
 
+    public int numDanger;
+
     public AStarPath AStar;
     private Rigidbody rb;
 
@@ -33,6 +35,11 @@ public class MovementAgent : MonoBehaviour
     //sqrLen is square length easier computationally then doing distance because of sqr call
     public float stopDistance;
     public float sqrLen;
+
+    void Awake(){
+      if (targetPosition == null)
+        targetPosition = GameObject.FindWithTag("Player").transform;
+    }
 
     void Start()
     {
@@ -64,7 +71,7 @@ public class MovementAgent : MonoBehaviour
       else if (sqrLen > 1.5f) {
         inRange = false;
       }
-
+      numDanger = 0;
       //find the context to inform the steering
       setInterest();
       setDanger();
@@ -97,6 +104,7 @@ public class MovementAgent : MonoBehaviour
           {
             Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, Color.red);
             danger[i] = true;
+            numDanger += 1;
         }
         else {
           danger[i] = false;
@@ -144,18 +152,19 @@ public class MovementAgent : MonoBehaviour
 
       //To encourage more avoiding behavior, weights are added if there is danger detected in a direction. The opposite direction has its weights increased then to
       //prefer avoiding enemies. Then a shaping function is done which will favor moving angled rather than direction back, to give smoother movement.
-      if (danger[index] == true) {
-        for (int j = 0; j < numRays; j++) {
-          float dp = (Vector3.Dot(Quaternion.Euler(0, rayDirections[index], 0) * transform.forward, Quaternion.Euler(0, rayDirections[j], 0) * transform.forward))*-1f;
-          dp = Mathf.Max(0, dp);
-          if (dp > 0) {
-            dp = 1.0f - Mathf.Abs(dp - 0.65f);
+      if (numDanger < numRays/2) {
+        if (danger[index] == true) {
+          for (int j = 0; j < numRays; j++) {
+            float dp = (Vector3.Dot(Quaternion.Euler(0, rayDirections[index], 0) * transform.forward, Quaternion.Euler(0, rayDirections[j], 0) * transform.forward))*-1f;
+            dp = Mathf.Max(0, dp);
+            if (dp > 0) {
+              dp = 1.0f - Mathf.Abs(dp - 0.65f);
+            }
+            dp *= 0.1f;
+            interest[j] += dp;
           }
-          dp *= 0.1f;
-          interest[j] += dp;
         }
       }
-
       //As two sides will have exactly the same dot product, there must be a way to chose one over another. As a result this is made
       //The side that has gone last will be more likely to be chosen. This is done by making everything on the opposite side lessed
       //so that in the case that there are no other options, the other direction can still be taken.

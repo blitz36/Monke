@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyAttack : ScriptableObject
-{
-  new public string name = "New Attack";
+public abstract class EnemyAttack : MonoBehaviour {
   public Sprite icon = null;
   public string description;
   public int damage;
