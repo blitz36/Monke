@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64256fb90d6771b459eab08523a1178f, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  name: Slam
+  icon: {fileID: 0}
+  description: 
+  damage: 0
+  hitboxes:
+  - {fileID: 2223694076572767504, guid: 51b28cad3b582074092c553d1b6b066e, type: 3}
+  State: 0
+  Timer: 0
+  startupTime: 1
+  activeTime: 0.1
+  recoveryTime: 0.33
+  momentum: 0
+  pst: {fileID: 0}

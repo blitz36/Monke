@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - Canvas
+  - Terrain
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -13,15 +15,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - ' '
+  - Interactable
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Terrain
+  - EnemyHitbox
+  - EnemyHurtbox
+  - PlayerHitbox
+  - PlayerHurtbox
   - 
   - 
   - 
