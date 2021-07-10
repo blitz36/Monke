@@ -21,6 +21,6 @@ MonoBehaviour:
   State: 0
   startupTime: 0.2
   activeTime: 0.05
-  recoveryTime: 0.4
+  recoveryTime: 0.2
   momentum: 25
   pst: {fileID: 0}

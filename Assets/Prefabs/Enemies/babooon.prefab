@@ -309,8 +309,8 @@ MonoBehaviour:
   turnSpeed: 1
   attack: {fileID: 5697108456194106051}
   attacking: 0
-  cooldownTimer: 10
-  cooldownTime: 5
+  cooldownTimer: 3
+  cooldownTime: 2
 --- !u!114 &824523593408702486
 MonoBehaviour:
   m_ObjectHideFlags: 0

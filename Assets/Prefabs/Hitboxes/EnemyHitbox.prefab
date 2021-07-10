@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 319989470948986796}
   m_Layer: 11
   m_Name: EnemyHitbox
-  m_TagString: Weapon
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
