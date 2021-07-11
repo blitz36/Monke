@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - Terrain
   - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - ' '
+  - Grass
   - Interactable
   - Player
   - Enemy

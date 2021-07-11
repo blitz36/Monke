@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: NewRenderObjects
-    Event: 500
+    Event: 450
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -54,12 +54,12 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: NewRenderObjects
-    Event: 500
+    Event: 450
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 24215
+        m_Bits: 24279
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 8eb0603ccb02f384f982be650f5a07a4, type: 2}
     overrideMaterialPassIndex: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: NewRenderObjects
-    Event: 500
+    Event: 450
     filterSettings:
       RenderQueueType: 0
       LayerMask:
