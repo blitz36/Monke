@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  momentum: 0
+  momentum: -25
 --- !u!1 &3276082088094625188
 GameObject:
   m_ObjectHideFlags: 0

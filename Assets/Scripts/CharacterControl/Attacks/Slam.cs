@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Attack", menuName = "Attacks/Slam")]
 public class Slam : Attack
 {
-    private int State;
-    private float Timer;
+    public int State;
+    public float Timer;
     private GameObject slamHitbox;
     public float startupTime;
     public float activeTime;
@@ -39,7 +39,6 @@ public class Slam : Attack
       switch (State) {
         case 0: //Starting/idle state
 
-
           if (bufferAttack) //if slashing or a slash is buffered then perform the action
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
@@ -55,11 +54,12 @@ public class Slam : Attack
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-              slamHitbox.SetActive(true);
+
               bufferAttack = false;
               State = 1;
               priority = 2;
               Timer = 0;
+
           }
         }
         break;
@@ -73,11 +73,13 @@ public class Slam : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
+            slamHitbox.SetActive(true);
           }
           break;
 
         case 2: //Active
           //stop all momentum at this point
+
           rb.velocity = new Vector3(0f,0f,0f);
 
 

@@ -21,7 +21,7 @@ public class PlayerAttacks : MonoBehaviour
   public Attack attack2;
   public Attack attack3;
   public Attack slam;
-  public Attack block;
+  public Block block;
 
   private Rigidbody rb;
 
@@ -50,23 +50,26 @@ public class PlayerAttacks : MonoBehaviour
   // Start is called before the first frame update
   void Awake()
   {
+    rb = GetComponent<Rigidbody>();
+    pStatManager = gameObject.GetComponent<playerStatManager>();
     equip.createHitbox(transform);
     attack.createHitbox(transform);
     attack2.createHitbox(transform);
     attack3.createHitbox(transform);
     slam.createHitbox(transform);
     block.createHitbox(transform);
-    cancelAttackFunctions += equip.Cancel;
-    cancelAttackFunctions += slam.Cancel;
-    cancelAttackFunctions += attack.Cancel;
-    cancelAttackFunctions += attack2.Cancel;
-    cancelAttackFunctions += attack3.Cancel;
-//    timeToBuffer = attack.totalTime() - timeBeforeBuffer;
-//    timeToBuffer2 = attack2.totalTime() - timeBeforeBuffer;
-//    timeToBuffer3 = attack3.totalTime() - timeBeforeBuffer;
-    cancelAttackFunctions += block.Cancel;
-    rb = GetComponent<Rigidbody>();
-    pStatManager = gameObject.GetComponent<playerStatManager>();
+
+    if (cancelAttackFunctions == null) {
+      cancelAttackFunctions += equip.Cancel;
+      cancelAttackFunctions += slam.Cancel;
+      cancelAttackFunctions += attack.Cancel;
+      cancelAttackFunctions += attack2.Cancel;
+      cancelAttackFunctions += attack3.Cancel;
+  //    timeToBuffer = attack.totalTime() - timeBeforeBuffer;
+  //    timeToBuffer2 = attack2.totalTime() - timeBeforeBuffer;
+  //    timeToBuffer3 = attack3.totalTime() - timeBeforeBuffer;
+      cancelAttackFunctions += block.Cancel;
+    }
   }
 
   // Update is called once per frame
@@ -139,8 +142,8 @@ public class PlayerAttacks : MonoBehaviour
         break;
 
         case -2:
-        setComboTimer(0.3f, 0);
         chargeAttack = false;
+        setComboTimer(comboRecoveryTime, 0);
         break;
       }
     }
@@ -156,7 +159,7 @@ public class PlayerAttacks : MonoBehaviour
             break;
           case 3:
             cancelAttackFunctions -= equip.Cancel;
-            cancelAttackFunctions();
+          //  cancelAttackFunctions();
             cancelAttackFunctions += equip.Cancel;
             break;
           case 11:
@@ -183,10 +186,13 @@ public class PlayerAttacks : MonoBehaviour
   void checkAttacks() {
     if (pStatManager.priority > 1) return;
 
+    if (Input.GetMouseButtonDown(0)) {
+      holdTimer = 0f;
+    }
+
     if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge attack.
       holdTimer += Time.deltaTime;
       if (holdTimer >= tapThreshold) {
-        PlayerMovement.isAction = true;
         rb.velocity = new Vector3(0, 0, 0);
         if (holdTimer > maxCharge) {
           chargePercent += Time.deltaTime;
@@ -200,9 +206,7 @@ public class PlayerAttacks : MonoBehaviour
     if (Input.GetMouseButtonUp(0)) {
       if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
         chargeAttack = true;
-    //    if (holdTimer > maxCharge/2 && holdTimer <) {
 
-      //  }
       }
       bufferAttack = true;
       holdTimer = 0f;

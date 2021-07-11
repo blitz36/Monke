@@ -152,7 +152,7 @@ public class MovementAgent : MonoBehaviour
 
       //To encourage more avoiding behavior, weights are added if there is danger detected in a direction. The opposite direction has its weights increased then to
       //prefer avoiding enemies. Then a shaping function is done which will favor moving angled rather than direction back, to give smoother movement.
-      if (numDanger < numRays/2) {
+      if (numDanger < numRays/3) {
         if (danger[index] == true) {
           for (int j = 0; j < numRays; j++) {
             float dp = (Vector3.Dot(Quaternion.Euler(0, rayDirections[index], 0) * transform.forward, Quaternion.Euler(0, rayDirections[j], 0) * transform.forward))*-1f;

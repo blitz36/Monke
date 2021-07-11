@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072297998958147004}
   - component: {fileID: 6072297998958147005}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Activate State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 6072297999173075333}
   - component: {fileID: 6072297999173075332}
   - component: {fileID: 6072297999173075358}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072297999710027614}
   - component: {fileID: 6072297999710027615}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Status indicator light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072297999883915119}
   - component: {fileID: 6072297999883915116}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Knockback State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 6072297999977552072}
   - component: {fileID: 6072297999977552079}
   - component: {fileID: 6072297999977552078}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6072298000068095043}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 6072298000105482598}
   - component: {fileID: 6072298000105482599}
   - component: {fileID: 6072298000105482596}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Chase State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072298000191842622}
   - component: {fileID: 6072298000191842623}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Idle State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2885430792953306048}
   - component: {fileID: 2581658870171866625}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Detoante State
   m_TagString: Untagged
   m_Icon: {fileID: 0}

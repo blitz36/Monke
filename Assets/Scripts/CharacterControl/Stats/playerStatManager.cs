@@ -16,6 +16,7 @@ public class playerStatManager : MonoBehaviour
   public GameObject healthBarPrefab;
   GameObject healthBar;
   Transform target;
+  private PlayerAttacks pa;
   // Start is called before the first frame update
   void Start()
   {
@@ -23,6 +24,7 @@ public class playerStatManager : MonoBehaviour
       healthBar.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
       currentHealth = maxHealth.Value;
       healthBar.GetComponent<HealthBar>().SetMaxHealth(maxHealth.Value);
+      pa = gameObject.GetComponent<PlayerAttacks>();
       updateDmgValues();
       Invoke("updateDmgValues", 2f);
 
@@ -42,8 +44,19 @@ public class playerStatManager : MonoBehaviour
     }
   }
 
-  public void TakeDamage(float damage) {
-    currentHealth -= damage;
+  public void TakeDamage(float damage, Vector3 pos) {
+
+    float parryTime = pa.block.returnParryTime();
+    Debug.Log(parryTime);
+    Vector3 forward = transform.forward;
+    Vector3 toOther = pos - transform.position;
+    if (pa.blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
+      currentHealth -= damage * 0.9f;
+      Debug.Log("BLOCKED");
+    }
+    else {
+      currentHealth -= damage;
+    }
     healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
     if (currentHealth <= 0) {
       //do death stuff here

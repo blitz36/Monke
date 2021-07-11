@@ -8,11 +8,6 @@ public class SpawnersCluster
     public bool syncTrigger;
     public bool syncLocation;
     public bool syncMaxWaves;
-
-
-
-
-
     public int maxWaves;
 
     public List<GameObject> Spawner;

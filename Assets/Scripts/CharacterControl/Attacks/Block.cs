@@ -8,10 +8,15 @@ public class Block : Attack
     public int State;
     public float Timer;
     private GameObject blockHitbox;
+    private BlockHitbox bh;
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
     public float momentum;
+
+    public float returnParryTime() {
+      return bh.releaseTime;
+    }
 
     public override float totalTime() {
       return startupTime + activeTime + recoveryTime;
@@ -28,7 +33,7 @@ public class Block : Attack
         blockHitbox = Instantiate(hitbox);
         blockHitbox.transform.parent = Player;
         blockHitbox.transform.localPosition = new Vector3(0,0,0);
-
+        bh = blockHitbox.GetComponent<BlockHitbox>();
         blockHitbox.SetActive(false);
       }
 
