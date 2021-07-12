@@ -2018,9 +2018,9 @@ MonoBehaviour:
     brushes:
     - name: Grass_1
       settings:
-        brushRadius: 1
+        brushRadius: 13.13
         brushSpacing: 0.5
-        brushOverlapCheckMode: 0
+        brushOverlapCheckMode: 1
         brushOverlapDistance: 0.5
         brushOverlapCheckObjects: 1
         brushOverlapCheckLayers:
@@ -2036,8 +2036,8 @@ MonoBehaviour:
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleUniformMin: 2
+        scaleUniformMax: 3
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -2146,7 +2146,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
     - name: Grass_2
       settings:
@@ -2806,7 +2806,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
     - name: TallGrass_3
       settings:
