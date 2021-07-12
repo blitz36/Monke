@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 6072297999173075333}
   - component: {fileID: 6072297999173075332}
   - component: {fileID: 6072297999173075358}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,5 +619,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9353193203a3549b4503b1766cd5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTimer: 0.3
+  countdownTimer: 0.01
   explosionEffect: {fileID: 4282347790149408419, guid: 2e84f491381eb284c853998774a94971, type: 3}
