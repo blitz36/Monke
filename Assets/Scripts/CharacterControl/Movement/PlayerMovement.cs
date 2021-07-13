@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
   //You can only move while not dashing or isnt fighting isAction checks for fighting
   //normal running stuff
   void performMovement(float horiz, float vert) {
-      if (pStatManager.priority < 1){
+      if (pStatManager.priority < 1 && pStatManager.pa.holdTimer <= 0){
       //  lookAtMouse();//always look towards mouse
 
         //if there is any direction inputs, run in that direction
@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
                    {
                      if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
                        PlayerAttacks.cancelAttackFunctions();
+                       pStatManager.pa.chargeAttack = false;
                        pStatManager.priority = 10;
                        //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                        Vector3 fVelocity = new Vector3(horiz, rb.velocity.y, vert);

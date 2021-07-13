@@ -7,25 +7,26 @@ public class Equip_BFG : Equipable
 {
     private int State;
     private float Timer;
-    private GameObject laser;
-    private playerStatManager pst;
+    private List<GameObject> laser;
 
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      laser.SetActive(false);
-      PlayerMovement.isAction = false;
+      foreach (GameObject hitbox in laser) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
+    public override List<GameObject> createHitbox(Transform Player) {
+      laser.Clear();
       foreach (GameObject hitbox in hitboxes) {
-        laser = Instantiate(hitbox);
-        laser.transform.parent = Player;
-        laser.transform.localPosition = new Vector3(0,0,0);
-        pst = Player.gameObject.GetComponent<playerStatManager>();
-        pst.hitboxes.Add(laser);
-        laser.SetActive(false);
+        laser.Add(Instantiate(hitbox));
+        laser[laser.Count-1].transform.parent = Player;
+        laser[laser.Count-1].transform.localPosition = new Vector3(0,0,0);
+        laser[laser.Count-1].SetActive(false);
+
       }
+      return laser;
 
     }
     public override void Activate(Rigidbody rb, Plane plane, GameObject gameObject, ref int priority) {
@@ -47,7 +48,7 @@ public class Equip_BFG : Equipable
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-                  laser.SetActive(true);
+                  laser[0].SetActive(true);
                   State = 1;
                   Timer = 0;
                   priority = 3;
@@ -78,7 +79,7 @@ public class Equip_BFG : Equipable
           {
               Timer = 0f;
               State = -1;
-              laser.SetActive(false);
+              laser[0].SetActive(false);
           }
           break;
 

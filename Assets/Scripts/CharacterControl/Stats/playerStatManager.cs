@@ -6,6 +6,11 @@ using characterStats;
 public class playerStatManager : MonoBehaviour
 {
   public List<GameObject> hitboxes = new List<GameObject>();
+  public List<Attack> lightAttack;
+  public Block block;
+  public Attack heavyAttack;
+  public Equipable equip;
+
 
   public CharacterStat maxHealth = new CharacterStat(100f);
   public CharacterStat baseDamage = new CharacterStat(10f);
@@ -16,7 +21,7 @@ public class playerStatManager : MonoBehaviour
   public GameObject healthBarPrefab;
   GameObject healthBar;
   Transform target;
-  private PlayerAttacks pa;
+  public PlayerAttacks pa;
   // Start is called before the first frame update
   void Start()
   {

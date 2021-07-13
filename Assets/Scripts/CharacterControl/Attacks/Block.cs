@@ -7,7 +7,7 @@ public class Block : Attack
 {
     public int State;
     public float Timer;
-    private GameObject blockHitbox;
+    private List<GameObject> blockHitbox;
     private BlockHitbox bh;
     public float startupTime;
     public float activeTime;
@@ -25,17 +25,21 @@ public class Block : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      blockHitbox.SetActive(false);
+      foreach (GameObject hitbox in blockHitbox) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
+    public override List<GameObject> createHitbox(Transform Player) {
+      blockHitbox.Clear();
       foreach (GameObject hitbox in hitboxes) {
-        blockHitbox = Instantiate(hitbox);
-        blockHitbox.transform.parent = Player;
-        blockHitbox.transform.localPosition = new Vector3(0,0,0);
-        bh = blockHitbox.GetComponent<BlockHitbox>();
-        blockHitbox.SetActive(false);
+        blockHitbox.Add(Instantiate(hitbox));
+        blockHitbox[blockHitbox.Count-1].transform.parent = Player;
+        blockHitbox[blockHitbox.Count-1].transform.localPosition = new Vector3(0,0,0);
+        bh = blockHitbox[blockHitbox.Count-1].GetComponent<BlockHitbox>();
+        blockHitbox[blockHitbox.Count-1].SetActive(false);
       }
+      return blockHitbox;
 
     }
     public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool blockState, ref int priority, ref int comboStep, int nextStep) {
@@ -60,7 +64,7 @@ public class Block : Attack
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-              blockHitbox.SetActive(true);
+              blockHitbox[0].SetActive(true);
               blockState = true;
               priority = 11;
               State = 1;
@@ -86,7 +90,7 @@ public class Block : Attack
           {
               Timer = 0f;
               State = -1;
-              blockHitbox.SetActive(false);
+              blockHitbox[0].SetActive(false);
               blockState = false;
 
           }
