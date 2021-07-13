@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-  playerStatManager pStatManager;
+  playerStatManager pst;
   public float comboRecoveryTime;
   public float comboBreak;
   public float comboBreak2;
@@ -15,12 +15,10 @@ public class PlayerAttacks : MonoBehaviour
   public float timeBeforeBuffer;
   private float dontBufferTimer = 0f;
 
-  //equiable items + each attack. Maybe should turn the attacks into a list later?
+  //equiable items + each lightAttack. Maybe should turn the lightAttacks into a list later?
   public Equipable equip;
-  public Attack attack;
-  public Attack attack2;
-  public Attack attack3;
-  public Attack slam;
+  public List<Attack> lightAttack;
+  public Attack heavyAttack;
   public Block block;
 
   private Rigidbody rb;
@@ -35,7 +33,7 @@ public class PlayerAttacks : MonoBehaviour
   public float comboTimer;
 
 
-  //related to the charge attack and differentiating between tap and hold
+  //related to the charge lightAttack and differentiating between tap and hold
   public float holdTimer = 0f;
   public float tapThreshold;
   public float chargePercent;
@@ -51,47 +49,51 @@ public class PlayerAttacks : MonoBehaviour
   void Awake()
   {
     rb = GetComponent<Rigidbody>();
-    pStatManager = gameObject.GetComponent<playerStatManager>();
-    equip.createHitbox(transform);
-    attack.createHitbox(transform);
-    attack2.createHitbox(transform);
-    attack3.createHitbox(transform);
-    slam.createHitbox(transform);
+    pst = gameObject.GetComponent<playerStatManager>();
     block.createHitbox(transform);
 
     if (cancelAttackFunctions == null) {
       cancelAttackFunctions += equip.Cancel;
-      cancelAttackFunctions += slam.Cancel;
-      cancelAttackFunctions += attack.Cancel;
-      cancelAttackFunctions += attack2.Cancel;
-      cancelAttackFunctions += attack3.Cancel;
-  //    timeToBuffer = attack.totalTime() - timeBeforeBuffer;
-  //    timeToBuffer2 = attack2.totalTime() - timeBeforeBuffer;
-  //    timeToBuffer3 = attack3.totalTime() - timeBeforeBuffer;
+      cancelAttackFunctions += heavyAttack.Cancel;
+      cancelAttackFunctions += lightAttack[0].Cancel;
+      cancelAttackFunctions += lightAttack[1].Cancel;
+      cancelAttackFunctions += lightAttack[2].Cancel;
+  //    timeToBuffer = lightAttack.totalTime() - timeBeforeBuffer;
+  //    timeToBuffer2 = lightAttack2.totalTime() - timeBeforeBuffer;
+  //    timeToBuffer3 = lightAttack3.totalTime() - timeBeforeBuffer;
       cancelAttackFunctions += block.Cancel;
     }
+  }
+
+  void Start() {
+    refreshEquips();
   }
 
   // Update is called once per frame
   void Update()
   {
-    timeToBuffer = attack.totalTime() - timeBeforeBuffer;
-    timeToBuffer2 = attack2.totalTime() - timeBeforeBuffer;
-    timeToBuffer3 = attack3.totalTime() - timeBeforeBuffer;
+    timeToBuffer = lightAttack[0].totalTime() - timeBeforeBuffer;
+    timeToBuffer2 = lightAttack[1].totalTime() - timeBeforeBuffer;
+    timeToBuffer3 = lightAttack[2].totalTime() - timeBeforeBuffer;
+
+    //IF ITS A NEW COMBO STEP, THEN RESET THE COMBO TIMER BACK TO 0 THAT WAY COMBO TIMER DOESNT LEAK OVER
     if (comboStep != comboStepDB) {
       comboTimer = 0f;
       comboStepDB = comboStep;
     }
 
-    if (pStatManager.priority < 3 || pStatManager.priority == 11){
-      block.PerformAttack(rb, plane, gameObject, ref blockState, ref pStatManager.priority, ref comboStep, 0);
+    //BLOCK LOGIC
+    if (pst.priority < 3 || pst.priority == 11){
+      block.PerformAttack(rb, plane, gameObject, ref blockState, ref pst.priority, ref comboStep, 0);
     }
 
-    if (pStatManager.priority < 4) {
-      equip.Activate(rb, plane, gameObject, ref pStatManager.priority);
+    //EQUIP LOGIC
+    if (pst.priority < 4) {
+      equip.Activate(rb, plane, gameObject, ref pst.priority);
     }
 
-    if (pStatManager.priority == 1) {
+    //LOGIC ON WHEN TO BE ABLE TO QUEUE UP NEW LIGHT AND HEAVY ATTACKS
+    if (pst.priority == 1) {
       dontBufferTimer += Time.deltaTime;
       if (dontBufferTimer > timeToBuffer && comboStep == 0) {
         checkAttacks();
@@ -108,54 +110,45 @@ public class PlayerAttacks : MonoBehaviour
       checkAttacks();
     }
 
-    if (chargeAttack == true && pStatManager.priority < 3) {
-      slam.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, -2);
+
+    //HEAVY ATTACK LOGIC
+    if (chargeAttack == true && pst.priority < 3) {
+      heavyAttack.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pst.priority, ref comboStep, -2);
     }
 
-    if (pStatManager.priority < 2) {
-      //Steps along the combo chain negative means recovery time
-      //Case 0: first swing to start combo
-      //Case 1: second swing on the combo
-      //case 2: last hit
-      //case -1 to -3, different recovery phases dependent on which part of the combo you broke out
-      switch(comboStep) {
-        case 0:
-          attack.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, 1);
-        break;
 
-        case 1:
-          attack2.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, 2);
-        if (pStatManager.priority != 1) {
-          setComboTimer(comboBreak, 0); //how much time before combo breaks
+    //LIGHT ATTACK LOGIC
+    if (pst.priority < 2) {
+
+      if (comboStep >= 0) {
+        int newComboStep = 0;
+        if (comboStep > lightAttack.Count-2) {
+          newComboStep = -1;
         }
-        break;
-
-        case 2:
-          attack3.PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pStatManager.priority, ref comboStep, -1);
-        if (pStatManager.priority != 1) {
-          setComboTimer(comboBreak2, 0); //how much time before combo breaks
+        else {
+          newComboStep = comboStep + 1;
         }
-        break;
 
-        case -1:
-        setComboTimer(comboRecoveryTime, 0);
-        break;
-
-        case -2:
-        chargeAttack = false;
-        setComboTimer(comboRecoveryTime, 0);
-        break;
+        lightAttack[comboStep].PerformAttack(rb, plane, gameObject, ref bufferAttack, ref pst.priority, ref comboStep, newComboStep);
       }
+
+      if (pst.priority != 1 && comboStep > 0) {
+        setComboTimer(comboBreak, 0); //how much time before combo breaks
+      }
+      else if (comboStep < 0) {
+          setComboTimer(comboRecoveryTime, 0);
+          chargeAttack = false;
+        }
     }
 
-    if (pStatManager.priority != oldPriority) {
-      oldPriority = pStatManager.priority;
-      if (oldPriority > 1 && pStatManager.priority > 1) {
-        switch(pStatManager.priority) {
+    if (pst.priority != oldPriority) {
+      oldPriority = pst.priority;
+      if (oldPriority > 1 && pst.priority > 1) {
+        switch(pst.priority) {
           case 2:
-            cancelAttackFunctions -= slam.Cancel;
+            cancelAttackFunctions -= heavyAttack.Cancel;
             cancelAttackFunctions();
-            cancelAttackFunctions += slam.Cancel;
+            cancelAttackFunctions += heavyAttack.Cancel;
             break;
           case 3:
             cancelAttackFunctions -= equip.Cancel;
@@ -170,7 +163,6 @@ public class PlayerAttacks : MonoBehaviour
         }
       }
     }
-
   }
 
   //setting a time before moving to the next step in the combo
@@ -182,15 +174,15 @@ public class PlayerAttacks : MonoBehaviour
     }
   }
 
-  //Function to buffer attacks and check for charge attacks
+  //Function to buffer lightAttacks and check for charge lightAttacks
   void checkAttacks() {
-    if (pStatManager.priority > 1) return;
+    if (pst.priority > 1) return;
 
     if (Input.GetMouseButtonDown(0)) {
       holdTimer = 0f;
     }
 
-    if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge attack.
+    if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge lightAttack.
       holdTimer += Time.deltaTime;
       if (holdTimer >= tapThreshold) {
         rb.velocity = new Vector3(0, 0, 0);
@@ -204,7 +196,7 @@ public class PlayerAttacks : MonoBehaviour
       comboTimer = 0f;
     }
     if (Input.GetMouseButtonUp(0)) {
-      if (holdTimer >= tapThreshold) { //do charge attack if tapthreshold is met
+      if (holdTimer >= tapThreshold) { //do charge lightAttack if tapthreshold is met
         chargeAttack = true;
 
       }
@@ -212,6 +204,13 @@ public class PlayerAttacks : MonoBehaviour
       holdTimer = 0f;
     }
     //  }
+  }
+
+  public void refreshEquips() {
+    lightAttack = pst.lightAttack;
+    block = pst.block;
+    heavyAttack = pst.heavyAttack;
+    equip = pst.equip;
   }
 
 }

@@ -6,6 +6,11 @@ using characterStats;
 public class playerStatManager : MonoBehaviour
 {
   public List<GameObject> hitboxes = new List<GameObject>();
+  public List<Attack> lightAttack;
+  public Block block;
+  public Attack heavyAttack;
+  public Equipable equip;
+
 
   public CharacterStat maxHealth = new CharacterStat(100f);
   public CharacterStat baseDamage = new CharacterStat(10f);

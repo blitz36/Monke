@@ -7,7 +7,7 @@ public class Slam : Attack
 {
     public int State;
     public float Timer;
-    private GameObject slamHitbox;
+    private List<GameObject> slamHitbox;
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -21,18 +21,20 @@ public class Slam : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      slamHitbox.SetActive(false);
+      foreach (GameObject hitbox in slamHitbox) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
+    public override List<GameObject> createHitbox(Transform Player) {
+      slamHitbox.Clear();
       foreach (GameObject hitbox in hitboxes) {
-        slamHitbox = Instantiate(hitbox);
-        slamHitbox.transform.parent = Player;
-        slamHitbox.transform.localPosition = new Vector3(0,0,0);
-        slamHitbox.SetActive(false);
-        pst = Player.gameObject.GetComponent<playerStatManager>();
-        pst.hitboxes.Add(slamHitbox);
+        slamHitbox.Add(Instantiate(hitbox));
+        slamHitbox[slamHitbox.Count-1].transform.parent = Player;
+        slamHitbox[slamHitbox.Count-1].transform.localPosition = new Vector3(0,0,0);
+        slamHitbox[slamHitbox.Count-1].SetActive(false);
       }
+      return slamHitbox;
 
     }
     public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
@@ -73,7 +75,7 @@ public class Slam : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
-            slamHitbox.SetActive(true);
+            slamHitbox[0].SetActive(true);
           }
           break;
 
@@ -89,7 +91,7 @@ public class Slam : Attack
           {
               Timer = 0f;
               State = -1;
-              slamHitbox.SetActive(false);
+              slamHitbox[0].SetActive(false);
           }
           break;
 

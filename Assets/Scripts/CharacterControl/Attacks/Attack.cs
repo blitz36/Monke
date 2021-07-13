@@ -11,7 +11,7 @@ public abstract class Attack : ScriptableObject
   public List<GameObject> hitboxes;
 
   public abstract float totalTime();
-  public abstract void createHitbox(Transform Player);
+  public abstract List<GameObject> createHitbox(Transform Player);
   public abstract void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep);
   public abstract void Cancel();
 }
