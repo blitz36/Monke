@@ -45,25 +45,13 @@ public class Slam : Attack
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
               rb.velocity = new Vector3(0, 0, 0);
-              var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-              float enter;
-              if (plane.Raycast(ray, out enter))
-              {
-                  var hitPoint = ray.GetPoint(enter);
-                  var mouseDir = hitPoint - gameObject.transform.position;
-                  mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
-                  gameObject.transform.LookAt (hitPoint);
-                  gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
-
-
+              rb.AddForce(Vector3.forward * momentum, ForceMode.Impulse);
               bufferAttack = false;
               State = 1;
               priority = 2;
               Timer = 0;
 
           }
-        }
         break;
 
         case 1: //start up

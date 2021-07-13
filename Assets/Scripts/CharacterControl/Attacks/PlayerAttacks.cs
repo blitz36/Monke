@@ -27,6 +27,7 @@ public class PlayerAttacks : MonoBehaviour
 
   public bool bufferAttack; //in order to be able to buffer commands before cooldown is up
   public bool blockState = false; // to check which phase of the block it is in
+  private Vector3 faceDirection;
 
   //steps in the combo and timers for combos breaking
   public int comboStep = 0;
@@ -180,18 +181,31 @@ public class PlayerAttacks : MonoBehaviour
 
     if (Input.GetMouseButtonDown(0)) {
       holdTimer = 0f;
+      var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+      float enter;
+      if (plane.Raycast(ray, out enter))
+      {
+          var hitPoint = ray.GetPoint(enter);
+          var mouseDir = hitPoint - gameObject.transform.position;
+          mouseDir = mouseDir.normalized;
+          gameObject.transform.LookAt (hitPoint);
+          faceDirection = new Vector3(0, gameObject.transform.eulerAngles.y,0);
+          }
     }
 
     if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge lightAttack.
       holdTimer += Time.deltaTime;
       if (holdTimer >= tapThreshold) {
+        gameObject.transform.eulerAngles = faceDirection;
         rb.velocity = new Vector3(0, 0, 0);
+        /*
         if (holdTimer > maxCharge) {
           chargePercent += Time.deltaTime;
           chargeAttack = true;
           bufferAttack = true;
           holdTimer = 0f;
         }
+        */
       }
       comboTimer = 0f;
     }

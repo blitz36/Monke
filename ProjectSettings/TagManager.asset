@@ -9,6 +9,7 @@ TagManager:
   - Terrain
   - Ground
   - Enemy
+  - SettingsMenu
   layers:
   - Default
   - TransparentFX

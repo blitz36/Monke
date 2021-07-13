@@ -21,7 +21,7 @@ public class playerStatManager : MonoBehaviour
   public GameObject healthBarPrefab;
   GameObject healthBar;
   Transform target;
-  private PlayerAttacks pa;
+  public PlayerAttacks pa;
   // Start is called before the first frame update
   void Start()
   {
