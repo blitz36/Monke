@@ -2146,7 +2146,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
     - name: Grass_2
       settings:
@@ -2167,9 +2167,9 @@ MonoBehaviour:
         randomizeOrientationY: 0
         randomizeOrientationZ: 0
         scaleTransformMode: 0
-        scaleMode: 1
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleMode: 0
+        scaleUniformMin: 3
+        scaleUniformMax: 4
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -2282,7 +2282,7 @@ MonoBehaviour:
       colorTag: 0
     - name: Grass_3
       settings:
-        brushRadius: 1
+        brushRadius: 9
         brushSpacing: 0.5
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
@@ -2300,8 +2300,8 @@ MonoBehaviour:
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleUniformMin: 2
+        scaleUniformMax: 4
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -2414,7 +2414,7 @@ MonoBehaviour:
       colorTag: 0
     - name: Ivy_1
       settings:
-        brushRadius: 5.6
+        brushRadius: 8
         brushSpacing: 0.76
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
@@ -2810,8 +2810,8 @@ MonoBehaviour:
       colorTag: 0
     - name: TallGrass_3
       settings:
-        brushRadius: 1
-        brushSpacing: 0.5
+        brushRadius: 7.5
+        brushSpacing: 1
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
         brushOverlapCheckObjects: 1
@@ -2824,12 +2824,12 @@ MonoBehaviour:
         alongBrushStroke: 0
         rotation: {x: 0, y: 0, z: 0}
         randomizeOrientationX: 0
-        randomizeOrientationY: 0
+        randomizeOrientationY: 100
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleUniformMin: 60
+        scaleUniformMax: 100
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -2938,7 +2938,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
     levelsGamma: 1
     levelsInBlack: 0
@@ -2955,7 +2955,7 @@ MonoBehaviour:
     m_Bits: 0
   placeUnder: 0
   overwritePrefabLayer: 1
-  prefabPlaceLayer: 15
+  prefabPlaceLayer: 6
   pinSnapRotationValue: 15
   pinSnapScaleValue: 0.1
   pinSnapRotation: 0

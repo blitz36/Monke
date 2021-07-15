@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2631238335939539980}
   - component: {fileID: 1381429459019627433}
   - component: {fileID: 3805301510306205539}
+  - component: {fileID: 136718972239847168}
   m_Layer: 0
   m_Name: TallGrass_3
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &136718972239847168
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445211932550803126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7762673705194165201, guid: daa9a3d56b0e37145a5da69345e4c515, type: 3}
