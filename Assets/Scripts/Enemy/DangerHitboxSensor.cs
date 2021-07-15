@@ -8,6 +8,7 @@ public class DangerHitboxSensor : MonoBehaviour
   void OnTriggerEnter(Collider col)
   {
     isDanger = true;
+    Debug.Log("TRUU");
   }
 
   void OnTriggerExit(Collider col) {
