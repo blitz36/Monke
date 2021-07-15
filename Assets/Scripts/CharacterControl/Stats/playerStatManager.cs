@@ -5,6 +5,7 @@ using characterStats;
 
 public class playerStatManager : MonoBehaviour
 {
+
   public List<GameObject> hitboxes = new List<GameObject>();
   public List<Attack> lightAttack;
   public Block block;

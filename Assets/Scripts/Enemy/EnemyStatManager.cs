@@ -5,7 +5,7 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
-    public float timeToResume;
+
     public Rigidbody rb;
 
     public CharacterStat maxHealth = new CharacterStat(90f);
@@ -41,25 +41,16 @@ public class EnemyStatManager : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        isHit = true;
-        Invoke("notHit", 0.15f);
-        Time.timeScale = 0.05f;
-        Invoke("resumeTime", timeToResume);
         healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
 
         if (currentHealth < 0f) {
           Destroy(healthBar);
           Destroy(gameObject);
         }
+
     }
     void raiseMax(float value) {
         maxHealth.AddModifier(new StatModifier(value, StatModType.PercentAdd, this));
         currentHealth = maxHealth.Value;
-    }
-    public void notHit() {
-      isHit = false;
-    }
-    public void resumeTime(){
-      Time.timeScale = 1f;
     }
 }

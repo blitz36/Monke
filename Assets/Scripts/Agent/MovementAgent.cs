@@ -24,6 +24,8 @@ public class MovementAgent : MonoBehaviour
     private Vector3 velocity;
 
     //detecting undesirable directions
+    public List<DangerHitboxSensor> Sensor;
+    public List<GameObject> dangerHitbox;
     private bool[] danger;
     public float lookDistance;
     private int layerMask = 1 << 12;
@@ -58,6 +60,8 @@ public class MovementAgent : MonoBehaviour
       for(int i = 0; i < numRays; i++) {
         float angle = i*360/numRays;
         rayDirections[i] = angle;
+        dangerHitbox[i].transform.localRotation = Quaternion.Euler(0, angle - 90, -90);
+        Sensor[i] = dangerHitbox[i].transform.GetChild(0).GetComponent<DangerHitboxSensor>();
       }
 
     }
@@ -98,11 +102,9 @@ public class MovementAgent : MonoBehaviour
     void setDanger() {
       //raycast in each direction to the distance of the look distance. If it hits anything in the enemy layer, then that area is undesirable to move to so set danger there to true.
       for (int i = 0; i < numRays; i++) {
-        if (Physics.Raycast(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, lookDistance, layerMask))
-      //  RaycastHit hit;
-    //    if (Physics.SphereCast(transform.position, 0.5f, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, out hit, lookDistance, layerMask))
+        if (Sensor[i].isDanger == true)
           {
-            Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward, Color.red);
+      //      Debug.DrawRay(transform.position, Quaternion.Euler(0, dangerHitbox[i].transform.localRotation.y, 0) * transform.forward, Color.red);
             danger[i] = true;
             numDanger += 1;
         }
@@ -126,6 +128,7 @@ public class MovementAgent : MonoBehaviour
       for (int i = 0; i < numRays; i++) {
         if (danger[i] == true) {
           interest[i] = 0f;
+          Debug.DrawRay(transform.position, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward * 2, Color.red);
         }
       }
 
@@ -152,6 +155,7 @@ public class MovementAgent : MonoBehaviour
 
       //To encourage more avoiding behavior, weights are added if there is danger detected in a direction. The opposite direction has its weights increased then to
       //prefer avoiding enemies. Then a shaping function is done which will favor moving angled rather than direction back, to give smoother movement.
+
       if (numDanger < numRays/3) {
         if (danger[index] == true) {
           for (int j = 0; j < numRays; j++) {
@@ -160,7 +164,7 @@ public class MovementAgent : MonoBehaviour
             if (dp > 0) {
               dp = 1.0f - Mathf.Abs(dp - 0.65f);
             }
-            dp *= 0.1f;
+            dp *= 0.15f;
             interest[j] += dp;
           }
         }

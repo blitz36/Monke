@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
                      if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
                        PlayerAttacks.cancelAttackFunctions();
                        pStatManager.pa.chargeAttack = false;
+                       pStatManager.pa.holdTimer = 0f;
                        pStatManager.priority = 10;
                        //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                        Vector3 fVelocity = new Vector3(horiz, rb.velocity.y, vert);
