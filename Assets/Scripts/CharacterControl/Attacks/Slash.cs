@@ -7,7 +7,7 @@ public class Slash : Attack
 {
     public int State;
     private float Timer;
-    private List<GameObject> slashHitbox;
+    private List<GameObject> slashHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -27,7 +27,11 @@ public class Slash : Attack
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
-      slashHitbox.Clear();
+
+      if (slashHitbox.Count > 0){
+        slashHitbox.Clear();
+      }
+
       foreach (GameObject hitbox in hitboxes) {
         slashHitbox.Add(Instantiate(hitbox));
         slashHitbox[slashHitbox.Count-1].transform.parent = Player;

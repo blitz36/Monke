@@ -7,7 +7,7 @@ public class Slam : Attack
 {
     public int State;
     public float Timer;
-    private List<GameObject> slamHitbox;
+    private List<GameObject> slamHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -27,7 +27,9 @@ public class Slam : Attack
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
-      slamHitbox.Clear();
+      if (slamHitbox.Count > 0) {
+        slamHitbox.Clear();
+      }
       foreach (GameObject hitbox in hitboxes) {
         slamHitbox.Add(Instantiate(hitbox));
         slamHitbox[slamHitbox.Count-1].transform.parent = Player;

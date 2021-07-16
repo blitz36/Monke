@@ -7,7 +7,7 @@ public class Equip_BFG : Equipable
 {
     private int State;
     private float Timer;
-    private List<GameObject> laser;
+    private List<GameObject> laser = new List<GameObject>();
     public float startTime;
     public float activeTime;
     public float recoveryTime;
@@ -21,7 +21,9 @@ public class Equip_BFG : Equipable
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
-      laser.Clear();
+      if (laser.Count > 0) {
+        laser.Clear();
+      }
       foreach (GameObject hitbox in hitboxes) {
         laser.Add(Instantiate(hitbox));
         laser[laser.Count-1].transform.parent = Player;

@@ -7,7 +7,7 @@ public class Block : Attack
 {
     public int State;
     public float Timer;
-    private List<GameObject> blockHitbox;
+    private List<GameObject> blockHitbox = new List<GameObject>();
     private BlockHitbox bh;
     public float startupTime;
     public float activeTime;
@@ -31,7 +31,10 @@ public class Block : Attack
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
-      blockHitbox.Clear();
+      if (blockHitbox.Count > 0){
+        blockHitbox.Clear();
+      }
+
       foreach (GameObject hitbox in hitboxes) {
         blockHitbox.Add(Instantiate(hitbox));
         blockHitbox[blockHitbox.Count-1].transform.parent = Player;

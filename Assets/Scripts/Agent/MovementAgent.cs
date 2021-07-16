@@ -28,7 +28,7 @@ public class MovementAgent : MonoBehaviour
     public List<GameObject> dangerHitbox;
     private bool[] danger;
     public float lookDistance;
-    private int layerMask = 1 << 12;
+  //  private int layerMask = 1 << 12;
 
     //relating towards shaping the weights for different behaviors
     public int directionCache;
