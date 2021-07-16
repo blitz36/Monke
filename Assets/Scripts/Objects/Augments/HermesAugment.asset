@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b3aca1d8e2b914189709f19a910657, type: 3}
   m_Name: HermesAugment
   m_EditorClassIdentifier: 
-  name: New Item
+  name: 
   icon: {fileID: 0}
-  description: 
+  description: Speed Boost!

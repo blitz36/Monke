@@ -5,6 +5,8 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
+    public float dissolveTime;
+    public float hitStunTime;
 
     public Rigidbody rb;
 
@@ -19,6 +21,7 @@ public class EnemyStatManager : MonoBehaviour
     public float speed;
 
     public bool isHit = false;
+    public bool isDie = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +38,24 @@ public class EnemyStatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (isDie != true) 
         healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
     }
 
     public void TakeDamage(float damage)
     {
+        if (isHit == true) {
+          return;
+        }
+        isHit = true;
+        Invoke("notHit", hitStunTime);
         currentHealth -= damage;
         healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
 
         if (currentHealth < 0f) {
+          isDie = true;
           Destroy(healthBar);
-          Destroy(gameObject);
+          Invoke("destroySelf", dissolveTime);
         }
 
     }
@@ -53,4 +63,12 @@ public class EnemyStatManager : MonoBehaviour
         maxHealth.AddModifier(new StatModifier(value, StatModType.PercentAdd, this));
         currentHealth = maxHealth.Value;
     }
+
+  void notHit() {
+    isHit = false;
+  }
+
+  void destroySelf() {
+    Destroy(gameObject);
+  }
 }

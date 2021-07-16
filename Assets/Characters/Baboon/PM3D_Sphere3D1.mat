@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PM3D_Sphere3D1
-  m_Shader: {fileID: -6465566751694194690, guid: d239bfd27f9c7f34486bf40c6ed8a2a3, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b573ef0539f01ea4eb311fdaf5e2e0b7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -118,6 +118,8 @@ Material:
     m_Floats:
     - Vector1_6f4d896f0c7b4e3082814d4905066a01: 0.081
     - Vector1_834b3284e1db434cb33849f0d6b43049: 0
+    - Vector1_911421B8: 0.1
+    - Vector1_A7207CA3: 1
     - Vector1_ed6cde0a1cf54272a1ddad55e8cafa45: 50
     - Vector1_f3cb9133216b46ea81a9fcbb5f6314d0: 0
     - _AlphaClip: 0
@@ -129,8 +131,10 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Gloss: 32
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -141,6 +145,8 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _RimAmount: 0.7
+    - _RimThreshold: 0.1
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Smoothness: 0.5
@@ -159,12 +165,17 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_2fdf46385784479c9591cfc5b06e8ced: {r: 1, g: 0, b: 0, a: 0}
+    - Color_5DF75355: {r: 0, g: 0, b: 0, a: 0}
     - Color_dcd56978ef7d4bae83f00c3d91aee146: {r: 0, g: 0.380528, b: 1, a: 0}
+    - _AmbientColor: {r: 0.2371395, g: 0.5779388, b: 0.6886792, a: 0}
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.7353569, g: 0.7353569, b: 0.7353569, a: 1}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GlossColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 0.6603774, g: 0.2896938, b: 0.2896938, a: 0}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0}
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}

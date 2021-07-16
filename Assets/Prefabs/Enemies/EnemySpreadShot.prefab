@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   description: 
-  damage: 0
+  damage: 3
   hitboxes: []
   State: 0
   Timer: 0
@@ -54,6 +54,6 @@ MonoBehaviour:
   activeTime: 0
   recoveryTime: 0
   momentum: 0
-  speed: 10
-  maxBullets: 4
-  timeBetweenShots: 0.3
+  speed: 15
+  maxBullets: 2
+  timeBetweenShots: 0.6

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomLootGenerator : MonoBehaviour
 {
+  public Text itemDescription;
+
   public GameObject common;
   public GameObject rare;
   public GameObject epic;
@@ -27,6 +30,15 @@ public class RandomLootGenerator : MonoBehaviour
   void Start() {
     instance = this;
     determineLoot();
+    itemDescription.gameObject.SetActive(false);
+  }
+
+  void OnTriggerEnter(Collider col) {
+    itemDescription.gameObject.SetActive(true);
+  }
+
+  void OnTriggerExit(Collider col) {
+    itemDescription.gameObject.SetActive(false);
   }
 
   void OnTriggerStay(Collider Collider) {
@@ -94,5 +106,6 @@ public class RandomLootGenerator : MonoBehaviour
         break;
 
     }
+    itemDescription.text = item.description;
   }
 }

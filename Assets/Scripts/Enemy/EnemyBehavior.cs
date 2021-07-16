@@ -35,7 +35,7 @@ public class EnemyBehavior : MonoBehaviour
       if (isActive == false) {
         return;
       }
-      if (est.isHit == true) {
+      if (est.isHit == true || est.isDie == true) {
         return;
       }
       if (attacking == false) {
@@ -55,13 +55,13 @@ public class EnemyBehavior : MonoBehaviour
       if (isActive == false) {
         return;
       }
-      if (est.isHit == true) {
+      if (est.isHit == true || est.isDie == true) {
         return;
       }
 
 
       cooldownTimer -= Time.deltaTime;
-      if (sqrLen < 50f) {
+      if (sqrLen < 2f) {
         if (cooldownTimer <= 0) {
           attacking = true;
           // Hitbox.transform.LookAt(target);

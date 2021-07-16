@@ -11,7 +11,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 		Time.timeScale=1f;
     GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+    GameObject[] objs2 = GameObject.FindGameObjectsWithTag("MainCamera");
     Destroy(objs[0]);
+    Destroy(objs2[0]);
 
 
     }

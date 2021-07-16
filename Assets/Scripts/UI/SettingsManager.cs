@@ -11,7 +11,7 @@ public class SettingsManager : MonoBehaviour {
 
 
   //*********************Variables**********************************
-    void Start()
+    void Awake()
     {
       if (UIPanel == null)
         UIPanel = GameObject.FindWithTag("SettingsMenu").transform;
