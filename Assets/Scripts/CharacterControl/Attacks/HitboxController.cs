@@ -13,6 +13,7 @@ public class HitboxController : MonoBehaviour
     private void OnTriggerEnter(Collider collider) {
       if (collider.tag == "Enemy")
       {
+        Debug.Log(collider);
         EnemyStatManager est = collider.transform.GetComponent<EnemyStatManager>();
         est.TakeDamage(damage);
         var moveDirection = transform.position - collider.transform.position;

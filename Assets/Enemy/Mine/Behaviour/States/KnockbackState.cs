@@ -8,7 +8,6 @@ public class KnockbackState : State
 
     public override State runCurrentStateUpdate(StateController controller)
     {
-        prepareState(controller);
         if (controller.isInKnockback)
         {
             Vector3 knockbackDirection = (controller.transform.position - controller.toChase.transform.position).normalized;
@@ -32,15 +31,4 @@ public class KnockbackState : State
         }
     }
 
-    private void prepareState(StateController controller)
-    {
-        if (controller.myRigidbody.isKinematic)
-        {
-            controller.myRigidbody.isKinematic = false;
-        }
-        if (controller.myNMAgent.enabled)
-        {
-            controller.myNMAgent.enabled = false;
-        }
-    }
 }

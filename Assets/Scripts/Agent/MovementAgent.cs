@@ -53,8 +53,8 @@ public class MovementAgent : MonoBehaviour
       danger = new bool[numRays];
 
       //retrieving components to use
-      AStar = GetComponent<AStarPath>();
-      rb = GetComponent<Rigidbody>();
+      AStar = gameObject.GetComponent<AStarPath>();
+      rb = gameObject.transform.parent.parent.GetComponent<Rigidbody>();
 
       //initializing  each angle that can be moved towards
       for(int i = 0; i < numRays; i++) {

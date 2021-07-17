@@ -10,17 +10,27 @@ public class IdleState : State
     [SerializeField] private ActivateState activateState;
     private bool isInTriggerRange = false;
     private bool isInAlertRange = false;
-    
+    private MineLights ML;
+
+    void Start() {
+      if (ML == null) {
+        ML = gameObject.GetComponent<MineLights>();
+      }
+      if (activateState == null) {
+        activateState = gameObject.transform.parent.GetComponentInChildren<ActivateState>();
+      }
+    }
+
 
     public override State runCurrentStateUpdate(StateController controller)
     {
         if (!isInAlertRange)
         {
-            controller.lightLerpSpeed = 1f;
+            ML.lightLerpSpeed = 1f;
         }
         else if (isInAlertRange && !isInTriggerRange)
         {
-            controller.lightLerpSpeed = 10f;
+            ML.lightLerpSpeed = 10f;
         }
 
         flashing(controller);
@@ -44,22 +54,22 @@ public class IdleState : State
 
     private void flashing(StateController controller)
     {
-        if (controller.lightLerpDirection)
+        if (ML.lightLerpDirection)
         {
-            controller.lightLerpTimer += Time.deltaTime * controller.lightLerpSpeed;
+            ML.lightLerpTimer += Time.deltaTime * ML.lightLerpSpeed;
         }
         else
         {
-            controller.lightLerpTimer -= Time.deltaTime * controller.lightLerpSpeed;
+            ML.lightLerpTimer -= Time.deltaTime * ML.lightLerpSpeed;
         }
-        controller.statusLight.intensity = Mathf.Lerp(0f, 1f, controller.lightLerpTimer);
-        if (controller.lightLerpTimer <= 0f)
+        ML.statusLight.intensity = Mathf.Lerp(0f, 1f, ML.lightLerpTimer);
+        if (ML.lightLerpTimer <= 0f)
         {
-            controller.lightLerpDirection = true;
+            ML.lightLerpDirection = true;
         }
-        if (controller.lightLerpTimer >= 1f)
+        if (ML.lightLerpTimer >= 1f)
         {
-            controller.lightLerpDirection = false;
+            ML.lightLerpDirection = false;
         }
     }
 }

@@ -20,8 +20,7 @@ public class ActivateState : State
 
         if (activated && isGrounded)
         {
-            controller.myNMAgent.enabled = true;
-            controller.myRigidbody.isKinematic = true;
+            controller.myRigidbody.velocity = new Vector3(0, 0, 0);
             return chaseState;
         }
         else

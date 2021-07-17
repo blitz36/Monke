@@ -187,8 +187,10 @@ public class PlayerAttacks : MonoBehaviour
     if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge lightAttack.
       holdTimer += Time.deltaTime;
       if (holdTimer >= tapThreshold) {
-        gameObject.transform.eulerAngles = faceDirection;
-        rb.velocity = new Vector3(0, 0, 0);
+        
+  //      gameObject.transform.eulerAngles = faceDirection;
+  //      rb.velocity = new Vector3(0, 0, 0);
+  /*
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float enter;
         if (plane.Raycast(ray, out enter))
@@ -199,7 +201,7 @@ public class PlayerAttacks : MonoBehaviour
             gameObject.transform.LookAt (hitPoint);
             faceDirection = new Vector3(0, gameObject.transform.eulerAngles.y,0);
             }
-        /*
+
         if (holdTimer > maxCharge) {
           chargePercent += Time.deltaTime;
           chargeAttack = true;

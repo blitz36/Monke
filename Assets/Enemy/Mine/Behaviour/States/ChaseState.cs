@@ -10,20 +10,25 @@ public class ChaseState : State
     [SerializeField] private float detonateRange;
     [SerializeField] private LayerMask playerLayer;
     private bool isDetonate = false;
+    private AStarPath pathfinding;
+
+    public override void Awake(){
+      base.Awake();
+      pathfinding = gameObject.GetComponent<AStarPath>();
+    }
 
     public override State runCurrentStateUpdate(StateController controller)
     {
-        if (controller.myNMAgent.isOnNavMesh)
-        {
-            controller.myNMAgent.SetDestination(controller.toChase.transform.position);
+        if (ESM.isHit == true) {
+          return hitstunState;
         }
+        base.runCurrentStateUpdate(controller);
+        Vector3 pathDir = pathfinding.calculateDir();
+        controller.myRigidbody.velocity = pathDir*10;
 
         if (controller.isInKnockback)
         {
-            if (controller.myNMAgent.isOnNavMesh)
-            {
-                controller.myNMAgent.SetDestination(controller.myNMAgent.transform.position);
-            }
+            controller.myRigidbody.velocity = pathDir*10;
             return knockbackState;
         }
         else if (isDetonate)
@@ -50,15 +55,7 @@ public class ChaseState : State
             controller.isInKnockback = true;
             controller.currentKnockbackTimer = controller.knockbackTimer;
         }
-
-        //Re-enable nav mesh agent after knockback
-        if (!controller.myNMAgent.enabled)
-        {
-            if (other.tag == "Terrain")
-            {
-                controller.myNMAgent.enabled = true;
-                controller.myRigidbody.isKinematic = true;
-            }
-        }
+        Vector3 pathDir = pathfinding.calculateDir();
+        controller.myRigidbody.velocity = pathDir*10;
     }
 }

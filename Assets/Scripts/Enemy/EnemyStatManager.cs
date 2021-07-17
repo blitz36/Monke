@@ -5,23 +5,24 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
+    [HideInInspector]
+    public StateController SC;
     public float dissolveTime;
     public float hitStunTime;
-
+    [HideInInspector]
     public Rigidbody rb;
 
     public CharacterStat maxHealth = new CharacterStat(90f);
     public float currentHealth;
 
     public GameObject healthBarPrefab;
-    GameObject healthBar;
+    [HideInInspector]
+    public GameObject healthBar;
     Transform target;
 
-    float timer = 0f;
     public float speed;
 
-    public bool isHit = false;
-    public bool isDie = false;
+    public bool isHit;
 
     // Start is called before the first frame update
     void Start()
@@ -34,11 +35,15 @@ public class EnemyStatManager : MonoBehaviour
     private void Awake() {
       target = gameObject.transform;
       rb = gameObject.GetComponent<Rigidbody>();
+
+      if (SC == null) {
+        SC = gameObject.GetComponent<StateController>();
+      }
     }
     // Update is called once per frame
     void Update()
     {
-      if (isDie != true) 
+      if (healthBar)
         healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
     }
 
@@ -48,15 +53,8 @@ public class EnemyStatManager : MonoBehaviour
           return;
         }
         isHit = true;
-        Invoke("notHit", hitStunTime);
         currentHealth -= damage;
         healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
-
-        if (currentHealth < 0f) {
-          isDie = true;
-          Destroy(healthBar);
-          Invoke("destroySelf", dissolveTime);
-        }
 
     }
     void raiseMax(float value) {
@@ -64,11 +62,11 @@ public class EnemyStatManager : MonoBehaviour
         currentHealth = maxHealth.Value;
     }
 
-  void notHit() {
+  public void notHit() {
     isHit = false;
   }
 
-  void destroySelf() {
+  public void destroySelf() {
     Destroy(gameObject);
   }
 }

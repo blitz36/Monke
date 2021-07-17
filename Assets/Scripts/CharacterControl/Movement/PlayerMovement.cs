@@ -51,13 +51,19 @@ public class PlayerMovement : MonoBehaviour
   //You can only move while not dashing or isnt fighting isAction checks for fighting
   //normal running stuff
   void performMovement(float horiz, float vert) {
-      if (pStatManager.priority < 1 && pStatManager.pa.holdTimer <= 0){
+      if (pStatManager.priority < 1){
       //  lookAtMouse();//always look towards mouse
 
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
           Vector3 fVelocity = new Vector3(horiz, 0, vert);
-          Vector3 speed = fVelocity.normalized * pStatManager.baseSpeed.Value;
+          Vector3 speed;
+          if (pStatManager.pa.holdTimer > 0) {
+            speed = fVelocity.normalized * pStatManager.baseSpeed.Value * Mathf.Max((1-(pStatManager.pa.holdTimer/3)), 0);
+          }
+          else {
+            speed = fVelocity.normalized * pStatManager.baseSpeed.Value;
+          }
           speed.y = rb.velocity.y;
           rb.velocity = speed;
           transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.2f);

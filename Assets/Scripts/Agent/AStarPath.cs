@@ -22,7 +22,12 @@ public class AStarPath : MonoBehaviour {
     public void Start () {
         seeker = GetComponent<Seeker>();
         agent = GetComponent<MovementAgent>();
-        targetPosition = agent.targetPosition;
+        if (agent != null){
+          targetPosition = agent.targetPosition;
+        }
+        else {
+          targetPosition = GameObject.FindWithTag("Player").transform;
+        }
     }
 
     public void OnPathComplete (Path p) {
@@ -50,12 +55,10 @@ public class AStarPath : MonoBehaviour {
             // when the path has been calculated (which may take a few frames depending on the complexity)
             seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
         }
-
         if (path == null) {
             // We have no path to follow yet, so don't do anything
             return new Vector3(0f,0f,0f);
         }
-
         // Check in a loop if we are close enough to the current waypoint to switch to the next one.
         // We do this in a loop because many waypoints might be close to each other and we may reach
         // several of them in the same frame.

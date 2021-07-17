@@ -35,7 +35,7 @@ public class EnemyBehavior : MonoBehaviour
       if (isActive == false) {
         return;
       }
-      if (est.isHit == true || est.isDie == true) {
+      if (est.isHit == true) {
         return;
       }
       if (attacking == false) {
@@ -55,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
       if (isActive == false) {
         return;
       }
-      if (est.isHit == true || est.isDie == true) {
+      if (est.isHit == true) {
         return;
       }
 
