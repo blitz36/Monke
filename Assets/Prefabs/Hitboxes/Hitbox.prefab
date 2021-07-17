@@ -267,6 +267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   momentum: -15
+  timeToResume: 0
+  timeToResumeSlow: 0
 --- !u!54 &4782779130387353595
 Rigidbody:
   m_ObjectHideFlags: 0

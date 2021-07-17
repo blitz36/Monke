@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
   //Dashing related variables, used as a timer for recovery and how long the dash lasts for
   public static int dashState;
   public float dashTimer;
+  public float dashCDTimer;
   public float maxDash;
   public float dashCooldown;
+  public int numDashes = 1;
 
   //to prevent running while fighting
   public static bool isAction = false;
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     //runs a check to determine if player wants to dash and then performs it
     performDash(horiz, vert);
-
+    dashRefresh();
     //checks for directional inputs and makes the player run in that direction
     performMovement(horiz, vert);
 }
@@ -55,7 +57,13 @@ public class PlayerMovement : MonoBehaviour
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
           Vector3 fVelocity = new Vector3(horiz, 0, vert);
-          Vector3 speed = fVelocity.normalized * pStatManager.baseSpeed.Value;
+          Vector3 speed;
+          if (pStatManager.pa.holdTimer > 0) {
+            speed = fVelocity.normalized * pStatManager.baseSpeed.Value * Mathf.Max((1-(pStatManager.pa.holdTimer/3)), 0);
+          }
+          else {
+            speed = fVelocity.normalized * pStatManager.baseSpeed.Value;
+          }
           speed.y = rb.velocity.y;
           rb.velocity = speed;
           transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.2f);
@@ -77,18 +85,22 @@ public class PlayerMovement : MonoBehaviour
              {
              case 0:
                  var isDashKeyDown = Input.GetKeyDown (KeyCode.Space);
-                 if(isDashKeyDown)
+                 if(isDashKeyDown && numDashes > 0)
                    {
                      if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
                        PlayerAttacks.cancelAttackFunctions();
+                       pStatManager.pa.chargeAttack = false;
+                       pStatManager.pa.holdTimer = 0f;
                        pStatManager.priority = 10;
                        //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                        Vector3 fVelocity = new Vector3(horiz, rb.velocity.y, vert);
-                       rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value * 3;
+                       rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value * 5;
                        fVelocity = new Vector3(horiz, 0f, vert);
                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
+                       numDashes -= 1;
+                       dashState = 1;
                      }
-                     dashState = 1;
+
                  }
                  break;
              case 1:
@@ -96,21 +108,26 @@ public class PlayerMovement : MonoBehaviour
                  if(dashTimer >= maxDash)
                  {
                      dashTimer = 0;
-                     dashState = -1; //no longer dashing
+                     dashState = 0; //no longer dashing
                      rb.velocity = new Vector3(0,rb.velocity.y,0); //stop after dash ends
                      pStatManager.priority = 0;
                  }
                  break;
-             case -1: // cooldown
-                 dashTimer += Time.deltaTime;
-                 if(dashTimer >= dashCooldown) //when recovery time is up reset everything so u can dash again :)
-                 {
-                     dashTimer = 0;
-                     dashState = 0;
-                 }
-                 break;
              }
          }
+  }
+
+  void dashRefresh() {
+    if (numDashes >= pStatManager.maxDashes.Value) {
+      return;
+    }
+
+    dashCDTimer += Time.deltaTime;
+    if(dashCDTimer >= dashCooldown) //when recovery time is up reset everything so u can dash again :)
+    {
+        dashCDTimer = 0;
+        numDashes += 1;
+    }
   }
 
   //raycast the mouse position and make the transform look at it. change the angle to ignore x z so that its just pure rotation.

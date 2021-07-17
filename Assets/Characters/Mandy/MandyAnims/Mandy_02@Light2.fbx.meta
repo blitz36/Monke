@@ -38,8 +38,8 @@ ModelImporter:
       name: Light2
       takeName: Take 001
       internalID: 0
-      firstFrame: 22
-      lastFrame: 38
+      firstFrame: 1
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

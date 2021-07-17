@@ -38,8 +38,8 @@ ModelImporter:
       name: Light3
       takeName: Take 001
       internalID: 0
-      firstFrame: 39
-      lastFrame: 75
+      firstFrame: 1
+      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

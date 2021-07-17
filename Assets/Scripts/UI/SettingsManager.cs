@@ -11,8 +11,11 @@ public class SettingsManager : MonoBehaviour {
 
 
   //*********************Variables**********************************
-    void Start()
+    void Awake()
     {
+      if (UIPanel == null)
+        UIPanel = GameObject.FindWithTag("SettingsMenu").transform;
+
       UIPanel.gameObject.SetActive(false); //make sure our pause menu is disabled when scene starts
       isPaused = false; //make sure isPaused is always false when our scene opens
     }

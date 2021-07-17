@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: New Item
   icon: {fileID: 0}
-  Description: 
+  description: secret speed boost

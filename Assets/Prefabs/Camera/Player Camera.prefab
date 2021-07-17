@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 60.035885
     OrthographicSize: 5
-    NearClipPlane: 0.01
+    NearClipPlane: 0.4
     FarClipPlane: 1000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -574,7 +574,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 3.43
   far clip plane: 1000
   field of view: 60.035885
   orthographic: 0
@@ -880,7 +880,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1815
+    m_Bits: 1879
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 8996789682038398314}
   m_Layer: 5
   m_Name: SettingsMenu
-  m_TagString: Untagged
+  m_TagString: SettingsMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

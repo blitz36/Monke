@@ -7,7 +7,7 @@ public class Slam : Attack
 {
     public int State;
     public float Timer;
-    private GameObject slamHitbox;
+    private List<GameObject> slamHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -21,18 +21,22 @@ public class Slam : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      slamHitbox.SetActive(false);
+      foreach (GameObject hitbox in slamHitbox) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
-      foreach (GameObject hitbox in hitboxes) {
-        slamHitbox = Instantiate(hitbox);
-        slamHitbox.transform.parent = Player;
-        slamHitbox.transform.localPosition = new Vector3(0,0,0);
-        slamHitbox.SetActive(false);
-        pst = Player.gameObject.GetComponent<playerStatManager>();
-        pst.hitboxes.Add(slamHitbox);
+    public override List<GameObject> createHitbox(Transform Player) {
+      if (slamHitbox.Count > 0) {
+        slamHitbox.Clear();
       }
+      foreach (GameObject hitbox in hitboxes) {
+        slamHitbox.Add(Instantiate(hitbox));
+        slamHitbox[slamHitbox.Count-1].transform.parent = Player;
+        slamHitbox[slamHitbox.Count-1].transform.localPosition = new Vector3(0,0,0);
+        slamHitbox[slamHitbox.Count-1].SetActive(false);
+      }
+      return slamHitbox;
 
     }
     public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
@@ -43,25 +47,13 @@ public class Slam : Attack
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
               rb.velocity = new Vector3(0, 0, 0);
-              var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-              float enter;
-              if (plane.Raycast(ray, out enter))
-              {
-                  var hitPoint = ray.GetPoint(enter);
-                  var mouseDir = hitPoint - gameObject.transform.position;
-                  mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
-                  gameObject.transform.LookAt (hitPoint);
-                  gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
-
-
+              rb.AddForce(Vector3.forward * momentum, ForceMode.Impulse);
               bufferAttack = false;
               State = 1;
               priority = 2;
               Timer = 0;
 
           }
-        }
         break;
 
         case 1: //start up
@@ -73,7 +65,7 @@ public class Slam : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
-            slamHitbox.SetActive(true);
+            slamHitbox[0].SetActive(true);
           }
           break;
 
@@ -89,7 +81,7 @@ public class Slam : Attack
           {
               Timer = 0f;
               State = -1;
-              slamHitbox.SetActive(false);
+              slamHitbox[0].SetActive(false);
           }
           break;
 

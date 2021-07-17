@@ -7,7 +7,7 @@ public class Slash : Attack
 {
     public int State;
     private float Timer;
-    private GameObject slashHitbox;
+    private List<GameObject> slashHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -21,19 +21,24 @@ public class Slash : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      slashHitbox.SetActive(false);
-      PlayerMovement.isAction = false;
+      foreach (GameObject hitbox in slashHitbox) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
-      foreach (GameObject hitbox in hitboxes) {
-        slashHitbox = Instantiate(hitbox);
-        slashHitbox.transform.parent = Player;
-        slashHitbox.transform.localPosition = new Vector3(0,0,0);
-        pst = Player.gameObject.GetComponent<playerStatManager>();
-        pst.hitboxes.Add(slashHitbox);
-        slashHitbox.SetActive(false);
+    public override List<GameObject> createHitbox(Transform Player) {
+
+      if (slashHitbox.Count > 0){
+        slashHitbox.Clear();
       }
+
+      foreach (GameObject hitbox in hitboxes) {
+        slashHitbox.Add(Instantiate(hitbox));
+        slashHitbox[slashHitbox.Count-1].transform.parent = Player;
+        slashHitbox[slashHitbox.Count-1].transform.localPosition = new Vector3(0,0,0);
+        slashHitbox[slashHitbox.Count-1].SetActive(false);
+      }
+      return slashHitbox;
 
     }
     public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
@@ -56,7 +61,7 @@ public class Slash : Attack
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-              slashHitbox.SetActive(true);
+              slashHitbox[0].SetActive(true);
               bufferAttack = false;
               priority = 1;
               State = 1;
@@ -88,7 +93,7 @@ public class Slash : Attack
           {
               Timer = 0f;
               State = -1;
-              slashHitbox.SetActive(false);
+              slashHitbox[0].SetActive(false);
           }
           break;
 

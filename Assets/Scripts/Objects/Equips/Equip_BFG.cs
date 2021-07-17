@@ -7,25 +7,31 @@ public class Equip_BFG : Equipable
 {
     private int State;
     private float Timer;
-    private GameObject laser;
-    private playerStatManager pst;
+    private List<GameObject> laser = new List<GameObject>();
+    public float startTime;
+    public float activeTime;
+    public float recoveryTime;
 
     public override void Cancel() {
       Timer = 0f;
       State = 0;
-      laser.SetActive(false);
-      PlayerMovement.isAction = false;
+      foreach (GameObject hitbox in laser) {
+        hitbox.SetActive(false);
+      }
     }
 
-    public override void createHitbox(Transform Player) {
-      foreach (GameObject hitbox in hitboxes) {
-        laser = Instantiate(hitbox);
-        laser.transform.parent = Player;
-        laser.transform.localPosition = new Vector3(0,0,0);
-        pst = Player.gameObject.GetComponent<playerStatManager>();
-        pst.hitboxes.Add(laser);
-        laser.SetActive(false);
+    public override List<GameObject> createHitbox(Transform Player) {
+      if (laser.Count > 0) {
+        laser.Clear();
       }
+      foreach (GameObject hitbox in hitboxes) {
+        laser.Add(Instantiate(hitbox));
+        laser[laser.Count-1].transform.parent = Player;
+        laser[laser.Count-1].transform.localPosition = new Vector3(0,0,0);
+        laser[laser.Count-1].SetActive(false);
+
+      }
+      return laser;
 
     }
     public override void Activate(Rigidbody rb, Plane plane, GameObject gameObject, ref int priority) {
@@ -47,7 +53,7 @@ public class Equip_BFG : Equipable
                   gameObject.transform.LookAt (hitPoint);
                   gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
-                  laser.SetActive(true);
+
                   State = 1;
                   Timer = 0;
                   priority = 3;
@@ -61,7 +67,8 @@ public class Equip_BFG : Equipable
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
-          if (Timer >= 0.1166f) {
+          if (Timer >= startTime) {
+            laser[0].SetActive(true);
             Timer = 0;
             State = 2;
           }
@@ -74,11 +81,11 @@ public class Equip_BFG : Equipable
 
           //timer before switching to recovery stage
           Timer += Time.deltaTime;
-          if(Timer >= 1)
+          if(Timer >= activeTime)
           {
               Timer = 0f;
               State = -1;
-              laser.SetActive(false);
+              laser[0].SetActive(false);
           }
           break;
 
@@ -86,7 +93,7 @@ public class Equip_BFG : Equipable
 
           //timer to reset to the next combostep and reset the transforms
           Timer += Time.deltaTime;
-          if (Timer >= 1) {
+          if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
             priority = 0;
