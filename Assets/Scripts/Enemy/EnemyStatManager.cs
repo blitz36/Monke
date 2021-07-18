@@ -18,7 +18,8 @@ public class EnemyStatManager : MonoBehaviour
     public GameObject healthBarPrefab;
     [HideInInspector]
     public GameObject healthBar;
-    Transform target;
+    Transform healthBarTarget;
+    public Transform target;
 
     public float speed;
 
@@ -33,7 +34,9 @@ public class EnemyStatManager : MonoBehaviour
         healthBar.GetComponent<HealthBar>().SetMaxHealth(maxHealth.Value);
     }
     private void Awake() {
-      target = gameObject.transform;
+      target = GameObject.FindWithTag("Player").transform;
+
+      healthBarTarget = gameObject.transform;
       rb = gameObject.GetComponent<Rigidbody>();
 
       if (SC == null) {
@@ -44,7 +47,7 @@ public class EnemyStatManager : MonoBehaviour
     void Update()
     {
       if (healthBar)
-        healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
+        healthBar.transform.position = new Vector3(healthBarTarget.position.x, healthBarTarget.position.y+2, healthBarTarget.position.z);
     }
 
     public void TakeDamage(float damage)

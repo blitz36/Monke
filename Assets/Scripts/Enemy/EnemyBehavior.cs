@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+  /*
     public bool isActive = false;
     public float turnSpeed;
     public GameObject attack;
@@ -77,4 +78,5 @@ public class EnemyBehavior : MonoBehaviour
         slash.PerformAttack(ref attacking, rb, ref cooldownTimer, cooldownTime, target);
       }
     }
+    */
 }
