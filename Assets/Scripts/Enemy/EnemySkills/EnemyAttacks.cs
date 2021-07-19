@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyAttacks : EnemyAttack
 {
     public int State = 0;
-    public float Timer;
+    public float Timer = 0f;
     private GameObject Hitbox;
+    private GameObject hitboxIndicator;
+    public GameObject hitboxIndicatorPrefab;
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -16,6 +18,9 @@ public class EnemyAttacks : EnemyAttack
       Timer = 0f;
       State = 0;
       Hitbox.SetActive(false);
+      if (hitboxIndicator) {
+        hitboxIndicator.SetActive(false);
+      }
     }
 
     public override void createHitbox(Transform Player) {
@@ -26,56 +31,74 @@ public class EnemyAttacks : EnemyAttack
 
         Hitbox.SetActive(false);
       }
+      hitboxIndicator = Instantiate(hitboxIndicatorPrefab);
+      hitboxIndicator.transform.parent = Player;
+      hitboxIndicator.transform.localPosition = new Vector3(0,0,0);
+
+      hitboxIndicator.SetActive(false);
 
     }
-    public override void PerformAttack(ref bool attacking, Rigidbody rb, ref float cooldownTimer, float cooldownTime, Transform target) {
-      switch (State) {
-        case 0: //Starting/idle state
 
-
-          if(attacking == true) //if slashing or a slash is buffered then perform the action
-            {
-              rb.velocity = new Vector3(0f,0f,0f);
-              Hitbox.SetActive(true);
-              State = 1;
-              Timer = 0;
-          }
-
-        break;
-
-        case 1: //start up
-        //timer to switch to active frames
-          Timer += Time.deltaTime;
-          if (Timer >= startupTime) {
-            Timer = 0;
-            State = 2;
-          }
-          break;
-
-        case 2: //Active
-
-          //timer before switching to recovery stage
-          Timer += Time.deltaTime;
-          if(Timer >= activeTime)
-          {
-              Timer = 0f;
-              State = -1;
-              Hitbox.SetActive(false);
-
-          }
-          break;
-
-        case -1: //recovery
-
-          //timer to reset to the next combostep and reset the transforms
-          Timer += Time.deltaTime;
-          if (Timer >= recoveryTime) {
-            Timer = 0f;
-            State = 0;
-            cooldownTimer = cooldownTime;
-            attacking = false;
-          }
-          break;
+    public void startUp(Rigidbody rb, Transform target) {
+      if (State != 1) {
+        return;
       }
+      //things to do in beginning
+      if (Timer <= 0f) {
+        if (hitboxIndicator) {
+          hitboxIndicator.SetActive(true);
+        }
+        rb.velocity = new Vector3(0f,0f,0f);
+      }
+
+      //increment
+      Timer += Time.deltaTime;
+      if (Timer >= startupTime) {
+        hitboxIndicator.SetActive(false);
+        Timer = 0;
+        State = 2;
+      }
+
+    }
+
+    public void active(Rigidbody rb, Transform target) {
+      if (State != 2) {
+        return;
+      }
+
+      if (Timer <= 0f) {
+        Hitbox.SetActive(true);
+      }
+
+      Timer += Time.deltaTime;
+      if(Timer >= activeTime)
+      {
+          Timer = 0f;
+          State = 3;
+          Hitbox.SetActive(false);
+
+      }
+
+    }
+
+    public void recovery(Rigidbody rb, Transform target) {
+      if (State != 3) {
+        return;
+      }
+
+      Timer += Time.deltaTime;
+      if (Timer >= recoveryTime) {
+        Timer = 0f;
+        State = 0;
+      }
+
+    }
+
+    public override int PerformAttack(Rigidbody rb, Transform target) {
+      if (State == 0) State = 1;
+      startUp(rb, target);
+      active(rb, target);
+      recovery(rb, target);
+      return State;
     }
 }

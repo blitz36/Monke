@@ -9,6 +9,6 @@ public abstract class EnemyAttack : MonoBehaviour {
   public List<GameObject> hitboxes;
 
   public abstract void createHitbox(Transform target);
-  public abstract void PerformAttack(ref bool isAttack, Rigidbody rb, ref float cooldownTimer, float cooldownTime, Transform target);
+  public abstract int PerformAttack(Rigidbody rb, Transform target);
   public abstract void Cancel();
 }

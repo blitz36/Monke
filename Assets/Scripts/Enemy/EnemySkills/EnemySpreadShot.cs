@@ -25,32 +25,36 @@ public class EnemySpreadShot : EnemyAttack
     public override void createHitbox(Transform Player) {
 
     }
-    public override void PerformAttack(ref bool attacking, Rigidbody rb, ref float cooldownTimer, float cooldownTime, Transform target) {
-      switch (State) {
-        case 0: //Starting/idle state
-          if(attacking == true) //if attacking
-            {
-              currentTarget = target;
-              StartCoroutine(spawnBullet());
-              attacking = false;
-              cooldownTimer = cooldownTime;
-          }
-        break;
+    public override int PerformAttack(Rigidbody rb, Transform target) {
+      currentTarget = target;
+      if (State == 0) {
+        State = 1;
+        StartCoroutine(spawnBullet());
       }
+      if (State == -1) { //if done with spawning bullets, then reset state back to 0 and send back.
+        State = 0;
+      }
+      return State;
     }
 
     IEnumerator spawnBullet()
     {
       currentBullets = 0;
       while (currentBullets < maxBullets) {
+        if (State == 0) {
+          yield break;
+        }
         gameObject.transform.LookAt(currentTarget);
         gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
+
         GameObject bullet = Instantiate(Hitbox, transform.position, Quaternion.identity);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = transform.TransformDirection(Vector3.forward * speed);
+
         currentBullets += 1;
         yield return new WaitForSeconds(timeBetweenShots);
       }
+      State = -1;
     }
 
 }
