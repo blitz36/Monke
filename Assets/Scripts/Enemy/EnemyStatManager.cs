@@ -16,8 +16,7 @@ public class EnemyStatManager : MonoBehaviour
     public float currentHealth;
 
     public GameObject healthBarPrefab;
-    [HideInInspector]
-    public GameObject healthBar;
+    public HealthBar healthBar;
     Transform healthBarTarget;
     public Transform target;
 
@@ -25,13 +24,12 @@ public class EnemyStatManager : MonoBehaviour
 
     public bool isHit;
 
+    public GameObject vfx;
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = Instantiate(healthBarPrefab);
-        healthBar.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         currentHealth = maxHealth.Value;
-        healthBar.GetComponent<HealthBar>().SetMaxHealth(maxHealth.Value);
+        healthBar.SetMaxHealth(maxHealth.Value);
     }
     private void Awake() {
       target = GameObject.FindWithTag("Player").transform;
@@ -57,7 +55,8 @@ public class EnemyStatManager : MonoBehaviour
         }
         isHit = true;
         currentHealth -= damage;
-        healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
+        vfx.GetComponent<VFXActivate>().playVFX();
 
     }
     void raiseMax(float value) {

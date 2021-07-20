@@ -20,16 +20,14 @@ public class playerStatManager : MonoBehaviour
   public int priority = 0;
   public float currentHealth;
   public GameObject healthBarPrefab;
-  GameObject healthBar;
+  public HealthBar healthBar;
   Transform target;
   public PlayerAttacks pa;
   // Start is called before the first frame update
   void Start()
   {
-      healthBar = Instantiate(healthBarPrefab);
-      healthBar.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
       currentHealth = maxHealth.Value;
-      healthBar.GetComponent<HealthBar>().SetMaxHealth(maxHealth.Value);
+      healthBar.SetMaxHealth(maxHealth.Value);
       pa = gameObject.GetComponent<PlayerAttacks>();
       updateDmgValues();
       Invoke("updateDmgValues", 2f);
@@ -62,7 +60,7 @@ public class playerStatManager : MonoBehaviour
     else {
       currentHealth -= damage;
     }
-    healthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
+    healthBar.SetHealth(currentHealth);
     if (currentHealth <= 0) {
       //do death stuff here
     }

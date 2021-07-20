@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementState : State
 {
   private MovementAgent MA;
+  public float turnSpeed;
 
   public float timeInbetweenAttacks;
   private bool canAttack = true;
@@ -42,6 +43,7 @@ public class MovementState : State
   public override void runCurrentStateFixedUpdate(StateController controller)
   {
     MA.moveToPlayer();
+    ESM.gameObject.transform.GetChild(0).localRotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation, Quaternion.LookRotation(ESM.rb.velocity.normalized), turnSpeed);
     isInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
   }
 

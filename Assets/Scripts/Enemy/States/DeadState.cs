@@ -16,7 +16,7 @@ public class DeadState : State
     }
 
     if (ESM.healthBar){
-      Destroy(ESM.healthBar);
+      Destroy(ESM.healthBar.gameObject);
     }
     return this;
   }

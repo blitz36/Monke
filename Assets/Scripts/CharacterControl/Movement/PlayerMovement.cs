@@ -92,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
                        pStatManager.pa.chargeAttack = false;
                        pStatManager.pa.holdTimer = 0f;
                        pStatManager.priority = 10;
+                       pStatManager.pa.blockState = false;
+                       pStatManager.pa.comboStep = 0;
                        //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
                        Vector3 fVelocity = new Vector3(horiz, rb.velocity.y, vert);
                        rb.velocity = fVelocity.normalized * pStatManager.baseSpeed.Value * 5;
