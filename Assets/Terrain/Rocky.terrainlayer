@@ -8,7 +8,7 @@ TerrainLayer:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rocky
   m_DiffuseTexture: {fileID: 2800000, guid: e6c44d7311f4ef149964ef28b3dfc270, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: e6c44d7311f4ef149964ef28b3dfc270, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 339f3bf213b242b4b9963c6fdd7212b5, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 10, y: 10}
   m_TileOffset: {x: 0, y: 0}
