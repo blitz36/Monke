@@ -38,7 +38,7 @@ public class playerStatManager : MonoBehaviour
   }
 
   void Update(){
-    healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
+    //healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
   }
 
   public void updateDmgValues() {
