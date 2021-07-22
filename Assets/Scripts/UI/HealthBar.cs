@@ -7,33 +7,31 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public float updateSpeedSeconds;
-    public Slider slider;
-    public Slider sliderWhite;
+    public Image slider;
+    public Image sliderWhite;
 
     public void SetMaxHealth(float health)
     {
-        slider.maxValue = health;
-        slider.value = health;
-        sliderWhite.maxValue = health;
-        sliderWhite.value = health;
+        slider.fillAmount = 1;
+        sliderWhite.fillAmount = 1;
     }
-    public void SetHealth(float health)
+    public void SetHealth(float percentHealth)
     {
-        slider.value = health;
-        StartCoroutine(ChangeSlider(health));
+        slider.fillAmount = percentHealth;
+        StartCoroutine(ChangeSlider(percentHealth));
     }
 
     private IEnumerator ChangeSlider(float amt) {
-      float preChangeAmt = sliderWhite.value;
+      float preChangeAmt = sliderWhite.fillAmount;
       float elapsed = 0f;
 
       while (elapsed < updateSpeedSeconds) {
         elapsed += Time.deltaTime;
-        sliderWhite.value = Mathf.Lerp(preChangeAmt, amt, elapsed/updateSpeedSeconds);
+        sliderWhite.fillAmount = Mathf.Lerp(preChangeAmt, amt, elapsed/updateSpeedSeconds);
         yield return null;
       }
 
-      sliderWhite.value = amt;
+      sliderWhite.fillAmount = amt;
     }
 
 }

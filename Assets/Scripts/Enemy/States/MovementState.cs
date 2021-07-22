@@ -43,7 +43,7 @@ public class MovementState : State
   public override void runCurrentStateFixedUpdate(StateController controller)
   {
     MA.moveToPlayer();
-    ESM.gameObject.transform.GetChild(0).localRotation = Quaternion.Slerp(this.gameObject.transform.GetChild(0).localRotation, Quaternion.LookRotation(ESM.rb.velocity.normalized), turnSpeed);
+    ESM.gameObject.transform.rotation = Quaternion.Slerp(ESM.gameObject.transform.rotation, Quaternion.LookRotation(ESM.rb.velocity.normalized), turnSpeed);
     isInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
   }
 

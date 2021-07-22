@@ -60,7 +60,7 @@ public class playerStatManager : MonoBehaviour
     else {
       currentHealth -= damage;
     }
-    healthBar.SetHealth(currentHealth);
+    healthBar.SetHealth(currentHealth/maxHealth.Value);
     if (currentHealth <= 0) {
       //do death stuff here
     }

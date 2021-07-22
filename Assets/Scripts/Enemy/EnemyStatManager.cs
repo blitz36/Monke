@@ -44,8 +44,6 @@ public class EnemyStatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (healthBar)
-        healthBar.transform.position = new Vector3(healthBarTarget.position.x, healthBarTarget.position.y+2, healthBarTarget.position.z);
     }
 
     public void TakeDamage(float damage)
@@ -55,7 +53,7 @@ public class EnemyStatManager : MonoBehaviour
         }
         isHit = true;
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth/maxHealth.Value);
         vfx.GetComponent<VFXActivate>().playVFX();
 
     }
