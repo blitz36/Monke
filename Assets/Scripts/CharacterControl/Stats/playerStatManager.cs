@@ -6,6 +6,8 @@ using characterStats;
 public class playerStatManager : MonoBehaviour
 {
 
+  private bool isHit = false;
+
   public List<GameObject> hitboxes = new List<GameObject>();
   public List<Attack> lightAttack;
   public Block block;
@@ -48,6 +50,7 @@ public class playerStatManager : MonoBehaviour
   }
 
   public void TakeDamage(float damage, Vector3 pos) {
+    if (isHit == true) return;
 
     float parryTime = pa.block.returnParryTime();
     Debug.Log(parryTime);
@@ -61,8 +64,14 @@ public class playerStatManager : MonoBehaviour
       currentHealth -= damage;
     }
     healthBar.SetHealth(currentHealth/maxHealth.Value);
+    isHit = true;
+    Invoke("notHit", 0.2f);
     if (currentHealth <= 0) {
       //do death stuff here
     }
+  }
+
+  public void notHit() {
+    isHit = false;
   }
 }
