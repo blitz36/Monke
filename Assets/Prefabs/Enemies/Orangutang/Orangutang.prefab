@@ -46,7 +46,7 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  triggerRange: 20
+  triggerRange: 40
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -690,8 +690,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 3286733753142207577}
     m_Modifications:
     - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: damage
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
+      propertyPath: maxBullets
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5504936035006558018, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: m_RootOrder

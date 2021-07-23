@@ -114,6 +114,8 @@ MonoBehaviour:
   recoveryTime: 0.2
   momentum: 0
   targetRotation: 0
+  moveWhenAttack: 0
+  forceConstant: 0
 --- !u!1 &1984489645172655662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,7 +2746,7 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  triggerRange: 20
+  triggerRange: 40
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
