@@ -2278,7 +2278,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
     - name: Grass_3
       settings:
@@ -2414,7 +2414,7 @@ MonoBehaviour:
       colorTag: 0
     - name: Ivy_1
       settings:
-        brushRadius: 8
+        brushRadius: 20
         brushSpacing: 0.76
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
@@ -2432,8 +2432,8 @@ MonoBehaviour:
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 4
-        scaleUniformMax: 6
+        scaleUniformMin: 4.12
+        scaleUniformMax: 11.43
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -2674,7 +2674,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
     - name: TallGrass_2
       settings:
@@ -3341,7 +3341,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
     - name: Entrance Variant
       settings:
@@ -3357,7 +3357,7 @@ MonoBehaviour:
         orientationTransformMode: 0
         orientationMode: 0
         alongBrushStroke: 0
-        rotation: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: -90, z: 0}
         randomizeOrientationX: 0
         randomizeOrientationY: 0
         randomizeOrientationZ: 0
@@ -4138,9 +4138,9 @@ MonoBehaviour:
     - name: Hydraulic_Flooring_3 Variant
       settings:
         brushRadius: 6.03
-        brushSpacing: 0.5
-        brushOverlapCheckMode: 0
-        brushOverlapDistance: 0.5
+        brushSpacing: 0.01
+        brushOverlapCheckMode: 1
+        brushOverlapDistance: 11.15
         brushOverlapCheckObjects: 1
         brushOverlapCheckLayers:
           serializedVersion: 2
@@ -4151,7 +4151,7 @@ MonoBehaviour:
         alongBrushStroke: 0
         rotation: {x: 0, y: 0, z: 0}
         randomizeOrientationX: 0
-        randomizeOrientationY: 100
+        randomizeOrientationY: 4.6
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
@@ -4683,8 +4683,8 @@ MonoBehaviour:
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleUniformMin: 3
+        scaleUniformMax: 5
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -4811,12 +4811,12 @@ MonoBehaviour:
         alongBrushStroke: 0
         rotation: {x: 0, y: 0, z: 0}
         randomizeOrientationX: 0
-        randomizeOrientationY: 0
+        randomizeOrientationY: 100
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
+        scaleUniformMin: 6
+        scaleUniformMax: 10.14
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -6377,7 +6377,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
     - name: Pylon_3 Variant
       settings:
@@ -6657,7 +6657,7 @@ MonoBehaviour:
         orientationTransformMode: 0
         orientationMode: 0
         alongBrushStroke: 0
-        rotation: {x: 0, y: 36.77, z: 0}
+        rotation: {x: 0, y: 90.5, z: 0}
         randomizeOrientationX: 0
         randomizeOrientationY: 0
         randomizeOrientationZ: 0
@@ -7187,7 +7187,7 @@ MonoBehaviour:
         alongBrushStroke: 0
         rotation: {x: 0, y: 180, z: 0}
         randomizeOrientationX: 0
-        randomizeOrientationY: 0
+        randomizeOrientationY: 39.2
         randomizeOrientationZ: 0
         scaleTransformMode: 0
         scaleMode: 0
@@ -8100,7 +8100,7 @@ MonoBehaviour:
     levelsInWhite: 255
     levelsOutBlack: 0
     levelsOutWhite: 255
-  activeTab: 4
+  activeTab: 3
   paintOnSelected: 1
   paintLayers:
     serializedVersion: 2
