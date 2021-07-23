@@ -316,6 +316,8 @@ MonoBehaviour:
   comboBreak2: 0.5
   timeBeforeBuffer: 0.15
   equip: {fileID: 11400000, guid: c5680d2d923cc1443a977050c9370bed, type: 2}
+  canUseEquip: 1
+  equipCDTime: 0
   lightAttack:
   - {fileID: 11400000, guid: 97ade3a0dd400174c89789da201c9fdd, type: 2}
   - {fileID: 11400000, guid: 98fd2e0a953b538409fdca8cd1f96e73, type: 2}
@@ -410,6 +412,7 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
   healthBar: {fileID: 5387750846200654186}
   pa: {fileID: 0}
+  pm: {fileID: 0}
 --- !u!114 &2605256485235959586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6986,6 +6989,18 @@ PrefabInstance:
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_SizeDelta.y
       value: 629
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_LocalPosition.x

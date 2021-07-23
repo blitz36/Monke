@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using characterStats;
+using UnityEngine.SceneManagement;
 
 public class playerStatManager : MonoBehaviour
 {
@@ -69,11 +70,21 @@ public class playerStatManager : MonoBehaviour
     isHit = true;
     Invoke("notHit", 0.2f);
     if (currentHealth <= 0) {
-      //do death stuff here
+      die();
     }
   }
 
   public void notHit() {
     isHit = false;
+  }
+
+  public void die(){
+    SceneManager.LoadScene(0);
+    Time.timeScale=1f;
+    GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+    GameObject[] objs2 = GameObject.FindGameObjectsWithTag("MainCamera");
+    Destroy(objs[0]);
+    Destroy(objs[0].transform.parent.gameObject);
+    Destroy(objs2[0]);
   }
 }
