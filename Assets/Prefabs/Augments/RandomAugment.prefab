@@ -70,11 +70,10 @@ MonoBehaviour:
   Rares:
   - {fileID: 11400000, guid: bcf1bd673089172498eff977dfb4661d, type: 2}
   Epics:
-  - {fileID: 11400000, guid: b279153ae8dabf94489aefed494b81e5, type: 2}
-  Legendary:
   - {fileID: 11400000, guid: 04f89759b22b0ae449584129e7f2ef79, type: 2}
-  Equips:
-  - {fileID: 11400000, guid: b279153ae8dabf94489aefed494b81e5, type: 2}
+  Legendary:
+  - {fileID: 11400000, guid: 908aa3adb44296540897e2497c8c7048, type: 2}
+  Equips: []
   Weights: 320000001e0000000f0000000500000000000000
   totalWeight: 0
   item: {fileID: 0}

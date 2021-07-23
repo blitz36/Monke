@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using characterStats;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Modifiers/SpdItem")]
-public class SpdItem : Item
+[CreateAssetMenu(fileName = "New Item", menuName = "Augments/VampireAugment ")]
+public class VampireAugment : Item
 {
     public override void Equip(playerStatManager pStatManager) {
         StatModifier mod = new StatModifier(2, StatModType.Flat, this);
-        pStatManager.baseSpeed.AddModifier(mod);
+        pStatManager.lifeSteal.AddModifier(mod);
     }
     public override void Unequip(playerStatManager pStatManager) {
-        pStatManager.baseSpeed.RemoveAllModifiersFromSource(this);
+        pStatManager.lifeSteal.RemoveAllModifiersFromSource(this);
     }
 }

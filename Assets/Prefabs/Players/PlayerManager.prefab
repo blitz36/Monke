@@ -311,13 +311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fffe549500bf34caf4a3958db99ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboRecoveryTime: 0
+  comboRecoveryTime: 0.5
   comboBreak: 0.25
   comboBreak2: 0.5
   timeBeforeBuffer: 0.15
   equip: {fileID: 11400000, guid: c5680d2d923cc1443a977050c9370bed, type: 2}
   canUseEquip: 1
-  equipCDTime: 0
+  equipCDTime: 5
   lightAttack:
   - {fileID: 11400000, guid: 97ade3a0dd400174c89789da201c9fdd, type: 2}
   - {fileID: 11400000, guid: 98fd2e0a953b538409fdca8cd1f96e73, type: 2}
@@ -402,11 +402,13 @@ MonoBehaviour:
   maxHealth:
     BaseValue: 100
   baseDamage:
-    BaseValue: 10
+    BaseValue: 15
   baseSpeed:
     BaseValue: 10
   maxDashes:
     BaseValue: 1
+  lifeSteal:
+    BaseValue: 0
   priority: 0
   currentHealth: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}

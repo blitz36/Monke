@@ -9,6 +9,12 @@ public class HitboxController : MonoBehaviour
   public float timeToResume;
   public float timeToResumeSlow;
   private bool stopping;
+  public playerStatManager PSM;
+
+  void Start(){
+    PSM = transform.parent.GetComponentInChildren<playerStatManager>();
+    Debug.Log(transform.parent);
+  }
 
     private void OnTriggerEnter(Collider collider) {
       if (collider.tag == "Enemy")
@@ -16,6 +22,7 @@ public class HitboxController : MonoBehaviour
         Debug.Log(collider);
         EnemyStatManager est = collider.transform.GetComponent<EnemyStatManager>();
         est.TakeDamage(damage);
+        PSM.currentHealth += PSM.lifeSteal.Value;
         var moveDirection = transform.position - collider.transform.position;
         est.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
       }
