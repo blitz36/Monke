@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6478604892392952076}
   - component: {fileID: 221372768068492806}
   - component: {fileID: 5363575584923851500}
-  - component: {fileID: 5704127465747769254}
   m_Layer: 11
   m_Name: EnemyHitboxIndicator
   m_TagString: Enemy
@@ -27,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945507346024380782}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 4}
-  m_LocalScale: {x: 12, y: 2, z: 12}
+  m_LocalScale: {x: 12, y: 1, z: 6}
   m_Children:
   - {fileID: 842751533371505411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &6478604892392952076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78,14 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   momentum: 0
---- !u!33 &5704127465747769254
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945507346024380782}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4887311537800299304
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,8 +103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4887311537800299304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_Children: []
   m_Father: {fileID: 4390296288066641987}
   m_RootOrder: 0
@@ -145,7 +136,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91035448860ba4e708919485c73f7edc, type: 2}
+  - {fileID: 2100000, guid: 580895c3d590f4760ba7d0ee2a5dc624, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

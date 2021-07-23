@@ -16,7 +16,9 @@ public class EnemyAttacks : EnemyAttack
     public float momentum;
 
     public bool targetRotation;
+    public bool moveWhenAttack;
 
+    public float forceConstant;
     public override void Cancel() {
       Timer = 0f;
       State = 0;
@@ -58,6 +60,7 @@ public class EnemyAttacks : EnemyAttack
         if (targetRotation == true) {
           Hitbox.transform.LookAt(target);
         }
+        rb.transform.LookAt(target);
       }
 
       //increment
@@ -79,6 +82,9 @@ public class EnemyAttacks : EnemyAttack
 
       if (Timer <= 0f) {
         Hitbox.SetActive(true);
+        if (moveWhenAttack) {
+          rb.AddForce((target.position - transform.position).normalized * forceConstant, ForceMode.Impulse);
+        }
       }
 
       if (targetRotation == true) {

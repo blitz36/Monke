@@ -6997,7 +6997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -236.02344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7017,11 +7017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.8054903
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51.312885
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2920241481698141415, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7035,6 +7035,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6052045913370822342, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 8485363612203297161}
     - target: {fileID: 7754621122218311936, guid: 3b150d1896ed1ce45a0d3976da2621a8, type: 3}
       propertyPath: m_Name
       value: HealthDisplayPlayer

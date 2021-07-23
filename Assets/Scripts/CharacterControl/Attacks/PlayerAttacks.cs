@@ -17,6 +17,9 @@ public class PlayerAttacks : MonoBehaviour
 
   //equiable items + each lightAttack. Maybe should turn the lightAttacks into a list later?
   public Equipable equip;
+  public bool canUseEquip = true;
+  public float equipCDTime;
+
   public List<Attack> lightAttack;
   public Attack heavyAttack;
   public Block block;
@@ -90,7 +93,13 @@ public class PlayerAttacks : MonoBehaviour
 
     //EQUIP LOGIC
     if (pst.priority < 4) {
-      equip.Activate(rb, plane, gameObject, ref pst.priority);
+      if (canUseEquip == true || equip.State != 0) {
+        equip.Activate(rb, plane, gameObject, ref pst.priority);
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+          canUseEquip = false;
+          Invoke("equipOffCD", equipCDTime);
+        }
+      }
     }
 
     //LOGIC ON WHEN TO BE ABLE TO QUEUE UP NEW LIGHT AND HEAVY ATTACKS
@@ -228,6 +237,10 @@ public class PlayerAttacks : MonoBehaviour
     block = pst.block;
     heavyAttack = pst.heavyAttack;
     equip = pst.equip;
+  }
+
+  public void equipOffCD() {
+    canUseEquip = true;
   }
 
 }

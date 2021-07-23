@@ -25,12 +25,14 @@ public class playerStatManager : MonoBehaviour
   public HealthBar healthBar;
   Transform target;
   public PlayerAttacks pa;
+  public PlayerMovement pm;
   // Start is called before the first frame update
   void Start()
   {
       currentHealth = maxHealth.Value;
       healthBar.SetMaxHealth(maxHealth.Value);
       pa = gameObject.GetComponent<PlayerAttacks>();
+      pm = gameObject.GetComponent<PlayerMovement>();
       updateDmgValues();
       Invoke("updateDmgValues", 2f);
 

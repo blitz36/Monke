@@ -9,6 +9,7 @@ public abstract class Equipable : ScriptableObject
   public string description;
   public int damage;
   public List<GameObject> hitboxes;
+  public int State = 0;
 
   public abstract void Cancel();
   public abstract List<GameObject> createHitbox(Transform Player);

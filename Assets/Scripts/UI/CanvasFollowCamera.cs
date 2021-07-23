@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CanvasFollowCamera : MonoBehaviour
 {
-  Transform target;
+  public Transform target;
 
     void Awake()
     {
-    target = Camera.main.transform;
+      if (target == null) {
+        target = Camera.main.transform;
+    }
     }
 
     void LateUpdate()

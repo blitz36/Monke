@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Equipment/BFG")]
 public class Equip_BFG : Equipable
 {
-    private int State;
     private float Timer;
     private List<GameObject> laser = new List<GameObject>();
     public float startTime;
@@ -95,8 +94,9 @@ public class Equip_BFG : Equipable
           Timer += Time.deltaTime;
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
-            State = 0;
             priority = 0;
+            State = 0;
+
           }
           break;
       }
