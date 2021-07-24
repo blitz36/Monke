@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Vector3> spawnBoxOffsets;
     public List<Vector3> triggerBoxOffsets;
 
-    public int waveCount;
+    private int waveCount;
     public int maxWaves;
     public int numSpawns;
     public float timeBetweenWaves;

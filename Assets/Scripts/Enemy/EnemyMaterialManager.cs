@@ -54,7 +54,7 @@ public class EnemyMaterialManager : MonoBehaviour
         }
       }
 
-      else if (ESM.SC.currentState != hitstunState) {
+      if (ESM.SC.currentState != hitstunState) {
         if (hitChanged == true) {
           material.SetColor("_MainColor", previousColor);
           hitChanged = false;

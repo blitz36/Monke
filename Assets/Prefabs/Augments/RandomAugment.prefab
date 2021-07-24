@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcf1bd673089172498eff977dfb4661d, type: 2}
   Epics:
   - {fileID: 11400000, guid: 04f89759b22b0ae449584129e7f2ef79, type: 2}
+  - {fileID: 11400000, guid: 1d142bdef7f409142919db965109dabf, type: 2}
   Legendary:
   - {fileID: 11400000, guid: 908aa3adb44296540897e2497c8c7048, type: 2}
   Equips: []

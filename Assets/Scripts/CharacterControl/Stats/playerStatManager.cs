@@ -21,6 +21,8 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat baseSpeed = new CharacterStat(10f);
   public CharacterStat maxDashes = new CharacterStat(1f);
   public CharacterStat lifeSteal = new CharacterStat(0f);
+  public CharacterStat flameStat = new CharacterStat(0f);
+
   public int priority = 0;
   public float currentHealth;
   public GameObject healthBarPrefab;

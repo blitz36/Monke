@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitboxController : MonoBehaviour
 {
   public float damage;
+  private float flameDamage;
   public float momentum;
   public float timeToResume;
   public float timeToResumeSlow;
