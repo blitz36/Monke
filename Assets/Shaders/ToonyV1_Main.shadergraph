@@ -86,6 +86,9 @@
         },
         {
             "m_Id": "bbde5992e390456d9b3ed9bf0ec451f9"
+        },
+        {
+            "m_Id": "b69d30377677456a931e0b21d6416f67"
         }
     ],
     "m_Keywords": [],
@@ -713,20 +716,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "4ade67cb24b44dc3b5e21935d5fdec21"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "c901abec4fd541c38a65d03598293caf"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "4d3084592c754cf88e32ecaa44309203"
                 },
                 "m_SlotId": 2
@@ -1042,6 +1031,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "4ade67cb24b44dc3b5e21935d5fdec21"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "8250020df1af46d9a40042f844df7d55"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "c901abec4fd541c38a65d03598293caf"
                 },
                 "m_SlotId": 1
             }
@@ -10481,6 +10484,29 @@
         "e31": 0.0,
         "e32": 0.0,
         "e33": 1.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "b69d30377677456a931e0b21d6416f67",
+    "m_Guid": {
+        "m_GuidSerialized": "d430175d-cf7b-4d0e-92aa-cf4245081a66"
+    },
+    "m_Name": "Scroll Speed",
+    "m_DefaultReferenceName": "Vector1_b69d30377677456a931e0b21d6416f67",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": -0.20000000298023225,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
     }
 }
 

@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7882969462625524972, guid: 6eae9aeee1ed4ce458b466514f0bc89e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34cb3951afeda03439ffb49ff69c205f, type: 2}
     - target: {fileID: 8531245435147550009, guid: 6eae9aeee1ed4ce458b466514f0bc89e, type: 3}
       propertyPath: m_Name
-      value: Hydraulic_Flooring_1
+      value: Hydraulic_Flooring_1 Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 9020360586345850755, guid: 6eae9aeee1ed4ce458b466514f0bc89e, type: 3}
       propertyPath: m_RootOrder

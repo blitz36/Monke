@@ -84,10 +84,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_0cf915e9c762422283b9ed634482e429: 1
+    - Vector1_5cbca4fd820d44cbafa7b071d28b3415: 1
     - Vector1_6f4d896f0c7b4e3082814d4905066a01: 0.279
     - Vector1_834b3284e1db434cb33849f0d6b43049: 0
     - Vector1_911421B8: 0.33
+    - Vector1_943b2c21a1134ab5a657003b74adb4be: 2
     - Vector1_A7207CA3: 6.39
+    - Vector1_c776ac0f395d4c98bc621762e9f440a9: 0
     - Vector1_ed6cde0a1cf54272a1ddad55e8cafa45: 50
     - Vector1_f3cb9133216b46ea81a9fcbb5f6314d0: 2
     - _AlphaClip: 0
@@ -97,8 +101,11 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _CutoffHeight: 0.4
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve: 2
+    - _DissolveEmis: 2
     - _DstBlend: 10
     - _EnvironmentReflections: 1
     - _Gloss: 8.29
@@ -108,6 +115,7 @@ Material:
     - _METALNESS: 1
     - _Metallic: 0
     - _Mode: 3
+    - _NoiseStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
@@ -133,10 +141,14 @@ Material:
     m_Colors:
     - Color_5DF75355: {r: 0.27843142, g: 1, b: 0, a: 0}
     - Color_dcd56978ef7d4bae83f00c3d91aee146: {r: 1, g: 1, b: 1, a: 0}
+    - Vector3_b3ecc4b645b74d2bb242d932f2ce448f: {r: 0, g: -1, b: 0, a: 0}
+    - Vector3_bbde5992e390456d9b3ed9bf0ec451f9: {r: 0, g: 1, b: 0, a: 0}
     - _AmbientColor: {r: 0.21782663, g: 0.68511575, b: 0.8396226, a: 0}
     - _BASE_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _DirectionEmis: {r: 0, g: 1, b: 0, a: 0}
     - _EMISSION_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlossColor: {r: 1, g: 0.6615062, b: 0, a: 0}
