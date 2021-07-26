@@ -115,6 +115,7 @@ Material:
     m_Floats:
     - Vector1_911421B8: 0.1
     - Vector1_A7207CA3: 1
+    - Vector1_b69d30377677456a931e0b21d6416f67: -0.2
     - Vector1_ed6cde0a1cf54272a1ddad55e8cafa45: 50
     - _AlphaClip: 0
     - _Blend: 0
@@ -125,7 +126,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: 0
+    - _Dissolve: 2
+    - _DissolveEmis: 2
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Gloss: 32
@@ -135,6 +137,7 @@ Material:
     - _METALNESS: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NoiseStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
@@ -156,6 +159,8 @@ Material:
     - _AmbientColor: {r: 0.2371395, g: 0.5779388, b: 0.6886792, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.7353569, g: 0.7353569, b: 0.7353569, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _DirectionEmis: {r: 0, g: 1, b: 0, a: 0}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlossColor: {r: 0, g: 0, b: 0, a: 0}
