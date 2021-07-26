@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba23225a3de08144bf429aece391a98, type: 3}
   m_Name: FlameSwordAugment
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Flame Augment
   icon: {fileID: 0}
   description: 

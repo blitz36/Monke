@@ -12,20 +12,25 @@ public class HitboxController : MonoBehaviour
   private bool stopping;
   public playerStatManager PSM;
 
+  public delegate void AugmentedHitboxFunc(EnemyStatManager ESM, playerStatManager PSM);
+  public AugmentedHitboxFunc augmentedHitboxFunc;
+
+
   void Start(){
-    PSM = transform.parent.GetComponentInChildren<playerStatManager>();
-    Debug.Log(transform.parent);
+    PSM = transform.root.GetComponentInChildren<playerStatManager>();
+    Debug.Log(transform.root);
   }
 
     private void OnTriggerEnter(Collider collider) {
       if (collider.tag == "Enemy")
       {
         Debug.Log(collider);
-        EnemyStatManager est = collider.transform.GetComponent<EnemyStatManager>();
-        est.TakeDamage(damage);
-        PSM.currentHealth += PSM.lifeSteal.Value;
+        EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
+        ESM.TakeDamage(damage);
         var moveDirection = transform.position - collider.transform.position;
-        est.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+        ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+        if (augmentedHitboxFunc != null)
+          augmentedHitboxFunc(ESM, PSM);
       }
     }
 

@@ -12,6 +12,6 @@ public abstract class Attack : ScriptableObject
 
   public abstract float totalTime();
   public abstract List<GameObject> createHitbox(Transform Player);
-  public abstract void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep);
+  public abstract int PerformAttack(playerStatManager PSM);
   public abstract void Cancel();
 }

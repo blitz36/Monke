@@ -41,38 +41,33 @@ public class Slash : Attack
       return slashHitbox;
 
     }
-    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
+    public override int PerformAttack(playerStatManager PSM) {
       switch (State) {
         case 0: //Starting/idle state
-
-
-          if (bufferAttack) //if slashing or a slash is buffered then perform the action
-            {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              rb.velocity = new Vector3(0, 0, 0);
-              var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+              PSM.rb.velocity = new Vector3(0, 0, 0);
+              var ray = Camera.main.ScreenPointToRay(PSM.playerInput.Base.MousePosition.ReadValue<Vector2>());
               float enter;
-              if (plane.Raycast(ray, out enter))
+              if (PSM.plane.Raycast(ray, out enter))
               {
                   var hitPoint = ray.GetPoint(enter);
-                  var mouseDir = hitPoint - gameObject.transform.position;
+                  var mouseDir = hitPoint - PSM.gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
-                  gameObject.transform.LookAt (hitPoint);
-                  gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
+                  PSM.rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
+                  PSM.gameObject.transform.LookAt (hitPoint);
+                  PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
 
-              slashHitbox[0].SetActive(true);
-              bufferAttack = false;
-              priority = 1;
-              State = 1;
-              Timer = 0;
-          }
-        }
+                  slashHitbox[0].SetActive(true);
+                  PSM.bufferedAttack = false;
+                  PSM.priority = 1;
+                  State = 1;
+                  Timer = 0;
+            }
         break;
 
         case 1: //start up
         //decelerate the momentum during startup
-        rb.velocity = rb.velocity * .97f;
+        PSM.rb.velocity = PSM.rb.velocity * .97f;
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
@@ -84,7 +79,7 @@ public class Slash : Attack
 
         case 2: //Active
           //stop all momentum at this point
-          rb.velocity = new Vector3(0f,0f,0f);
+          PSM.rb.velocity = new Vector3(0f,0f,0f);
 
 
           //timer before switching to recovery stage
@@ -104,10 +99,10 @@ public class Slash : Attack
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            priority = 0;
-            comboStep = nextStep;
+            PSM.priority = 0;
           }
           break;
       }
+      return State;
     }
 }

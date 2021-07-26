@@ -32,7 +32,7 @@ public class RandomLootGenerator : MonoBehaviour
     determineLoot();
     itemDescription.gameObject.SetActive(false);
   }
-
+/*
   void OnTriggerEnter(Collider col) {
     itemDescription.gameObject.SetActive(true);
   }
@@ -46,12 +46,10 @@ public class RandomLootGenerator : MonoBehaviour
       PickUp(instance);
     }
   }
-
-  void PickUp(RandomLootGenerator identity) {
-    if (identity == instance) {
+*/
+  public void PickUp() {
       Inventory.instance.Equip(item);
       Destroy(gameObject);
-    }
   }
 
 

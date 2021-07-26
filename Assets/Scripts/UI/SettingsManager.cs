@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI; //Need this for calling UI scripts
 
 public class SettingsManager : MonoBehaviour {
+  private playerStatManager PSM;
   //*********************Variables**********************************
     [SerializeField]
     Transform UIPanel; //Will assign our panel to this variable so we can enable/disable it
@@ -18,16 +19,17 @@ public class SettingsManager : MonoBehaviour {
 
       UIPanel.gameObject.SetActive(false); //make sure our pause menu is disabled when scene starts
       isPaused = false; //make sure isPaused is always false when our scene opens
+      PSM = transform.root.gameObject.GetComponentInChildren<playerStatManager>();
     }
 
 
     void Update()
     {
       //pause or unpause lmao
-      if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+      if ((PSM.playerInput.Base.Escape.triggered) && !isPaused)
       Pause();
 
-      else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+      else if ((PSM.playerInput.Base.Escape.triggered) && isPaused)
       UnPause();
     }
 

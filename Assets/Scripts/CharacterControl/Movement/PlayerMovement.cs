@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
   //normal running stuff
   void performMovement(float horiz, float vert) {
       if (pStatManager.priority < 1){
-      //  lookAtMouse();//always look towards mouse
 
         //if there is any direction inputs, run in that direction
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
@@ -143,3 +143,4 @@ public class PlayerMovement : MonoBehaviour
     transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
   }
 }
+*/

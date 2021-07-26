@@ -41,9 +41,6 @@ public class Inventory : MonoBehaviour
   }
 
   void Update(){
-    if (Input.GetKey(KeyCode.R)) {
-      UnequipAll();
-    }
   }
 
   public void Equip(Item item) {

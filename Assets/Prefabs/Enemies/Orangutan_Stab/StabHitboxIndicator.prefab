@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 458470959678007754}
   - component: {fileID: 7561579598972644491}
   - component: {fileID: 1978971117575035705}
-  - component: {fileID: 1160581948022478790}
   m_Layer: 0
   m_Name: StabHitboxIndicator
   m_TagString: Untagged
@@ -96,17 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1160581948022478790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7805033513624240619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93fdcb4ba8882cb40b52b1caf7d5f028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  momentum: 0

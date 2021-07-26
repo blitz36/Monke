@@ -39,18 +39,18 @@ public class Slam : Attack
       return slamHitbox;
 
     }
-    public override void PerformAttack(Rigidbody rb, Plane plane, GameObject gameObject, ref bool bufferAttack, ref int priority, ref int comboStep, int nextStep) {
+    public override int PerformAttack(playerStatManager PSM) {
       switch (State) {
         case 0: //Starting/idle state
 
-          if (bufferAttack) //if slashing or a slash is buffered then perform the action
+          if (PSM.bufferedAttack) //if slashing or a slash is buffered then perform the action
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              rb.velocity = new Vector3(0, 0, 0);
-              rb.AddForce(Vector3.forward * momentum, ForceMode.Impulse);
-              bufferAttack = false;
+              PSM.rb.velocity = new Vector3(0, 0, 0);
+              PSM.rb.AddForce(Vector3.forward * momentum, ForceMode.Impulse);
+              PSM.bufferedAttack = false;
               State = 1;
-              priority = 2;
+              PSM.priority = 2;
               Timer = 0;
 
           }
@@ -58,7 +58,7 @@ public class Slam : Attack
 
         case 1: //start up
         //decelerate the momentum during startup
-        rb.velocity = rb.velocity * .97f;
+        PSM.rb.velocity = PSM.rb.velocity * .97f;
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
@@ -72,7 +72,7 @@ public class Slam : Attack
         case 2: //Active
           //stop all momentum at this point
 
-          rb.velocity = new Vector3(0f,0f,0f);
+          PSM.rb.velocity = new Vector3(0f,0f,0f);
 
 
           //timer before switching to recovery stage
@@ -92,10 +92,11 @@ public class Slam : Attack
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system
             State = 0;
-            priority = 0;
-            comboStep = nextStep;
+            PSM.priority = 0;
+            PSM.chargeAttack = false;
           }
           break;
       }
+      return State;
     }
 }

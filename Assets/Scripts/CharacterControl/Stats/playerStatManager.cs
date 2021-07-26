@@ -6,7 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class playerStatManager : MonoBehaviour
 {
+  public Plane plane = new Plane(Vector3.up, Vector3.zero);
+  public bool isRunning;
+  public bool blockState;
+  public bool bufferedAttack = false;
+  public bool chargeAttack = false;
+  public float holdTimer;
+  public bool holding;
+  public float tapThreshold;
+  public int comboStep = 0;
 
+  public Inputs playerInput;
   private bool isHit = false;
 
   public List<GameObject> hitboxes = new List<GameObject>();
@@ -20,33 +30,51 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat baseDamage = new CharacterStat(20f);
   public CharacterStat baseSpeed = new CharacterStat(10f);
   public CharacterStat maxDashes = new CharacterStat(1f);
-  public CharacterStat lifeSteal = new CharacterStat(0f);
-  public CharacterStat flameStat = new CharacterStat(0f);
+  public Dictionary<string, CharacterStat> newStats = new Dictionary<string, CharacterStat>();
 
   public int priority = 0;
   public float currentHealth;
+  public float numDashes;
+  public float dashCooldown;
+  public float dashCDTimer;
   public GameObject healthBarPrefab;
   public HealthBar healthBar;
   Transform target;
-  public PlayerAttacks pa;
-  public PlayerMovement pm;
+  public Rigidbody rb;
   // Start is called before the first frame update
   void Start()
   {
       currentHealth = maxHealth.Value;
       healthBar.SetMaxHealth(maxHealth.Value);
-      pa = gameObject.GetComponent<PlayerAttacks>();
-      pm = gameObject.GetComponent<PlayerMovement>();
+      numDashes = maxDashes.Value;
       updateDmgValues();
       Invoke("updateDmgValues", 2f);
+
+      playerInput.Base.HeavyAttack.started += _ => holding = true;
+      playerInput.Base.HeavyAttack.performed += _ => holding = false;
+      playerInput.Base.HeavyAttack.canceled += _ => holding = false;
+
 
   }
   private void Awake() {
     target = gameObject.transform;
+    playerInput = new Inputs();
+    if (rb == null) {
+      rb = gameObject.GetComponent<Rigidbody>();
+    }
+  }
+
+  private void OnEnable() {
+      playerInput.Enable();
+  }
+
+  private void OnDisable() {
+    playerInput.Disable();
   }
 
   void Update(){
-    //healthBar.transform.position = new Vector3(target.position.x, target.position.y+2, target.position.z);
+    dashRefresh();
+    holdInput();
   }
 
   public void updateDmgValues() {
@@ -58,11 +86,10 @@ public class playerStatManager : MonoBehaviour
   public void TakeDamage(float damage, Vector3 pos) {
     if (isHit == true) return;
 
-    float parryTime = pa.block.returnParryTime();
-    Debug.Log(parryTime);
+  //  float parryTime = pa.block.returnParryTime();
     Vector3 forward = transform.forward;
     Vector3 toOther = pos - transform.position;
-    if (pa.blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
+    if (blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
       currentHealth -= damage * 0.9f;
       Debug.Log("BLOCKED");
     }
@@ -90,4 +117,30 @@ public class playerStatManager : MonoBehaviour
     Destroy(objs[0].transform.parent.gameObject);
     Destroy(objs2[0]);
   }
+
+  void dashRefresh() {
+    if (numDashes >= maxDashes.Value) {
+      return;
+    }
+
+    dashCDTimer += Time.deltaTime;
+    if(dashCDTimer >= dashCooldown) //when recovery time is up reset everything so u can dash again :)
+    {
+        dashCDTimer = 0;
+        numDashes += 1;
+    }
+  }
+
+  void holdInput(){
+    if (holding == false) {
+      if (holdTimer > 0f) {
+        holdTimer = 0f;
+      }
+      return;
+    }
+    else {
+      holdTimer += Time.deltaTime;
+    }
+  }
+
 }

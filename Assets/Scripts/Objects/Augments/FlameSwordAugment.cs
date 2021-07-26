@@ -8,9 +8,9 @@ public class FlameSwordAugment : Item
 {
     public override void Equip(playerStatManager pStatManager) {
         StatModifier mod = new StatModifier(3, StatModType.Flat, this);
-        pStatManager.flameStat.AddModifier(mod);
+      //  pStatManager.flameStat.AddModifier(mod);
     }
     public override void Unequip(playerStatManager pStatManager) {
-        pStatManager.flameStat.RemoveAllModifiersFromSource(this);
+        //pStatManager.flameStat.RemoveAllModifiersFromSource(this);
     }
 }

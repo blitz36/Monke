@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -196,28 +197,6 @@ public class PlayerAttacks : MonoBehaviour
     if (Input.GetMouseButton(0)) { //when holding down the mouse, if it passes the threshold then its a charge lightAttack.
       holdTimer += Time.deltaTime;
       if (holdTimer >= tapThreshold) {
-
-  //      gameObject.transform.eulerAngles = faceDirection;
-  //      rb.velocity = new Vector3(0, 0, 0);
-  /*
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float enter;
-        if (plane.Raycast(ray, out enter))
-        {
-            var hitPoint = ray.GetPoint(enter);
-            var mouseDir = hitPoint - gameObject.transform.position;
-            mouseDir = mouseDir.normalized;
-            gameObject.transform.LookAt (hitPoint);
-            faceDirection = new Vector3(0, gameObject.transform.eulerAngles.y,0);
-            }
-
-        if (holdTimer > maxCharge) {
-          chargePercent += Time.deltaTime;
-          chargeAttack = true;
-          bufferAttack = true;
-          holdTimer = 0f;
-        }
-        */
       }
       if (comboStep >= 0) comboTimer = 0f;
     }
@@ -229,7 +208,6 @@ public class PlayerAttacks : MonoBehaviour
       bufferAttack = true;
       holdTimer = 0f;
     }
-    //  }
   }
 
   public void refreshEquips() {
@@ -244,3 +222,4 @@ public class PlayerAttacks : MonoBehaviour
   }
 
 }
+*/

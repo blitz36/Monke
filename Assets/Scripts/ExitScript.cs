@@ -22,9 +22,9 @@ public class ExitScript : MonoBehaviour
   }
 
   void OnTriggerStay(Collider Collider) {
-    if (Input.GetKeyDown("r")) {
-      SceneManager.LoadScene(nextScene);
-    }
+  //  if (PSM.playerInput.Base.Interact.triggered) {
+    //  SceneManager.LoadScene(nextScene);
+    //}
   }
 
 
