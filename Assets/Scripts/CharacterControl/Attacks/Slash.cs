@@ -7,7 +7,7 @@ public class Slash : Attack
 {
     public int State;
     private float Timer;
-    private List<GameObject> slashHitbox = new List<GameObject>();
+    public List<GameObject> slashHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;

@@ -22,6 +22,7 @@ public class AnimationManager_Player : MonoBehaviour
     //    animator.SetFloat("vert", PM.vert);
         animator.SetFloat("HoldTimer", PSM.holdTimer);
         animator.SetInteger("isAction", PSM.priority);
+        animator.SetInteger("SlamType", PSM.chargeAttackType);
         animator.SetBool("BlockState", PSM.blockState);
         animator.SetInteger("ComboStep", PSM.comboStep);
         animator.SetBool("isRunning", PSM.isRunning);

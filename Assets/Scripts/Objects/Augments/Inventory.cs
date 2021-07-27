@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
   public List<Attack> lightAttack;
   public List<GameObject> lightAttackHitbox;
 
-  public Attack heavyAttack;
+  public List<Attack> heavyAttack;
   public List<GameObject> heavyAttackHitbox;
 
   public Equipable equip;
@@ -34,9 +34,12 @@ public class Inventory : MonoBehaviour
     foreach (Attack attacks in lightAttack) {
       lightAttackHitbox.AddRange(attacks.createHitbox(transform));
     }
+    foreach (Attack attacks in heavyAttack) {
+      heavyAttackHitbox.AddRange(attacks.createHitbox(transform));
+    }
     pStatManager.lightAttack.AddRange(lightAttack);
+    pStatManager.heavyAttack.AddRange(heavyAttack);
     equipBlock(block);
-    equipHeavyAttack(heavyAttack);
     equipEquipmentAttack(equip);
   }
 
@@ -94,14 +97,19 @@ public class Inventory : MonoBehaviour
     refreshHitboxList();
   }
 
-  public void equipHeavyAttack(Attack attack) {
+  public void equipHeavyAttack(List<Attack> attack) {
     foreach (GameObject hitbox in heavyAttackHitbox) {
       Destroy(hitbox);
     }
-    heavyAttack = attack;
-    heavyAttackHitbox.AddRange(attack.createHitbox(transform));
-    pStatManager.heavyAttack = heavyAttack;
+
+    heavyAttack.Clear();
+    foreach (Attack attacks in attack) {
+      heavyAttack.Add(attacks);
+      heavyAttackHitbox.AddRange(attacks.createHitbox(transform));
+    }
     refreshHitboxList();
+    pStatManager.heavyAttack.Clear();
+    pStatManager.heavyAttack.AddRange(heavyAttack);
   }
 
   public void equipBlock(Block attack) {

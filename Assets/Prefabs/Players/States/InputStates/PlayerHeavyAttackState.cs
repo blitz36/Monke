@@ -9,7 +9,8 @@ public class PlayerHeavyAttackState : PlayerState
   private PlayerEquipState equipState;
   private PlayerMovementState movementState;
   private int filler;
-  public Attack heavyAttack;
+  public List<Attack> heavyAttack = new List<Attack>();
+
 
   void Start() {
     refreshEquips();
@@ -36,23 +37,24 @@ public class PlayerHeavyAttackState : PlayerState
   public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
   {
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
-      heavyAttack.Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel();
       PSM.chargeAttack = false;
       return dashState;
     }
     if (PSM.playerInput.Base.Block.triggered) {
-      heavyAttack.Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel();
       PSM.chargeAttack = false;
       return blockState;
     }
 
     if (PSM.playerInput.Base.Equip.triggered && equipState.canUseEquip) {
-      heavyAttack.Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel();
       PSM.chargeAttack = false;
       return equipState;
     }
 
-    int State = heavyAttack.PerformAttack(PSM);
+
+    int State = heavyAttack[PSM.chargeAttackType].PerformAttack(PSM);
     if (State == 0) {
       return movementState;
     }

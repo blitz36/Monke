@@ -27,6 +27,7 @@ public class HitboxController : MonoBehaviour
         Debug.Log(collider);
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
         ESM.TakeDamage(damage);
+        stopEffect();
         var moveDirection = transform.position - collider.transform.position;
         ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
         if (augmentedHitboxFunc != null)

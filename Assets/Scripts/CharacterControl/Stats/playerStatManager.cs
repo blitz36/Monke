@@ -11,7 +11,9 @@ public class playerStatManager : MonoBehaviour
   public bool blockState;
   public bool bufferedAttack = false;
   public bool chargeAttack = false;
+  public int chargeAttackType;
   public float holdTimer;
+  public List<float> holdTimes;
   public bool holding;
   public float tapThreshold;
   public int comboStep = 0;
@@ -22,7 +24,7 @@ public class playerStatManager : MonoBehaviour
   public List<GameObject> hitboxes = new List<GameObject>();
   public List<Attack> lightAttack;
   public Block block;
-  public Attack heavyAttack;
+  public List<Attack>  heavyAttack;
   public Equipable equip;
 
 
@@ -134,6 +136,15 @@ public class playerStatManager : MonoBehaviour
   void holdInput(){
     if (holding == false) {
       if (holdTimer > 0f) {
+        if (holdTimer < holdTimes[0]) {
+          chargeAttackType = 0;
+        }
+        else if (holdTimer < holdTimes[1]) {
+          chargeAttackType = 1;
+        }
+        else {
+          chargeAttackType = 2;
+        }
         holdTimer = 0f;
       }
       return;

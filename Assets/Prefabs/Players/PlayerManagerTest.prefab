@@ -13533,7 +13533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PSM: {fileID: 0}
-  heavyAttack: {fileID: 0}
+  heavyAttack:
+  - {fileID: 0}
 --- !u!1 &4930049878045664020
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,14 +14782,18 @@ MonoBehaviour:
   blockState: 0
   bufferedAttack: 0
   chargeAttack: 0
+  chargeAttackType: 0
   holdTimer: 0
+  holdTimes:
+  - 0.5
+  - 0.8
   holding: 0
   tapThreshold: 0.3
   comboStep: 0
   hitboxes: []
   lightAttack: []
   block: {fileID: 0}
-  heavyAttack: {fileID: 0}
+  heavyAttack: []
   equip: {fileID: 0}
   maxHealth:
     BaseValue: 100
@@ -14825,7 +14830,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98fd2e0a953b538409fdca8cd1f96e73, type: 2}
   - {fileID: 11400000, guid: f4334542842e04146ae5a33231ad2b6d, type: 2}
   lightAttackHitbox: []
-  heavyAttack: {fileID: 11400000, guid: 459db05b17b0a7a4e99c3d799214a735, type: 2}
+  heavyAttack:
+  - {fileID: 11400000, guid: eaf2dde5e777f51458970c5513fd3c74, type: 2}
+  - {fileID: 11400000, guid: 459db05b17b0a7a4e99c3d799214a735, type: 2}
+  - {fileID: 11400000, guid: 6ae531b6681a856469c38305319e9f10, type: 2}
   heavyAttackHitbox: []
   equip: {fileID: 11400000, guid: c5680d2d923cc1443a977050c9370bed, type: 2}
   equipHitbox: []

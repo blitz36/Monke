@@ -62,9 +62,6 @@ public class Block : Attack
         //          rb.AddForce(direction * momentum, ForceMode.Impulse);
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
-
-              blockHitbox[0].SetActive(true);
-              PSM.blockState = true;
               PSM.priority = 11;
               State = 1;
               Timer = 0;
@@ -78,13 +75,15 @@ public class Block : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
+            blockHitbox[0].SetActive(true);
+            PSM.blockState = true;
           }
           break;
 
         case 2: //Active
 
           //timer before switching to recovery stage
-          if(!PSM.playerInput.Base.Dashing.triggered)
+          if(!PSM.playerInput.Base.Block.triggered)
           {
               Timer = 0f;
               State = -1;
