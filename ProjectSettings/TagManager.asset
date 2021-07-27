@@ -47,3 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Settings
+    uniqueID: 3923484417
+    locked: 0
+  - name: FogOfWar
+    uniqueID: 2639422021
+    locked: 0
