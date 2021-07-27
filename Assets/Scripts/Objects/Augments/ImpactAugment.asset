@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa8148637164d3438e301fc62d5a86c, type: 3}
   m_Name: ImpactAugment
   m_EditorClassIdentifier: 
-  name: 
+  name: Impact Augment
   icon: {fileID: 0}
   description: More Damage
+  FlavorText: Smack the booty harder

@@ -9,6 +9,7 @@ public class playerStatManager : MonoBehaviour
   public Plane plane = new Plane(Vector3.up, Vector3.zero);
   public bool isRunning;
   public bool blockState;
+  public bool blockTrigger;
   public bool bufferedAttack = false;
   public bool chargeAttack = false;
   public int chargeAttackType;
@@ -56,6 +57,9 @@ public class playerStatManager : MonoBehaviour
       playerInput.Base.HeavyAttack.performed += _ => holding = false;
       playerInput.Base.HeavyAttack.canceled += _ => holding = false;
 
+      playerInput.Base.Block.started += _ => blockTrigger = true;
+      playerInput.Base.Block.performed += _ => blockTrigger = false;
+      playerInput.Base.Block.canceled += _ => blockTrigger = false;
 
   }
   private void Awake() {
@@ -92,7 +96,7 @@ public class playerStatManager : MonoBehaviour
     Vector3 forward = transform.forward;
     Vector3 toOther = pos - transform.position;
     if (blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
-      currentHealth -= damage * 0.9f;
+      currentHealth -= damage * 0.1f;
       Debug.Log("BLOCKED");
     }
     else {

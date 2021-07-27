@@ -14,6 +14,9 @@ public class RandomLootGenerator : MonoBehaviour
 
   private GameObject chest;
 
+  public GameObject rarityList;
+  public AugmentRarityStorage storage;
+
   public List<Item> Commons;
   public List<Item> Rares;
   public List<Item> Epics;
@@ -27,8 +30,14 @@ public class RandomLootGenerator : MonoBehaviour
 
   private RandomLootGenerator instance;
 
+  void Awake() {
+    storage = rarityList.GetComponent<AugmentRarityStorage>();
+    syncStoredItems();
+  }
+
   void Start() {
     instance = this;
+
     determineLoot();
     itemDescription.gameObject.SetActive(false);
   }
@@ -47,6 +56,15 @@ public class RandomLootGenerator : MonoBehaviour
     }
   }
 */
+
+  public void syncStoredItems() {
+    Commons = storage.Commons;
+    Rares = storage.Rares;
+    Epics = storage.Epics;
+    Legendary = storage.Legendary;
+    Equips = storage.Equips;
+  }
+
   public void PickUp() {
       Inventory.instance.Equip(item);
       Destroy(gameObject);

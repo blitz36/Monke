@@ -53,7 +53,7 @@ public class PlayerLightAttackState : PlayerState
       bufferTimer = 0f;
       return dashState;
     }
-    if (PSM.playerInput.Base.Block.triggered) {
+    if (PSM.blockTrigger) {
       lightAttack[PSM.comboStep].Cancel();
       bufferTimer = 0f;
       return blockState;

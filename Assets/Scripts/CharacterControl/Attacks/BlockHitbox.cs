@@ -7,7 +7,6 @@ public class BlockHitbox : MonoBehaviour
     public float releaseTime;
 
     private void OnTriggerStay(Collider collider) {
-      Debug.Log("Block Touch");
       if (collider.tag == "Enemy")
       {
         releaseTime += Time.deltaTime;

@@ -41,7 +41,7 @@ public class PlayerHeavyAttackState : PlayerState
       PSM.chargeAttack = false;
       return dashState;
     }
-    if (PSM.playerInput.Base.Block.triggered) {
+    if (PSM.blockTrigger) {
       heavyAttack[PSM.chargeAttackType].Cancel();
       PSM.chargeAttack = false;
       return blockState;

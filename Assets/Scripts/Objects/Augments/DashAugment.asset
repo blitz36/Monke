@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e4aa60e1b373b4684032fe24bc4558, type: 3}
   m_Name: DashAugment
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Dash Augment
   icon: {fileID: 0}
   description: Increases Dash by 1
+  FlavorText: FUK U

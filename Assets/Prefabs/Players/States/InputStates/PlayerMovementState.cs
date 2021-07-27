@@ -52,7 +52,7 @@ public class PlayerMovementState : PlayerState
       return lightAttackState;
     }
 
-    if (PSM.playerInput.Base.Block.triggered) {
+    if (PSM.blockTrigger) {
       PSM.holdTimer = 0f;
       PSM.isRunning = false;
       return blockState;

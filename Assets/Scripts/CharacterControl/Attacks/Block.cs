@@ -83,7 +83,7 @@ public class Block : Attack
         case 2: //Active
 
           //timer before switching to recovery stage
-          if(!PSM.playerInput.Base.Block.triggered)
+          if(!PSM.blockTrigger)
           {
               Timer = 0f;
               State = -1;

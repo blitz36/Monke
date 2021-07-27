@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d13ca35bfd97f4195d79ea95ec20cb, type: 3}
   m_Name: VampireAugment
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Vampire
   icon: {fileID: 0}
-  description: 
+  description: Lifesteal
+  FlavorText: Scrape and lick! I dont suck.

@@ -48,7 +48,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""1c99af77-4592-4eb5-898d-f6846598d076"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""SlowTap(duration=0.1,pressPoint=0.1)""
                 },
                 {
                     ""name"": ""Equip"",
