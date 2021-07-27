@@ -108,6 +108,7 @@ public class playerStatManager : MonoBehaviour
       if (isParry == true) {
         parryVFX.playVFX();
         parried = true;
+        blockTrigger = false;
         Debug.Log("Parried");
       }
       else {
