@@ -14,10 +14,6 @@ public class Block : Attack
     public float recoveryTime;
     public float momentum;
 
-    public float returnParryTime() {
-      return bh.releaseTime;
-    }
-
     public override float totalTime() {
       return startupTime + activeTime + recoveryTime;
     }
@@ -65,6 +61,8 @@ public class Block : Attack
               PSM.priority = 11;
               State = 1;
               Timer = 0;
+              PSM.isParry = true;
+              PSM.isParryStart = true;
           }
         break;
 
@@ -83,8 +81,9 @@ public class Block : Attack
         case 2: //Active
 
           //timer before switching to recovery stage
-          if(!PSM.blockTrigger)
+          if(!PSM.blockTrigger|| PSM.parried == true)
           {
+              PSM.parried = false;
               Timer = 0f;
               State = -1;
               blockHitbox[0].SetActive(false);

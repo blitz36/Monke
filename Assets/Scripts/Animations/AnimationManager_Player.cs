@@ -26,6 +26,8 @@ public class AnimationManager_Player : MonoBehaviour
         animator.SetBool("BlockState", PSM.blockState);
         animator.SetInteger("ComboStep", PSM.comboStep);
         animator.SetBool("isRunning", PSM.isRunning);
+        animator.SetBool("isHit", PSM.isHit);
+        animator.SetBool("isParry", PSM.parried);
 
 
     }

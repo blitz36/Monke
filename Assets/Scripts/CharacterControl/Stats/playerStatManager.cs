@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class playerStatManager : MonoBehaviour
 {
   public Plane plane = new Plane(Vector3.up, Vector3.zero);
+  public bool isParry;
+  public float parryWindow;
+  public bool isParryStart;
+  public bool parried = false;
   public bool isRunning;
   public bool blockState;
   public bool blockTrigger;
@@ -20,7 +24,7 @@ public class playerStatManager : MonoBehaviour
   public int comboStep = 0;
 
   public Inputs playerInput;
-  private bool isHit = false;
+  public bool isHit = false;
 
   public List<GameObject> hitboxes = new List<GameObject>();
   public List<Attack> lightAttack;
@@ -44,6 +48,8 @@ public class playerStatManager : MonoBehaviour
   public HealthBar healthBar;
   Transform target;
   public Rigidbody rb;
+  public VFXActivate HitVFX;
+  public VFXActivate parryVFX;
   // Start is called before the first frame update
   void Start()
   {
@@ -81,6 +87,10 @@ public class playerStatManager : MonoBehaviour
   void Update(){
     dashRefresh();
     holdInput();
+    if (isParryStart == true) {
+      isParryStart = false;
+      StartCoroutine("stopParry");
+    }
   }
 
   public void updateDmgValues() {
@@ -92,19 +102,29 @@ public class playerStatManager : MonoBehaviour
   public void TakeDamage(float damage, Vector3 pos) {
     if (isHit == true) return;
 
-  //  float parryTime = pa.block.returnParryTime();
     Vector3 forward = transform.forward;
     Vector3 toOther = pos - transform.position;
     if (blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
-      currentHealth -= damage * 0.1f;
-      Debug.Log("BLOCKED");
+      if (isParry == true) {
+        parryVFX.playVFX();
+        parried = true;
+        Debug.Log("Parried");
+      }
+      else {
+        currentHealth -= damage * 0.1f;
+        isHit = true;
+        HitVFX.playVFX();
+        Debug.Log("BLOCKED");
+        Invoke("notHit", 0.4f);
+      }
     }
     else {
       currentHealth -= damage;
+      isHit = true;
+      HitVFX.playVFX();
+      Invoke("notHit", 0.4f);
     }
     healthBar.SetHealth(currentHealth/maxHealth.Value);
-    isHit = true;
-    Invoke("notHit", 0.2f);
     if (currentHealth <= 0) {
       die();
     }
@@ -156,6 +176,11 @@ public class playerStatManager : MonoBehaviour
     else {
       holdTimer += Time.deltaTime;
     }
+  }
+
+  IEnumerator stopParry(){
+    yield return new WaitForSeconds(parryWindow);
+    isParry = false;
   }
 
 }

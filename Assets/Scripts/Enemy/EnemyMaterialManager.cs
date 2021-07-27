@@ -43,7 +43,7 @@ public class EnemyMaterialManager : MonoBehaviour
 
     void Update() {
       if (ESM.SC.currentState == deadState) {
-        currentDissolve = currentDissolve + Time.deltaTime/ESM.dissolveTime;
+        currentDissolve = currentDissolve - Time.deltaTime/ESM.dissolveTime;
         material.SetFloat("_Dissolve", currentDissolve);
       }
 
