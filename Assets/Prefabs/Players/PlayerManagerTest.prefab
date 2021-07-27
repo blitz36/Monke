@@ -13490,7 +13490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PSM: {fileID: 0}
-  dashMultiplier: 5
+  dashMultiplier: 3
   dashTimer: 0
   maxDash: 0.2
 --- !u!1 &4930049878022433884
@@ -14785,6 +14785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRunning: 0
   blockState: 0
+  blockTrigger: 0
   bufferedAttack: 0
   chargeAttack: 0
   chargeAttackType: 0

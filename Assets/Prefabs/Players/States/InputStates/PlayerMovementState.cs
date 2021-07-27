@@ -39,7 +39,6 @@ public class PlayerMovementState : PlayerState
   {
     Vector2 direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
     performMovement(direction.x, direction.y);
-
     checkAttacks();
 
     if (PSM.bufferedAttack && PSM.chargeAttack) {
@@ -70,6 +69,7 @@ public class PlayerMovementState : PlayerState
       return dashState;
     }
 
+    PSM.comboStep = 0;
     return this;
   }
 

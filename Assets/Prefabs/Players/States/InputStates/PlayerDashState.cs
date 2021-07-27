@@ -46,20 +46,21 @@ public class PlayerDashState : PlayerState
           switch (dashState)
                  {
                  case 0:
-                         if (horiz != 0 || vert != 0){
                       //     PSM.pa.chargeAttack = false;
                       //     PSM.pa.holdTimer = 0f;
                            PSM.priority = 10;
                       //     PSM.pa.blockState = false;
                         //   PSM.pa.comboStep = 0;
                            //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
-                           Vector3 fVelocity = new Vector3(horiz, PSM.rb.velocity.y, vert);
-                           PSM.rb.velocity = fVelocity.normalized * PSM.baseSpeed.Value * dashMultiplier;
-                           fVelocity = new Vector3(horiz, 0f, vert);
-                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
+                           Vector3 fVelocity = new Vector3(horiz, PSM.rb.velocity.y, vert).normalized;
+                           if (horiz == 0f && vert == 0f) {
+                             fVelocity = new Vector3(transform.forward.x, PSM.rb.velocity.y, transform.forward.z).normalized;
+                           }
+                           PSM.rb.velocity = fVelocity * PSM.baseSpeed.Value * dashMultiplier;
+                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity), 1F);
                            PSM.numDashes -= 1;
                            dashState = 1;
-                         }
+
                          return this;
                      break;
                  case 1:
