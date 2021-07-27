@@ -120,9 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  momentum: -15
+  momentum: -30
   timeToResume: 0
   timeToResumeSlow: 0
+  PSM: {fileID: 0}
 --- !u!1 &4685799376584793009
 GameObject:
   m_ObjectHideFlags: 0
