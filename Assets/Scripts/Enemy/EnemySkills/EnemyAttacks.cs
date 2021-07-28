@@ -8,6 +8,7 @@ public class EnemyAttacks : EnemyAttack
     public int State = 0;
     public float Timer = 0f;
     private GameObject Hitbox;
+    private IndicatorAnimation IA;
     private GameObject hitboxIndicator;
     public GameObject hitboxIndicatorPrefab;
     public float startupTime;
@@ -33,13 +34,12 @@ public class EnemyAttacks : EnemyAttack
         Hitbox = Instantiate(hitbox);
         Hitbox.transform.parent = Player;
         Hitbox.transform.localPosition = posOfHitbox;
-
         Hitbox.SetActive(false);
       }
       hitboxIndicator = Instantiate(hitboxIndicatorPrefab);
       hitboxIndicator.transform.parent = Player;
       hitboxIndicator.transform.localPosition = posOfHitbox;
-
+      IA = hitboxIndicator.GetComponent<IndicatorAnimation>();
       hitboxIndicator.SetActive(false);
 
     }
@@ -65,9 +65,14 @@ public class EnemyAttacks : EnemyAttack
 
       //increment
       Timer += Time.deltaTime;
+      IA.changeScale(Timer/startupTime);
+      if (Timer/startupTime > 0.8f) {
+        IA.pulse();
+      }
       if (Timer >= startupTime) {
         if (hitboxIndicator) {
           hitboxIndicator.SetActive(false);
+          IA.unPulse();
         }
         Timer = 0;
         State = 2;

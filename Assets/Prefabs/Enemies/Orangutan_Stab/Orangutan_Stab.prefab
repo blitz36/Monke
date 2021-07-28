@@ -351,6 +351,53 @@ MonoBehaviour:
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
   timeToDissolve: 2
+--- !u!1 &2136059650332511145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3501061117860657913}
+  - component: {fileID: 3037345092696900138}
+  m_Layer: 0
+  m_Name: StunnedState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3501061117860657913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136059650332511145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.613342, y: 0.8691788, z: -16.106085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6286025381538077428}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3037345092696900138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136059650332511145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731eb62fabbea8740bef31116a177571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ESM: {fileID: 0}
+  hitstunState: {fileID: 0}
+  deadState: {fileID: 0}
+  stunTimer: 0
 --- !u!1 &2550684514502026805
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +445,7 @@ MonoBehaviour:
   description: 
   damage: 0
   hitboxes:
-  - {fileID: 6873028194403106312, guid: 4ad3002b035d5c04d9619594d6e4d3b3, type: 3}
+  - {fileID: 2195006610493600252, guid: 4ad3002b035d5c04d9619594d6e4d3b3, type: 3}
   posOfHitbox: {x: 0, y: 0, z: 0}
   State: 0
   Timer: 0
@@ -504,6 +551,8 @@ MonoBehaviour:
   SC: {fileID: 0}
   dissolveTime: 2
   hitStunTime: 0.2
+  stunTime: 0
+  stunned: 0
   rb: {fileID: 0}
   maxHealth:
     BaseValue: 100
@@ -1538,6 +1587,7 @@ Transform:
   - {fileID: 7859916461515155573}
   - {fileID: 6978388338792688070}
   - {fileID: 6162514859920924873}
+  - {fileID: 3501061117860657913}
   m_Father: {fileID: 2664277014207495518}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class playerStatManager : MonoBehaviour
 {
   public Plane plane = new Plane(Vector3.up, Vector3.zero);
+  public bool dashState;
+  public float stunTime;
   public bool isParry;
   public float parryWindow;
   public bool isParryStart;
@@ -99,16 +101,19 @@ public class playerStatManager : MonoBehaviour
     }
   }
 
-  public void TakeDamage(float damage, Vector3 pos) {
-    if (isHit == true) return;
+  public void TakeDamage(float damage, GameObject Enemy) {
+    if (isHit || dashState == false) return;
+    EnemyStatManager ESM = Enemy.GetComponentInChildren<EnemyStatManager>();
 
     Vector3 forward = transform.forward;
-    Vector3 toOther = pos - transform.position;
+    Vector3 toOther = Enemy.transform.position - transform.position;
     if (blockState == true && (Vector3.Dot(forward.normalized, toOther.normalized) > 0)) {
       if (isParry == true) {
         parryVFX.playVFX();
         parried = true;
         blockTrigger = false;
+        ESM.stunTime = stunTime;
+        ESM.stunned = true;
         Debug.Log("Parried");
       }
       else {

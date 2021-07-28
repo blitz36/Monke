@@ -9,6 +9,9 @@ public class EnemyStatManager : MonoBehaviour
     public StateController SC;
     public float dissolveTime;
     public float hitStunTime;
+    public float stunTime;
+    public bool stunned;
+
     [HideInInspector]
     public Rigidbody rb;
 
@@ -48,9 +51,6 @@ public class EnemyStatManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (isHit == true) {
-          return;
-        }
         isHit = true;
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth/maxHealth.Value);

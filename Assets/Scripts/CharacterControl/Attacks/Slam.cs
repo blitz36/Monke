@@ -21,6 +21,7 @@ public class Slam : Attack
     public override void Cancel() {
       Timer = 0f;
       State = 0;
+      Time.timeScale = 1f;
       foreach (GameObject hitbox in slamHitbox) {
         hitbox.SetActive(false);
       }

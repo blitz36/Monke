@@ -11,10 +11,8 @@ public class EnemyHitboxController : MonoBehaviour
       if (collider.tag == "Player")
       {
         playerStatManager pst = collider.transform.GetComponent<playerStatManager>();
-        pst.TakeDamage(damage, transform.root.position);
+        pst.TakeDamage(damage, transform.root.gameObject);
         var moveDirection = transform.position - collider.transform.position;
-        Debug.Log(transform.root.position);
-        Debug.Log(transform.root);
         //pst.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
       }
     }

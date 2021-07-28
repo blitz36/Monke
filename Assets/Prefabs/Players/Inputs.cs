@@ -97,6 +97,22 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""SlowTap(duration=0.35)""
+                },
+                {
+                    ""name"": ""RotateCamLeft"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""00f54bd0-f2c5-4643-b466-42790daa27c8"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RotateCamRight"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b8b4e0db-06ce-4234-aaa3-11facc7a1c07"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,7 +229,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6029037f-8d3c-487b-b200-6199b6ffce98"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -253,6 +269,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""HeavyAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf5bbf7e-9efc-4ee2-9226-b23d1c905761"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a95c7e24-1d06-4991-8e1c-4ab350bbb625"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -271,6 +309,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Base_Escape = m_Base.FindAction("Escape", throwIfNotFound: true);
         m_Base_Zoom = m_Base.FindAction("Zoom", throwIfNotFound: true);
         m_Base_HeavyAttack = m_Base.FindAction("HeavyAttack", throwIfNotFound: true);
+        m_Base_RotateCamLeft = m_Base.FindAction("RotateCamLeft", throwIfNotFound: true);
+        m_Base_RotateCamRight = m_Base.FindAction("RotateCamRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -330,6 +370,8 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Base_Escape;
     private readonly InputAction m_Base_Zoom;
     private readonly InputAction m_Base_HeavyAttack;
+    private readonly InputAction m_Base_RotateCamLeft;
+    private readonly InputAction m_Base_RotateCamRight;
     public struct BaseActions
     {
         private @Inputs m_Wrapper;
@@ -344,6 +386,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Escape => m_Wrapper.m_Base_Escape;
         public InputAction @Zoom => m_Wrapper.m_Base_Zoom;
         public InputAction @HeavyAttack => m_Wrapper.m_Base_HeavyAttack;
+        public InputAction @RotateCamLeft => m_Wrapper.m_Base_RotateCamLeft;
+        public InputAction @RotateCamRight => m_Wrapper.m_Base_RotateCamRight;
         public InputActionMap Get() { return m_Wrapper.m_Base; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +427,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @HeavyAttack.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnHeavyAttack;
+                @RotateCamLeft.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamLeft;
+                @RotateCamLeft.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamLeft;
+                @RotateCamLeft.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamLeft;
+                @RotateCamRight.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamRight;
+                @RotateCamRight.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamRight;
+                @RotateCamRight.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnRotateCamRight;
             }
             m_Wrapper.m_BaseActionsCallbackInterface = instance;
             if (instance != null)
@@ -417,6 +467,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @HeavyAttack.started += instance.OnHeavyAttack;
                 @HeavyAttack.performed += instance.OnHeavyAttack;
                 @HeavyAttack.canceled += instance.OnHeavyAttack;
+                @RotateCamLeft.started += instance.OnRotateCamLeft;
+                @RotateCamLeft.performed += instance.OnRotateCamLeft;
+                @RotateCamLeft.canceled += instance.OnRotateCamLeft;
+                @RotateCamRight.started += instance.OnRotateCamRight;
+                @RotateCamRight.performed += instance.OnRotateCamRight;
+                @RotateCamRight.canceled += instance.OnRotateCamRight;
             }
         }
     }
@@ -433,5 +489,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnEscape(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
+        void OnRotateCamLeft(InputAction.CallbackContext context);
+        void OnRotateCamRight(InputAction.CallbackContext context);
     }
 }

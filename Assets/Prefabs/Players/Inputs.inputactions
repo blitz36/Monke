@@ -84,6 +84,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "SlowTap(duration=0.35)"
+                },
+                {
+                    "name": "RotateCamLeft",
+                    "type": "PassThrough",
+                    "id": "00f54bd0-f2c5-4643-b466-42790daa27c8",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateCamRight",
+                    "type": "PassThrough",
+                    "id": "b8b4e0db-06ce-4234-aaa3-11facc7a1c07",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -200,7 +216,7 @@
                 {
                     "name": "",
                     "id": "6029037f-8d3c-487b-b200-6199b6ffce98",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -238,6 +254,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf5bbf7e-9efc-4ee2-9226-b23d1c905761",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a95c7e24-1d06-4991-8e1c-4ab350bbb625",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

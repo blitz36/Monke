@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitStunState : State
+public class StunnedState : State
 {
-  public float hitstunTime;
-  public float hitstunTimer = 0f;
+  public float stunTimer = 0f;
   private DefaultState defaultState;
   private MovementState movementState;
-  private StunnedState stunnedState;
 
   public override void Awake() {
     base.Awake();
@@ -18,23 +16,15 @@ public class HitStunState : State
     if (movementState == null) {
       movementState = gameObject.transform.parent.GetComponentInChildren<MovementState>();
     }
-    if (stunnedState == null) {
-      stunnedState = gameObject.transform.parent.GetComponentInChildren<StunnedState>();
-    }
   }
 
   public override State runCurrentStateUpdate(StateController controller)
   {
-    hitstunTimer += Time.deltaTime;
-    if (hitstunTimer > hitstunTime) {
-
-      ESM.notHit();
-      hitstunTimer = 0f;
+    stunTimer += Time.deltaTime;
+    if (stunTimer > ESM.stunTime) {
+      stunTimer = 0f;
+      ESM.stunned = false;
       return defaultState;
-    }
-
-    if (ESM.stunned) {
-      return stunnedState;
     }
 
     if (ESM.currentHealth <= 0) {

@@ -22,7 +22,7 @@ public class LaserHitbox : MonoBehaviour
             if (hit.transform.tag == "Player")
             {
               playerStatManager pst = hit.transform.GetComponent<playerStatManager>();
-              pst.TakeDamage(damage, transform.position);
+              pst.TakeDamage(damage, transform.root.gameObject);
             }
             laserRender.setLaser(transform.position, hit.point);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);

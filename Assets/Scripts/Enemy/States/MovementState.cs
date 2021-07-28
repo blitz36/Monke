@@ -10,6 +10,7 @@ public class MovementState : State
   public float timeInbetweenAttacks;
   private bool canAttack = true;
   private AttackState attackState;
+  private StunnedState stunnedState;
 
   public float attackRange;
   private bool isInAttackRange;
@@ -20,6 +21,9 @@ public class MovementState : State
     if (attackState == null) {
       attackState = gameObject.transform.parent.GetComponentInChildren<AttackState>();
     }
+    if (stunnedState == null) {
+      stunnedState = gameObject.transform.parent.GetComponentInChildren<StunnedState>();
+    }
     if (MA == null) {
       MA = gameObject.GetComponent<MovementAgent>();
     }
@@ -27,9 +31,14 @@ public class MovementState : State
 
   public override State runCurrentStateUpdate(StateController controller)
   {
-    if (ESM.isHit == true) {
+    if (ESM.isHit) {
       return hitstunState;
     }
+
+    if (ESM.stunned) {
+      return stunnedState;
+    }
+
     base.runCurrentStateUpdate(controller);
     if (isInAttackRange && canAttack) {
       canAttack = false;

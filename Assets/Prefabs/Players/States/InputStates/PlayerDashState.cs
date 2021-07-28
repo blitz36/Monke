@@ -7,7 +7,6 @@ public class PlayerDashState : PlayerState
   private PlayerMovementState MovementState;
 
   public float dashMultiplier = 5;
-  public static int dashState = 0;
   public float dashTimer;
   public float maxDash;
 
@@ -43,32 +42,36 @@ public class PlayerDashState : PlayerState
     //case 1: run a timer for how long the dash will last. when the duration is over, set dash state back so that moment is stopped again
     //case -1: cooldown window. set a timer and when it is over, reset back to stage 0
       PlayerState performDash(float horiz, float vert){
-          switch (dashState)
+          switch (PSM.dashState)
                  {
-                 case 0:
+                 case true:
                       //     PSM.pa.chargeAttack = false;
                       //     PSM.pa.holdTimer = 0f;
                            PSM.priority = 10;
                       //     PSM.pa.blockState = false;
                         //   PSM.pa.comboStep = 0;
                            //get the input data and normalize it to have a direction vector. then simply multiply it with speed. also look in direction of the dash which is just the normalized direction vector.
-                           Vector3 fVelocity = new Vector3(horiz, PSM.rb.velocity.y, vert).normalized;
-                           if (horiz == 0f && vert == 0f) {
-                             fVelocity = new Vector3(transform.forward.x, PSM.rb.velocity.y, transform.forward.z).normalized;
-                           }
+                           Vector3 fVelocity = new Vector3(horiz, 0, vert);
+                           Transform cameraTransform = Camera.main.transform;
+                           cameraTransform.eulerAngles = new Vector3(0f, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
+                           fVelocity = cameraTransform.TransformDirection(fVelocity);
+                           fVelocity.y = PSM.rb.velocity.y;
+                //           if (horiz == 0f && vert == 0f) {
+                  //           fVelocity = new Vector3(transform.forward.x, PSM.rb.velocity.y, transform.forward.z).normalized;
+                    //       }
                            PSM.rb.velocity = fVelocity * PSM.baseSpeed.Value * dashMultiplier;
-                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity), 1F);
+                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
                            PSM.numDashes -= 1;
-                           dashState = 1;
+                           PSM.dashState = false;
 
                          return this;
                      break;
-                 case 1:
+                 case false:
                      dashTimer += Time.deltaTime;
                      if(dashTimer >= maxDash)
                      {
                          dashTimer = 0;
-                         dashState = 0; //no longer dashing
+                         PSM.dashState = true; //no longer dashing
                          PSM.rb.velocity = new Vector3(0,PSM.rb.velocity.y,0); //stop after dash ends
                          PSM.priority = 0;
                          return MovementState;

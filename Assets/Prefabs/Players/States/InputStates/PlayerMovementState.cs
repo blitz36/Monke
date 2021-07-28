@@ -89,6 +89,9 @@ public class PlayerMovementState : PlayerState
         //if there is any direction inputs, run in that direction
         if (horiz != 0 || vert != 0){
           Vector3 fVelocity = new Vector3(horiz, 0, vert);
+          Transform cameraTransform = Camera.main.transform;
+          cameraTransform.eulerAngles = new Vector3(0f, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
+          fVelocity = cameraTransform.TransformDirection(fVelocity);
           Vector3 speed;
           if (PSM.holdTimer > 0) {
             speed = fVelocity.normalized * PSM.baseSpeed.Value * Mathf.Max((1-(PSM.holdTimer/3)), 0);
@@ -99,7 +102,7 @@ public class PlayerMovementState : PlayerState
           speed.y = PSM.rb.velocity.y;
           PSM.rb.velocity = speed;
           PSM.isRunning = true;
-          transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 0.2f);
+          transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(speed.normalized), 0.2f);
         }
 
         else {

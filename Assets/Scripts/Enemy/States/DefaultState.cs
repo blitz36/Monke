@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefaultState : State
 {
   private MovementState movementState;
-
+  private StunnedState stunnedState;
   public float triggerRange;
   [SerializeField] private LayerMask playerLayer;
   private bool isInTriggerRange = false;
@@ -15,6 +15,9 @@ public class DefaultState : State
     if (movementState == null) {
       movementState = gameObject.transform.parent.GetComponentInChildren<MovementState>();
     }
+    if (stunnedState == null) {
+      stunnedState = gameObject.transform.parent.GetComponentInChildren<StunnedState>();
+    }
   }
 
   public override State runCurrentStateUpdate(StateController controller)
@@ -22,6 +25,11 @@ public class DefaultState : State
     if (ESM.isHit == true) {
       return hitstunState;
     }
+
+    if (ESM.stunned) {
+      return stunnedState;
+    }
+
     base.runCurrentStateUpdate(controller);
     if (isInTriggerRange) {
       return movementState;
