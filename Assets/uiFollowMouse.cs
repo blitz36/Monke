@@ -12,8 +12,9 @@ public class uiFollowMouse : MonoBehaviour
     public void Update()
     {
         //MoveObject();
-        Vector3 vector = new Vector3(Input.mousePosition.x, InputmousePosition.y, Camera.main.nearClipPlane.ClipPlane);
-        Debug.Log(Camera.main.ScreenToWorldPoint(vector));
+        
+        //Vector3 vector = new Vector3(Input.mousePosition.x, InputmousePosition.y, Camera.main.nearClipPlane.ClipPlane);
+        //Debug.Log(Camera.main.ScreenToWorldPoint(vector));
     }
 
     //public void MoveObject()
