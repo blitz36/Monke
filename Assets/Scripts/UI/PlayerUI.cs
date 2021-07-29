@@ -20,7 +20,7 @@ public class PlayerUI : MonoBehaviour
     {
       float fps = 1/Time.unscaledDeltaTime;
       fpsDisplay.text = "" + fps;
-      dashDisplay.text = "Dashes Left:" + PSM.numDashes;
+      dashDisplay.text = "x" + PSM.numDashes;
     //  equipDisplay.text = "Charge Available:" + PSM.canUseEquip;
     }
 }
