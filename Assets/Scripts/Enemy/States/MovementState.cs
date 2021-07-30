@@ -71,7 +71,7 @@ public class MovementState : State
 
   IEnumerator attackCooldown() {
     float randomTime = Random.Range(minAttackTime, maxAttackTime);
-    yield return new WaitForSeconds(timeInbetweenAttacks);
+    yield return new WaitForSeconds(randomTime);
     canAttack = true;
   }
 

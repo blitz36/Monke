@@ -82,7 +82,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093251838133773568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.70003, y: 51.33586, z: 137.90913}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7292289197728003787}
@@ -109,10 +109,9 @@ MonoBehaviour:
   State: 0
   Timer: 0
   hitboxIndicatorPrefab: {fileID: 3945507346024380782, guid: 510503c3a7d6647e3b8ae6d55cdfbb4c, type: 3}
-  startupTime: 0.5
+  startupTime: 0.4
   activeTime: 0.2
   recoveryTime: 0.2
-  momentum: 0
   targetRotation: 0
   moveWhenAttack: 0
   forceConstant: 0
@@ -127,11 +126,7 @@ GameObject:
   - component: {fileID: 1984489645172655658}
   - component: {fileID: 1984489645172655657}
   - component: {fileID: 1984489645172655663}
-  - component: {fileID: 1984489645172655654}
-  - component: {fileID: 1984489645172655653}
-  - component: {fileID: 1984489645172655659}
   - component: {fileID: 7057988500668738228}
-  - component: {fileID: 4929455510687877846}
   - component: {fileID: 2481117070993304925}
   - component: {fileID: 3410205037950425124}
   - component: {fileID: 1137327346338842602}
@@ -183,111 +178,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1984489645172655654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984489645172655662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  speed: 8
-  rng: 0
-  targetPosition: {fileID: 0}
-  numDanger: 0
-  AStar: {fileID: 0}
-  numRays: 16
-  interest: []
-  Sensor:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  dangerHitbox:
-  - {fileID: 7094202253025912954}
-  - {fileID: 7027478948585986402}
-  - {fileID: 7027478947250934264}
-  - {fileID: 7027478949151482443}
-  - {fileID: 7027478949141562309}
-  - {fileID: 7027478947924731825}
-  - {fileID: 7027478948232311859}
-  - {fileID: 7027478948937047425}
-  - {fileID: 7027478948089359407}
-  - {fileID: 7027478948516086543}
-  - {fileID: 7027478948832964496}
-  - {fileID: 7027478948335022159}
-  - {fileID: 7027478948496456821}
-  - {fileID: 7027478947684243740}
-  - {fileID: 7027478948497241974}
-  - {fileID: 7027478947597979862}
-  lookDistance: 5
-  directionCache: 0
-  inRange: 0
-  stopDistance: 100
-  sqrLen: 0
---- !u!114 &1984489645172655653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984489645172655662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e196554079f71ab4eb26f9af5d741586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  nextWaypointDistance: 2
-  repathRate: 0.4
-  reachedEndOfPath: 0
---- !u!114 &1984489645172655659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984489645172655662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 0
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!54 &7057988500668738228
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -304,29 +194,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &4929455510687877846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984489645172655662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  useRaycasting: 1
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  thickRaycast: 0
-  thickRaycastRadius: 0
-  use2DPhysics: 0
-  raycastOffset: {x: 0, y: 0, z: 0}
-  useGraphRaycasting: 0
-  quality: 1
 --- !u!114 &2481117070993304925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +213,7 @@ MonoBehaviour:
   stunned: 0
   rb: {fileID: 0}
   maxHealth:
-    BaseValue: 100
+    BaseValue: 60
   currentHealth: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
   healthBar: {fileID: 5555129128622553434}
@@ -354,6 +221,7 @@ MonoBehaviour:
   speed: 0
   isHit: 0
   vfx: {fileID: 7545942221515096335}
+  EDT: {fileID: 0}
 --- !u!114 &3410205037950425124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,11 +425,11 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  turnSpeed: 0.01
+  turnSpeed: 0.1
   timeInbetweenAttacks: 3
   minAttackTime: 0.2
   maxAttackTime: 0.4
-  attackRange: 6
+  attackRange: 4
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -624,7 +492,7 @@ MonoBehaviour:
   lookDistance: 5
   directionCache: 0
   inRange: 0
-  stopDistance: 6
+  stopDistance: 3
   sqrLen: 0
 --- !u!114 &4421532656905040202
 MonoBehaviour:

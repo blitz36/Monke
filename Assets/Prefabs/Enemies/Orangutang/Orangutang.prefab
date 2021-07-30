@@ -200,10 +200,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -370,7 +367,7 @@ MonoBehaviour:
   stunned: 0
   rb: {fileID: 0}
   maxHealth:
-    BaseValue: 100
+    BaseValue: 40
   currentHealth: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
   healthBar: {fileID: 412202572516289480}
@@ -378,6 +375,7 @@ MonoBehaviour:
   speed: 0
   isHit: 0
   vfx: {fileID: 2312364164219835293}
+  EDT: {fileID: 0}
 --- !u!114 &7493079268971596470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,9 +504,11 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  turnSpeed: 0
+  turnSpeed: 0.1
   timeInbetweenAttacks: 3
-  attackRange: 10
+  minAttackTime: 3
+  maxAttackTime: 6
+  attackRange: 24
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -524,6 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
   speed: 6
   rng: 0
   targetPosition: {fileID: 0}
@@ -741,7 +744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: speed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: damage

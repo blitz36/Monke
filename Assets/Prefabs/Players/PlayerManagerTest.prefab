@@ -18982,7 +18982,7 @@ MonoBehaviour:
   PSM: {fileID: 0}
   timeBeforeBuffer: 0.15
   lightAttack: []
-  ComboRecoveryTime: 0.4
+  ComboRecoveryTime: 0.5
   ComboBreakTime: 0.25
   ComboBreakTime2: 0.5
 --- !u!1 &4930049878262501066
@@ -21507,6 +21507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef1dca94fdf94f00af93f087ad63e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMap: 0
+  inShop: 0
   scrapAmount: 0
   dashState: 1
   stunTime: 0
@@ -21522,8 +21524,8 @@ MonoBehaviour:
   chargeAttackType: 0
   holdTimer: 0
   holdTimes:
-  - 2.29
-  - 3.33
+  - 0.5
+  - 0.8
   holding: 0
   tapThreshold: 0.3
   comboStep: 0
@@ -21536,7 +21538,7 @@ MonoBehaviour:
   maxNumShields:
     BaseValue: 2
   maxHealth:
-    BaseValue: 100
+    BaseValue: 50
   baseDamage:
     BaseValue: 15
   baseSpeed:

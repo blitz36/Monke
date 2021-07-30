@@ -98,8 +98,10 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  turnSpeed: 0.001
+  turnSpeed: 0.1
   timeInbetweenAttacks: 1
+  minAttackTime: 2
+  maxAttackTime: 4
   attackRange: 9
   playerLayer:
     serializedVersion: 2
@@ -116,6 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 6
   rng: 0
   targetPosition: {fileID: 0}
@@ -446,14 +451,13 @@ MonoBehaviour:
   damage: 0
   hitboxes:
   - {fileID: 2195006610493600252, guid: 4ad3002b035d5c04d9619594d6e4d3b3, type: 3}
-  posOfHitbox: {x: 0, y: 0, z: 0}
+  posOfHitbox: {x: 0, y: 0, z: 2}
   State: 0
   Timer: 0
   hitboxIndicatorPrefab: {fileID: 7805033513624240619, guid: 1d7abf0b6548136409998474b9e9b1a3, type: 3}
   startupTime: 1
   activeTime: 0.2
   recoveryTime: 1
-  momentum: 0
   targetRotation: 0
   moveWhenAttack: 1
   forceConstant: -100
@@ -466,7 +470,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2664277014207495518}
-  - component: {fileID: 2664277014207495517}
   - component: {fileID: 2664277014207495515}
   - component: {fileID: 6809504350914777536}
   - component: {fileID: 2097984535945860649}
@@ -498,14 +501,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2664277014207495517
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2664277014207495514}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!136 &2664277014207495515
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -563,6 +558,7 @@ MonoBehaviour:
   speed: 0
   isHit: 0
   vfx: {fileID: 6326336456291908219}
+  EDT: {fileID: 0}
 --- !u!114 &1161999538705015632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +726,6 @@ MonoBehaviour:
   startupTime: 0.1
   activeTime: 0.2
   recoveryTime: 0.2
-  momentum: 0
   targetRotation: 0
   moveWhenAttack: 0
   forceConstant: 0
@@ -1023,10 +1018,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

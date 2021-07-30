@@ -14,7 +14,6 @@ public class EnemyAttacks : EnemyAttack
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
-    public float momentum;
 
     public bool targetRotation;
     public bool moveWhenAttack;
@@ -88,7 +87,7 @@ public class EnemyAttacks : EnemyAttack
       if (Timer <= 0f) {
         Hitbox.SetActive(true);
         if (moveWhenAttack) {
-          rb.AddForce((target.position - transform.position).normalized * forceConstant, ForceMode.Impulse);
+          rb.AddForce((transform.forward).normalized * forceConstant, ForceMode.Impulse);
         }
       }
 

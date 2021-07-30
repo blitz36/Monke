@@ -69,7 +69,9 @@ public class PlayerMovementState : PlayerState
       return dashState;
     }
 
-    PSM.comboStep = 0;
+    if (PSM.comboStep >= 0) {
+      PSM.comboStep = 0;
+    }
     return this;
   }
 

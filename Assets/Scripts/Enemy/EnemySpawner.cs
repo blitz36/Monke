@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
         while (j < hitColliders.Length)
         {
           Debug.Log("Hit : " + hitColliders[j].name + j);
-          if (hitColliders[j].tag == "Player") {
+          if (hitColliders[j].tag == "Player" && startSpawn == false) {
             startSpawn = true;
             StartCoroutine(spawnEnemy());
           }
@@ -73,8 +73,8 @@ public class EnemySpawner : MonoBehaviour
       while(waveCount < maxWaves)
         {
         if (randomSpawn == true) {
+                numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
                 for (int i = 0; i < numSpawns; i++) {
-                  numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
 
                   int j = (int )Random.Range(0, spawnBoxExtants.Count);
                   float xPos = Random.Range(spawnBoxExtants[j].x*-1, spawnBoxExtants[j].x); // Random X coordinate for spawn area range

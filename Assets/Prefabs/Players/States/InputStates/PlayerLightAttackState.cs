@@ -91,6 +91,12 @@ public class PlayerLightAttackState : PlayerState
         isComboContinued = true;
         return movementState;
       }
+      if (PSM.comboStep >= 0 && State == 0) {
+        PSM.comboStep += 1;
+        bufferTimer = 0f;
+        return movementState;
+      }
+      /*
       else if (PSM.comboStep > 0 && State == 0) {
         PSM.comboStep += 1;
         StartCoroutine("ComboBreak");
@@ -104,6 +110,7 @@ public class PlayerLightAttackState : PlayerState
         isComboContinued = false;
         return movementState;
       }
+      */
     //  else if(PSM.comboStep < 0) {
   //      return movementState;
 //      }

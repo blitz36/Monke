@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Enemy
   - SettingsMenu
+  - Augment
+  - Exit
   layers:
   - Default
   - TransparentFX
