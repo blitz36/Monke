@@ -13,5 +13,5 @@ public abstract class Attack : ScriptableObject
   public abstract float totalTime();
   public abstract List<GameObject> createHitbox(Transform Player);
   public abstract int PerformAttack(playerStatManager PSM);
-  public abstract void Cancel();
+  public abstract void Cancel(playerStatManager PSM);
 }

@@ -10,7 +10,7 @@ public class ExitShop : MonoBehaviour
     void Awake()
     {
       if (PSM == null){
-        PSM = transform.root.GetComponentInChildren<playerStatManager>();
+        PSM = GameObject.FindWithTag("Player").transform.root.GetComponentInChildren<playerStatManager>();
       }
     }
 

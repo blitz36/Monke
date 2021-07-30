@@ -49,18 +49,18 @@ public class PlayerLightAttackState : PlayerState
   public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
   {
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
-      lightAttack[PSM.comboStep].Cancel();
+      lightAttack[PSM.comboStep].Cancel(PSM);
       bufferTimer = 0f;
       return dashState;
     }
     if (PSM.blockTrigger) {
-      lightAttack[PSM.comboStep].Cancel();
+      lightAttack[PSM.comboStep].Cancel(PSM);
       bufferTimer = 0f;
       return blockState;
     }
 
     if (PSM.playerInput.Base.Equip.triggered && equipState.canUseEquip) {
-      lightAttack[PSM.comboStep].Cancel();
+      lightAttack[PSM.comboStep].Cancel(PSM);
       bufferTimer = 0f;
       return equipState;
     }

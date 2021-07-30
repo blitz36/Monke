@@ -33,6 +33,9 @@ public class playerStatManager : MonoBehaviour
   public bool isHit = false;
 
   public List<GameObject> hitboxes = new List<GameObject>();
+  public List<GameObject> lightAttackHitboxes = new List<GameObject>();
+  public List<GameObject> heavyAttackHitboxes = new List<GameObject>();
+  public List<GameObject> equipHitboxes = new List<GameObject>();
   public List<Attack> lightAttack;
   public Block block;
   public List<Attack>  heavyAttack;

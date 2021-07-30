@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
   public List<float> priceValues = new List<float>();
 
   void Awake() {
-    PSM = GameObject.FindWithTag("Player").GetComponent<playerStatManager>();
+    PSM = GameObject.FindWithTag("Player").transform.root.GetComponentInChildren<playerStatManager>();
   }
 
   void Start(){

@@ -68,6 +68,9 @@ public class Inventory : MonoBehaviour
     hitboxes.AddRange(equipHitbox);
 
     pStatManager.hitboxes = hitboxes;
+    pStatManager.lightAttackHitboxes = lightAttackHitbox;
+    pStatManager.heavyAttackHitboxes = heavyAttackHitbox;
+    pStatManager.equipHitboxes = equipHitbox;
   }
 
   //clear hitboxes, then clear current light attacks, then equip new light attacks and create their hitboxes.

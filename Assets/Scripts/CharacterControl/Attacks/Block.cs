@@ -18,7 +18,7 @@ public class Block : Attack
       return startupTime + activeTime + recoveryTime;
     }
 
-    public override void Cancel() {
+    public override void Cancel(playerStatManager PSM) {
       Timer = 0f;
       State = 0;
       foreach (GameObject hitbox in blockHitbox) {

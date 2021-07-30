@@ -27,7 +27,7 @@ public class PlayerBlockState : PlayerState
   public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
   {
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
-      block.Cancel();
+      block.Cancel(PSM);
       return dashState;
     }
 

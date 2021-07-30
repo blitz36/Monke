@@ -7,7 +7,7 @@ public class Slam : Attack
 {
     public int State;
     public float Timer;
-    private List<GameObject> slamHitbox = new List<GameObject>();
+    //private List<GameObject> slamHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -18,16 +18,17 @@ public class Slam : Attack
       return startupTime + activeTime + recoveryTime;
     }
 
-    public override void Cancel() {
+    public override void Cancel(playerStatManager PSM) {
       Timer = 0f;
       State = 0;
       Time.timeScale = 1f;
-      foreach (GameObject hitbox in slamHitbox) {
+      foreach (GameObject hitbox in PSM.heavyAttackHitboxes) {
         hitbox.SetActive(false);
       }
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
+      List<GameObject> slamHitbox = new List<GameObject>();
       if (slamHitbox.Count > 0) {
         slamHitbox.Clear();
       }
@@ -66,7 +67,7 @@ public class Slam : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
-            slamHitbox[0].SetActive(true);
+            PSM.heavyAttackHitboxes[0].SetActive(true);
           }
           break;
 
@@ -82,7 +83,7 @@ public class Slam : Attack
           {
               Timer = 0f;
               State = -1;
-              slamHitbox[0].SetActive(false);
+              PSM.heavyAttackHitboxes[0].SetActive(false);
           }
           break;
 

@@ -7,7 +7,7 @@ public class Slash : Attack
 {
     public int State;
     private float Timer;
-    public List<GameObject> slashHitbox = new List<GameObject>();
+  //  public List<GameObject> slashHitbox = new List<GameObject>();
     public float startupTime;
     public float activeTime;
     public float recoveryTime;
@@ -18,25 +18,28 @@ public class Slash : Attack
       return startupTime + activeTime + recoveryTime;
     }
 
-    public override void Cancel() {
+    public override void Cancel(playerStatManager PSM) {
       Timer = 0f;
       State = 0;
-      foreach (GameObject hitbox in slashHitbox) {
+      foreach (GameObject hitbox in PSM.lightAttackHitboxes) {
         hitbox.SetActive(false);
       }
     }
 
     public override List<GameObject> createHitbox(Transform Player) {
-
+      List<GameObject> slashHitbox = new List<GameObject>();
       if (slashHitbox.Count > 0){
         slashHitbox.Clear();
       }
 
       foreach (GameObject hitbox in hitboxes) {
-        slashHitbox.Add(Instantiate(hitbox));
+        GameObject box = Instantiate(hitbox);
+
+        slashHitbox.Add(box);
         slashHitbox[slashHitbox.Count-1].transform.parent = Player;
         slashHitbox[slashHitbox.Count-1].transform.localPosition = new Vector3(0,0,0);
         slashHitbox[slashHitbox.Count-1].SetActive(false);
+
       }
       return slashHitbox;
 
@@ -57,7 +60,7 @@ public class Slash : Attack
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
 
-                  slashHitbox[0].SetActive(true);
+                  PSM.lightAttackHitboxes[0].SetActive(true);
                   PSM.bufferedAttack = false;
                   PSM.priority = 1;
                   State = 1;
@@ -88,7 +91,7 @@ public class Slash : Attack
           {
               Timer = 0f;
               State = -1;
-              slashHitbox[0].SetActive(false);
+              PSM.lightAttackHitboxes[0].SetActive(false);
           }
           break;
 

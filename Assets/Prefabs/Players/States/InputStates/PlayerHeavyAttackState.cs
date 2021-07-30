@@ -37,18 +37,18 @@ public class PlayerHeavyAttackState : PlayerState
   public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
   {
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
-      heavyAttack[PSM.chargeAttackType].Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel(PSM);
       PSM.chargeAttack = false;
       return dashState;
     }
     if (PSM.blockTrigger) {
-      heavyAttack[PSM.chargeAttackType].Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel(PSM);
       PSM.chargeAttack = false;
       return blockState;
     }
 
     if (PSM.playerInput.Base.Equip.triggered && equipState.canUseEquip) {
-      heavyAttack[PSM.chargeAttackType].Cancel();
+      heavyAttack[PSM.chargeAttackType].Cancel(PSM);
       PSM.chargeAttack = false;
       return equipState;
     }
