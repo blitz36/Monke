@@ -200,7 +200,10 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,8 +509,8 @@ MonoBehaviour:
   deadState: {fileID: 0}
   turnSpeed: 0.1
   timeInbetweenAttacks: 3
-  minAttackTime: 3
-  maxAttackTime: 6
+  minAttackTime: 10
+  maxAttackTime: 14
   attackRange: 24
   playerLayer:
     serializedVersion: 2
@@ -752,7 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: maxBullets
-      value: 3
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -1730274047252747969, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5504936035006558018, guid: 00c38c42328519d4b8f2b2bd931a6794, type: 3}
       propertyPath: m_RootOrder
