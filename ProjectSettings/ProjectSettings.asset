@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: PrimateClub
   productName: RestoreMonk3
-  defaultCursor: {fileID: 2800000, guid: a6c0009945497964e9fd7d8ae61833b1, type: 3}
+  defaultCursor: {fileID: 2800000, guid: deb1449d28fa0ca48a5ddf5f51d907a3, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
