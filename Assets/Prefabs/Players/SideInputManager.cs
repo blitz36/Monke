@@ -25,7 +25,12 @@ public class SideInputManager : MonoBehaviour
 */
   void OnTriggerStay(Collider Collider) {
     if (PSM.playerInput.Base.Interact.triggered) {
-      Collider.gameObject.GetComponent<RandomLootGenerator>().PickUp();
+      if (Collider.tag == "Augment") {
+        Collider.gameObject.GetComponent<RandomLootGenerator>().PickUp();
+      }
+      else if (Collider.tag == "Exit") {
+        Collider.gameObject.GetComponent<ExitScript>().leaveMap(PSM);
+      }
     }
 
   }

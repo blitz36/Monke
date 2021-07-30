@@ -26,6 +26,7 @@ public class HealthBar : MonoBehaviour
       float elapsed = 0f;
 
       while (elapsed < updateSpeedSeconds) {
+        if (sliderWhite == null) yield break;
         elapsed += Time.deltaTime;
         sliderWhite.fillAmount = Mathf.Lerp(preChangeAmt, amt, elapsed/updateSpeedSeconds);
         yield return null;

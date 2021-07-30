@@ -109,7 +109,7 @@ MonoBehaviour:
   State: 0
   Timer: 0
   hitboxIndicatorPrefab: {fileID: 3945507346024380782, guid: 510503c3a7d6647e3b8ae6d55cdfbb4c, type: 3}
-  startupTime: 0.3
+  startupTime: 0.5
   activeTime: 0.2
   recoveryTime: 0.2
   momentum: 0
@@ -195,6 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 8
   rng: 0
   targetPosition: {fileID: 0}
@@ -556,7 +559,9 @@ MonoBehaviour:
   deadState: {fileID: 0}
   turnSpeed: 0.01
   timeInbetweenAttacks: 3
-  attackRange: 10
+  minAttackTime: 0.2
+  maxAttackTime: 0.4
+  attackRange: 6
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -572,6 +577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec3bdbb45b649f45a1d223a209995da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
   speed: 6
   rng: 0
   targetPosition: {fileID: 0}
@@ -616,7 +624,7 @@ MonoBehaviour:
   lookDistance: 5
   directionCache: 0
   inRange: 0
-  stopDistance: 100
+  stopDistance: 6
   sqrLen: 0
 --- !u!114 &4421532656905040202
 MonoBehaviour:
@@ -3431,10 +3439,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

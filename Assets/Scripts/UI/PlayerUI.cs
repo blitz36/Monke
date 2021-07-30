@@ -11,8 +11,8 @@ public class PlayerUI : MonoBehaviour
     private playerStatManager PSM;
 
     void Awake(){
-      GameObject player = GameObject.FindWithTag("Player");
-      PSM = player.GetComponent<playerStatManager>();
+      PSM = transform.root.GetComponentInChildren<playerStatManager>();
+      Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class PlayerUI : MonoBehaviour
     {
       float fps = 1/Time.unscaledDeltaTime;
       fpsDisplay.text = "" + fps;
-      dashDisplay.text = "x" + PSM.numDashes;
+      //dashDisplay.text = "x" + PSM.numDashes;
     //  equipDisplay.text = "Charge Available:" + PSM.canUseEquip;
     }
 }

@@ -5,6 +5,7 @@ using Pathfinding;
 
 public class MovementAgent : MonoBehaviour
 {
+    [SerializeField] private LayerMask playerLayer;
     public float speed;
     public int rng;
     public Transform targetPosition; //the target to move towards
@@ -68,13 +69,17 @@ public class MovementAgent : MonoBehaviour
 
     public void moveToPlayer() {
       //Calculate how far away the target is for weight calculations
-      sqrLen = ((targetPosition.position - transform.position).sqrMagnitude)/stopDistance;
+      inRange = Physics.CheckSphere(transform.position, stopDistance, playerLayer);
+      float div = 100f;
+      sqrLen = ((targetPosition.position - transform.position).sqrMagnitude)/div;
+      /*
       if (sqrLen < 1f) {
         inRange = true;
       }
       else if (sqrLen > 1.5f) {
         inRange = false;
       }
+      */
       numDanger = 0;
       //find the context to inform the steering
       setInterest();
@@ -216,5 +221,11 @@ public class MovementAgent : MonoBehaviour
 
     void randomSeed(){
       rng = Random.Range(1, 5);
+    }
+
+    private void OnDrawGizmosSelected() {
+      Gizmos.color = Color.blue;
+      //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+      Gizmos.DrawWireSphere (transform.position, stopDistance);
     }
 }

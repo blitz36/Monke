@@ -20,8 +20,12 @@ public class Shop : MonoBehaviour
   public List<int> Weights;
 
   private Shop instance;
+  private playerStatManager PSM;
+  public float price;
+  public List<float> priceValues = new List<float>();
 
   void Awake() {
+    PSM = GameObject.FindWithTag("Player").GetComponent<playerStatManager>();
   }
 
   void Start(){
@@ -30,6 +34,7 @@ public class Shop : MonoBehaviour
   }
 
   public void PickUp() {
+    if (PSM.scrapAmount > price)
       Inventory.instance.Equip(item);
   }
 
@@ -62,18 +67,22 @@ public class Shop : MonoBehaviour
       case 0:
         itemIndex = Random.Range(0, storage.Commons.Count);
         item = storage.Commons[itemIndex];
+        price = priceValues[0];
         break;
       case 1:
         itemIndex = Random.Range(0, storage.Rares.Count);
         item = storage.Rares[itemIndex];
+        price = priceValues[1];
         break;
       case 2:
         itemIndex = Random.Range(0, storage.Epics.Count);
         item = storage.Epics[itemIndex];
+        price = priceValues[2];
         break;
       case 3:
         itemIndex = Random.Range(0, storage.Legendary.Count);
         item = storage.Legendary[itemIndex];
+        price = priceValues[3];
         break;
       case 4:
         itemIndex = Random.Range(0, storage.Equips.Count);

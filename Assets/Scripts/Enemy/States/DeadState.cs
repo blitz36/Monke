@@ -12,6 +12,9 @@ public class DeadState : State
     base.runCurrentStateUpdate(controller);
     timerToDissolve += Time.deltaTime;
     if (timerToDissolve > timeToDissolve) {
+      if (ESM.EDT != null) {
+        ESM.EDT.DecideDrop();
+      }
       ESM.destroySelf();
     }
 

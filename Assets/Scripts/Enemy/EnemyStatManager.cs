@@ -28,6 +28,7 @@ public class EnemyStatManager : MonoBehaviour
     public bool isHit;
 
     public GameObject vfx;
+    public EnemyDropTable EDT;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class EnemyStatManager : MonoBehaviour
 
       healthBarTarget = gameObject.transform;
       rb = gameObject.GetComponent<Rigidbody>();
+      EDT = gameObject.GetComponent<EnemyDropTable>();
 
       if (SC == null) {
         SC = gameObject.GetComponent<StateController>();

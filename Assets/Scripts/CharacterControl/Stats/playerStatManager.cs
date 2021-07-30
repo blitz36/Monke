@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class playerStatManager : MonoBehaviour
 {
+  public int currentMap;
+  public bool inShop = false;
+  public float scrapAmount = 0;
+
   public Plane plane = new Plane(Vector3.up, Vector3.zero);
   public bool dashState;
   public float stunTime;
@@ -35,6 +39,7 @@ public class playerStatManager : MonoBehaviour
   public Equipable equip;
 
 
+  public CharacterStat maxNumShields = new CharacterStat(2f);
   public CharacterStat maxHealth = new CharacterStat(100f);
   public CharacterStat baseDamage = new CharacterStat(20f);
   public CharacterStat baseSpeed = new CharacterStat(10f);
@@ -43,6 +48,7 @@ public class playerStatManager : MonoBehaviour
 
   public int priority = 0;
   public float currentHealth;
+  public int numShields;
   public float numDashes;
   public float dashCooldown;
   public float dashCDTimer;
@@ -56,6 +62,7 @@ public class playerStatManager : MonoBehaviour
   void Start()
   {
       currentHealth = maxHealth.Value;
+      numShields = (int)maxNumShields.Value;
       healthBar.SetMaxHealth(maxHealth.Value);
       numDashes = maxDashes.Value;
       updateDmgValues();
@@ -130,10 +137,17 @@ public class playerStatManager : MonoBehaviour
       HitVFX.playVFX();
       Invoke("notHit", 0.4f);
     }
-    healthBar.SetHealth(currentHealth/maxHealth.Value);
+
     if (currentHealth <= 0) {
-      die();
+      if (numShields == 0) {
+        die();
+      }
+      numShields -= 1;
+      if (numShields > 0) {
+        currentHealth = maxHealth.Value;
+      }
     }
+    healthBar.SetHealth(currentHealth/maxHealth.Value);
   }
 
   public void notHit() {

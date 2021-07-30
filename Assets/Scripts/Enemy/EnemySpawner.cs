@@ -18,9 +18,14 @@ public class EnemySpawner : MonoBehaviour
 
     private int waveCount;
     public int maxWaves;
-    public int numSpawns;
+    public int numSpawnsMin;
+    public int numSpawnsMax;
+    private int numSpawns;
     public float timeBetweenWaves;
 
+    void Awake() {
+      numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
+    }
 
     void OnDrawGizmosSelected()
     {
@@ -69,6 +74,8 @@ public class EnemySpawner : MonoBehaviour
         {
         if (randomSpawn == true) {
                 for (int i = 0; i < numSpawns; i++) {
+                  numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
+
                   int j = (int )Random.Range(0, spawnBoxExtants.Count);
                   float xPos = Random.Range(spawnBoxExtants[j].x*-1, spawnBoxExtants[j].x); // Random X coordinate for spawn area range
                   float zPos = Random.Range(spawnBoxExtants[j].z*-1, spawnBoxExtants[j].z); // Random Z coordinate for spawn area range

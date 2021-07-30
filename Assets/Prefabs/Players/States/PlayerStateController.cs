@@ -21,7 +21,9 @@ public class PlayerStateController : MonoBehaviour
 
     void Update()
     {
+      if (PSM.inShop == false) {
         runStateMachine(this);
+      }
     }
 
     private void runStateMachine(PlayerStateController controller)

@@ -8,6 +8,8 @@ public class MovementState : State
   public float turnSpeed;
 
   public float timeInbetweenAttacks;
+  public float minAttackTime;
+  public float maxAttackTime;
   private bool canAttack = true;
   private AttackState attackState;
   private StunnedState stunnedState;
@@ -68,6 +70,7 @@ public class MovementState : State
   }
 
   IEnumerator attackCooldown() {
+    float randomTime = Random.Range(minAttackTime, maxAttackTime);
     yield return new WaitForSeconds(timeInbetweenAttacks);
     canAttack = true;
   }
