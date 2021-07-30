@@ -21507,6 +21507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef1dca94fdf94f00af93f087ad63e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMap: 0
+  inShop: 0
   scrapAmount: 0
   dashState: 1
   stunTime: 0
@@ -25430,7 +25432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2282202537869215485, guid: c4fbcb497e74ff6429d8a8861d5a5504, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2282202537869215485, guid: c4fbcb497e74ff6429d8a8861d5a5504, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -25761,7 +25763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8463731623722209835, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8463731623722209835, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
       propertyPath: m_Materials.Array.data[0]
