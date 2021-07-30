@@ -12,6 +12,7 @@ public class EquipCooldownUI : MonoBehaviour
   public float timeValue;
   public bool hasTimeReset = false;
   public PlayerEquipState playerEquipState;
+  public GameObject overlay;
 
     void Awake()
     {
@@ -26,15 +27,17 @@ public class EquipCooldownUI : MonoBehaviour
       if (playerEquipState.canUseEquip) {
         cooldownNumber.text = "";
         hasTimeReset = false;
+        overlay.SetActive(false);
       }
       else {
         if (hasTimeReset == false) {
+          overlay.SetActive(true);
           hasTimeReset = true;
           timeValue = playerEquipState.equipCDTime;
         }
         timeValue -= Time.deltaTime;
-        cooldownNumber.text = (Mathf.Round(timeValue* 100.0f) * 0.01f).ToString();
-        cooldownOutline.fillAmount = timeValue/playerEquipState.equipCDTime;
+        cooldownNumber.text = timeValue.ToString("0.00");
+        cooldownOutline.fillAmount = 1- timeValue/playerEquipState.equipCDTime;
       }
     }
 

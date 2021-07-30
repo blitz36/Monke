@@ -809,25 +809,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 649936358942850667}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7689392949603099594}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: 
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: PickUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -888,14 +876,20 @@ MonoBehaviour:
   Description: {fileID: 649936358567212014}
   FlavorText: {fileID: 649936359180573357}
   icon: {fileID: 649936359202971001}
+  buttonAnim: {fileID: 649936358942850644}
   item: {fileID: 0}
   storage: {fileID: 5319117762252929828}
   Weights: 320000001e0000000f00000005000000
   price: 0
-  priceValues:
-  - 50
+  priceValuesMin:
+  - 25
+  - 25
+  - 100
   - 200
-  - 300
+  priceValuesMax:
+  - 0
+  - 100
+  - 200
   - 500
 --- !u!1 &649936359180573347
 GameObject:

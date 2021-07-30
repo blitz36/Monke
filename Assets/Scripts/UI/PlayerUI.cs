@@ -12,7 +12,6 @@ public class PlayerUI : MonoBehaviour
 
     void Awake(){
       PSM = transform.root.GetComponentInChildren<playerStatManager>();
-      Cursor.visible = false;
     }
 
     // Update is called once per frame

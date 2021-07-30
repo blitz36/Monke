@@ -32,7 +32,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""02e28a0b-a066-4f80-9ec4-ea0c3c05b332"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Attack"",

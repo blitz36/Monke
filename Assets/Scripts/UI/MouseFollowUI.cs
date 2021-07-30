@@ -28,7 +28,7 @@ public class MouseFollowUI : MonoBehaviour
         transform.position = Input.mousePosition;
         lightComboText.text = PSM.comboStep.ToString();
         dashText.text = PSM.numDashes.ToString();
-        if (PSM.dashCDTimer > 0) {
+        if (PSM.dashCDTimer == 0) {
           dashFill.fillAmount = 0f;
         }
         else {

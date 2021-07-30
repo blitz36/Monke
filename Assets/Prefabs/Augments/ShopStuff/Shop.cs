@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
   public TMP_Text Description;
   public TMP_Text FlavorText;
   public Image icon;
+  public Animator buttonAnim;
 
   public Item item;
   private float totalWeight = 0f;
@@ -22,8 +23,8 @@ public class Shop : MonoBehaviour
   private Shop instance;
   private playerStatManager PSM;
   public float price;
-  public List<float> priceValues = new List<float>();
-
+  public List<float> priceValuesMin = new List<float>();
+  public List<float> priceValuesMax = new List<float>();
   void Awake() {
     PSM = GameObject.FindWithTag("Player").transform.root.GetComponentInChildren<playerStatManager>();
   }
@@ -34,8 +35,14 @@ public class Shop : MonoBehaviour
   }
 
   public void PickUp() {
-    if (PSM.scrapAmount > price)
+    if (PSM.scrapAmount > price) {
       Inventory.instance.Equip(item);
+      PSM.scrapAmount -= price;
+      buttonAnim.SetBool("EnoughScrap", true);
+      buttonAnim.SetBool("Out", true);
+      buttonAnim.SetTrigger("Pressed");
+    }
+    buttonAnim.SetTrigger("Normal");
   }
 
   public void determineLoot() {
@@ -67,26 +74,27 @@ public class Shop : MonoBehaviour
       case 0:
         itemIndex = Random.Range(0, storage.Commons.Count);
         item = storage.Commons[itemIndex];
-        price = priceValues[0];
+        price = Random.Range(priceValuesMin[0], priceValuesMax[0]);
         break;
       case 1:
         itemIndex = Random.Range(0, storage.Rares.Count);
         item = storage.Rares[itemIndex];
-        price = priceValues[1];
+        price = Random.Range(priceValuesMin[1], priceValuesMax[1]);
         break;
       case 2:
         itemIndex = Random.Range(0, storage.Epics.Count);
         item = storage.Epics[itemIndex];
-        price = priceValues[2];
+        price = Random.Range(priceValuesMin[2], priceValuesMax[2]);
         break;
       case 3:
         itemIndex = Random.Range(0, storage.Legendary.Count);
         item = storage.Legendary[itemIndex];
-        price = priceValues[3];
+        price = Random.Range(priceValuesMin[3], priceValuesMax[3]);
         break;
       case 4:
         itemIndex = Random.Range(0, storage.Equips.Count);
         item = storage.Equips[itemIndex];
+        Random.Range(priceValuesMin[4], priceValuesMax[4]);
         break;
 
     }
