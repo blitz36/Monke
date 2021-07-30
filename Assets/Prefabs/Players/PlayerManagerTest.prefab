@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8730503754176492806}
   - component: {fileID: 6616335028220083581}
   - component: {fileID: 9135956665260864948}
+  - component: {fileID: 6509354706548670594}
   m_Layer: 0
   m_Name: Mouse UI Sprite Right Slider
   m_TagString: Untagged
@@ -75,6 +76,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &6509354706548670594
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30206768641420709}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &163126980995300740
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +469,7 @@ GameObject:
   - component: {fileID: 7632218271945572142}
   - component: {fileID: 3895238718288767792}
   - component: {fileID: 5159392671094110558}
+  - component: {fileID: 6645851481571881788}
   m_Layer: 0
   m_Name: Mouse UI Sprite Right
   m_TagString: Untagged
@@ -523,6 +536,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &6645851481571881788
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431784122368408098}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &437431508188636154
 GameObject:
   m_ObjectHideFlags: 0
@@ -9145,6 +9169,7 @@ GameObject:
   - component: {fileID: 3957519345945555595}
   - component: {fileID: 6539405227738791473}
   - component: {fileID: 2361721331114294768}
+  - component: {fileID: 1501093560352264059}
   m_Layer: 0
   m_Name: Mouse UI Sprite Left
   m_TagString: Untagged
@@ -9211,6 +9236,17 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &1501093560352264059
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845558520455726902}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2874842653421718217
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,6 +9526,7 @@ GameObject:
   - component: {fileID: 4070585023246777001}
   - component: {fileID: 4899937317541417392}
   - component: {fileID: 6190628161230310629}
+  - component: {fileID: 4407499755349896899}
   m_Layer: 0
   m_Name: Mouse UI Sprite Left Slider
   m_TagString: Untagged
@@ -9554,6 +9591,17 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &4407499755349896899
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949243899268547412}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2965774038943713550
 GameObject:
   m_ObjectHideFlags: 0
@@ -20332,6 +20380,7 @@ GameObject:
   - component: {fileID: 4087960594514907341}
   - component: {fileID: 1982877332389181215}
   - component: {fileID: 2387087531491524267}
+  - component: {fileID: 4423795293712266489}
   m_Layer: 0
   m_Name: Mouse UI Sprite 1
   m_TagString: Untagged
@@ -20421,6 +20470,17 @@ MonoBehaviour:
   lightComboFill: {fileID: 3984556266217156491}
   dashFill: {fileID: 6958265945235904752}
   chargeFill: {fileID: 7129421676430867292}
+--- !u!210 &4423795293712266489
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917316754360141372}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
 --- !u!1 &5928034096705433405
 GameObject:
   m_ObjectHideFlags: 0
@@ -25765,14 +25825,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
---- !u!1 &4419455715114363017 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1239146497780098969, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
-  m_PrefabInstance: {fileID: 3199625712489991952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8407108477585349990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6398302511535116918, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
+  m_PrefabInstance: {fileID: 3199625712489991952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4419455715114363017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1239146497780098969, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
   m_PrefabInstance: {fileID: 3199625712489991952}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6575326658129599100
