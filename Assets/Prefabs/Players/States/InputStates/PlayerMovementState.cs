@@ -11,6 +11,8 @@ public class PlayerMovementState : PlayerState
   private PlayerBlockState blockState;
   private PlayerEquipState equipState;
 
+  private Vector2 direction;
+
   public override void Awake() {
     base.Awake();
     if (dashState == null) {
@@ -37,8 +39,7 @@ public class PlayerMovementState : PlayerState
 
   public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
   {
-    Vector2 direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
-    performMovement(direction.x, direction.y);
+    direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
     checkAttacks();
 
     if (PSM.bufferedAttack && PSM.chargeAttack) {
@@ -77,7 +78,7 @@ public class PlayerMovementState : PlayerState
 
   public override void runCurrentStateFixedUpdate(PlayerStateController controller)
   {
-
+    performMovement(direction.x, direction.y);
   }
 
   public override void runCurrentStateOnTriggerEnter(Collider other, PlayerStateController controller)
@@ -101,10 +102,11 @@ public class PlayerMovementState : PlayerState
           else {
             speed = fVelocity.normalized * PSM.baseSpeed.Value;
           }
-          speed.y = PSM.rb.velocity.y;
+          transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(speed.normalized), 0.2f);
+    //    speed.y = PSM.rb.velocity.y;
           PSM.rb.velocity = speed;
           PSM.isRunning = true;
-          transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(speed.normalized), 0.2f);
+
         }
 
         else {

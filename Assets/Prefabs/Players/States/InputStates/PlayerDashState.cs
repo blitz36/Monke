@@ -9,7 +9,8 @@ public class PlayerDashState : PlayerState
   public float dashMultiplier = 5;
   public float dashTimer;
   public float maxDash;
-
+  PlayerState state;
+  Vector2 direction;
     // Start is called before the first frame update
     public override void Awake()
     {
@@ -21,14 +22,13 @@ public class PlayerDashState : PlayerState
 
     public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
     {
-      Vector2 direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
-      PlayerState state = performDash(direction.x, direction.y);
+      direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
+      state = performDash(direction.x, direction.y);
       return state;
     }
 
     public override void runCurrentStateFixedUpdate(PlayerStateController controller)
     {
-
     }
 
     public override void runCurrentStateOnTriggerEnter(Collider other, PlayerStateController controller)
@@ -55,12 +55,13 @@ public class PlayerDashState : PlayerState
                            Transform cameraTransform = Camera.main.transform;
                            cameraTransform.eulerAngles = new Vector3(0f, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
                            fVelocity = cameraTransform.TransformDirection(fVelocity);
-                           fVelocity.y = PSM.rb.velocity.y;
+                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
+                        //   fVelocity.y = PSM.rb.velocity.y;
                 //           if (horiz == 0f && vert == 0f) {
                   //           fVelocity = new Vector3(transform.forward.x, PSM.rb.velocity.y, transform.forward.z).normalized;
                     //       }
                            PSM.rb.velocity = fVelocity * PSM.baseSpeed.Value * dashMultiplier;
-                           transform.root.GetChild(0).rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(fVelocity.normalized), 1F);
+
                            PSM.numDashes -= 1;
                            PSM.dashState = false;
 
