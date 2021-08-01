@@ -23,4 +23,4 @@ MonoBehaviour:
   startupTime: 0.1
   activeTime: 0
   recoveryTime: 0.25
-  momentum: 0
+  momentum: 10

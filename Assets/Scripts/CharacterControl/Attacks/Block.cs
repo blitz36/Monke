@@ -56,8 +56,11 @@ public class Block : Attack
         //          var direction = rb.velocity.normalized;
         //          direction.y = 0f;
         //          rb.AddForce(direction * momentum, ForceMode.Impulse);
+                  PSM.rb.velocity = new Vector3(0f,0f,0f);
+
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
+                  //PSM.rb.AddForce(PSM.transform.forward * momentum, ForceMode.Impulse);
               PSM.priority = 11;
               State = 1;
               Timer = 0;

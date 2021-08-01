@@ -27,7 +27,7 @@ public class HitboxController : MonoBehaviour
         Debug.Log(collider);
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
         ESM.TakeDamage(damage);
-        stopEffect();
+        StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
         var moveDirection = transform.position - collider.transform.position;
         ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
         if (augmentedHitboxFunc != null)
@@ -39,17 +39,4 @@ public class HitboxController : MonoBehaviour
       damage = newDamage;
     }
 
-    public void stopEffect(){
-      if (!stopping) {
-        StartCoroutine("Stop");
-        Time.timeScale = 0f;
-      }
-    }
-
-    IEnumerator Stop() {
-      yield return new WaitForSecondsRealtime(timeToResume);
-      Time.timeScale = 0.05f;
-      yield return new WaitForSecondsRealtime(timeToResumeSlow);
-      Time.timeScale = 1f;
-    }
 }

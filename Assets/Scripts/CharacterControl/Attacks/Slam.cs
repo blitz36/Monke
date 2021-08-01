@@ -67,7 +67,7 @@ public class Slam : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
-            PSM.heavyAttackHitboxes[0].SetActive(true);
+            PSM.heavyAttackHitboxes[PSM.chargeAttackType].SetActive(true);
           }
           break;
 
@@ -83,7 +83,7 @@ public class Slam : Attack
           {
               Timer = 0f;
               State = -1;
-              PSM.heavyAttackHitboxes[0].SetActive(false);
+              PSM.heavyAttackHitboxes[PSM.chargeAttackType].SetActive(false);
           }
           break;
 

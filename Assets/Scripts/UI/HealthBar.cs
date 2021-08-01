@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
     }
     public void SetHealth(float percentHealth)
     {
+      if (slider == null) return;
         slider.fillAmount = percentHealth;
         StartCoroutine(ChangeSlider(percentHealth));
     }

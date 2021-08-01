@@ -9,6 +9,8 @@ public class SpawnPoint : MonoBehaviour
     {
       GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
       objs[0].transform.position = gameObject.transform.position;
+      objs[0].transform.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+
 
     }
 

@@ -61,6 +61,7 @@ public class playerStatManager : MonoBehaviour
   public Rigidbody rb;
   public VFXActivate HitVFX;
   public VFXActivate parryVFX;
+  private bool stoppingTime = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -187,6 +188,7 @@ public class playerStatManager : MonoBehaviour
           chargeAttackType = 0;
         }
         else if (holdTimer < holdTimes[1]) {
+          Debug.Log("Yep");
           chargeAttackType = 1;
         }
         else {
@@ -204,6 +206,19 @@ public class playerStatManager : MonoBehaviour
   IEnumerator stopParry(){
     yield return new WaitForSeconds(parryWindow);
     isParry = false;
+  }
+
+  public IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
+    if (!stoppingTime) {
+      Debug.Log(timeToResume + " " + timeToResumeSlow);
+      stoppingTime = true;
+      Time.timeScale = 0f;
+      yield return new WaitForSecondsRealtime(timeToResume);
+      Time.timeScale = 0.1f;
+      yield return new WaitForSecondsRealtime(timeToResumeSlow);
+      Time.timeScale = 1f;
+      stoppingTime = false;
+    }
   }
 
 }
