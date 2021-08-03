@@ -87,10 +87,8 @@ public class Grounding : MonoBehaviour
   		}
       if (!Physics.Raycast(rb.position, Vector3.down, out RaycastHit hit, probeDistance, probeMask)) {
   			return false;
-          Debug.Log("2");
   		}
   		if (hit.normal.y < minGroundDotProduct) {
-          Debug.Log("3");
   			return false;
   		}
 
@@ -105,7 +103,6 @@ public class Grounding : MonoBehaviour
       //  velocity = new Vector3(velocity.x, -98f, velocity.z);
 
       }
-      Debug.Log("5");
   		return true;
     }
 /*

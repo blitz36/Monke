@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RandomLootGenerator : MonoBehaviour
+public class SpecificAugmentGenerator : MonoBehaviour
 {
   public Text itemDescription;
 
@@ -14,7 +14,6 @@ public class RandomLootGenerator : MonoBehaviour
 
   private GameObject chest;
 
-  public GameObject rarityList;
   public AugmentRarityStorage storage;
 
   public List<Item> Commons;
@@ -28,11 +27,9 @@ public class RandomLootGenerator : MonoBehaviour
   public Item item;
 
 
-  private RandomLootGenerator instance;
+  private SpecificAugmentGenerator instance;
 
   void Awake() {
-    storage = rarityList.GetComponent<AugmentRarityStorage>();
-    syncStoredItems();
   }
 
   void Start() {
@@ -56,14 +53,6 @@ public class RandomLootGenerator : MonoBehaviour
     }
   }
 */
-
-  public void syncStoredItems() {
-//    Commons = storage.Commons;
-    Rares = storage.Rares;
-    Epics = storage.Epics;
-    Legendary = storage.Legendary;
-    Equips = storage.Equips;
-  }
 
   public void PickUp() {
       Inventory.instance.Equip(item);

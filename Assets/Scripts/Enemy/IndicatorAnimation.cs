@@ -16,7 +16,6 @@ public class IndicatorAnimation : MonoBehaviour
       transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, scale);
     }
     public void pulse(){
-      Debug.Log("pulsing");
       material.SetFloat("_PulseSpeed", 100f);
     }
 

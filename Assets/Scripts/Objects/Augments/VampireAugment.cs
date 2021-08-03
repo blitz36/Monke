@@ -10,7 +10,9 @@ public class VampireAugment : Item
   //if it does, then just do the modifier
     public override void Equip(playerStatManager pStatManager) {
         if (!pStatManager.newStats.ContainsKey("LifeSteal")) {
-          pStatManager.newStats["LifeSteal"] = new CharacterStat(2f); //put the new stat in the dict
+          pStatManager.newStats["LifeSteal"] = new CharacterStat(0f); //put the new stat in the dict
+          StatModifier mod = new StatModifier(2, StatModType.Flat, this);//the modifier is add 2 lifesteal for every stack you get of this augment
+          pStatManager.newStats["LifeSteal"].AddModifier(mod);
 
           foreach (GameObject hitbox in pStatManager.hitboxes) { //add in the new delegate for each hitbox to use
             HitboxController HC = hitbox.GetComponent<HitboxController>();

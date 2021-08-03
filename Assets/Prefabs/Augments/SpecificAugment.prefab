@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1315255150219050572}
   - component: {fileID: 7884053988829800643}
   - component: {fileID: 7073635255085790696}
+  - component: {fileID: 2430028972465962008}
   m_Layer: 7
   m_Name: SpecificAugment
   m_TagString: Untagged
@@ -65,6 +66,8 @@ MonoBehaviour:
   rare: {fileID: 8020564074174877788, guid: 0bc31b1c0daee96419f4de2d91ee52d7, type: 3}
   epic: {fileID: 1570270404094236134, guid: 6668c49e77679e743b7301ea82d213ea, type: 3}
   legendary: {fileID: 8091906958961148618, guid: 4676c2253ff839c4aa40aac3822f0efb, type: 3}
+  rarityList: {fileID: 0}
+  storage: {fileID: 0}
   Commons:
   - {fileID: 11400000, guid: 908aa3adb44296540897e2497c8c7048, type: 2}
   Rares: []
@@ -123,6 +126,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315255150219050573}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2430028972465962008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315255150219050573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c801370e520e5d409d8fb6b6092bd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDescription: {fileID: 1568928390731878168}
+  common: {fileID: 6248678035315317194, guid: 38bc17f69e5e0064f9b3060db65cd340, type: 3}
+  rare: {fileID: 8020564074174877788, guid: 0bc31b1c0daee96419f4de2d91ee52d7, type: 3}
+  epic: {fileID: 1570270404094236134, guid: 6668c49e77679e743b7301ea82d213ea, type: 3}
+  legendary: {fileID: 8091906958961148618, guid: 4676c2253ff839c4aa40aac3822f0efb, type: 3}
+  storage: {fileID: 0}
+  Commons: []
+  Rares: []
+  Epics: []
+  Legendary:
+  - {fileID: 11400000, guid: cdf194c4cc34222458713d8a0818ac2c, type: 2}
+  Equips: []
+  Weights: 00000000000000000000000003000000
+  totalWeight: 0
+  item: {fileID: 0}
 --- !u!1 &8161724356179327447
 GameObject:
   m_ObjectHideFlags: 0

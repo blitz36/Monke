@@ -60,7 +60,7 @@ public class Slash : Attack
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
 
-                  PSM.lightAttackHitboxes[0].SetActive(true);
+                  PSM.lightAttackHitboxes[PSM.comboStep].SetActive(true);
                   PSM.bufferedAttack = false;
                   PSM.priority = 1;
                   State = 1;
@@ -91,7 +91,7 @@ public class Slash : Attack
           {
               Timer = 0f;
               State = -1;
-              PSM.lightAttackHitboxes[0].SetActive(false);
+              PSM.lightAttackHitboxes[PSM.comboStep].SetActive(false);
           }
           break;
 

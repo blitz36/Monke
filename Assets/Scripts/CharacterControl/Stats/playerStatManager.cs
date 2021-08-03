@@ -12,14 +12,20 @@ public class playerStatManager : MonoBehaviour
 
   public Plane plane = new Plane(Vector3.up, Vector3.zero);
   public bool dashState;
-  public float stunTime;
+  public float numDashes;
+  public float dashCooldown;
+  public float dashCDTimer;
+  public bool isRunning;
+
   public bool isParry;
   public float parryWindow;
   public bool isParryStart;
   public bool parried = false;
-  public bool isRunning;
+
   public bool blockState;
   public bool blockTrigger;
+
+  public float stunTime;
   public bool bufferedAttack = false;
   public bool chargeAttack = false;
   public int chargeAttackType;
@@ -48,13 +54,11 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat baseSpeed = new CharacterStat(10f);
   public CharacterStat maxDashes = new CharacterStat(1f);
   public Dictionary<string, CharacterStat> newStats = new Dictionary<string, CharacterStat>();
+  public Dictionary<string, GameObject> augmentHitboxes = new Dictionary<string, GameObject>();
 
   public int priority = 0;
   public float currentHealth;
   public int numShields;
-  public float numDashes;
-  public float dashCooldown;
-  public float dashCDTimer;
   public GameObject healthBarPrefab;
   public HealthBar healthBar;
   Transform target;
@@ -100,7 +104,7 @@ public class playerStatManager : MonoBehaviour
   void Update(){
     dashRefresh();
     holdInput();
-    if (isParryStart == true) {
+    if (isParryStart == true) { //timer to start the countdown to turn off parry window
       isParryStart = false;
       StartCoroutine("stopParry");
     }
@@ -188,7 +192,6 @@ public class playerStatManager : MonoBehaviour
           chargeAttackType = 0;
         }
         else if (holdTimer < holdTimes[1]) {
-          Debug.Log("Yep");
           chargeAttackType = 1;
         }
         else {
@@ -209,8 +212,8 @@ public class playerStatManager : MonoBehaviour
   }
 
   public IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
+    Debug.Log("StopTime");
     if (!stoppingTime) {
-      Debug.Log(timeToResume + " " + timeToResumeSlow);
       stoppingTime = true;
       Time.timeScale = 0f;
       yield return new WaitForSecondsRealtime(timeToResume);

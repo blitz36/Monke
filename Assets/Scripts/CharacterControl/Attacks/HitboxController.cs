@@ -18,20 +18,19 @@ public class HitboxController : MonoBehaviour
 
   void Start(){
     PSM = transform.root.GetComponentInChildren<playerStatManager>();
-    Debug.Log(transform.root);
   }
 
     private void OnTriggerEnter(Collider collider) {
       if (collider.tag == "Enemy")
       {
-        Debug.Log(collider);
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
         ESM.TakeDamage(damage);
         StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
         var moveDirection = transform.position - collider.transform.position;
         ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
-        if (augmentedHitboxFunc != null)
+        if (augmentedHitboxFunc != null) {
           augmentedHitboxFunc(ESM, PSM);
+        }
       }
     }
 
