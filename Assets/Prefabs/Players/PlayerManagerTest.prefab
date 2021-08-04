@@ -20339,7 +20339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3150375597511962124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21496,14 +21496,17 @@ MonoBehaviour:
   inShop: 0
   scrapAmount: 0
   dashState: 1
-  stunTime: 0
+  numDashes: 1
+  dashCooldown: 1
+  dashCDTimer: 0
+  isRunning: 0
   isParry: 0
   parryWindow: 0.3
   isParryStart: 0
   parried: 0
-  isRunning: 0
   blockState: 0
   blockTrigger: 0
+  stunTime: 0
   bufferedAttack: 0
   chargeAttack: 0
   chargeAttackType: 0
@@ -21536,9 +21539,6 @@ MonoBehaviour:
   priority: 0
   currentHealth: 0
   numShields: 0
-  numDashes: 1
-  dashCooldown: 1
-  dashCDTimer: 0
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
   healthBar: {fileID: 7258897809192085538}
   rb: {fileID: 0}
