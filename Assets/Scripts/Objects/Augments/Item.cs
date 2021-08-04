@@ -9,6 +9,7 @@ public abstract class Item : ScriptableObject
     public Sprite icon = null;
     public string description;
     public string FlavorText;
+    public List<GameObject> physicalItem; 
     public abstract void Equip(playerStatManager pStatManager);
     public abstract void Unequip(playerStatManager pStatManager);
 

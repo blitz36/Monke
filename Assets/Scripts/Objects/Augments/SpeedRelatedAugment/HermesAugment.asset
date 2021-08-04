@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b3aca1d8e2b914189709f19a910657, type: 3}
+  m_Name: HermesAugment
+  m_EditorClassIdentifier: 
+  name: Hermes Boots
+  icon: {fileID: 0}
+  description: Speed Boost!
+  FlavorText: Speed to eat ass
+  physicalItem:
+  - {fileID: 919132149155446097, guid: 6ca1fa109613f5442b28f18646551543, type: 3}
+  - {fileID: 919132149155446097, guid: d22955dd4d491da4eab8d71a7aa120dc, type: 3}

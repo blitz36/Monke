@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b3aca1d8e2b914189709f19a910657, type: 3}
-  m_Name: HermesAugment
+  m_Script: {fileID: 11500000, guid: 354cc8705908cc54cb9d3f4332444853, type: 3}
+  m_Name: LightningAugment
   m_EditorClassIdentifier: 
-  name: Hermes Boots
+  name: New Item
   icon: {fileID: 0}
-  description: Speed Boost!
-  FlavorText: Speed to eat ass
+  description: 
+  FlavorText: 
+  physicalItem: []
+  hitbox: {fileID: 6271772417611660545, guid: 4c2859dba99f1024c8066bf01162c1ea, type: 3}

@@ -212,7 +212,12 @@ public class playerStatManager : MonoBehaviour
   }
 
   public IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
-    Debug.Log("StopTime");
+
+    if (timeToResume <= 0 && timeToResumeSlow <= 0) {
+      yield break;
+    }
+
+    Debug.Log("StopTime " + timeToResume + " " + timeToResumeSlow);
     if (!stoppingTime) {
       stoppingTime = true;
       Time.timeScale = 0f;

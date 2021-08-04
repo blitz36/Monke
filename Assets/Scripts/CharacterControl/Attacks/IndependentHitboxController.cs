@@ -2,21 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitboxController : MonoBehaviour
+public class IndependentHitboxController : MonoBehaviour
 {
   public float damage;
   public float momentum;
   public float timeToResume;
   public float timeToResumeSlow;
   private bool stopping;
-  public playerStatManager PSM;
-
-  public delegate void AugmentedHitboxFunc(EnemyStatManager ESM, playerStatManager PSM);
-  public AugmentedHitboxFunc augmentedHitboxFunc;
 
 
   void Start(){
-    PSM = transform.root.GetComponentInChildren<playerStatManager>();
   }
 
     private void OnTriggerEnter(Collider collider) {
@@ -24,17 +19,11 @@ public class HitboxController : MonoBehaviour
       {
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
         ESM.TakeDamage(damage);
-        StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
         var moveDirection = transform.position - collider.transform.position;
         ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
-        if (augmentedHitboxFunc != null) {
-          augmentedHitboxFunc(ESM, PSM);
-        }
+
       }
     }
 
-    public virtual void updateDamageValue(float newDamage) {
-      damage = newDamage;
-    }
 
 }

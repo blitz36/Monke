@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c0a83086334e54d990c6f1f0873a28, type: 3}
+  m_Name: HeavyArmaments
+  m_EditorClassIdentifier: 
+  name: New Item
+  icon: {fileID: 0}
+  description: 
+  FlavorText: 
+  physicalItem: []
+  hitbox: {fileID: 799880754737701626, guid: 164712f5d0bac3a4aa3baa18d3d3592d, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4608
+  missileRange: 20

@@ -17,13 +17,11 @@ public class EnemyStatManager : MonoBehaviour
 
     public CharacterStat maxHealth = new CharacterStat(90f);
     public float currentHealth;
-
+    public CharacterStat baseSpeed = new CharacterStat(5f);
     public GameObject healthBarPrefab;
     public HealthBar healthBar;
     Transform healthBarTarget;
     public Transform target;
-
-    public float speed;
 
     public bool isHit;
 

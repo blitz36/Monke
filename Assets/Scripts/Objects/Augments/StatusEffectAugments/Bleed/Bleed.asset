@@ -16,4 +16,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: 
   FlavorText: 
-  StatusEffect: {fileID: 0}
+  physicalItem: []
+  StatusEffect: {fileID: 4471580217029630381, guid: 6d19bf66354d5114696b860f573ded92, type: 3}
+  statusEffectManager: {fileID: 8930991944731834311, guid: 1208d148fffabd548aacc709b1daaa67, type: 3}

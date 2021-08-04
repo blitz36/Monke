@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class MovementAgent : MonoBehaviour
 {
+    private EnemyStatManager ESM;
+
     [SerializeField] private LayerMask playerLayer;
     public float speed;
     public int rng;
@@ -40,8 +42,12 @@ public class MovementAgent : MonoBehaviour
     public float sqrLen;
 
     void Awake(){
-      if (targetPosition == null)
+      if (targetPosition == null){
         targetPosition = GameObject.FindWithTag("Player").transform;
+      }
+      if (ESM == null) {
+        ESM = gameObject.transform.parent.parent.GetComponent<EnemyStatManager>();
+      }
     }
 
     void Start()
@@ -87,7 +93,7 @@ public class MovementAgent : MonoBehaviour
       chosenDirection = chooseDirection();
 
       //Move with Rigidbody in chosen direction
-      velocity = chosenDirection * speed;
+      velocity = chosenDirection * ESM.baseSpeed.Value;
       velocity.y = rb.velocity.y;
       rb.velocity = velocity;
     }
