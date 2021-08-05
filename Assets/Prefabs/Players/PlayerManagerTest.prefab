@@ -16426,7 +16426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3609831810636339212}
   m_LocalRotation: {x: 0.34004593, y: -0, z: -0, w: 0.9404088}
-  m_LocalPosition: {x: 0, y: 12.463241, z: -12.650737}
+  m_LocalPosition: {x: 0, y: 9.265419, z: -8.807049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3609831810785941776}
@@ -16595,7 +16595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3609831810702501070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.49, z: 5}
+  m_LocalPosition: {x: 0, y: -1.4900005, z: -0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3609831809184415645}
@@ -20770,7 +20770,7 @@ MonoBehaviour:
   seeThroughBorder: 0
   seeThroughBorderColor: {r: 0, g: 0, b: 0, a: 1}
   seeThroughBorderWidth: 0.45
-  rmsCount: 17
+  rmsCount: 15
   hitFxInitialIntensity: 1
   hitFxMode: 0
   hitFxFadeOutDuration: 0.25
@@ -25439,7 +25439,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2282202537869215485, guid: c4fbcb497e74ff6429d8a8861d5a5504, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2282202537869215485, guid: c4fbcb497e74ff6429d8a8861d5a5504, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -25770,7 +25770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8463731623722209835, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8463731623722209835, guid: f5bd3360fbe34484bb374ee1e7503c19, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -25981,6 +25981,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2563402954288050146}
     m_Modifications:
+    - target: {fileID: 2009367161504093004, guid: 42c1aaf17bc940c40ab6dcd272e5aae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795573176722585848, guid: 42c1aaf17bc940c40ab6dcd272e5aae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641357876764798616, guid: 42c1aaf17bc940c40ab6dcd272e5aae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8262520506757463797, guid: 42c1aaf17bc940c40ab6dcd272e5aae3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
