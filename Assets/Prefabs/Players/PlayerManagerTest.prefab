@@ -21506,7 +21506,7 @@ MonoBehaviour:
   parried: 0
   blockState: 0
   blockTrigger: 0
-  stunTime: 0
+  stunTime: 2
   bufferedAttack: 0
   chargeAttack: 0
   chargeAttackType: 0
@@ -21536,6 +21536,10 @@ MonoBehaviour:
     BaseValue: 10
   maxDashes:
     BaseValue: 1
+  critChancePerc:
+    BaseValue: 0.1
+  healthRegenValue:
+    BaseValue: 1
   priority: 0
   currentHealth: 0
   numShields: 0
@@ -21544,6 +21548,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   HitVFX: {fileID: 3132639118582317566}
   parryVFX: {fileID: 1541998644927392662}
+  timeBeforeCombatEnds: 5
+  inCombat: 0
 --- !u!114 &7204942607715232359
 MonoBehaviour:
   m_ObjectHideFlags: 0

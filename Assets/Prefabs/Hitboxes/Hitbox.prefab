@@ -269,6 +269,9 @@ MonoBehaviour:
   momentum: -5
   timeToResume: 0
   timeToResumeSlow: 0
+  timeToResumeCrit: 0.1
+  timeToResumeSlowCrit: 0.1
+  PSM: {fileID: 0}
 --- !u!54 &4782779130387353595
 Rigidbody:
   m_ObjectHideFlags: 0

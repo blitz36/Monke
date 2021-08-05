@@ -17,7 +17,8 @@ public class LaserHitbox : MonoBehaviour
   void Update() {
     RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.SphereCast(transform.position, radius, transform.TransformDirection(Vector3.forward), out hit, laserRange, layerMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, laserRange, layerMask))
+    //    if (Physics.SphereCast(transform.position, radius, transform.TransformDirection(Vector3.forward), out hit, laserRange, layerMask))
         {
             if (hit.transform.tag == "Player")
             {

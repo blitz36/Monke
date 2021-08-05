@@ -2697,10 +2697,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3081,10 +3078,11 @@ MonoBehaviour:
   maxHealth:
     BaseValue: 30
   currentHealth: 0
+  baseSpeed:
+    BaseValue: 5
   healthBarPrefab: {fileID: 1526364551495367821, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
   healthBar: {fileID: 976084908851093644}
   target: {fileID: 0}
-  speed: 0
   isHit: 0
   vfx: {fileID: 2892607248059537625}
   EDT: {fileID: 7930447112041707173}
@@ -3371,7 +3369,6 @@ MonoBehaviour:
   - {fileID: 2385384230939930272}
   - {fileID: 2385384230173903104}
   lookDistance: 5
-  directionCache: 0
   inRange: 0
   stopDistance: 5
   sqrLen: 0
@@ -3503,15 +3500,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
       propertyPath: m_LocalScale.x
-      value: 24.90436
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
       propertyPath: m_LocalScale.y
-      value: 24.90436
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
       propertyPath: m_LocalScale.z
-      value: 24.90436
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
       propertyPath: m_LocalPosition.x

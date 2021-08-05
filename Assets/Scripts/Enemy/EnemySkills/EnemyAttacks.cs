@@ -56,16 +56,17 @@ public class EnemyAttacks : EnemyAttack
           }
         }
         rb.velocity = new Vector3(0f,0f,0f);
+        Vector3 lookRotation = new Vector3(target.position.x, transform.position.y, target.position.z);
         if (targetRotation == true) {
           Hitbox.transform.LookAt(target);
         }
-        rb.transform.LookAt(target);
+        rb.transform.LookAt(lookRotation);
       }
 
       //increment
       Timer += Time.deltaTime;
       IA.changeScale(Timer/startupTime);
-      if (Timer/startupTime > 0.8f) {
+      if (Timer/startupTime > 0.5f) {
         IA.pulse();
       }
       if (Timer >= startupTime) {
@@ -95,12 +96,13 @@ public class EnemyAttacks : EnemyAttack
 
       Vector3 direction = (target.position - Hitbox.transform.position).normalized;
 
-      //create the rotation we need to be in to look at the target
-      Quaternion _lookRotation = Quaternion.LookRotation(direction);
+        //create the rotation we need to be in to look at the target
+        direction = new Vector3(direction.x, 0f, direction.z);
+        Quaternion _lookRotation = Quaternion.LookRotation(direction);
 
-      //rotate us over time according to speed until we are in the required rotation
-      Hitbox.transform.rotation = Quaternion.Slerp(Hitbox.transform.rotation, _lookRotation, Time.deltaTime * 3);
-//      Hitbox.transform.rotation = Quaternion.RotateTowards(Hitbox.transform.rotation, target.rotation, step);
+        //rotate us over time according to speed until we are in the required rotation
+        Hitbox.transform.rotation = Quaternion.Slerp(Hitbox.transform.rotation, _lookRotation, Time.deltaTime * 3);
+  //      Hitbox.transform.rotation = Quaternion.RotateTowards(Hitbox.transform.rotation, target.rotation, step);
 
       }
 

@@ -38,8 +38,7 @@ public class VampireAugment : Item
     public void LifeSteal(EnemyStatManager ESM, playerStatManager PSM) {
       float lifeSteal = PSM.newStats["LifeSteal"].Value; //get lifesteal value out of dict
       if (PSM.currentHealth <= PSM.maxHealth.Value) { //if not max health yet
-        PSM.currentHealth += lifeSteal; //life steal
-        PSM.healthBar.SetHealth(PSM.currentHealth/PSM.maxHealth.Value); //update healthbar
+        PSM.healDamage(lifeSteal);
       }
     }
 }

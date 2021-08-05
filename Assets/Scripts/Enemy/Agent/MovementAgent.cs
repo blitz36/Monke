@@ -34,11 +34,12 @@ public class MovementAgent : MonoBehaviour
   //  private int layerMask = 1 << 12;
 
     //relating towards shaping the weights for different behaviors
-    public int directionCache;
+    private int directionCache;
     public bool inRange = false;
 
     //sqrLen is square length easier computationally then doing distance because of sqr call
     public float stopDistance;
+    public bool stopAtStopDistance;
     public float sqrLen;
 
     void Awake(){
@@ -46,13 +47,12 @@ public class MovementAgent : MonoBehaviour
         targetPosition = GameObject.FindWithTag("Player").transform;
       }
       if (ESM == null) {
-        ESM = gameObject.transform.parent.parent.GetComponent<EnemyStatManager>();
+        ESM = gameObject.transform.root.GetComponent<EnemyStatManager>();
       }
     }
 
     void Start()
     {
-    //  InvokeRepeating("randomSeed", 5.0f, 5.0f); //this is to have randomized things, but not in use
 
       //set up the various arrays for context based steering
       rayDirections = new float[numRays];
@@ -77,7 +77,7 @@ public class MovementAgent : MonoBehaviour
       //Calculate how far away the target is for weight calculations
       inRange = Physics.CheckSphere(transform.position, stopDistance, playerLayer);
       float div = 100f;
-      sqrLen = ((targetPosition.position - transform.position).sqrMagnitude)/div;
+      sqrLen = ((targetPosition.position - transform.position).sqrMagnitude)/div; //value is to make going closer less valuable hwen u are closer
       /*
       if (sqrLen < 1f) {
         inRange = true;

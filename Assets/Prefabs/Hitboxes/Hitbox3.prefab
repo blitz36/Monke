@@ -123,6 +123,8 @@ MonoBehaviour:
   momentum: -30
   timeToResume: 0
   timeToResumeSlow: 0
+  timeToResumeCrit: 0.1
+  timeToResumeSlowCrit: 0.1
   PSM: {fileID: 0}
 --- !u!1 &4685799376584793009
 GameObject:

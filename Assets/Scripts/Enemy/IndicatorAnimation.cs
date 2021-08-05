@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IndicatorAnimation : MonoBehaviour
 {
-  public Material material;
+  private Material material;
 
     void Awake() {
       var renderer = transform.GetComponentInChildren<MeshRenderer>();

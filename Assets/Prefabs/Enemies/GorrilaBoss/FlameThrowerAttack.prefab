@@ -51,9 +51,10 @@ MonoBehaviour:
   posOfHitbox: {x: 0, y: 13, z: 4}
   State: 0
   Timer: 0
-  hitboxIndicatorPrefab: {fileID: 5024203072783570039, guid: 60b210ba8f83b004cb582628afc6c3ef, type: 3}
+  hitboxIndicatorPrefab: {fileID: 1068977073245731386, guid: 0f620846544a794429af2478fe4504e9, type: 3}
   startupTime: 0.3
   activeTime: 0.2
   recoveryTime: 0.3
-  momentum: 0
   targetRotation: 0
+  moveWhenAttack: 0
+  forceConstant: 0

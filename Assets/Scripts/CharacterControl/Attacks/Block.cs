@@ -53,10 +53,8 @@ public class Block : Attack
                   var hitPoint = ray.GetPoint(enter);
                   var mouseDir = hitPoint - PSM.gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-        //          var direction = rb.velocity.normalized;
-        //          direction.y = 0f;
-        //          rb.AddForce(direction * momentum, ForceMode.Impulse);
-                  PSM.rb.velocity = new Vector3(0f,0f,0f);
+  //                PSM.rb.AddForce(transform.forward * momentum, ForceMode.Impulse);
+//                  PSM.rb.velocity = new Vector3(0f,0f,0f);
 
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
@@ -83,7 +81,8 @@ public class Block : Attack
 
         case 2: //Active
 
-          //timer before switching to recovery stage
+          //timer before switching to recovery stage\
+          PSM.rb.velocity *= 0.95f;
           if(!PSM.blockTrigger|| PSM.parried == true)
           {
               PSM.parried = false;

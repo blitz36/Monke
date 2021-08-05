@@ -53,6 +53,8 @@ public class playerStatManager : MonoBehaviour
   public CharacterStat baseDamage = new CharacterStat(20f);
   public CharacterStat baseSpeed = new CharacterStat(10f);
   public CharacterStat maxDashes = new CharacterStat(1f);
+  public CharacterStat critChancePerc = new CharacterStat(.1f);
+  public CharacterStat healthRegenValue = new CharacterStat(1f);
   public Dictionary<string, CharacterStat> newStats = new Dictionary<string, CharacterStat>();
   public Dictionary<string, GameObject> augmentHitboxes = new Dictionary<string, GameObject>();
 
@@ -66,6 +68,10 @@ public class playerStatManager : MonoBehaviour
   public VFXActivate HitVFX;
   public VFXActivate parryVFX;
   private bool stoppingTime = false;
+
+  private float inCombatTimer;
+  public float timeBeforeCombatEnds;
+  public bool inCombat = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -75,6 +81,7 @@ public class playerStatManager : MonoBehaviour
       numDashes = maxDashes.Value;
       updateDmgValues();
       Invoke("updateDmgValues", 2f);
+      StartCoroutine(baseHealOverTime());
 
       playerInput.Base.HeavyAttack.started += _ => holding = true;
       playerInput.Base.HeavyAttack.performed += _ => holding = false;
@@ -104,6 +111,10 @@ public class playerStatManager : MonoBehaviour
   void Update(){
     dashRefresh();
     holdInput();
+    inCombatCheck();
+    if (!stoppingTime && Time.timeScale < 1f) {
+      Time.timeScale = 1f;
+    }
     if (isParryStart == true) { //timer to start the countdown to turn off parry window
       isParryStart = false;
       StartCoroutine("stopParry");
@@ -116,8 +127,30 @@ public class playerStatManager : MonoBehaviour
     }
   }
 
+  public void healDamage(float heal) {
+    currentHealth += heal;
+    if (currentHealth > maxHealth.Value) {currentHealth = maxHealth.Value;}
+    if (numShields == 0 && currentHealth > 0) {numShields = 1;}
+    healthBar.SetHealth(currentHealth/maxHealth.Value);
+  }
+
+  IEnumerator baseHealOverTime() {
+    while (true) {
+      if (inCombat && currentHealth == 0) {
+
+      }
+      else {
+        healDamage(healthRegenValue.Value);
+      }
+
+      yield return new WaitForSeconds(1f);
+    }
+  }
+
   public void TakeDamage(float damage, GameObject Enemy) {
     if (isHit || dashState == false) return;
+    inCombatTimer = 0f;
+    inCombat = true;
     EnemyStatManager ESM = Enemy.GetComponentInChildren<EnemyStatManager>();
 
     Vector3 forward = transform.forward;
@@ -155,6 +188,9 @@ public class playerStatManager : MonoBehaviour
         currentHealth = maxHealth.Value;
       }
     }
+    if (currentHealth < 0) {
+      currentHealth = 0;
+    }
     healthBar.SetHealth(currentHealth/maxHealth.Value);
   }
 
@@ -163,7 +199,7 @@ public class playerStatManager : MonoBehaviour
   }
 
   public void die(){
-    SceneManager.LoadScene(0);
+    SceneManager.LoadScene("DeathScene");
     Time.timeScale=1f;
     GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
     GameObject[] objs2 = GameObject.FindGameObjectsWithTag("MainCamera");
@@ -213,7 +249,7 @@ public class playerStatManager : MonoBehaviour
 
   public IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
 
-    if (timeToResume <= 0 && timeToResumeSlow <= 0) {
+    if ((timeToResume <= 0 && timeToResumeSlow <= 0) || stoppingTime) {
       yield break;
     }
 
@@ -226,6 +262,13 @@ public class playerStatManager : MonoBehaviour
       yield return new WaitForSecondsRealtime(timeToResumeSlow);
       Time.timeScale = 1f;
       stoppingTime = false;
+    }
+  }
+
+  void inCombatCheck() {
+    inCombatTimer += Time.deltaTime;
+    if (inCombatTimer > timeBeforeCombatEnds) {
+      inCombat = false;
     }
   }
 

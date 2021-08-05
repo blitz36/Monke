@@ -8,6 +8,10 @@ public class HitboxController : MonoBehaviour
   public float momentum;
   public float timeToResume;
   public float timeToResumeSlow;
+
+  public float timeToResumeCrit;
+  public float timeToResumeSlowCrit;
+
   private bool stopping;
   public playerStatManager PSM;
 
@@ -23,10 +27,21 @@ public class HitboxController : MonoBehaviour
       if (collider.tag == "Enemy")
       {
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
-        ESM.TakeDamage(damage);
-        StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
-        var moveDirection = transform.position - collider.transform.position;
-        ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+        float roll = Random.value;
+        if (roll < PSM.critChancePerc.Value) {//if it is a critical strike
+          Debug.Log(roll + " " + PSM.critChancePerc.Value);
+          ESM.TakeDamage(damage*2f);
+          StartCoroutine(PSM.Stop(timeToResumeCrit, timeToResumeSlowCrit));
+          var moveDirection = transform.position - collider.transform.position;
+          ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+        }
+        else {//not critical strike
+          ESM.TakeDamage(damage);
+          StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
+          var moveDirection = transform.position - collider.transform.position;
+          ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+        }
+
         if (augmentedHitboxFunc != null) {
           augmentedHitboxFunc(ESM, PSM);
         }
