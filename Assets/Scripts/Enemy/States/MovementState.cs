@@ -33,6 +33,7 @@ public class MovementState : State
 
   public override State runCurrentStateUpdate(StateController controller)
   {
+    ESM.currentAnim = 1;
     if (ESM.isHit) {
       return hitstunState;
     }

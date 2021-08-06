@@ -10,6 +10,7 @@ public class DeadState : State
   public override State runCurrentStateUpdate(StateController controller)
   {
     base.runCurrentStateUpdate(controller);
+    ESM.rb.velocity = new Vector3(0f,0f,0f);
     timerToDissolve += Time.deltaTime;
     if (timerToDissolve > timeToDissolve) {
       if (ESM.EDT != null) {

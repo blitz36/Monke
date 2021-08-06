@@ -15,18 +15,14 @@ public class PickupScrap : PickupableItems
     target = GameObject.FindWithTag("Player").transform;
   }
 
-  void Update() {
-    if (isInPickupRange) {
-      Vector3 direction = target.position - transform.position;
-      rb.AddRelativeForce(direction * 1000f * Time.deltaTime, ForceMode.Force);
-    }
-  }
 
   private void OnTriggerEnter(Collider other)
   {
-      playerStatManager PSM = other.gameObject.GetComponent<playerStatManager>();
-      PSM.scrapAmount += 10f;
-      Destroy(gameObject);
+    if (other.tag == "Player") {
+        playerStatManager PSM = other.gameObject.GetComponent<playerStatManager>();
+        PSM.scrapAmount += 10f;
+        Destroy(gameObject);
+      }
 
   }
 
@@ -35,8 +31,13 @@ public class PickupScrap : PickupableItems
     }
 
     void FixedUpdate(){
-      if (isInPickupRange == false)
-      isInPickupRange = Physics.CheckSphere(transform.position, pickUpRange, playerLayer);
+      if (isInPickupRange == false) {
+        isInPickupRange = Physics.CheckSphere(transform.position, pickUpRange, playerLayer);
+      }
+      if (isInPickupRange) {
+        Vector3 direction = target.position - transform.position;
+        rb.AddRelativeForce(direction * 1000f * Time.deltaTime, ForceMode.Force);
+      }
     }
 
     private void OnDrawGizmosSelected() {

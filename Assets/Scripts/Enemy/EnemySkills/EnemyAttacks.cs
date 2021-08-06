@@ -60,7 +60,7 @@ public class EnemyAttacks : EnemyAttack
         if (targetRotation == true) {
           Hitbox.transform.LookAt(target);
         }
-        rb.transform.LookAt(lookRotation);
+        rb.transform.LookAt(target);
       }
 
       //increment

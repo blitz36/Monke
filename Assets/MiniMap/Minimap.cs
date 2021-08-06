@@ -9,6 +9,7 @@ public class Minimap : MonoBehaviour
     // Start is called before the first frame update
     void LateUpdate ()
     {
+        if (player == null) return;
         Vector3 newPosition = player.position;
         newPosition.y = transform.position.y;
         transform.position = newPosition;

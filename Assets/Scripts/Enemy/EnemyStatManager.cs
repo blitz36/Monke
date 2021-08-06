@@ -5,6 +5,8 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
+    public int currentAnim;
+
     [HideInInspector]
     public StateController SC;
     public float dissolveTime;
@@ -51,7 +53,9 @@ public class EnemyStatManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+      if (damage > 9f) {
         isHit = true;
+      }
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth/maxHealth.Value);
         vfx.GetComponent<VFXActivate>().playVFX();

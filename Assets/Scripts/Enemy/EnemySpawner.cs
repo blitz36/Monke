@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Vector3> triggerBoxExtants;
     public List<Vector3> spawnBoxOffsets;
     public List<Vector3> triggerBoxOffsets;
+    public List<GameObject> Gates;
 
     private int waveCount;
     public int maxWaves;
@@ -25,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake() {
       numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
+      
     }
 
     void OnDrawGizmosSelected()
@@ -52,7 +54,6 @@ public class EnemySpawner : MonoBehaviour
       foreach (Vector3 extant in triggerBoxExtants) {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + triggerBoxOffsets[i], extant, Quaternion.identity, LayerMask);
         i++;
-
         int j = 0;
         //Check when there is a new collider coming into contact with the box
         while (j < hitColliders.Length)
@@ -63,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(spawnEnemy());
           }
         j++;
-                }
+        }
       }
 
     }

@@ -163,9 +163,9 @@ MonoBehaviour:
   - {fileID: 6842557571699624962}
   - {fileID: 6842557572599999394}
   lookDistance: 5
-  directionCache: 0
   inRange: 0
   stopDistance: 100
+  stopAtStopDistance: 0
   sqrLen: 0
 --- !u!114 &157427538237016638
 MonoBehaviour:
@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2097984535945860649}
   - component: {fileID: 1161999538705015632}
   - component: {fileID: 3511578693321047198}
+  - component: {fileID: 6831187144351019491}
   m_Layer: 12
   m_Name: Orangutan_Stab
   m_TagString: Enemy
@@ -592,6 +593,27 @@ MonoBehaviour:
   isInKnockback: 0
   knockbackTimer: 0
   currentKnockbackTimer: 0
+--- !u!114 &6831187144351019491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664277014207495514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e55638df66a5846adecf2b9d473d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  dropTableAmounts: 010000000200000003000000
+  dropTableWeights:
+  - 30
+  - 20
+  - 10
 --- !u!1 &3076827344891284401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,10 +1042,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

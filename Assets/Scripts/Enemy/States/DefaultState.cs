@@ -22,6 +22,7 @@ public class DefaultState : State
 
   public override State runCurrentStateUpdate(StateController controller)
   {
+    ESM.currentAnim = 0;
     if (ESM.isHit == true) {
       return hitstunState;
     }

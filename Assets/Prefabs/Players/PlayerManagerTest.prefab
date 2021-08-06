@@ -18874,6 +18874,8 @@ MonoBehaviour:
   dashMultiplier: 3
   dashTimer: 0
   maxDash: 0.2
+  trail1: {fileID: 82295695822049003}
+  trail2: {fileID: 712561160824259307}
 --- !u!1 &4930049878022433884
 GameObject:
   m_ObjectHideFlags: 0
@@ -21548,6 +21550,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   HitVFX: {fileID: 3132639118582317566}
   parryVFX: {fileID: 1541998644927392662}
+  stoppingTime: 0
   timeBeforeCombatEnds: 5
   inCombat: 0
 --- !u!114 &7204942607715232359
@@ -25580,6 +25583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
+--- !u!198 &712561160824259307 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2911873103491566328, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
+  m_PrefabInstance: {fileID: 2416897743890581523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8592115391893748570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6248701448779248457, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
@@ -25642,6 +25650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
+--- !u!198 &82295695822049003 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2911873103491566328, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
+  m_PrefabInstance: {fileID: 2976125463327753235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9221835518366578522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6248701448779248457, guid: a6019aa02c669434ab6a9fc663f67a56, type: 3}
@@ -25863,14 +25876,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b339318e17103ef4cb52a4262f7b5243, type: 3}
---- !u!20 &5193487575793354076 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1392379388018417440, guid: b339318e17103ef4cb52a4262f7b5243, type: 3}
-  m_PrefabInstance: {fileID: 6575326658129599100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5193487575793354075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1392379388018417447, guid: b339318e17103ef4cb52a4262f7b5243, type: 3}
+  m_PrefabInstance: {fileID: 6575326658129599100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &5193487575793354076 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1392379388018417440, guid: b339318e17103ef4cb52a4262f7b5243, type: 3}
   m_PrefabInstance: {fileID: 6575326658129599100}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7396978739187230304

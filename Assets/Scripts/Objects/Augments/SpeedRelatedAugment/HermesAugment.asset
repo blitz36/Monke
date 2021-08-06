@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HermesAugment
   m_EditorClassIdentifier: 
   name: Hermes Boots
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9415fa49f1c48c841a801c6f22d5bbf7, type: 3}
   description: Speed Boost!
   FlavorText: Speed to eat ass
   physicalItem:

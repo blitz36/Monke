@@ -2990,9 +2990,9 @@ GameObject:
   - component: {fileID: 6563532868436205561}
   - component: {fileID: 2409157152811676514}
   - component: {fileID: 7129966062518285451}
-  - component: {fileID: 8056785694162469362}
   - component: {fileID: 5716354068404100668}
   - component: {fileID: 7930447112041707173}
+  - component: {fileID: 4478525735891190941}
   m_Layer: 12
   m_Name: LemurEnemy
   m_TagString: Enemy
@@ -3087,18 +3087,6 @@ MonoBehaviour:
   isHit: 0
   vfx: {fileID: 2892607248059537625}
   EDT: {fileID: 7930447112041707173}
---- !u!114 &8056785694162469362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6563532868436205560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74a92ce08e299140a8a58614a7a5f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5716354068404100668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3130,9 +3118,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e55638df66a5846adecf2b9d473d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropTable: []
-  dropTableAmounts: 
-  dropTableWeights: []
+  dropTable:
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  - {fileID: 2010799731045984653, guid: 4298b17ff7f936244ae8a949d3677ad3, type: 3}
+  dropTableAmounts: 010000000200000003000000
+  dropTableWeights:
+  - 30
+  - 20
+  - 10
+--- !u!114 &4478525735891190941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563532868436205560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c806a94c376924d8784d4ea7eaafd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Geometry: {fileID: 1518343097213095198}
 --- !u!1 &7309132922253254028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,6 +3379,7 @@ MonoBehaviour:
   lookDistance: 5
   inRange: 0
   stopDistance: 5
+  stopAtStopDistance: 0
   sqrLen: 0
 --- !u!114 &9061374432464185500
 MonoBehaviour:
@@ -3560,6 +3568,11 @@ PrefabInstance:
 --- !u!4 &3599277753463952363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
+  m_PrefabInstance: {fileID: 3925324068740543488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1518343097213095198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2552327617057372446, guid: 09b0825cf1f126a449841d07b3654d34, type: 3}
   m_PrefabInstance: {fileID: 3925324068740543488}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8706650643478153720

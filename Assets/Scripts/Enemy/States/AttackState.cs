@@ -22,6 +22,7 @@ public class AttackState : State
 
   public override State runCurrentStateUpdate(StateController controller)
   {
+    ESM.currentAnim = 2;
     if (ESM.isHit == true) {
       attack.Cancel();
       return hitstunState;

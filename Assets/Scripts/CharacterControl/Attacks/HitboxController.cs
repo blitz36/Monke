@@ -29,15 +29,14 @@ public class HitboxController : MonoBehaviour
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
         float roll = Random.value;
         if (roll < PSM.critChancePerc.Value) {//if it is a critical strike
-          Debug.Log(roll + " " + PSM.critChancePerc.Value);
           ESM.TakeDamage(damage*2f);
-          StartCoroutine(PSM.Stop(timeToResumeCrit, timeToResumeSlowCrit));
+          PSM.StopTime(timeToResumeCrit, timeToResumeSlowCrit);
           var moveDirection = transform.position - collider.transform.position;
           ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
         }
         else {//not critical strike
           ESM.TakeDamage(damage);
-          StartCoroutine(PSM.Stop(timeToResume, timeToResumeSlow));
+          PSM.StopTime(timeToResume, timeToResumeSlow);
           var moveDirection = transform.position - collider.transform.position;
           ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
         }

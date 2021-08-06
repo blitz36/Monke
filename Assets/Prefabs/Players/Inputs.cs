@@ -80,7 +80,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""cc203ff1-e975-443f-8e86-4594a77a5761"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Zoom"",

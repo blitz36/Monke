@@ -26,20 +26,24 @@ public class SettingsManager : MonoBehaviour {
     void Update()
     {
       //pause or unpause lmao
-      if ((PSM.playerInput.Base.Escape.triggered) && !isPaused)
-      Pause();
+      if ((PSM.playerInput.Base.Escape.triggered) && !isPaused) {
+        Pause();
+      }
 
-      else if ((PSM.playerInput.Base.Escape.triggered) && isPaused)
-      UnPause();
+      else if ((PSM.playerInput.Base.Escape.triggered) && isPaused) {
+        UnPause();
+      }
     }
 
     void Pause() {
+      PSM.stoppingTime = true;
       isPaused = true;
       UIPanel.gameObject.SetActive(true);
       Time.timeScale = 0f;
     }
 
     void UnPause() {
+      PSM.stoppingTime = false;
       isPaused = false;
       UIPanel.gameObject.SetActive(false);
       Time.timeScale = 1f;

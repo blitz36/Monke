@@ -25,6 +25,7 @@ public class HitStunState : State
 
   public override State runCurrentStateUpdate(StateController controller)
   {
+    ESM.currentAnim = -1;
     hitstunTimer += Time.deltaTime;
     if (hitstunTimer > hitstunTime) {
 

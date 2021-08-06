@@ -11,6 +11,8 @@ public class PlayerDashState : PlayerState
   public float maxDash;
   PlayerState state;
   Vector2 direction;
+  public ParticleSystem  trail1;
+  public ParticleSystem  trail2;
     // Start is called before the first frame update
     public override void Awake()
     {
@@ -61,7 +63,8 @@ public class PlayerDashState : PlayerState
                   //           fVelocity = new Vector3(transform.forward.x, PSM.rb.velocity.y, transform.forward.z).normalized;
                     //       }
                            PSM.rb.velocity = fVelocity * PSM.baseSpeed.Value * dashMultiplier;
-
+                           trail1.Play();
+                           trail2.Play();
                            PSM.numDashes -= 1;
                            PSM.dashState = false;
 
@@ -75,6 +78,8 @@ public class PlayerDashState : PlayerState
                          PSM.dashState = true; //no longer dashing
                          PSM.rb.velocity = new Vector3(0,PSM.rb.velocity.y,0); //stop after dash ends
                          PSM.priority = 0;
+                         trail1.Stop();
+                         trail2.Stop();
                          return MovementState;
                      }
                      return this;

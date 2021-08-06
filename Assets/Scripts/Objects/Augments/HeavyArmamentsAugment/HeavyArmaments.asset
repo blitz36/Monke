@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeavyArmaments
   m_EditorClassIdentifier: 
   name: New Item
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 83e05ea55ffeb7f479d67504101afbcc, type: 3}
   description: 
   FlavorText: 
   physicalItem: []

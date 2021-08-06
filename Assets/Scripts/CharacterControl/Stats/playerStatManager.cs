@@ -67,7 +67,7 @@ public class playerStatManager : MonoBehaviour
   public Rigidbody rb;
   public VFXActivate HitVFX;
   public VFXActivate parryVFX;
-  private bool stoppingTime = false;
+  public bool stoppingTime = false;
 
   private float inCombatTimer;
   public float timeBeforeCombatEnds;
@@ -112,9 +112,6 @@ public class playerStatManager : MonoBehaviour
     dashRefresh();
     holdInput();
     inCombatCheck();
-    if (!stoppingTime && Time.timeScale < 1f) {
-      Time.timeScale = 1f;
-    }
     if (isParryStart == true) { //timer to start the countdown to turn off parry window
       isParryStart = false;
       StartCoroutine("stopParry");
@@ -247,13 +244,14 @@ public class playerStatManager : MonoBehaviour
     isParry = false;
   }
 
-  public IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
+  public void StopTime(float timeToResume, float timeToResumeSlow) {
+    StartCoroutine(Stop(timeToResume, timeToResumeSlow));
+  }
+  private IEnumerator Stop(float timeToResume, float timeToResumeSlow) {
 
     if ((timeToResume <= 0 && timeToResumeSlow <= 0) || stoppingTime) {
       yield break;
     }
-
-    Debug.Log("StopTime " + timeToResume + " " + timeToResumeSlow);
     if (!stoppingTime) {
       stoppingTime = true;
       Time.timeScale = 0f;
