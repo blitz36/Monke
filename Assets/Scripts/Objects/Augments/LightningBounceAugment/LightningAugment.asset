@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354cc8705908cc54cb9d3f4332444853, type: 3}
   m_Name: LightningAugment
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  description: 
-  FlavorText: 
+  name: Lightning Augment
+  icon: {fileID: 21300000, guid: 50024d3b747cddf418c4527b3c55e50d, type: 3}
+  description: Shock and Bounces through enemies
+  FlavorText: this augment was created by sticking a fork into an outlet
   physicalItem: []
   hitbox: {fileID: 6271772417611660545, guid: 4c2859dba99f1024c8066bf01162c1ea, type: 3}

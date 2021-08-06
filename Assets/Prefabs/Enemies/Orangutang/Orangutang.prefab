@@ -200,7 +200,10 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -353,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520b28bdeca76f74c83953f8a25f143e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnim: 0
   SC: {fileID: 0}
   dissolveTime: 2
   hitStunTime: 0.2
@@ -810,7 +814,7 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  timeToDissolve: 2
+  timeToDissolve: 0.3
 --- !u!1 &8176044230233698694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1203,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806594006237068168, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}
       propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907413697342499020, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199678643780405283, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9015618024946908188, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}

@@ -113,8 +113,8 @@ MonoBehaviour:
   activeTime: 0.2
   recoveryTime: 0.2
   targetRotation: 0
-  moveWhenAttack: 0
-  forceConstant: 0
+  moveWhenAttack: 1
+  forceConstant: 15
 --- !u!1 &1984489645172655662
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  timeToDissolve: 2
+  timeToDissolve: 0.3
 --- !u!1 &3011874044723325322
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,8 +453,8 @@ MonoBehaviour:
   deadState: {fileID: 0}
   turnSpeed: 0.1
   timeInbetweenAttacks: 3
-  minAttackTime: 0.2
-  maxAttackTime: 0.4
+  minAttackTime: 2
+  maxAttackTime: 4
   attackRange: 4
   playerLayer:
     serializedVersion: 2
@@ -3473,7 +3473,10 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

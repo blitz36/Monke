@@ -20,6 +20,7 @@ public class MovementState : State
 
   public override void Awake() {
     base.Awake();
+    StartCoroutine("attackCooldown");
     if (attackState == null) {
       attackState = gameObject.transform.parent.GetComponentInChildren<AttackState>();
     }

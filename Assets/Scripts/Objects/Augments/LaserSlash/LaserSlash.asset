@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9873a3793a31d8d438d58176f8a4c499, type: 3}
   m_Name: LaserSlash
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  description: 
-  FlavorText: 
+  name: Laser Slash Augment
+  icon: {fileID: 21300000, guid: 50024d3b747cddf418c4527b3c55e50d, type: 3}
+  description: Shoots out a laser on third hit
+  FlavorText: Where does the laser come from?
+  physicalItem: []
   hitbox: {fileID: 3874616149162250851, guid: c190b8f75c6f02242988c9a81acca51c, type: 3}

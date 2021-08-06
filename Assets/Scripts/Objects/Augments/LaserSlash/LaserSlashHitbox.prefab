@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3874616149162250851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.02, y: 3, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children:
   - {fileID: 924202974510947611}
   - {fileID: 2707772680146860023}
@@ -177,6 +177,9 @@ MonoBehaviour:
   momentum: 0
   timeToResume: 0
   timeToResumeSlow: 0
+  timeToResumeCrit: 0
+  timeToResumeSlowCrit: 0
+  isCrit: 0
   PSM: {fileID: 0}
 --- !u!1 &8649237060701817266
 GameObject:

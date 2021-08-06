@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LivingVines
   m_EditorClassIdentifier: 
   name: LivingVines
-  icon: {fileID: 0}
-  description: 
-  FlavorText: 
+  icon: {fileID: 21300000, guid: 81bbb12c87ea5b8418b09fd244a43b69, type: 3}
+  description: Plant a rootbug on your Enemy! Rootbugs pop to snare them after a
+    certain amount of time. Can be sped up by doing damage.
+  FlavorText: Software bugs amiright
   physicalItem: []
   StatusEffect: {fileID: 3427506832118650196, guid: ecab8d3fafcaf5b47bce9b88d89b0f7e, type: 3}
   statusEffectManager: {fileID: 8930991944731834311, guid: 1208d148fffabd548aacc709b1daaa67, type: 3}

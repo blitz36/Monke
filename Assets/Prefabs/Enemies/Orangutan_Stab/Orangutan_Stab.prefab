@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   speed: 6
   rng: 0
   targetPosition: {fileID: 0}
@@ -355,7 +355,7 @@ MonoBehaviour:
   ESM: {fileID: 0}
   hitstunState: {fileID: 0}
   deadState: {fileID: 0}
-  timeToDissolve: 2
+  timeToDissolve: 0.3
 --- !u!1 &2136059650332511145
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   recoveryTime: 1
   targetRotation: 0
   moveWhenAttack: 1
-  forceConstant: -100
+  forceConstant: 0
 --- !u!1 &2664277014207495514
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520b28bdeca76f74c83953f8a25f143e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnim: 0
   SC: {fileID: 0}
   dissolveTime: 2
   hitStunTime: 0.2
@@ -1152,7 +1153,10 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

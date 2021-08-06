@@ -133,7 +133,7 @@ public class playerStatManager : MonoBehaviour
 
   IEnumerator baseHealOverTime() {
     while (true) {
-      if (inCombat && currentHealth == 0) {
+      if (inCombat) {
 
       }
       else {

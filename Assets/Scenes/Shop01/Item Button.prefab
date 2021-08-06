@@ -882,12 +882,12 @@ MonoBehaviour:
   Weights: 320000001e0000000f00000005000000
   price: 0
   priceValuesMin:
-  - 25
+  - 0
   - 25
   - 100
   - 200
   priceValuesMax:
-  - 0
+  - 25
   - 100
   - 200
   - 500

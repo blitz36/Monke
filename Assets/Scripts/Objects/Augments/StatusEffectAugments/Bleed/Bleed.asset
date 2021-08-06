@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da11c520e98c05a4abf98e6aa3a721f0, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  description: 
-  FlavorText: 
+  name: Spike Augment
+  icon: {fileID: 21300000, guid: 8151806d01e389b4daf3bf13143ea187, type: 3}
+  description: Poke your enemies to inflict stackable bleed damage!
+  FlavorText: '>:)'
   physicalItem: []
   StatusEffect: {fileID: 4471580217029630381, guid: 6d19bf66354d5114696b860f573ded92, type: 3}
   statusEffectManager: {fileID: 8930991944731834311, guid: 1208d148fffabd548aacc709b1daaa67, type: 3}
