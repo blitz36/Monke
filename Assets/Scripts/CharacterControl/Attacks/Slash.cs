@@ -59,8 +59,6 @@ public class Slash : Attack
                   PSM.rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
-
-                  PSM.lightAttackHitboxes[PSM.comboStep].SetActive(true);
                   PSM.bufferedAttack = false;
                   PSM.priority = 1;
                   State = 1;
@@ -77,6 +75,11 @@ public class Slash : Attack
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
+            float roll = Random.value;
+             if (roll < PSM.critChancePerc.Value) {
+               PSM.lightAttackHitboxes[PSM.comboStep].GetComponent<HitboxController>().isCrit = true;
+             }
+            PSM.lightAttackHitboxes[PSM.comboStep].SetActive(true);
           }
           break;
 

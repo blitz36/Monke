@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake() {
       numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
-      
+
     }
 
     void OnDrawGizmosSelected()

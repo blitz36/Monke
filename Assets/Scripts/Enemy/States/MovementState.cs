@@ -10,7 +10,7 @@ public class MovementState : State
   public float timeInbetweenAttacks;
   public float minAttackTime;
   public float maxAttackTime;
-  private bool canAttack = true;
+  private bool canAttack = false;
   private AttackState attackState;
   private StunnedState stunnedState;
 

@@ -13,6 +13,7 @@ public class HitboxController : MonoBehaviour
   public float timeToResumeSlowCrit;
 
   private bool stopping;
+  public bool isCrit;
   public playerStatManager PSM;
 
   public delegate void AugmentedHitboxFunc(EnemyStatManager ESM, playerStatManager PSM);
@@ -27,12 +28,12 @@ public class HitboxController : MonoBehaviour
       if (collider.tag == "Enemy")
       {
         EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
-        float roll = Random.value;
-        if (roll < PSM.critChancePerc.Value) {//if it is a critical strike
+        if (isCrit) {//if it is a critical strike
           ESM.TakeDamage(damage*2f);
           PSM.StopTime(timeToResumeCrit, timeToResumeSlowCrit);
           var moveDirection = transform.position - collider.transform.position;
           ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+          isCrit = false;
         }
         else {//not critical strike
           ESM.TakeDamage(damage);
