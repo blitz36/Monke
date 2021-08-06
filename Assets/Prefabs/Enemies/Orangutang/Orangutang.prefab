@@ -634,8 +634,8 @@ MonoBehaviour:
   deadState: {fileID: 0}
   turnSpeed: 0.1
   timeInbetweenAttacks: 3
-  minAttackTime: 10
-  maxAttackTime: 14
+  minAttackTime: 5
+  maxAttackTime: 10
   attackRange: 24
   playerLayer:
     serializedVersion: 2

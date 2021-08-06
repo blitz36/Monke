@@ -29,6 +29,7 @@ public class EnemySpreadShot : EnemyAttack
       currentTarget = target;
       if (State == 0) {
         State = 1;
+        rb.velocity = new Vector3(0f, 0f, 0f);
         StartCoroutine(spawnBullet());
       }
       if (State == -1) { //if done with spawning bullets, then reset state back to 0 and send back.
@@ -48,8 +49,8 @@ public class EnemySpreadShot : EnemyAttack
         gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
 
         GameObject bullet = Instantiate(Hitbox, transform.position, Quaternion.identity);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.velocity = transform.TransformDirection(Vector3.forward * speed);
+        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+        rigid.velocity = transform.TransformDirection(Vector3.forward * speed);
 
         currentBullets += 1;
         yield return new WaitForSeconds(timeBetweenShots);
