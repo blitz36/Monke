@@ -20758,7 +20758,7 @@ MonoBehaviour:
   targetFXTransitionDuration: 0.5
   targetFXStayDuration: 1.5
   targetFXVisibility: 1
-  seeThrough: 0
+  seeThrough: 2
   seeThroughOccluderMask:
     serializedVersion: 2
     m_Bits: 4294967295
