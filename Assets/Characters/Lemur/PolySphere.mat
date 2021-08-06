@@ -145,7 +145,7 @@ Material:
     - _RimAmount: 0.7
     - _RimThreshold: 0.1
     - _SPECULAR_IOR: 1.5
-    - _SPECULAR_ROUGHNESS: 0
+    - _SPECULAR_ROUGHNESS: 0.84
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

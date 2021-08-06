@@ -191,7 +191,7 @@ Material:
     - Color_5DF75355: {r: 0, g: 0, b: 0, a: 0}
     - Color_dcd56978ef7d4bae83f00c3d91aee146: {r: 0, g: 0.380528, b: 1, a: 0}
     - _AmbientColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0}
-    - _BaseColor: {r: 0.19272874, g: 0.5006827, b: 0.5754717, a: 1}
+    - _BaseColor: {r: 0.19215687, g: 0.5764706, b: 0.39356408, a: 1}
     - _Color: {r: 0.0752047, g: 0.23556426, b: 0.24528301, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
