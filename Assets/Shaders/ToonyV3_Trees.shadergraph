@@ -473,9 +473,6 @@
         },
         {
             "m_Id": "1b0468185b294657b7cd8f1238aca3d5"
-        },
-        {
-            "m_Id": "f7717477c652458d938dff16ecdeb1d9"
         }
     ],
     "m_GroupDatas": [
@@ -1639,6 +1636,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "b01ea6bcce484b9e98b9501fa4c7a468"
+                },
+                "m_SlotId": 7
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "7804b786ffe749968d8c61483aa73a0d"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "b0f3ac67c27441929c0d00c236010cb7"
                 },
                 "m_SlotId": 2
@@ -2143,20 +2154,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "eb7a0282275f47a0b7738a043479b67d"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "7804b786ffe749968d8c61483aa73a0d"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "eb9b64c708cb4b33ac0f25017560fd22"
                 },
                 "m_SlotId": 5
@@ -2369,9 +2366,6 @@
             },
             {
                 "m_Id": "eb69e3a9d5494f07b07c557294b9ebad"
-            },
-            {
-                "m_Id": "f7717477c652458d938dff16ecdeb1d9"
             }
         ]
     },
@@ -7024,7 +7018,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 2.0,
+        "x": 100.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -9716,7 +9710,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.0,
+        "x": 1.0,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -10359,21 +10353,6 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.AlphaClipThreshold"
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "98dbb76f3f634c4287a38f3edc80539d",
-    "m_Id": 0,
-    "m_DisplayName": "Metallic",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Metallic",
-    "m_StageCapability": 2,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
 }
 
 {
@@ -12845,7 +12824,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalLitSubTarget",
     "m_ObjectId": "bc389629f4184916bf724e96633e19bc",
-    "m_WorkflowMode": 1,
+    "m_WorkflowMode": 0,
     "m_NormalDropOffSpace": 0,
     "m_ClearCoat": false
 }
@@ -14064,7 +14043,7 @@
     "m_ActiveSubTarget": {
         "m_Id": "bc389629f4184916bf724e96633e19bc"
     },
-    "m_SurfaceType": 1,
+    "m_SurfaceType": 0,
     "m_AlphaMode": 0,
     "m_TwoSided": true,
     "m_AlphaClip": true,
@@ -14836,7 +14815,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "AlphaClipThreshold",
     "m_StageCapability": 2,
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.5,
     "m_Labels": []
 }
@@ -16152,39 +16131,6 @@
     },
     "m_Modifiable": true,
     "m_DefaultType": 0
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "f7717477c652458d938dff16ecdeb1d9",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.Metallic",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "98dbb76f3f634c4287a38f3edc80539d"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.Metallic"
 }
 
 {
