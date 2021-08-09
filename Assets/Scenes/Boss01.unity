@@ -37084,6 +37084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orangutan_Stab
       objectReference: {fileID: 0}
+    - target: {fileID: 2664277014207495514, guid: a667241cc54beed42b17ee9aa3991105, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2664277014207495518, guid: a667241cc54beed42b17ee9aa3991105, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -37126,6 +37130,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2664277014207495518, guid: a667241cc54beed42b17ee9aa3991105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669181783706789560, guid: a667241cc54beed42b17ee9aa3991105, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5669181783706789560, guid: a667241cc54beed42b17ee9aa3991105, type: 3}
@@ -54241,7 +54249,7 @@ PrefabInstance:
       objectReference: {fileID: 1607956579}
     - target: {fileID: 2889918870312489529, guid: 2ddad97bcc2ecae4087a5685bb293e7f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2889918870312489529, guid: 2ddad97bcc2ecae4087a5685bb293e7f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -54269,7 +54277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777931047126600155, guid: 2ddad97bcc2ecae4087a5685bb293e7f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4777931047126600159, guid: 2ddad97bcc2ecae4087a5685bb293e7f, type: 3}
       propertyPath: m_RootOrder
@@ -105596,6 +105604,10 @@ PrefabInstance:
     - target: {fileID: 6296569602525932312, guid: bd2acef0891377849a513b7ef1aafb96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296569602525932316, guid: bd2acef0891377849a513b7ef1aafb96, type: 3}
+      propertyPath: isShop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6296569602525932316, guid: bd2acef0891377849a513b7ef1aafb96, type: 3}
       propertyPath: nextScene

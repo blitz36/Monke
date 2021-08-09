@@ -58,10 +58,10 @@ public class RandomLootGenerator : MonoBehaviour
 */
 
   public void syncStoredItems() {
-//    Commons = storage.Commons;
-    //Rares = storage.Rares;
-    //Epics = storage.Epics;
-  //  Legendary = storage.Legendary;
+    //Commons = storage.Commons;
+    Rares = storage.Rares;
+    Epics = storage.Epics;
+    Legendary = storage.Legendary;
     Equips = storage.Equips;
   }
 

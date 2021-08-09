@@ -17,7 +17,7 @@ public class ExitShop : MonoBehaviour
     // Update is called once per frame
     public void leaveShop()
     {
-      PSM.currentMap = PSM.currentMap + 1;
+      PSM.currentMap = PSM.currentMap;
       PSM.inShop = false;
       SceneManager.LoadScene(PSM.currentMap);
     }

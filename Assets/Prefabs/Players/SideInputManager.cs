@@ -4,25 +4,63 @@ using UnityEngine;
 
 public class SideInputManager : MonoBehaviour
 {
+  public Inputs playerInput;
+
   public float triggerRange;
   public LayerMask interactableLayerMask;
   private playerStatManager PSM;
   private bool isInTriggerRange;
 
   void Awake() {
+      playerInput = new Inputs();
+
       if (PSM == null)
         PSM = gameObject.GetComponentInChildren<playerStatManager>();
     }
 
-/*
-  void OnTriggerEnter(Collider col) {
-    col.gameObject.GetComponent<RandomLootGenerator>().itemDescription.gameObject.SetActive(true);
-  }
+    private void OnEnable() {
+        playerInput.Enable();
+    }
 
-  void OnTriggerExit(Collider col) {
-    col.gameObject.GetComponent<RandomLootGenerator>().itemDescription.gameObject.SetActive(false);
-  }
-*/
+    private void OnDisable() {
+      playerInput.Disable();
+    }
+
+    void Start() {
+      playerInput.Base.HeavyAttack.started += _ => PSM.holding = true;
+      playerInput.Base.HeavyAttack.performed += _ => PSM.holding = false;
+      playerInput.Base.HeavyAttack.canceled += _ => PSM.holding = false;
+
+      playerInput.Base.Block.started += _ => PSM.blockTrigger = true;
+      playerInput.Base.Block.performed += _ => PSM.blockTrigger = false;
+      playerInput.Base.Block.canceled += _ => PSM.blockTrigger = false;
+    }
+
+    void Update(){
+      holdInput();
+    }
+
+    void holdInput(){
+      if (PSM.holding == false) {
+        if (PSM.holdTimer > 0f) {
+          if (PSM.holdTimer < PSM.holdTimes[0]) {
+            PSM.chargeAttackType = 0;
+          }
+          else if (PSM.holdTimer < PSM.holdTimes[1]) {
+            PSM.chargeAttackType = 1;
+          }
+          else {
+            PSM.chargeAttackType = 2;
+          }
+          PSM.holdTimer = 0f;
+        }
+        return;
+      }
+      else {
+        PSM.holdTimer += Time.deltaTime;
+      }
+    }
+
   void OnTriggerStay(Collider Collider) {
     if (PSM.playerInput.Base.Interact.triggered) {
       if (Collider.tag == "Augment") {

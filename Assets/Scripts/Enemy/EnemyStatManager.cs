@@ -5,6 +5,7 @@ using characterStats;
 
 public class EnemyStatManager : MonoBehaviour
 {
+    public GroupSpawnHandler spawnHandler;
     public int currentAnim;
 
     [HideInInspector]
@@ -71,6 +72,7 @@ public class EnemyStatManager : MonoBehaviour
   }
 
   public void destroySelf() {
+    spawnHandler.aliveEnemies -= 1;
     Destroy(gameObject);
   }
 }

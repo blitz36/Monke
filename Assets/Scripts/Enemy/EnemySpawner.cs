@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Vector3> triggerBoxExtants;
     public List<Vector3> spawnBoxOffsets;
     public List<Vector3> triggerBoxOffsets;
-    public List<GameObject> Gates;
+
 
     private int waveCount;
     public int maxWaves;
@@ -24,8 +24,11 @@ public class EnemySpawner : MonoBehaviour
     private int numSpawns;
     public float timeBetweenWaves;
 
+    private GroupSpawnHandler spawnHandler;
+
     void Awake() {
       numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
+      spawnHandler = gameObject.GetComponentInParent<GroupSpawnHandler>();
 
     }
 
@@ -39,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
           i++;
         }
         // Draw a semitransparent blue cube at the transforms position
+        if (spawnHandler) {return;}
         i = 0;
         foreach (Vector3 extant in triggerBoxExtants) {
           Gizmos.color = new Color(0, 0, 1, 0.5f);
@@ -48,7 +52,8 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void FixedUpdate() {
-      if (startSpawn == true) return;
+      if (spawnHandler) {return;}
+      if (startSpawn) {return;}
 
       int i = 0;
       foreach (Vector3 extant in triggerBoxExtants) {
@@ -58,7 +63,6 @@ public class EnemySpawner : MonoBehaviour
         //Check when there is a new collider coming into contact with the box
         while (j < hitColliders.Length)
         {
-          Debug.Log("Hit : " + hitColliders[j].name + j);
           if (hitColliders[j].tag == "Player" && startSpawn == false) {
             startSpawn = true;
             StartCoroutine(spawnEnemy());
@@ -73,29 +77,40 @@ public class EnemySpawner : MonoBehaviour
     {
       while(waveCount < maxWaves)
         {
-        if (randomSpawn == true) {
-                numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
-                for (int i = 0; i < numSpawns; i++) {
-
-                  int j = (int )Random.Range(0, spawnBoxExtants.Count);
-                  float xPos = Random.Range(spawnBoxExtants[j].x*-1, spawnBoxExtants[j].x); // Random X coordinate for spawn area range
-                  float zPos = Random.Range(spawnBoxExtants[j].z*-1, spawnBoxExtants[j].z); // Random Z coordinate for spawn area range
-                  xPos += spawnBoxOffsets[j].x;
-                  zPos += spawnBoxOffsets[j].z;
-                  Instantiate(enemyPrefab, new Vector3(transform.position.x+xPos, 1, transform.position.z+zPos), Quaternion.identity); // Spawn enemy at random coordinate
-            }
-        }
-        else {
-              for (int i = 0; i < spawnBoxExtants.Count; i++) {
-                float xPos = Random.Range(spawnBoxExtants[i].x*-1, spawnBoxExtants[i].x); // Random X coordinate for spawn area range
-                float zPos = Random.Range(spawnBoxExtants[i].z*-1, spawnBoxExtants[i].z); // Random Z coordinate for spawn area range
-                xPos += spawnBoxOffsets[i].x;
-                zPos += spawnBoxOffsets[i].z;
-                Instantiate(enemyPrefab, new Vector3(transform.position.x+xPos, 1, transform.position.z+zPos), Quaternion.identity); // Spawn enemy at random coordinate
-            }
-        }
+        spawnWave();
         yield return new WaitForSeconds(timeBetweenWaves);
         waveCount += 1;
+        }
+    }
+
+
+    public int spawnWave() {
+
+      if (randomSpawn == true) {
+              numSpawns = Random.Range(numSpawnsMin, numSpawnsMax);
+              for (int i = 0; i < numSpawns; i++) {
+
+                int j = (int )Random.Range(0, spawnBoxExtants.Count);
+                float xPos = Random.Range(spawnBoxExtants[j].x*-1, spawnBoxExtants[j].x); // Random X coordinate for spawn area range
+                float zPos = Random.Range(spawnBoxExtants[j].z*-1, spawnBoxExtants[j].z); // Random Z coordinate for spawn area range
+                xPos += spawnBoxOffsets[j].x;
+                zPos += spawnBoxOffsets[j].z;
+                EnemyStatManager ESM = Instantiate(enemyPrefab, new Vector3(transform.position.x+xPos, 1, transform.position.z+zPos), Quaternion.identity).GetComponent<EnemyStatManager>(); // Spawn enemy at random coordinate
+          }
+          return numSpawns;
       }
+
+      else {
+            for (int i = 0; i < spawnBoxExtants.Count; i++) {
+              float xPos = Random.Range(spawnBoxExtants[i].x*-1, spawnBoxExtants[i].x); // Random X coordinate for spawn area range
+              float zPos = Random.Range(spawnBoxExtants[i].z*-1, spawnBoxExtants[i].z); // Random Z coordinate for spawn area range
+              xPos += spawnBoxOffsets[i].x;
+              zPos += spawnBoxOffsets[i].z;
+              EnemyStatManager ESM = Instantiate(enemyPrefab, new Vector3(transform.position.x+xPos, 1, transform.position.z+zPos), Quaternion.identity).GetComponent<EnemyStatManager>(); // Spawn enemy at random coordinate
+              ESM.spawnHandler = spawnHandler;
+          }
+          return spawnBoxExtants.Count;
+      }
+
     }
 }

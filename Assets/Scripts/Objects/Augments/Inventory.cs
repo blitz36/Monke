@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
 
   //This section does singleton stuff in order to have an inventory present throughout everywhere.
   public playerStatManager pStatManager;
+  public AugmentDisplayUI displayUI;
   public static Inventory instance;
 
   void Awake() {
@@ -49,11 +50,13 @@ public class Inventory : MonoBehaviour
   public void Equip(Item item) {
     items.Add(item);
     item.Equip(pStatManager);
+    displayUI.createDisplay(item);
   }
 
   public void Unequip(Item item) {
     items.Remove(item);
     item.Unequip(pStatManager);
+    displayUI.decrementDisplay(item);
   }
 
   public void UnequipAll(){

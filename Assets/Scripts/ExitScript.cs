@@ -23,14 +23,15 @@ public class ExitScript : MonoBehaviour
   }
 
   public void leaveMap(playerStatManager PSM) {
+    PSM.currentMap = nextScene;
     if (isShop == true) {
       PSM.inShop = true;
+      SceneManager.LoadScene(4);
     }
     else {
       PSM.inShop = false;
-      PSM.currentMap = nextScene;
+      SceneManager.LoadScene(nextScene);
     }
-    SceneManager.LoadScene(nextScene);
   }
 
 

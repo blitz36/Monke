@@ -8,6 +8,7 @@ public class LaserSlashHitbox : MonoBehaviour
   Rigidbody rb;
   public float momentum;
   public float lifespanTime;
+
   void Awake(){
     rb = gameObject.GetComponent<Rigidbody>();
   }
