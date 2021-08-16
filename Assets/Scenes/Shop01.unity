@@ -1532,10 +1532,10 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 3
-  m_StartAxis: 0
+  m_StartCorner: 2
+  m_StartAxis: 1
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 58.4, y: 50}
+  m_Spacing: {x: -473.3, y: 50}
   m_Constraint: 1
   m_ConstraintCount: 4
 --- !u!1 &545951820
@@ -4883,7 +4883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.55291027, g: 0.6698113, b: 0.5687184, a: 0.87058824}
+  m_Color: {r: 0.2721609, g: 0.41509432, b: 0.3595345, a: 0.87058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6408,6 +6408,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 540642056}
     m_Modifications:
+    - target: {fileID: 649936358567212014, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 649936358920699258, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 649936358942850664, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6495,6 +6503,10 @@ PrefabInstance:
     - target: {fileID: 649936358942850665, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
       propertyPath: m_Name
       value: Item Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 649936359180573357, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278238207
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85359ed86c6320c47a6f30abcfa67ffe, type: 3}
