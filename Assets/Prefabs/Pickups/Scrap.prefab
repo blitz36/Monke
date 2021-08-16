@@ -53,6 +53,7 @@ MonoBehaviour:
     m_Bits: 256
   rb: {fileID: 0}
   target: {fileID: 0}
+  autoPickupTime: 4
 --- !u!54 &2010799731045984652
 Rigidbody:
   m_ObjectHideFlags: 0

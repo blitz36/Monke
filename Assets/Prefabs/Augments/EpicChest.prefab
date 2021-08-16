@@ -179,7 +179,7 @@ MonoBehaviour:
   previewInEditor: 1
   camerasLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   effectGroup: 0
   effectGroupLayer:
     serializedVersion: 2

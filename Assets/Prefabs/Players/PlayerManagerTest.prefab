@@ -8628,6 +8628,7 @@ MonoBehaviour:
   fpsDisplay: {fileID: 2516445620027094987}
   dashDisplay: {fileID: 0}
   equipDisplay: {fileID: 0}
+  deltaTime: 0
 --- !u!1 &2516445619971346070
 GameObject:
   m_ObjectHideFlags: 0
@@ -10368,7 +10369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 42, y: 0.0012118514}
+  m_AnchoredPosition: {x: 42, y: 0.032228902}
   m_SizeDelta: {x: -100, y: 1194.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3360905189223571409
@@ -16582,7 +16583,7 @@ GameObject:
   - component: {fileID: 3609831810636339201}
   - component: {fileID: 3609831810636339206}
   - component: {fileID: 3609831810636339207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -19102,8 +19103,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1534714797170883253}
   m_HandleRect: {fileID: 1776795449304312922}
   m_Direction: 2
-  m_Value: 0.9999968
-  m_Size: 0.5859704
+  m_Value: 0.9999361
+  m_Size: 0.5859703
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21394,7 +21395,7 @@ MonoBehaviour:
   previewInEditor: 1
   camerasLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   effectGroup: 0
   effectGroupLayer:
     serializedVersion: 2
@@ -22443,7 +22444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeCombatEnds: 10
   inCombat: 0
-  hitRecoveryTime: 0
+  hitRecoveryTime: 0.4
 --- !u!1 &6615565258294537551
 GameObject:
   m_ObjectHideFlags: 0

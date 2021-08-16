@@ -23,7 +23,7 @@ public class ChaseState : State
           return hitstunState;
         }
         base.runCurrentStateUpdate(controller);
-        Vector3 pathDir = pathfinding.calculateDir();
+        Vector3 pathDir = pathfinding.calculateDir(ESM.target);
         controller.myRigidbody.velocity = pathDir*10;
 
         if (controller.isInKnockback)
@@ -55,7 +55,7 @@ public class ChaseState : State
             controller.isInKnockback = true;
             controller.currentKnockbackTimer = controller.knockbackTimer;
         }
-        Vector3 pathDir = pathfinding.calculateDir();
+        Vector3 pathDir = pathfinding.calculateDir(ESM.target);
         controller.myRigidbody.velocity = pathDir*10;
     }
 }

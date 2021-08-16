@@ -11,6 +11,7 @@ public class Equip_BFG : Equipable
     public float activeTime;
     public float recoveryTime;
 
+    private Vector3 mouseDir;
     public override void Cancel() {
       Timer = 0f;
       State = 0;
@@ -37,15 +38,15 @@ public class Equip_BFG : Equipable
       switch (State) {
         case 0: //Starting/idle state
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              PSM.rb.velocity = new Vector3(0, 0, 0);
+          //    PSM.rb.velocity = new Vector3(0, 0, 0);
               var ray = Camera.main.ScreenPointToRay(PSM.playerInput.Base.MousePosition.ReadValue<Vector2>());
               float enter;
               if (PSM.plane.Raycast(ray, out enter))
               {
                   var hitPoint = ray.GetPoint(enter);
-                  var mouseDir = hitPoint - PSM.gameObject.transform.position;
+                  mouseDir = hitPoint - PSM.gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  PSM.rb.AddForce(mouseDir * -300);
+
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
 
@@ -59,11 +60,12 @@ public class Equip_BFG : Equipable
 
         case 1: //start up
         //decelerate the momentum during startup
-        PSM.rb.velocity = PSM.rb.velocity * .98f;
+        PSM.rb.velocity = PSM.rb.velocity * .85f;
 
         //timer to switch to active frames
           Timer += Time.deltaTime;
           if (Timer >= startTime) {
+            PSM.rb.AddForce(mouseDir * -900);
             laser[0].SetActive(true);
             Timer = 0;
             State = 2;
@@ -72,7 +74,7 @@ public class Equip_BFG : Equipable
 
         case 2: //Active
           //stop all momentum at this point
-          PSM.rb.velocity = new Vector3(0f,0f,0f);
+  //        PSM.rb.velocity = new Vector3(0f,0f,0f);
 
 
           //timer before switching to recovery stage

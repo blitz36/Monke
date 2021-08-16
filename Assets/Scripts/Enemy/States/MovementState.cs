@@ -11,8 +11,9 @@ public class MovementState : State
   public float minAttackTime;
   public float maxAttackTime;
   private bool canAttack = false;
-  private AttackState attackState;
+  private CombatState attackState;
   private StunnedState stunnedState;
+  private DefaultState defaultState;
 
   public float attackRange;
   private bool isInAttackRange;
@@ -22,10 +23,13 @@ public class MovementState : State
     base.Awake();
     StartCoroutine("attackCooldown");
     if (attackState == null) {
-      attackState = gameObject.transform.parent.GetComponentInChildren<AttackState>();
+      attackState = gameObject.transform.parent.GetComponentInChildren<CombatState>();
     }
     if (stunnedState == null) {
       stunnedState = gameObject.transform.parent.GetComponentInChildren<StunnedState>();
+    }
+    if (defaultState == null) {
+      defaultState = gameObject.transform.parent.GetComponentInChildren<DefaultState>();
     }
     if (MA == null) {
       MA = gameObject.GetComponent<MovementAgent>();
@@ -42,6 +46,9 @@ public class MovementState : State
     if (ESM.stunned) {
       return stunnedState;
     }
+    if (ESM.target == null) {
+      return defaultState;
+    }
 
     base.runCurrentStateUpdate(controller);
     if (isInAttackRange && canAttack) {
@@ -55,9 +62,11 @@ public class MovementState : State
 
   public override void runCurrentStateFixedUpdate(StateController controller)
   {
-    MA.moveToPlayer();
+    MA.moveToPlayer(ESM.target);
     Vector3 lookDirection = new Vector3(ESM.rb.velocity.normalized.x, 0f, ESM.rb.velocity.normalized.z);
-    ESM.gameObject.transform.rotation = Quaternion.Slerp(ESM.gameObject.transform.rotation, Quaternion.LookRotation(lookDirection), turnSpeed);
+    if (lookDirection != Vector3.zero) {
+      ESM.gameObject.transform.rotation = Quaternion.Slerp(ESM.gameObject.transform.rotation, Quaternion.LookRotation(lookDirection), turnSpeed);
+    }
     isInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
   }
 

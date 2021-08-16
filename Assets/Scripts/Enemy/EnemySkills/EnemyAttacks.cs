@@ -52,15 +52,29 @@ public class EnemyAttacks : EnemyAttack
         if (hitboxIndicator) {
           hitboxIndicator.SetActive(true);
           if (targetRotation == true) {
-            hitboxIndicator.transform.position = target.transform.position;
+            hitboxIndicator.transform.position = target.position; //when targeting enemy directly, hitbox is on enemy
           }
         }
         rb.velocity = new Vector3(0f,0f,0f);
-        Vector3 lookRotation = new Vector3(target.position.x, transform.position.y, target.position.z);
-        if (targetRotation == true) {
-          Hitbox.transform.LookAt(target);
-        }
         rb.transform.LookAt(target);
+      }
+
+      Vector3 lookRotation = new Vector3(target.position.x, transform.position.y, target.position.z);
+
+      if (targetRotation == true) {
+        //Hitbox.transform.LookAt(target);
+        //rb.transform.LookAt(target);
+        Vector3 direction = (target.position - Hitbox.transform.position).normalized;
+
+          //create the rotation we need to be in to look at the target
+      //    direction = new Vector3(direction.x, 0f, direction.z);
+        Quaternion _lookRotation = Quaternion.LookRotation(direction);
+        direction = new Vector3(direction.x, 0f, direction.z);
+        Quaternion _lookRotationRB = Quaternion.LookRotation(direction);
+        //rotate us over time according to speed until we are in the required rotation
+        Hitbox.transform.rotation = Quaternion.Slerp(Hitbox.transform.rotation, _lookRotation, Time.deltaTime * 1f);
+        rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, _lookRotationRB, Time.deltaTime * 1f);
+        hitboxIndicator.transform.position = Vector3.Lerp(hitboxIndicator.transform.position, target.position , Time.deltaTime * 3f);
       }
 
       //increment
@@ -97,11 +111,13 @@ public class EnemyAttacks : EnemyAttack
       Vector3 direction = (target.position - Hitbox.transform.position).normalized;
 
         //create the rotation we need to be in to look at the target
-        direction = new Vector3(direction.x, 0f, direction.z);
+    //    direction = new Vector3(direction.x, 0f, direction.z);
         Quaternion _lookRotation = Quaternion.LookRotation(direction);
-
+        direction = new Vector3(direction.x, 0f, direction.z);
+        Quaternion _lookRotationRB = Quaternion.LookRotation(direction);
         //rotate us over time according to speed until we are in the required rotation
-        Hitbox.transform.rotation = Quaternion.Slerp(Hitbox.transform.rotation, _lookRotation, Time.deltaTime * 3);
+        Hitbox.transform.rotation = Quaternion.Slerp(Hitbox.transform.rotation, _lookRotation, Time.deltaTime * 1f);
+        rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, _lookRotationRB, Time.deltaTime * 1f);
   //      Hitbox.transform.rotation = Quaternion.RotateTowards(Hitbox.transform.rotation, target.rotation, step);
 
       }
@@ -132,6 +148,7 @@ public class EnemyAttacks : EnemyAttack
 
     public override int PerformAttack(Rigidbody rb, Transform target) {
       if (State == 0) State = 1;
+      if (target == null) return State = 0;
       startUp(rb, target);
       active(rb, target);
       recovery(rb, target);

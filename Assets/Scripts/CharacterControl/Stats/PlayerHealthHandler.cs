@@ -64,8 +64,10 @@ public class PlayerHealthHandler : MonoBehaviour
         PSM.parryVFX.playVFX();
         PSM.parried = true;
         PSM.blockTrigger = false;
-        ESM.stunTime = PSM.stunTime;
-        ESM.stunned = true;
+        if (ESM != null) {
+          ESM.stunTime = PSM.stunTime;
+          ESM.stunned = true;
+        }
         Debug.Log("Parried");
       }
       else {

@@ -25,6 +25,12 @@ public class HeavyArmamentsAugment : Item
             HitboxController HC = hitbox.GetComponent<HitboxController>();
             HC.augmentedHitboxFunc += FireMissiles;
           }
+          GameObject HeavyArmaments = Instantiate(physicalItem[0]);
+      //    leftBoot.transform.rotation = Quaternion.identity;
+          HeavyArmaments.transform.parent = pStatManager.transform.FindDeepChild("Spine3_jnt");
+          HeavyArmaments.transform.localRotation = Quaternion.identity;
+          HeavyArmaments.transform.localPosition = new Vector3(0f,0f,0f);
+          HeavyArmaments.transform.localScale = new Vector3(1f,1f,1f);
 
         }
 
@@ -40,6 +46,8 @@ public class HeavyArmamentsAugment : Item
           HitboxController HC = hitbox.GetComponent<HitboxController>();
           HC.augmentedHitboxFunc -= FireMissiles; //whenever hitbox triggers, do the code below
         }
+        Transform HeavyArmaments = pStatManager.transform.FindDeepChild("HeavyArmaments_Augment");
+        Destroy(HeavyArmaments);
 
     }
 

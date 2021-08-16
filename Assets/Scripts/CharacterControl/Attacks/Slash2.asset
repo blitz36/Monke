@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 2808832682809955315, guid: 82b620deed3af604793287fbf7dd099c, type: 3}
   State: 0
   startupTime: 0.125
-  activeTime: 0.125
+  activeTime: 0.083
   recoveryTime: 0.125
   momentum: 12
   pst: {fileID: 0}

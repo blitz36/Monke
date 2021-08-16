@@ -24,6 +24,11 @@ public class FireAugment : Item
           if (!pStatManager.newStats.ContainsKey("FireRadius")) {
             pStatManager.newStats["FireRadius"] = new CharacterStat(0f); //put the new stat in the dict
         }
+        GameObject equip = Instantiate(physicalItem[0]);
+        equip.transform.parent = pStatManager.transform.FindDeepChild("L_Eye_jnt");
+        equip.transform.localRotation = Quaternion.identity;
+        equip.transform.localPosition = new Vector3(0f,0f,0f);
+        equip.transform.localScale = new Vector3(1f,1f,1f);
       }
         StatModifier mod = new StatModifier(4, StatModType.Flat, this);//the modifier is add 2 lifesteal for every stack you get of this augment
         pStatManager.newStats["FireRadius"].AddModifier(mod);
@@ -38,7 +43,8 @@ public class FireAugment : Item
         HitboxController HC = hitbox.GetComponent<HitboxController>();
         HC.augmentedHitboxFunc -= Flame; //whenever hitbox triggers, do the code below
       }
-
+      Transform equip = pStatManager.transform.FindDeepChild("RubyEye_Augment");
+      Destroy(equip);
     }
 
     public void Flame(EnemyStatManager ESM, playerStatManager PSM) {

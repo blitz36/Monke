@@ -15,6 +15,13 @@ public class EnemyHitboxController : MonoBehaviour
         var moveDirection = transform.position - collider.transform.position;
         //pst.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
       }
+      if (collider.tag == "Ally")
+      {
+        EnemyStatManager ESM = collider.transform.GetComponent<EnemyStatManager>();
+        ESM.TakeDamage(damage);
+        var moveDirection = transform.position - collider.transform.position;
+        //pst.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+      }
     }
 
     public virtual void updateStatValues(float newDamage) {

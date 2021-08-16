@@ -13,14 +13,14 @@ public class HermesAugment : Item
         GameObject leftBoot = Instantiate(physicalItem[0]);
     //    leftBoot.transform.rotation = Quaternion.identity;
         leftBoot.transform.parent = pStatManager.transform.FindDeepChild("LeftFoot_jnt");
-        leftBoot.transform.rotation = Quaternion.identity;
+        leftBoot.transform.localRotation = Quaternion.identity;
         leftBoot.transform.localPosition = new Vector3(0f,0f,0f);
         leftBoot.transform.localScale = new Vector3(1f,1f,1f);
 
         GameObject RightBoot = Instantiate(physicalItem[1]);
 
         RightBoot.transform.parent = pStatManager.transform.FindDeepChild("RightFoot_jnt");
-        RightBoot.transform.rotation = Quaternion.identity;
+        RightBoot.transform.localRotation = Quaternion.identity;
         RightBoot.transform.localPosition = new Vector3(0f,0f,0f);
         RightBoot.transform.localScale = new Vector3(1f,1f,1f);
     }

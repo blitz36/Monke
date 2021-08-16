@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f2f3728119438474797916372d10f053, type: 3}
   description: More Damage
   FlavorText: Smack the booty harder
-  physicalItem: []
+  physicalItem:
+  - {fileID: 3139968698569678942, guid: 551be369a78d74543bf563f73412a39d, type: 3}

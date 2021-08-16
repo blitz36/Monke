@@ -5,7 +5,6 @@ using Pathfinding;
 
 public class AStarPath : MonoBehaviour {
     public MovementAgent agent;
-    private Transform targetPosition;
     private Seeker seeker;
 
     public Path path;
@@ -22,12 +21,6 @@ public class AStarPath : MonoBehaviour {
     public void Start () {
         seeker = GetComponent<Seeker>();
         agent = GetComponent<MovementAgent>();
-        if (agent != null){
-          targetPosition = agent.targetPosition;
-        }
-        else {
-          targetPosition = GameObject.FindWithTag("Player").transform;
-        }
     }
 
     public void OnPathComplete (Path p) {
@@ -47,7 +40,7 @@ public class AStarPath : MonoBehaviour {
         }
     }
 
-    public Vector3 calculateDir () {
+    public Vector3 calculateDir (Transform targetPosition) {
         if (Time.time > lastRepath + repathRate && seeker.IsDone()) {
             lastRepath = Time.time;
 

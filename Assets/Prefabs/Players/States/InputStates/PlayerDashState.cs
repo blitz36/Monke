@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDashState : PlayerState
 {
   private PlayerMovementState MovementState;
-
+  private PlayerHeavyAttackState heavyAttackState;
   public float dashMultiplier = 5;
   public float dashTimer;
   public float maxDash;
@@ -20,12 +20,25 @@ public class PlayerDashState : PlayerState
       if (MovementState == null) {
         MovementState = gameObject.transform.root.GetComponentInChildren<PlayerMovementState>();
       }
+      if (heavyAttackState == null) {
+        heavyAttackState = gameObject.transform.root.GetComponentInChildren<PlayerHeavyAttackState>();
+      }
     }
 
     public override PlayerState runCurrentStateUpdate(PlayerStateController controller)
     {
       direction = PSM.playerInput.Base.Move.ReadValue<Vector2>();
       state = performDash(direction.x, direction.y);
+      if (PSM.playerInput.Base.HeavyAttack.triggered) {
+        PSM.bufferedAttack = true;
+        PSM.chargeAttack = true;
+      }
+
+      if (PSM.bufferedAttack && PSM.chargeAttack) {
+        PSM.isRunning = false;
+        return heavyAttackState;
+      }
+
       return state;
     }
 

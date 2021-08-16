@@ -20,6 +20,6 @@ MonoBehaviour:
   - {fileID: 4694726104048188275, guid: 276291033de0f394ba292a53292fc5ae, type: 3}
   State: 0
   Cooldown: 4
-  startTime: 0.1
-  activeTime: 0.1
-  recoveryTime: 0.1
+  startTime: 0.5
+  activeTime: 0.3
+  recoveryTime: 0.2

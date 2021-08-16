@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ed523673abeeca8448daa3b1d1b5c13c, type: 3}
   description: Flames enemies and deals aoe tick damage
   FlavorText: I like my food spicy
-  physicalItem: []
+  physicalItem:
+  - {fileID: 774005868538471033, guid: cd8935c2834cc5c4fb820eb5da179f4d, type: 3}
   StatusEffect: {fileID: 1447298774418934936, guid: 16d40957e8b9a5d43bfeb4a4c17beecc, type: 3}
   statusEffectManager: {fileID: 8930991944731834311, guid: 1208d148fffabd548aacc709b1daaa67, type: 3}

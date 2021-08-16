@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour
     public Text fpsDisplay;
     public Text dashDisplay;
     public Text equipDisplay;
+    public float deltaTime;
     private playerStatManager PSM;
 
     void Awake(){
@@ -17,9 +18,8 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      float fps = 1/Time.unscaledDeltaTime;
-      fpsDisplay.text = "" + fps;
-      //dashDisplay.text = "x" + PSM.numDashes;
-    //  equipDisplay.text = "Charge Available:" + PSM.canUseEquip;
+      deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+      float fps = 1.0f / deltaTime;
+      fpsDisplay.text = Mathf.Ceil (fps).ToString ();
     }
 }

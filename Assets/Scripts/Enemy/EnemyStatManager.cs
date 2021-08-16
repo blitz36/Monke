@@ -21,7 +21,6 @@ public class EnemyStatManager : MonoBehaviour
     public CharacterStat maxHealth = new CharacterStat(90f);
     public float currentHealth;
     public CharacterStat baseSpeed = new CharacterStat(5f);
-    public GameObject healthBarPrefab;
     public HealthBar healthBar;
     Transform healthBarTarget;
     public Transform target;
@@ -30,6 +29,7 @@ public class EnemyStatManager : MonoBehaviour
 
     public GameObject vfx;
     public EnemyDropTable EDT;
+    public AggressionHandler AH;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,6 @@ public class EnemyStatManager : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth.Value);
     }
     private void Awake() {
-      target = GameObject.FindWithTag("Player").transform;
 
       healthBarTarget = gameObject.transform;
       rb = gameObject.GetComponent<Rigidbody>();
@@ -45,6 +44,9 @@ public class EnemyStatManager : MonoBehaviour
 
       if (SC == null) {
         SC = gameObject.GetComponent<StateController>();
+      }
+      if (AH == null) {
+        AH = gameObject.GetComponent<AggressionHandler>();
       }
     }
     // Update is called once per frame
@@ -62,17 +64,15 @@ public class EnemyStatManager : MonoBehaviour
         vfx.GetComponent<VFXActivate>().playVFX();
 
     }
-    void raiseMax(float value) {
-        maxHealth.AddModifier(new StatModifier(value, StatModType.PercentAdd, this));
-        currentHealth = maxHealth.Value;
-    }
 
   public void notHit() {
     isHit = false;
   }
 
   public void destroySelf() {
-    spawnHandler.aliveEnemies -= 1;
+    if (spawnHandler != null) {
+      spawnHandler.aliveEnemies -= 1;
+    }
     Destroy(gameObject);
   }
 }

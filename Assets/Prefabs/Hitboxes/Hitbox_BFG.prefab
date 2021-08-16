@@ -80,6 +80,10 @@ MonoBehaviour:
   momentum: 0
   timeToResume: 0
   timeToResumeSlow: 0
+  timeToResumeCrit: 0
+  timeToResumeSlowCrit: 0
+  isCrit: 0
+  PSM: {fileID: 0}
 --- !u!1 &7622107304532897399
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,4 +164,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7622107304532897399}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

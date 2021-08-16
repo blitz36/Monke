@@ -12,11 +12,12 @@ TagManager:
   - SettingsMenu
   - Augment
   - Exit
+  - Ally
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MainCamera
   - Water
   - UI
   - Grass
@@ -29,8 +30,8 @@ TagManager:
   - PlayerHitbox
   - PlayerHurtbox
   - InvisWall
-  - Enemy2
-  - 
+  - AIDetectionBox
+  - AllyHurtbox
   - 
   - 
   - 

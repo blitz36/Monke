@@ -9,12 +9,15 @@ public class PickupScrap : PickupableItems
   [SerializeField] private LayerMask playerLayer;
   public Rigidbody rb;
   public Transform target;
-
+  public float autoPickupTime;
   void Awake(){
     rb = gameObject.GetComponent<Rigidbody>();
     target = GameObject.FindWithTag("Player").transform;
-  }
 
+  }
+  void Start() {
+    StartCoroutine(autoPickup());
+  }
 
   private void OnTriggerEnter(Collider other)
   {
@@ -28,6 +31,11 @@ public class PickupScrap : PickupableItems
 
     public override void pickup(){
 
+    }
+
+    public IEnumerator autoPickup() {
+      yield return new WaitForSeconds(autoPickupTime);
+      transform.position = target.position;
     }
 
     void FixedUpdate(){

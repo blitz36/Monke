@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
           i++;
         }
         // Draw a semitransparent blue cube at the transforms position
-        if (spawnHandler) {return;}
+        if (spawnHandler != null) {return;}
         i = 0;
         foreach (Vector3 extant in triggerBoxExtants) {
           Gizmos.color = new Color(0, 0, 1, 0.5f);
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void FixedUpdate() {
-      if (spawnHandler) {return;}
+      if (spawnHandler != null) {return;}
       if (startSpawn) {return;}
 
       int i = 0;
@@ -96,6 +96,7 @@ public class EnemySpawner : MonoBehaviour
                 xPos += spawnBoxOffsets[j].x;
                 zPos += spawnBoxOffsets[j].z;
                 EnemyStatManager ESM = Instantiate(enemyPrefab, new Vector3(transform.position.x+xPos, 1, transform.position.z+zPos), Quaternion.identity).GetComponent<EnemyStatManager>(); // Spawn enemy at random coordinate
+                ESM.spawnHandler = spawnHandler;
           }
           return numSpawns;
       }

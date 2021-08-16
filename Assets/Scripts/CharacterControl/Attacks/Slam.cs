@@ -48,7 +48,7 @@ public class Slam : Attack
           if (PSM.bufferedAttack) //if slashing or a slash is buffered then perform the action
             {
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              PSM.rb.velocity = new Vector3(0, 0, 0);
+        //      PSM.rb.velocity = new Vector3(0, 0, 0);
               PSM.rb.AddForce(Vector3.forward * momentum, ForceMode.Impulse);
               PSM.bufferedAttack = false;
               State = 1;

@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 83e05ea55ffeb7f479d67504101afbcc, type: 3}
   description: 
   FlavorText: 
-  physicalItem: []
+  physicalItem:
+  - {fileID: 8960921825819164526, guid: 7811907dfed8ec240bff05f52a4d478f, type: 3}
   hitbox: {fileID: 799880754737701626, guid: 164712f5d0bac3a4aa3baa18d3d3592d, type: 3}
   layerMask:
     serializedVersion: 2

@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Speed Boost!
   FlavorText: Speed to eat ass
   physicalItem:
-  - {fileID: 919132149155446097, guid: 6ca1fa109613f5442b28f18646551543, type: 3}
-  - {fileID: 919132149155446097, guid: d22955dd4d491da4eab8d71a7aa120dc, type: 3}
+  - {fileID: 3151035319308334960, guid: 0727f4e85af7ad94d947a181b6349a9f, type: 3}
+  - {fileID: 4605617250549229252, guid: 3d68d0326368d7f43be7cbc81abd3497, type: 3}

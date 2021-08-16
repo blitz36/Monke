@@ -10,7 +10,6 @@ public class MovementAgent : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     public float speed;
     public int rng;
-    public Transform targetPosition; //the target to move towards
 
     public int numDanger;
 
@@ -43,9 +42,6 @@ public class MovementAgent : MonoBehaviour
     public float sqrLen;
 
     void Awake(){
-      if (targetPosition == null){
-        targetPosition = GameObject.FindWithTag("Player").transform;
-      }
       if (ESM == null) {
         ESM = gameObject.transform.root.GetComponent<EnemyStatManager>();
       }
@@ -73,8 +69,10 @@ public class MovementAgent : MonoBehaviour
 
     }
 
-    public void moveToPlayer() {
+    public void moveToPlayer(Transform targetPosition) {
       //Calculate how far away the target is for weight calculations
+      if (targetPosition == null) return;
+
       inRange = Physics.CheckSphere(transform.position, stopDistance, playerLayer);
       float div = 100f;
       sqrLen = ((targetPosition.position - transform.position).sqrMagnitude)/div; //value is to make going closer less valuable hwen u are closer
@@ -101,7 +99,7 @@ public class MovementAgent : MonoBehaviour
     void setInterest() {
       //find the best path route through a*, then take the dot product with each direction in order to see which
       //directions are the most desirable. The closer to 1 the dot product is, the more desirable.
-      Vector3 pathDir = AStar.calculateDir();
+      Vector3 pathDir = AStar.calculateDir(ESM.target);
       for (int i = 0; i < numRays; i++) {
         float dp = Vector3.Dot(pathDir, Quaternion.Euler(0, rayDirections[i], 0) * transform.forward);
         if (i == 0) {
@@ -161,7 +159,7 @@ public class MovementAgent : MonoBehaviour
       //then reduce the weights to allow for other emergent behaviors the closer it is to the target
       if (inRange == true) {
         weight = 1.0f - Mathf.Abs(weight);
-        weight *= sqrLen/2;
+        weight *= sqrLen;
       }
 
       //To encourage more avoiding behavior, weights are added if there is danger detected in a direction. The opposite direction has its weights increased then to

@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
   public TMP_Text Name;
   public TMP_Text Description;
   public TMP_Text FlavorText;
+  public TMP_Text Price;
   public Image icon;
   public Animator buttonAnim;
 
@@ -74,27 +75,27 @@ public class Shop : MonoBehaviour
       case 0:
         itemIndex = Random.Range(0, storage.Commons.Count);
         item = storage.Commons[itemIndex];
-        price = Random.Range(priceValuesMin[0], priceValuesMax[0]);
+        price = Mathf.Round(Random.Range(priceValuesMin[0], priceValuesMax[0]));
         break;
       case 1:
         itemIndex = Random.Range(0, storage.Rares.Count);
         item = storage.Rares[itemIndex];
-        price = Random.Range(priceValuesMin[1], priceValuesMax[1]);
+        price = Mathf.Round(Random.Range(priceValuesMin[1], priceValuesMax[1]));
         break;
       case 2:
         itemIndex = Random.Range(0, storage.Epics.Count);
         item = storage.Epics[itemIndex];
-        price = Random.Range(priceValuesMin[2], priceValuesMax[2]);
+        price = Mathf.Round(Random.Range(priceValuesMin[2], priceValuesMax[2]));
         break;
       case 3:
         itemIndex = Random.Range(0, storage.Legendary.Count);
         item = storage.Legendary[itemIndex];
-        price = Random.Range(priceValuesMin[3], priceValuesMax[3]);
+        price = Mathf.Round(Random.Range(priceValuesMin[3], priceValuesMax[3]));
         break;
       case 4:
         itemIndex = Random.Range(0, storage.Equips.Count);
         item = storage.Equips[itemIndex];
-        Random.Range(priceValuesMin[4], priceValuesMax[4]);
+        price = Mathf.Round(Random.Range(priceValuesMin[4], priceValuesMax[4]));
         break;
 
     }
@@ -105,6 +106,7 @@ public class Shop : MonoBehaviour
     Name.text = item.name;
     Description.text = item.description;
     FlavorText.text = item.FlavorText;
+    Price.text = price + " SCRAP";
     icon.sprite = item.icon;
   }
 

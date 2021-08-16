@@ -11,12 +11,26 @@ public class AugmentDisplayButton : MonoBehaviour
   public Image icon;
   public int stackCount;
   public TMP_Text stackText;
+  public GameObject infoOverlay;
+
+  void Awake() {
+    infoOverlay.SetActive(false);
+  }
 
   public void updateText(Item item) {
     Name.text = item.name;
     Description.text = item.description;
     FlavorText.text = item.FlavorText;
     icon.sprite = item.icon;
-    stackText.text = stackCount.ToString();
+    stackText.text = stackCount.ToString() + "x";
+  }
+
+  public void OverLayOn()
+  {
+      infoOverlay.SetActive(true);
+  }
+
+  public void OverLayOff() {
+    infoOverlay.SetActive(false);
   }
 }

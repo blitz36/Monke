@@ -65,7 +65,6 @@ public class PlayerMovementState : PlayerState
     }
 
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
-      PSM.holdTimer = 0f;
       PSM.isRunning = false;
       return dashState;
     }

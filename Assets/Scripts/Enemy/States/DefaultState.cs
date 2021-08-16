@@ -23,6 +23,7 @@ public class DefaultState : State
   public override State runCurrentStateUpdate(StateController controller)
   {
     ESM.currentAnim = 0;
+    ESM.rb.velocity = new Vector3(0f,0f,0f);
     if (ESM.isHit == true) {
       return hitstunState;
     }
@@ -32,7 +33,7 @@ public class DefaultState : State
     }
 
     base.runCurrentStateUpdate(controller);
-    if (isInTriggerRange) {
+    if (ESM.target != null) {
       return movementState;
     }
     return this;
@@ -40,7 +41,7 @@ public class DefaultState : State
 
   public override void runCurrentStateFixedUpdate(StateController controller)
   {
-    isInTriggerRange = Physics.CheckSphere(transform.position, triggerRange, playerLayer);
+  //  isInTriggerRange = Physics.CheckSphere(transform.position, triggerRange, playerLayer);
   }
 
   public override void runCurrentStateOnTriggerEnter(Collider other, StateController controller)
@@ -49,9 +50,9 @@ public class DefaultState : State
   }
 
   private void OnDrawGizmosSelected() {
-    Gizmos.color = Color.red;
+//    Gizmos.color = Color.red;
     //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-    Gizmos.DrawWireSphere (transform.position, triggerRange);
+  //  Gizmos.DrawWireSphere (transform.position, triggerRange);
   }
 
 }
