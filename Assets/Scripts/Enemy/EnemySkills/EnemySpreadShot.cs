@@ -15,7 +15,9 @@ public class EnemySpreadShot : EnemyAttack
     public int maxBullets;
     private int currentBullets;
     public float timeBetweenShots;
-    private Transform currentTarget;
+    public Transform currentTarget;
+
+    public float attackAngle;
 
     public override void Cancel() {
       Timer = 0f;
@@ -29,30 +31,34 @@ public class EnemySpreadShot : EnemyAttack
       currentTarget = target;
       if (State == 0) {
         State = 1;
-        rb.velocity = new Vector3(0f, 0f, 0f);
-        StartCoroutine(spawnBullet());
+
+        StartCoroutine(spawnBullet(rb));
       }
+      rb.velocity *= .9f;
       if (State == -1) { //if done with spawning bullets, then reset state back to 0 and send back.
         State = 0;
       }
       return State;
     }
 
-    IEnumerator spawnBullet()
+    IEnumerator spawnBullet(Rigidbody rb)
     {
       currentBullets = 0;
+      float currentAttackAngle = attackAngle * -1/2;
+
+      rb.gameObject.transform.LookAt(currentTarget);
+      float centeredAngle = rb.gameObject.transform.eulerAngles.y;
       while (currentBullets < maxBullets) {
         if (State == 0) {
           yield break;
         }
-        gameObject.transform.LookAt(currentTarget);
-        gameObject.transform.eulerAngles = new Vector3(0, gameObject.transform.eulerAngles.y,0);
-
+        rb.gameObject.transform.eulerAngles = new Vector3(0, centeredAngle + currentAttackAngle,0);
         GameObject bullet = Instantiate(Hitbox, transform.position, Quaternion.identity);
         Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-        rigid.velocity = transform.TransformDirection(Vector3.forward * speed);
+        rigid.velocity = rb.transform.forward * speed;
 
         currentBullets += 1;
+        currentAttackAngle += attackAngle /maxBullets;
         yield return new WaitForSeconds(timeBetweenShots);
       }
       State = -1;

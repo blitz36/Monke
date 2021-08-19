@@ -9,6 +9,7 @@ public class AggressionHandler : MonoBehaviour
     public float timeBetweenChecks;
 
     private Transform nearestTarget;
+    private Transform previousTarget;
     private EnemyStatManager ESM;
     private IEnumerator check;
     // Start is called before the first frame update
@@ -28,6 +29,9 @@ public class AggressionHandler : MonoBehaviour
 
     void Update() {
       if (nearestTarget == null) {
+        if (previousTarget != null) {
+          ESM.target = previousTarget;
+        }
         StopCoroutine(check);
         StartCoroutine(check);
       }
@@ -51,6 +55,7 @@ public class AggressionHandler : MonoBehaviour
           {
               minimumDistance = distance;
               nearestTarget = collider.transform;
+              previousTarget = nearestTarget;
           }
       }
       ESM.target = nearestTarget;

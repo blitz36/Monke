@@ -22,7 +22,7 @@ public class AttackState : CombatState
 
   public override State runCurrentStateUpdate(StateController controller)
   {
-    ESM.currentAnim = 2;
+
     if (ESM.isHit == true) {
       attack.Cancel();
       return hitstunState;
@@ -36,6 +36,12 @@ public class AttackState : CombatState
 
     if (state == 0) {
       return defaultState;
+    }
+    if (state == 2) {
+      ESM.currentAnim = 2;
+    }
+    else {
+      ESM.currentAnim = 0;
     }
 
     return this;

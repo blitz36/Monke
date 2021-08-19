@@ -6,7 +6,26 @@ using UnityEngine.SceneManagement;
 public class TitleMenu : MonoBehaviour
 {
     public GameObject player;
-    public void StartGame ()
+    public GameObject Cinematic;
+    private bool isCinematic = false;
+
+  void Awake() {
+    if (isCinematic == false) {
+      isCinematic = true;
+      Cinematic.SetActive(true);
+    }
+  }
+
+  void Update() {
+    if (isCinematic = true) {
+      if (Input.GetKeyDown("space"))
+      {
+        Cinematic.SetActive(false);
+      }
+    }
+  }
+
+  public void StartGame ()
     {
       Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

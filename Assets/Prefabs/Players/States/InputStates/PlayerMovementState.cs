@@ -11,6 +11,9 @@ public class PlayerMovementState : PlayerState
   private PlayerBlockState blockState;
   private PlayerEquipState equipState;
 
+  private float nextComboTimer;
+  public float nextComboTime;
+
   private Vector2 direction;
 
   public override void Awake() {
@@ -44,33 +47,42 @@ public class PlayerMovementState : PlayerState
 
     if (PSM.bufferedAttack && PSM.chargeAttack) {
       PSM.isRunning = false;
+      nextComboTimer = 0f;
       return heavyAttackState;
     }
 
     if (PSM.bufferedAttack && PSM.comboStep >= 0) {
       PSM.isRunning = false;
+      nextComboTimer = 0f;
       return lightAttackState;
     }
 
     if (PSM.blockTrigger) {
       PSM.holdTimer = 0f;
       PSM.isRunning = false;
+      nextComboTimer = 0f;
       return blockState;
     }
 
     if (PSM.playerInput.Base.Equip.triggered && equipState.canUseEquip) {
       PSM.holdTimer = 0f;
       PSM.isRunning = false;
+      nextComboTimer = 0f;
       return equipState;
     }
 
     if (PSM.playerInput.Base.Dashing.triggered && PSM.numDashes > 0) {
       PSM.isRunning = false;
+      nextComboTimer = 0f;
       return dashState;
     }
 
     if (PSM.comboStep >= 0) {
-      PSM.comboStep = 0;
+      nextComboTimer += Time.deltaTime;
+      if (nextComboTimer >= nextComboTime) {
+        PSM.comboStep = 0;
+        nextComboTimer = 0f;
+      }
     }
     return this;
   }

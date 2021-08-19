@@ -14,6 +14,7 @@ public class GroupSpawnHandler : MonoBehaviour
   public int aliveEnemies;
 
   public List<GameObject> Walls = new List<GameObject>();
+  public GameObject objectiveDirection;
 
   void OnDrawGizmosSelected()
   {
@@ -38,6 +39,10 @@ public class GroupSpawnHandler : MonoBehaviour
       {
         if (hitColliders[j].tag == "Player" && startSpawn == false) {
           startSpawn = true;
+          foreach (GameObject Wall in Walls) {
+            Wall.SetActive(true);
+          }
+          objectiveDirection.SetActive(true);
         }
       j++;
       }
@@ -46,14 +51,19 @@ public class GroupSpawnHandler : MonoBehaviour
 
   void Update() {
     handleWave();
-
   }
 
   void handleWaveEnd() {
     foreach (GameObject Wall in Walls) {
       Wall.SetActive(false);
     }
-    Destroy(gameObject);
+    GameObject[] ObjectiveMarker = GameObject.FindGameObjectsWithTag("ObjectivePointer");
+    foreach (GameObject marker in ObjectiveMarker) {
+      marker.transform.GetChild(0).gameObject.SetActive(true);
+      ObjectiveMarker markerHandler = marker.GetComponent<ObjectiveMarker>();
+      markerHandler.targetPosition = objectiveDirection.transform;
+    }
+    //Destroy(gameObject);
   }
 
   void handleWave() {

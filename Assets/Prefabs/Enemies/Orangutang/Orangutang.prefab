@@ -368,6 +368,10 @@ MonoBehaviour:
   maxHealth:
     BaseValue: 40
   currentHealth: 0
+  maxShield:
+    BaseValue: 90
+  currentShield: 0
+  shieldRegenRate: 0
   baseSpeed:
     BaseValue: 5
   healthBar: {fileID: 412202572516289480}
@@ -443,7 +447,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 131328
-  detectionRange: 15
+  detectionRange: 100
   timeBetweenChecks: 3
 --- !u!1 &6665470400672411446
 GameObject:
@@ -1357,7 +1361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907413697342499020, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8199678643780405283, guid: ea2da93cdddf69140b1fe4e8db61f898, type: 3}
       propertyPath: m_IsActive

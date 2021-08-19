@@ -20,6 +20,9 @@ public class EnemyStatManager : MonoBehaviour
 
     public CharacterStat maxHealth = new CharacterStat(90f);
     public float currentHealth;
+    public CharacterStat maxShield = new CharacterStat(90f);
+    public float currentShield;
+    public float shieldRegenRate;
     public CharacterStat baseSpeed = new CharacterStat(5f);
     public HealthBar healthBar;
     Transform healthBarTarget;
@@ -35,8 +38,15 @@ public class EnemyStatManager : MonoBehaviour
     {
         currentHealth = maxHealth.Value;
         healthBar.SetMaxHealth(maxHealth.Value);
+
+        currentShield = maxShield.Value;
+        healthBar.SetMaxShield(maxShield.Value);
     }
     private void Awake() {
+
+      if (healthBar == null) {
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+      }
 
       healthBarTarget = gameObject.transform;
       rb = gameObject.GetComponent<Rigidbody>();
@@ -56,12 +66,20 @@ public class EnemyStatManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-      if (damage > 9f) {
-        isHit = true;
-      }
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth/maxHealth.Value);
+      if (currentShield > 0f) {
+        currentShield -= damage;
+        healthBar.SetShield(currentShield/maxShield.Value);
         vfx.GetComponent<VFXActivate>().playVFX();
+      }
+      else {
+      if (damage > 5) {
+        isHit = true;
+        vfx.GetComponent<VFXActivate>().playVFX();
+      }
+      currentHealth -= damage;
+      healthBar.SetHealth(currentHealth/maxHealth.Value);
+      }
+
 
     }
 

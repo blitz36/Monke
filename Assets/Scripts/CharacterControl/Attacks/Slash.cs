@@ -12,7 +12,12 @@ public class Slash : Attack
     public float activeTime;
     public float recoveryTime;
     public float momentum;
+    private Vector3 mouseDir;
     public playerStatManager pst;
+
+    public bool stopVelocityStartup;
+    public bool stopVelocityActive;
+    public bool stopVelocityRecovery;
 
     public override float totalTime() {
       return startupTime + activeTime + recoveryTime;
@@ -48,33 +53,37 @@ public class Slash : Attack
       switch (State) {
         case 0: //Starting/idle state
               //dashing in the direction of the mouse for some momentum. raycast to a floor, then add force ein that direction
-              PSM.rb.velocity = new Vector3(0, 0, 0);
               var ray = Camera.main.ScreenPointToRay(PSM.playerInput.Base.MousePosition.ReadValue<Vector2>());
               float enter;
               if (PSM.plane.Raycast(ray, out enter))
               {
                   var hitPoint = ray.GetPoint(enter);
-                  var mouseDir = hitPoint - PSM.gameObject.transform.position;
+                  mouseDir = hitPoint - PSM.gameObject.transform.position;
                   mouseDir = mouseDir.normalized;
-                  PSM.rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
                   PSM.gameObject.transform.LookAt (hitPoint);
                   PSM.gameObject.transform.eulerAngles = new Vector3(0, PSM.gameObject.transform.eulerAngles.y,0);
                   PSM.bufferedAttack = false;
                   PSM.priority = 1;
                   State = 1;
                   Timer = 0;
+                  if (stopVelocityStartup) {
+                    PSM.rb.velocity = new Vector3(0f,0f,0f);
+                  }
             }
         break;
 
         case 1: //start up
         //decelerate the momentum during startup
-        PSM.rb.velocity = PSM.rb.velocity * .97f;
-
+        PSM.rb.velocity = PSM.rb.velocity * .9f;
         //timer to switch to active frames
           Timer += Time.deltaTime;
           if (Timer >= startupTime) {
             Timer = 0;
             State = 2;
+            PSM.rb.AddForce(mouseDir * momentum, ForceMode.Impulse);
+            if (stopVelocityActive) {
+              PSM.rb.velocity = new Vector3(0f,0f,0f);
+            }
             float roll = Random.value;
              if (roll < PSM.critChancePerc.Value) {
                PSM.lightAttackHitboxes[PSM.comboStep].GetComponent<HitboxController>().isCrit = true;
@@ -85,8 +94,7 @@ public class Slash : Attack
 
         case 2: //Active
           //stop all momentum at this point
-          PSM.rb.velocity = new Vector3(0f,0f,0f);
-
+          PSM.rb.velocity = PSM.rb.velocity * .96f;
 
           //timer before switching to recovery stage
           Timer += Time.deltaTime;
@@ -95,12 +103,13 @@ public class Slash : Attack
               Timer = 0f;
               State = -1;
               PSM.lightAttackHitboxes[PSM.comboStep].SetActive(false);
+              if (stopVelocityRecovery) {
+                PSM.rb.velocity = new Vector3(0f,0f,0f);
+              }
           }
           break;
 
         case -1: //recovery
-
-          //timer to reset to the next combostep and reset the transforms
           Timer += Time.deltaTime;
           if (Timer >= recoveryTime) {
             Timer = 0f; //in reference to the combo attack system

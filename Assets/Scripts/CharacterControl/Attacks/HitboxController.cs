@@ -39,7 +39,9 @@ public class HitboxController : MonoBehaviour
           ESM.TakeDamage(damage);
           PSM.StopTime(timeToResume, timeToResumeSlow);
           var moveDirection = transform.position - collider.transform.position;
-          ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+          if (ESM.currentShield <= 0) {
+            ESM.rb.AddForce(moveDirection.normalized * momentum, ForceMode.Impulse);
+          }
         }
 
         if (augmentedHitboxFunc != null) {

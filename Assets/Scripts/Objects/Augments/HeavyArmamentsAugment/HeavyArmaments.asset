@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c0a83086334e54d990c6f1f0873a28, type: 3}
   m_Name: HeavyArmaments
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Heavy Armamanets
   icon: {fileID: 21300000, guid: 83e05ea55ffeb7f479d67504101afbcc, type: 3}
-  description: 
-  FlavorText: 
+  description: Have a chance to shoot out a missile on hit!
+  FlavorText: brr
   physicalItem:
   - {fileID: 8960921825819164526, guid: 7811907dfed8ec240bff05f52a4d478f, type: 3}
   hitbox: {fileID: 799880754737701626, guid: 164712f5d0bac3a4aa3baa18d3d3592d, type: 3}

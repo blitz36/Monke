@@ -82,7 +82,6 @@ public class PlayerDashState : PlayerState
                            PSM.dashState = false;
 
                          return this;
-                     break;
                  case false:
                      dashTimer += Time.deltaTime;
                      if(dashTimer >= maxDash)
@@ -96,7 +95,6 @@ public class PlayerDashState : PlayerState
                          return MovementState;
                      }
                      return this;
-                     break;
                  }
         return this;
       }

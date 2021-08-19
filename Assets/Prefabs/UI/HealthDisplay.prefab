@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 9015618024946908188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalScale: {x: 0.003, y: 0.002, z: 0.003}
   m_Children:
   - {fileID: 5481396024850992892}
   m_Father: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c955b346d1ef64e978278be487a0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &6430974088887038578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,6 +121,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 957675429638959747}
     m_Modifications:
+    - target: {fileID: 496373378897025726, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
+      propertyPath: m_Name
+      value: FillBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 496373378897025726, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1026428517636101138, guid: fa7c7965022c78b4eb3ea90fbdbe9f4d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

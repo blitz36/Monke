@@ -129,6 +129,8 @@ MonoBehaviour:
   updateSpeedSeconds: 0.5
   slider: {fileID: 2392588244385389273}
   sliderWhite: {fileID: 7474017316534322630}
+  sliderBlue: {fileID: 0}
+  sliderYellow: {fileID: 0}
 --- !u!222 &10316110332363668
 CanvasRenderer:
   m_ObjectHideFlags: 0

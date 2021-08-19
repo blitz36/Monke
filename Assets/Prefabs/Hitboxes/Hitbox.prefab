@@ -251,8 +251,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8775535, y: 3.6604033, z: 13.088435}
-  m_Center: {x: -1.438777, y: 0.59059167, z: 0.8257799}
+  m_Size: {x: 10, y: 3.6604033, z: 13}
+  m_Center: {x: -3, y: 0.59059167, z: 0.8257799}
 --- !u!114 &-1135190892499316515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,11 +266,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  momentum: -5
+  momentum: 0
   timeToResume: 0
   timeToResumeSlow: 0
-  timeToResumeCrit: 0.1
-  timeToResumeSlowCrit: 0.1
+  timeToResumeCrit: 0.05
+  timeToResumeSlowCrit: 0.05
+  isCrit: 0
   PSM: {fileID: 0}
 --- !u!54 &4782779130387353595
 Rigidbody:

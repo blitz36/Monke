@@ -17,6 +17,6 @@ MonoBehaviour:
   description: Leave a slippery trail that slows enemies!
   FlavorText: 
   physicalItem: []
-  StatusEffect: {fileID: 2980133854505001542, guid: 2f9da2b4a7f02054eaef32deddc65346, type: 3}
+  StatusEffect: {fileID: 6316329349623583348, guid: b5a5328924187c74dbf8410c2feedc91, type: 3}
   statusEffectManager: {fileID: 8930991944731834311, guid: 1208d148fffabd548aacc709b1daaa67, type: 3}
   trailGenerator: {fileID: 3733052490933047199, guid: ed9d7ff04cdf9c14caad82880b4956cd, type: 3}

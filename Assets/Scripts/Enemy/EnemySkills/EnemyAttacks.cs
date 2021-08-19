@@ -56,7 +56,10 @@ public class EnemyAttacks : EnemyAttack
           }
         }
         rb.velocity = new Vector3(0f,0f,0f);
-        rb.transform.LookAt(target);
+        Vector3 direction = (target.position - Hitbox.transform.position).normalized;
+        direction = new Vector3(direction.x, 0f, direction.z);
+        Quaternion _lookRotationRB = Quaternion.LookRotation(direction);
+        rb.transform.rotation = _lookRotationRB;
       }
 
       Vector3 lookRotation = new Vector3(target.position.x, transform.position.y, target.position.z);
@@ -137,7 +140,7 @@ public class EnemyAttacks : EnemyAttack
       if (State != 3) {
         return;
       }
-
+      rb.velocity = new Vector3(0f,0f,0f);
       Timer += Time.deltaTime;
       if (Timer >= recoveryTime) {
         Timer = 0f;
