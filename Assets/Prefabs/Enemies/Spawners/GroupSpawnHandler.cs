@@ -42,7 +42,6 @@ public class GroupSpawnHandler : MonoBehaviour
           foreach (GameObject Wall in Walls) {
             Wall.SetActive(true);
           }
-          objectiveDirection.SetActive(true);
         }
       j++;
       }
@@ -57,6 +56,7 @@ public class GroupSpawnHandler : MonoBehaviour
     foreach (GameObject Wall in Walls) {
       Wall.SetActive(false);
     }
+    objectiveDirection.SetActive(true);
     GameObject[] ObjectiveMarker = GameObject.FindGameObjectsWithTag("ObjectivePointer");
     foreach (GameObject marker in ObjectiveMarker) {
       marker.transform.GetChild(0).gameObject.SetActive(true);
