@@ -884,15 +884,15 @@ MonoBehaviour:
   Weights: 320000001e0000000f00000005000000
   price: 0
   priceValuesMin:
-  - 0
-  - 25
   - 100
   - 200
+  - 350
+  - 700
   priceValuesMax:
-  - 25
-  - 100
-  - 200
+  - 300
   - 500
+  - 700
+  - 1000
 --- !u!1 &649936359180573347
 GameObject:
   m_ObjectHideFlags: 0
