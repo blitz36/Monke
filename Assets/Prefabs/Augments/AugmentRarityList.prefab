@@ -47,12 +47,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2f9fe048fc24754b9658f8c7a5b1f90, type: 2}
   - {fileID: 11400000, guid: fe81467f0837dad469e578e182a62140, type: 2}
   - {fileID: 11400000, guid: 3b084dc5f3b66b44cbd9cd9be1c3ce0f, type: 2}
+  - {fileID: 11400000, guid: 209dae2f4544d444d81a175faf53c047, type: 2}
   Rares:
   - {fileID: 11400000, guid: bcf1bd673089172498eff977dfb4661d, type: 2}
-  - {fileID: 11400000, guid: cdf194c4cc34222458713d8a0818ac2c, type: 2}
+  - {fileID: 11400000, guid: f5a8f2f860f945149a403640d510201c, type: 2}
+  - {fileID: 11400000, guid: 57bea476a50327b4caa1c1a1415a2868, type: 2}
   Epics:
   - {fileID: 11400000, guid: 04f89759b22b0ae449584129e7f2ef79, type: 2}
-  - {fileID: 11400000, guid: 0ad0ec76b9201a148b4dddb2e1c68468, type: 2}
+  - {fileID: 11400000, guid: cdf194c4cc34222458713d8a0818ac2c, type: 2}
   Legendary:
   - {fileID: 11400000, guid: 908aa3adb44296540897e2497c8c7048, type: 2}
   - {fileID: 11400000, guid: 103244b862728094485048797c9c5cbf, type: 2}
